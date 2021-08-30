@@ -86,7 +86,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Forgot_Password\forgotPassword.cs" />
+    <Compile Include="Repository\Navbar\navbar.cs" />
+    <Compile Include="Repository\Landing_Page\landingPage.cs" />
     <Compile Include="Repository\Login_Page\loginPage.cs" />
+    <Compile Include="Repository\RegisterNewUserAccount\RegisterNewUserAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
