@@ -11,7 +11,7 @@ namespace CSET_Selenium.Repository.Navbar
     class navbar
     {
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'New Assessment')]")]
-        private IWebElement buttonLandingPage;
+        private readonly IWebElement buttonLandingPage;
 
     }
 }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repository.Landing_Page
 {
-    class landingPage
+    class LandingPage
     {
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'New Assessment')]/ancestor::button")]
-        private IWebElement buttonNewAssessment;
+        private readonly IWebElement buttonNewAssessment;
 
         [FindsBy(How = How.XPath, Using = "//label[contains(text(),'Import')]")]
-        private IWebElement buttonImportAnExistingAssessment;
+        private readonly IWebElement buttonImportAnExistingAssessment;
     }
 }
