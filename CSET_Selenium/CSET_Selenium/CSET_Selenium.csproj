@@ -86,18 +86,20 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Forgot_Password\forgotPassword.cs" />
-    <Compile Include="Repository\Navbar\navbar.cs" />
-    <Compile Include="Repository\Landing_Page\landingPage.cs" />
-    <Compile Include="Repository\Login_Page\loginPage.cs" />
-    <Compile Include="Repository\RegisterNewUserAccount\RegisterNewUserAccount.cs" />
+    <Compile Include="Page_Objects\Forgot_Password\forgotPassword.cs" />
+    <Compile Include="Page_Objects\Navbar\navbar.cs" />
+    <Compile Include="Page_Objects\Landing_Page\landingPage.cs" />
+    <Compile Include="Page_Objects\Login_Page\LoginPage.cs" />
+    <Compile Include="Page_Objects\RegisterNewUserAccount\RegisterNewUserAccount.cs" />
+    <Compile Include="Tests\Login\Login.cs" />
+    <Compile Include="Tests\Login\PracticeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tests\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -106,5 +108,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.13.2\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.2\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.0.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.92.0.4515.10700\build\Selenium.WebDriver.ChromeDriver.targets')" />
 </Project>
