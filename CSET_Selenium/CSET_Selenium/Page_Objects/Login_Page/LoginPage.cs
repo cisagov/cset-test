@@ -10,8 +10,16 @@ namespace CSET_Selenium.Repository.Login_Page
 {
     public class LoginPage
     {
+        private IWebDriver driver;
+
+        public LoginPage(IWebDriver driver)
+        {
+            PageFactory.InitElements(driver, this);
+            this.driver = driver;
+        }
+
         //Element Locators
-        
+
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
         private IWebElement textboxEmail;
 
