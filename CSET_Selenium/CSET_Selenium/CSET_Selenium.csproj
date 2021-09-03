@@ -84,6 +84,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DateUtils.cs" />
+    <Compile Include="Helpers\HolidayUtils.cs" />
+    <Compile Include="Helpers\NumberUtils.cs" />
+    <Compile Include="Helpers\StringsUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Page_Objects\Forgot_Password\forgotPassword.cs" />
