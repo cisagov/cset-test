@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Helpers
 {
-    class NumberUtils
+    static class NumberUtils
     {
 		private static decimal getCurrencyValueFrom(String elementText)
 		{

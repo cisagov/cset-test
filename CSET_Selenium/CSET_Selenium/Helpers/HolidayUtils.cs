@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Helpers
 {
-    class HolidayUtils
+    static class HolidayUtils
     {
 		/// <summary>
 		/// Determines if this date is a federal holiday.
 		/// </summary>
 		/// <param name="date">This date</param>
 		/// <returns>True if this date is a federal holiday</returns>
-		public static bool isHoliday(this DateTime date)
+		public static bool IsHoliday(this DateTime date)
 		{
 			// to ease typing
 			int nthWeekDay = (int)(Math.Ceiling((double)date.Day / 7.0d));

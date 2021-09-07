@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Helpers
 {
-    class DateUtils
+	static class DateUtils
     {
 		public static DateTime dateAddSubtract(DateTime dateToChange, DateAddSubtractOptions changeFormat, int amountToChange)
 		{

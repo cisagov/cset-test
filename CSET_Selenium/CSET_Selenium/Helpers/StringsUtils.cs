@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace CSET_Selenium.Helpers
 {
-    class StringsUtils
+	static class StringsUtils
     {
 		public static String[] splitStringByString(String stringToSplit, String splitString)
         {
