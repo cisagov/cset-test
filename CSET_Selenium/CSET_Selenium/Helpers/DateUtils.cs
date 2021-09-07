@@ -10,7 +10,7 @@ namespace CSET_Selenium.Helpers
 {
 	static class DateUtils
     {
-		public static DateTime dateAddSubtract(DateTime dateToChange, DateAddSubtractOptions changeFormat, int amountToChange)
+		public static DateTime DateAddSubtract(DateTime dateToChange, DateAddSubtractOptions changeFormat, int amountToChange)
 		{
 			switch (changeFormat)
 			{
@@ -93,7 +93,7 @@ namespace CSET_Selenium.Helpers
 			}
 		}
 
-		public static int getYearFromDate(DateTime date)
+		public static int GetYearFromDate(DateTime date)
 		{
 			return date.Year;
 		}
@@ -187,7 +187,7 @@ namespace CSET_Selenium.Helpers
 			}
 		}
 
-		public static int getDifferenceBetweenDates(DateTime firstDateTime, DateTime secondDateTime, DateDifferenceOptions dateDifferenceOption)
+		public static int GetDifferenceBetweenDates(DateTime firstDateTime, DateTime secondDateTime, DateDifferenceOptions dateDifferenceOption)
 		{
 			int dateDifference = 0;
 			var dateSpan = DateTimeSpan.CompareDates(firstDateTime, secondDateTime);
@@ -221,7 +221,7 @@ namespace CSET_Selenium.Helpers
 		 * Date that you need to have formatted
 		 * @return
 		 */
-		public static String dateFormatAsString(DateTime dateToFormat, String dateFormat)
+		public static String DateFormatAsString(DateTime dateToFormat, String dateFormat)
 		{
 			return dateToFormat.ToString(dateFormat);
 		}
@@ -235,9 +235,9 @@ namespace CSET_Selenium.Helpers
 		 * Date that you need to have formatted
 		 * @return
 		 */
-		public static int dateFormatAsInt(DateTime dateToFormat, String dateFormat)
+		public static int DateFormatAsInt(DateTime dateToFormat, String dateFormat)
 		{
-			String formattedDate = dateFormatAsString(dateToFormat, dateFormat);
+			String formattedDate = DateFormatAsString(dateToFormat, dateFormat);
 			return Int32.Parse(formattedDate);
 		}
 
@@ -254,7 +254,7 @@ namespace CSET_Selenium.Helpers
 		 * @throws Exception 
 		 * @throws ParseException
 		 */
-		public static DateTime convertStringtoDate(String dateString, String dateFormat)
+		public static DateTime ConvertStringtoDate(String dateString, String dateFormat)
 		{
 			DateTime date = DateTime.ParseExact(dateString, dateFormat, null);
 			return date;
@@ -269,15 +269,15 @@ namespace CSET_Selenium.Helpers
 		 * @return dateValueOfFormat
 		 * The Date (fastTime) returned as only the format passed in.
 		 */
-		public static DateTime getDateValueOfFormat(DateTime dateTimeCombo, String dateFormat)
+		public static DateTime GetDateValueOfFormat(DateTime dateTimeCombo, String dateFormat)
 		{
-			String dateTimeComboString = dateFormatAsString(dateTimeCombo, dateFormat);
+			String dateTimeComboString = DateFormatAsString(dateTimeCombo, dateFormat);
 			DateTime dateValueOfFormat = new DateTime();
 			try
 			{
-				dateValueOfFormat = convertStringtoDate(dateTimeComboString, dateFormat);
+				dateValueOfFormat = ConvertStringtoDate(dateTimeComboString, dateFormat);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				Assert.Fail("Parse Exception: The Date-Time Combo could not be parsed to convert to a date without time.");
 			}

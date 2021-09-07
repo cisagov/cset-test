@@ -11,7 +11,7 @@ namespace CSET_Selenium.Helpers
 {
     static class NumberUtils
     {
-		private static decimal getCurrencyValueFrom(String elementText)
+		private static decimal GetCurrencyValueFrom(String elementText)
 		{
 			Decimal decimalValue = new Decimal();
 			try
@@ -31,18 +31,18 @@ namespace CSET_Selenium.Helpers
 			}
 			return decimalValue;
 		}
-		public static decimal getCurrencyValueFromElement(IWebElement element)
+		public static decimal GetCurrencyValueFromElement(IWebElement element)
 		{
 
 			String elementText = element.Text;
 
-			return getCurrencyValueFrom(elementText);
+			return GetCurrencyValueFrom(elementText);
 		}
 
-		public static decimal getCurrencyValueFromElement(String elementText)
+		public static decimal GetCurrencyValueFromElement(String elementText)
 		{
 
-			return getCurrencyValueFrom(elementText);
+			return GetCurrencyValueFrom(elementText);
 
 		}
 
@@ -58,7 +58,7 @@ namespace CSET_Selenium.Helpers
 		 * @return Integer between min and max, inclusive.
 		 * @see java.util.Random#nextInt(int)
 		 */
-		public static int generateRandomNumberInt(int min, int max)
+		public static int GenerateRandomNumberInt(int min, int max)
 		{
 
 			// NOTE: Usually this should be a field rather than a method
@@ -87,7 +87,7 @@ namespace CSET_Selenium.Helpers
 		 * @return Integer between min and max, inclusive and excluding results listed.
 		 * @see java.util.Random#nextInt(int)
 		 */
-		public static int generateRandomNumberInt(int min, int max, int excludedValue)
+		public static int GenerateRandomNumberInt(int min, int max, int excludedValue)
 		{
 
 			// NOTE: Usually this should be a field rather than a method
@@ -120,20 +120,20 @@ namespace CSET_Selenium.Helpers
 			return randomNum;
 		}
 
-		public static int getRandomIntFromArray(int[] array)
+		public static int GetRandomIntFromArray(int[] array)
 		{
 			int rnd = new Random().Next(array.Count());
 			return array[rnd];
 		}
 
-		public static int getRandomIntFromList(List<int> array)
+		public static int GetRandomIntFromList(List<int> array)
 		{
 			if (array.Count() < 1)
 			{
 				Assert.Fail("The passed-in array is empty.");
 			}
 
-			int randomOption = NumberUtils.generateRandomNumberInt(0, array.Count() - 1);
+			int randomOption = NumberUtils.GenerateRandomNumberInt(0, array.Count() - 1);
 			return array.ElementAt(randomOption);
 		}
 
@@ -160,14 +160,14 @@ namespace CSET_Selenium.Helpers
 		 * @return String random number x digits long.
 		 * @see java.util.Random#nextInt(int)
 		 */
-		public static long generateRandomNumberDigits(int minLength, int maxLength)
+		public static long GenerateRandomNumberDigits(int minLength, int maxLength)
 		{
 			String resultantNumber = StringsUtils.generateRandomNumberDigits(minLength, maxLength);
 			long numberFromResult = long.Parse(resultantNumber);
 			return numberFromResult;
 		}
 
-		public static double round(double numberToRound, int places)
+		public static double Round(double numberToRound, int places)
 		{
 			if (places < 0)
 			{
@@ -177,7 +177,7 @@ namespace CSET_Selenium.Helpers
 			return Math.Round(numberToRound, places, MidpointRounding.AwayFromZero);
 		}
 
-		public static List<Double> removeHighestOrLowestListValue(List<Double> listToManipulate, String highestOrLowestOption)
+		public static List<Double> RemoveHighestOrLowestListValue(List<Double> listToManipulate, String highestOrLowestOption)
 		{
 			int index = 0;
 			if (highestOrLowestOption.Equals("Highest", StringComparison.OrdinalIgnoreCase))
@@ -217,7 +217,7 @@ namespace CSET_Selenium.Helpers
 		}
 
 
-		public bool isBetween(int value, int lowValue, int highValue)
+		public static bool IsBetween(int value, int lowValue, int highValue)
 		{
 			return lowValue < value && value < highValue;
 		}

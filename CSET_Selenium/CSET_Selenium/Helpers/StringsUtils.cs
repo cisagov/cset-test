@@ -10,12 +10,12 @@ namespace CSET_Selenium.Helpers
 {
 	static class StringsUtils
     {
-		public static String[] splitStringByString(String stringToSplit, String splitString)
+		public static String[] SplitStringByString(String stringToSplit, String splitString)
         {
 			String[] stringSplit = stringToSplit.Split(new string[] { splitString }, StringSplitOptions.None);
 			return stringSplit;
 		}
-		public static String[] getStringSplitFromFullName(String fullName)
+		public static String[] GetStringSplitFromFullName(String fullName)
 		{
 			String[] splitName = fullName.Split(' ');
 			switch (fullName)
@@ -37,7 +37,7 @@ namespace CSET_Selenium.Helpers
 		 *            Messy xpath with characters that need to be escaped.
 		 * @return String with the special charaters for an xpath (',") escaped.
 		 */
-		public static String specialCharacterEscape(String sqlQueryString)
+		public static String SpecialCharacterEscape(String sqlQueryString)
 		{
 			String returnString = "";
 			String searchString = sqlQueryString;
@@ -81,7 +81,7 @@ namespace CSET_Selenium.Helpers
 		 * @Warning PLEASE NOTE: This method will require an xpath to not be surrounded by single ticks to work correctly. I.E. - findElements(By.xpath(".//div[contains(text(), " + StringsUtils.xPathSpecialCharacterEscape(companyName) + ")]
 		 * instead of findElements(By.xpath(".//div[contains(text(), <b>'</b> " + StringsUtils.xPathSpecialCharacterEscape(companyName) + " <b>'</b> )]
 		 */
-		public static String xPathSpecialCharacterEscape(String xPathQueryString)
+		public static String XPathSpecialCharacterEscape(String xPathQueryString)
 		{
 			String returnString = "";
 			String searchString = xPathQueryString;
@@ -118,7 +118,7 @@ namespace CSET_Selenium.Helpers
 			return returnString;
 		}
 
-		public static String[] cityStateZipParserRegex(String cityStateZipComboToParse)
+		public static String[] CityStateZipParserRegex(String cityStateZipComboToParse)
 		{
 			String[] returnStringArray = Regex.Split(cityStateZipComboToParse, ",\\s*|\\s(?=\\d)");
 			return returnStringArray;
@@ -132,7 +132,7 @@ namespace CSET_Selenium.Helpers
 		 * <p> 2 - Zip </p>
 		 * <p> 3 - Postal Code </p>
 		 */
-		public static String[] cityStateZipParser(String cityStateZipComboToParse)
+		public static String[] CityStateZipParser(String cityStateZipComboToParse)
 		{
 			String[] citySplit = cityStateZipComboToParse.Split(',');
 			String city = citySplit[0];
@@ -151,41 +151,41 @@ namespace CSET_Selenium.Helpers
 			return returnStringArray;
 		}
 
-		public static String[] firstLastNameParser(String fullNameToParse)
+		public static String[] FirstLastNameParser(String fullNameToParse)
 		{
 			String[] firstLastNameArray = fullNameToParse.Split(' ');
 			return firstLastNameArray;
 		}
 
-		public static String formatDoubleValueToDecimalPlaces(double number, int numberOfDecimalPlaces)
+		public static String FormatDoubleValueToDecimalPlaces(double number, int numberOfDecimalPlaces)
 		{
 			return number.ToString("D" + numberOfDecimalPlaces);
 		}
 
-		public static String formatDecimalValueToDecimalPlaces(decimal number, int numberOfDecimalPlaces)
+		public static String FormatDecimalValueToDecimalPlaces(decimal number, int numberOfDecimalPlaces)
 		{
 			return number.ToString("N" + numberOfDecimalPlaces);
 		}
 
-		public static String currencyRepresentationOfNumber(decimal number)
+		public static String CurrencyRepresentationOfNumber(decimal number)
 		{
 			return number.ToString("C", CultureInfo.CurrentCulture);
 		}
 
-		public static String getUserNameFromFirstLastName(String firstLastName)
+		public static String GetUserNameFromFirstLastName(String firstLastName)
 		{
-			String firstName = firstLastNameParser(firstLastName)[0];
-			String lastName = firstLastNameParser(firstLastName)[1];
+			String firstName = FirstLastNameParser(firstLastName)[0];
+			String lastName = FirstLastNameParser(firstLastName)[1];
 			String userName = firstName.Substring(0, 1) + lastName;
 			return userName;
 		}
 
-		public static String formatTIN(String tin)
+		public static String FormatTIN(String tin)
 		{
 			return tin.Substring(0, 2) + "-" + tin.Substring(2, tin.Length);
 		}
 
-		public static String formatSSN(String ssn)
+		public static String FormatSSN(String ssn)
 		{
 			if (ssn.Length == 9)
 			{
@@ -210,7 +210,7 @@ namespace CSET_Selenium.Helpers
 	  "-?"+                                                  //Another optional dash (separating Group and Serial numbers)
 	  "(?!0{4})\\d{4}$"                                      //Don't allow last four digits to be "0000"
 		 */
-		public static String getValidSSN()
+		public static String GetValidSSN()
 		{
 			String ssn = generateRandomNumberDigits(9);
 			String ssnRegex = "^(?!219099999|078051120)(?!666|000|9\\d{2})\\d{3}(?!00)\\d{2}(?!0{4})\\d{4}$"; // Above regex simplified to test valid rules.
@@ -226,7 +226,7 @@ namespace CSET_Selenium.Helpers
 			return ssn;
 		}
 
-		public static String getRandomStringFromArray(String[] array)
+		public static String GetRandomStringFromArray(String[] array)
 		{
 			int rnd = new Random().Next(array.Length);
 			return array[rnd];
@@ -320,7 +320,7 @@ namespace CSET_Selenium.Helpers
 		{
 			Console.WriteLine("The name to Parse is " + name);
 			List<String> returnNameList = new List<String>();
-			String[] nameSplit = splitStringByString(name, ", ");
+			String[] nameSplit = SplitStringByString(name, ", ");
 			String[] firstNameMI = nameSplit[1].Split(' ');
 			returnNameList.Add(firstNameMI[0]);
 			if (firstNameMI.Length > 1)
