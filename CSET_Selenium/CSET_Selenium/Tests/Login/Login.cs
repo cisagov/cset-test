@@ -18,15 +18,17 @@ namespace CSET_Selenium.Tests.Login
     {
         static void Main(string[] args)
         {
-            //create the reference for the browser  
+            //create the reference for the browser
+            new DriverManager().SetUpDriver(new ChromeConfig());
             IWebDriver driver = new ChromeDriver();
             // navigate to URL  
             driver.Navigate().GoToUrl("http://cset-tst.inl.gov");
+            Thread.Sleep(10000);
             Assert.True(driver.Title.Contains("CSET")); 
-            Thread.Sleep(2000);
+            
 
-            LoginPage loginPage = new LoginPage();
-            loginPage.LoginToCSET("william.martin@inl.gov", "password123");
+            LoginPage loginPage = new LoginPage(driver);
+            loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
         }
         //IWebDriver webdriver;

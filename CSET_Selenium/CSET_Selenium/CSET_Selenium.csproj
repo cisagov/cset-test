@@ -84,7 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Page_Objects\AssessmentConfiguration\assessmentConfiguration.cs" />
+    <Compile Include="Enums\DateAddSubtractOptions.cs" />
+    <Compile Include="Enums\DateDifferenceOptions.cs" />
+    <Compile Include="Helpers\DateUtils.cs" />
+    <Compile Include="Helpers\HolidayUtils.cs" />
+    <Compile Include="Helpers\NumberUtils.cs" />
+    <Compile Include="Helpers\StringsUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Page_Objects\Forgot_Password\forgotPassword.cs" />
@@ -99,9 +104,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
