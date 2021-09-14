@@ -28,23 +28,12 @@ namespace CSET_Selenium.Enums
         public String Value { get; private set; }
     }
 
-    public static class DateDifferenceOption
+    public static class DateDifferenceOptionsExtensions
     {
         public static String GetValue(this DateDifferenceOptions enumChoice)
         {
-            DateDifferenceOptionsAttr attr = GetAttr(enumChoice);
+            var attr = enumChoice.GetAttribute<DateDifferenceOptionsAttr>();
             return attr.Value;
         }
-
-        private static DateDifferenceOptionsAttr GetAttr(DateDifferenceOptions enumChoice)
-        {
-            return (DateDifferenceOptionsAttr)Attribute.GetCustomAttribute(ForValue(enumChoice), typeof(DateDifferenceOptionsAttr));
-        }
-
-        private static MemberInfo ForValue(DateDifferenceOptions enumChoice)
-        {
-            return typeof(DateDifferenceOptions).GetField(Enum.GetName(typeof(DateDifferenceOptions), enumChoice));
-        }
-
     }
 }
