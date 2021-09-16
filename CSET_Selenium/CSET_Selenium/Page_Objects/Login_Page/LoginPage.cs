@@ -21,7 +21,7 @@ namespace CSET_Selenium.Repository.Login_Page
         //Element Locators
 
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
-        private IWebElement textboxEmail;
+        private readonly IWebElement textboxEmail;
 
         [FindsBy(How = How.XPath, Using = "//input[@name='password']")]
         private IWebElement textboxPassword;
@@ -52,8 +52,6 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             buttonLogin.Click();
         }
-
-
 
 
         //Aggregate Methods
