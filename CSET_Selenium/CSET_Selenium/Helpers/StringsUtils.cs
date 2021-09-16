@@ -10,6 +10,10 @@ namespace CSET_Selenium.Helpers
 {
 	static class StringsUtils
     {
+		public static bool EqualsIgnoreCase(String firstString, String secondString)
+		{
+			return firstString.Equals(secondString, StringComparison.OrdinalIgnoreCase);
+		}
 		public static String[] SplitStringByString(String stringToSplit, String splitString)
         {
 			String[] stringSplit = stringToSplit.Split(new string[] { splitString }, StringSplitOptions.None);
@@ -212,14 +216,14 @@ namespace CSET_Selenium.Helpers
 		 */
 		public static String GetValidSSN()
 		{
-			String ssn = generateRandomNumberDigits(9);
+			String ssn = GenerateRandomNumberDigits(9);
 			String ssnRegex = "^(?!219099999|078051120)(?!666|000|9\\d{2})\\d{3}(?!00)\\d{2}(?!0{4})\\d{4}$"; // Above regex simplified to test valid rules.
 			Match m = Regex.Match(ssn, ssnRegex);
 			int counter = 0;
 			// If first ssn isn't valid loop until you have a valid one.
 			while (!m.Success && counter < 20)
 			{
-				ssn = generateRandomNumberDigits(9); // new ssn
+				ssn = GenerateRandomNumberDigits(9); // new ssn
 				m = Regex.Match(ssn, ssnRegex);
 				counter++;
 			}
@@ -243,7 +247,7 @@ namespace CSET_Selenium.Helpers
 		 *            Maximum value. Must be greater than min.
 		 * @return Integer between min and max, inclusive.
 		 */
-		public static String generateRandomNumber(int min, int max)
+		public static String GenerateRandomNumber(int min, int max)
 		{
 			Random rand = new Random(Environment.TickCount);
 			int randomNum = rand.Next(max - min + 1) + min;
@@ -257,7 +261,7 @@ namespace CSET_Selenium.Helpers
 		 * @param length Length (Number of Digits) of random number generated.
 		 * @return String random number x digits long.
 		 */
-		public static String generateRandomNumberDigits(int length)
+		public static String GenerateRandomNumberDigits(int length)
 		{
 			Random rand = new Random();
 
@@ -278,7 +282,7 @@ namespace CSET_Selenium.Helpers
 		 * @return String random number x digits long.
 		 * @see java.util.Random#nextInt(int)
 		 */
-		public static String generateRandomNumberDigits(int minLength, int maxLength)
+		public static String GenerateRandomNumberDigits(int minLength, int maxLength)
 		{
 			int digit;
 			Random rand = new Random();
@@ -297,7 +301,7 @@ namespace CSET_Selenium.Helpers
 			return builder.ToString();
 		}
 
-		public static String removeNewLineFromString(String badString)
+		public static String RemoveNewLineFromString(String badString)
 		{
 			String[] split = badString.Replace("\n", " ").Split(' ');
 			String returnString = "";
@@ -311,12 +315,12 @@ namespace CSET_Selenium.Helpers
 			return returnString.Trim();
 		}
 
-		public static bool containsNoCase(String stringToSearch, String stringToFind)
+		public static bool ContainsNoCase(String stringToSearch, String stringToFind)
 		{
 			return stringToSearch.ToLower().Contains(stringToFind.ToLower());
 		}
 
-		public static List<String> lastFirstMiddleInitialNameParser(String name)
+		public static List<String> LastFirstMiddleInitialNameParser(String name)
 		{
 			Console.WriteLine("The name to Parse is " + name);
 			List<String> returnNameList = new List<String>();
@@ -331,7 +335,7 @@ namespace CSET_Selenium.Helpers
 			return returnNameList;
 		}
 
-		public static String capitalizeName(String name)
+		public static String CapitalizeName(String name)
 		{
 			String nameToLower = name.ToLower();
 			String firstChar = name.Substring(0, 1);
@@ -341,13 +345,13 @@ namespace CSET_Selenium.Helpers
 		}
 
 
-		public static String capitalizeAllWords(String fullString)
+		public static String CapitalizeAllWords(String fullString)
 		{
 			String toReturn = "";
 			String[] stringSplit = fullString.Split(' ');
 			foreach (String stringToCapitalize in stringSplit)
 			{
-				toReturn += " " + capitalizeName(stringToCapitalize);
+				toReturn += " " + CapitalizeName(stringToCapitalize);
 			}
 
 			return toReturn.Trim();

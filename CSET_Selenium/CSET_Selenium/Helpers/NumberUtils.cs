@@ -147,7 +147,7 @@ namespace CSET_Selenium.Helpers
 		 */
 		public static long generateRandomNumberDigits(int length)
 		{
-			String resultantNumber = StringsUtils.generateRandomNumberDigits(length);
+			String resultantNumber = StringsUtils.GenerateRandomNumberDigits(length);
 			long numberFromResult = long.Parse(resultantNumber);
 			return numberFromResult;
 		}
@@ -162,7 +162,7 @@ namespace CSET_Selenium.Helpers
 		 */
 		public static long GenerateRandomNumberDigits(int minLength, int maxLength)
 		{
-			String resultantNumber = StringsUtils.generateRandomNumberDigits(minLength, maxLength);
+			String resultantNumber = StringsUtils.GenerateRandomNumberDigits(minLength, maxLength);
 			long numberFromResult = long.Parse(resultantNumber);
 			return numberFromResult;
 		}

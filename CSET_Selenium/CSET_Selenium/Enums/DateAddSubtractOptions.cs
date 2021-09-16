@@ -30,23 +30,12 @@ namespace CSET_Selenium.Enums
         public String Value { get; private set; }
     }
 
-    public static class DateAddSubtractOption
+    public static class DateAddSubtractOptionsExtensions
     {
         public static String GetValue(this DateAddSubtractOptions enumChoice)
         {
-            DateAddSubtractOptionsAttr attr = GetAttr(enumChoice);
+            var attr = enumChoice.GetAttribute<DateAddSubtractOptionsAttr>();
             return attr.Value;
         }
-
-        private static DateAddSubtractOptionsAttr GetAttr(DateAddSubtractOptions enumChoice)
-        {
-            return (DateAddSubtractOptionsAttr)Attribute.GetCustomAttribute(ForValue(enumChoice), typeof(DateAddSubtractOptionsAttr));
-        }
-
-        private static MemberInfo ForValue(DateAddSubtractOptions enumChoice)
-        {
-            return typeof(DateAddSubtractOptions).GetField(Enum.GetName(typeof(DateAddSubtractOptions), enumChoice));
-        }
-
     }
 }
