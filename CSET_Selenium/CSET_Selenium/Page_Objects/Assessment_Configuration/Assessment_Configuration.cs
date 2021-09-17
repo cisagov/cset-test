@@ -9,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 {
-    class Assessment_Configuration
+    class Assessment_Configuration : BasePage
     {
+        public Assessment_Configuration(IWebDriver driver) : base(driver)
+        {
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+        }
+
         [FindsBy(How = How.XPath, Using = "//input[contains(@name,'email')]")]
         private readonly IWebElement textboxEmail;
 
