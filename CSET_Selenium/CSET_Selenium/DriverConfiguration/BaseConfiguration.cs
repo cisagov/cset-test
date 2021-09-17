@@ -68,7 +68,7 @@ namespace CSET_Selenium.DriverConfiguration
 
         // Driver options.
         private EdgeOptions edgeOptions = new EdgeOptions();
-        private ChromeOptions chromeOptions = new ChromeOptions();//.AddArguments("disable-popup-blocking", "start-maximized", "disable-infobars")
+        private ChromeOptions chromeOptions = new ChromeOptions();
         private InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
         private FirefoxOptions firefoxOptions = new FirefoxOptions();
         private SafariOptions safariOptions = new SafariOptions();
