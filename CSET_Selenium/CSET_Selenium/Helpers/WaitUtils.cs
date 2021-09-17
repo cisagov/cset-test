@@ -13,7 +13,7 @@ namespace CSET_Selenium.Helpers
     class WaitUtils
     {
         private readonly IWebDriver driver;
-        private TimeSpan defaultWait = new TimeSpan(0, 0, 15);
+        private TimeSpan defaultWait = TimeSpan.FromSeconds(15);
 
         //private By xmaskPresent = By.cssSelector("div[role='presentation'][class='x-mask x-mask-fixed']");
 
