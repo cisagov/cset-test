@@ -131,6 +131,7 @@
     <Compile Include="Page_Objects\RegisterNewUserAccount\RegisterNewUserAccount.cs" />
     <Compile Include="Tests\Create_Assessment\CreateAssessment.cs" />
     <Compile Include="Tests\Login\Login.cs" />
+    <Compile Include="Tests\PracticeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

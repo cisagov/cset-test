@@ -1,4 +1,5 @@
-﻿using CSET_Selenium.Repository.Landing_Page;
+﻿using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Repository.Landing_Page;
 using CSET_Selenium.Repository.Login_Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -16,36 +17,24 @@ namespace CSET_Selenium.Tests.Create_Assessment
 {
     class CreateAssessment
     {
-        public static void Main(string[] args)
+        [TestFixture]
+        public class Login : BaseTest
         {
-            //create the reference for the browser
-            IWebDriver driver;
+            private IWebDriver driver;
 
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
+            [Test]
+            public void Test()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                driver = driver = BuildDriver(cf);
+                Assert.True(driver.Title.Contains("CSET"));
 
-            //Maximize the browser window  
-            driver.Manage().Window.Maximize();
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-            driver.Navigate().GoToUrl("http://cset-tst.inl.gov");
-
-            //Thread.Sleep(10000);
-            Assert.True(driver.Title.Contains("CSET"));
-
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
-
-            LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
-
-            //Assert.Pass();
-
-            Thread.Sleep(10000);
-
-            //close the browser  
-            driver.Quit();
+                Landing_Page createNewAssessment = new Landing_Page(driver);
+                createNewAssessment.CreateNewAssessment();
+            }
         }
     }
 }
