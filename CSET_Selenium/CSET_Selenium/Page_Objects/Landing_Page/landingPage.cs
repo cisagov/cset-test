@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CSET_Selenium.DriverConfiguration;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repository.Landing_Page
 {
-    public class LandingPage
+    class Landing_Page : BasePage
     {
-        private IWebDriver driver;
-
-        public LandingPage(IWebDriver driver)
+        public Landing_Page(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
-            this.driver = driver;
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
         }
-
 
         //Element Locators
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'New Assessment')]/ancestor::button")]

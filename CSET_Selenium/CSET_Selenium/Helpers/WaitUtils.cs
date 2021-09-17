@@ -84,8 +84,44 @@ namespace CSET_Selenium.Helpers
 
         public bool WaitForPageLoad()
         {
-            return NewWait().Until(driver => (bool)((IJavaScriptExecutor)driver).ExecuteScript("return jQuery.active == 0"))
-                && NewWait().Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+            bool jqueryLoaded = false;
+            bool javaScriptLoaded = false;
+
+            for (var i = 0; i < 60; i++)
+            {
+                try
+                {
+                    jqueryLoaded = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0");
+                    if (jqueryLoaded)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Thread.Sleep(1000);
+                    }
+                } catch (Exception)
+                {
+                    //jQuery Does Not Exist on Page
+                    jqueryLoaded = true;
+                    break;
+                }
+            }
+
+            for (var i = 0; i < 60; i++)
+            {
+                javaScriptLoaded = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return document.readyState").Equals("complete");
+                if (javaScriptLoaded)
+                {
+                    break;
+                }
+                else
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+
+            return jqueryLoaded && javaScriptLoaded;
         }
 
         public void WaitForPostBack(int milisecondsToWait = (120*1000))
@@ -94,11 +130,14 @@ namespace CSET_Selenium.Helpers
             {
                 Thread.Sleep(400); // initial pause to make sure postback kicks off.
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
             NewWait().Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.CssSelector("body")));
-            RetryUntilSuccessOrTimeout(new Func<bool>(() => driver.FindElement(By.CssSelector("body")).GetAttribute("class").Contains("x-mask")), milisecondsToWait, 100);
+            if (driver.FindElement(By.CssSelector("body")).GetAttribute("class").Contains("x-mask"))
+            {
+                RetryUntilSuccessOrTimeout(new Func<bool>(() => !driver.FindElement(By.CssSelector("body")).GetAttribute("class").Contains("x-mask")), milisecondsToWait, 100);
+            }
         }
 
         public bool WaitUntilElementNotClickable(By locator)

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CSET_Selenium.DriverConfiguration;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,11 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repository.Login_Page
 {
-    public class LoginPage
+    class LoginPage : BasePage
     {
-        private IWebDriver driver;
-
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
-            this.driver = driver;
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
         }
 
         //Element Locators
@@ -40,17 +38,27 @@ namespace CSET_Selenium.Repository.Login_Page
 
         private void SetEmail(String email)
         {
-            textboxEmail.SendKeys(email);
+            SetText(textboxEmail, email);
         }
 
         private void SetPassword(String password)
         {
-            textboxPassword.SendKeys(password);
+            SetText(textboxPassword, password);
         }
 
         private void ClickLoginButton()
         {
-            buttonLogin.Click();
+            ClickWhenClickable(buttonLogin);
+        }
+
+        private void ClickForgotPasswordButton()
+        {
+            ClickWhenClickable(textlinkForgotPassword);
+        }
+
+        private void ClickRegisterNewUserButton()
+        {
+            ClickWhenClickable(textlinkRegisterNewUserAccount);
         }
 
 

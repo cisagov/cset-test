@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CSET_Selenium.DriverConfiguration;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repository.Forgot_Password
 {
-    class ForgotPassword
+    class ForgotPassword : BasePage
     {
+        public ForgotPassword(IWebDriver driver) : base(driver)
+        {
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+        }
+
         [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
         private readonly IWebElement textboxEmail;
 

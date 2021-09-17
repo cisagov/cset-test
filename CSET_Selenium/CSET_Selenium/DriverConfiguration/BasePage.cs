@@ -1,4 +1,5 @@
-﻿using CSET_Selenium.Helpers;
+﻿using CSET_Selenium.Enums;
+using CSET_Selenium.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
@@ -12,7 +13,7 @@ namespace CSET_Selenium.DriverConfiguration
 {
     class BasePage : WaitUtils
     {
-        private readonly IWebDriver driver;
+        private IWebDriver driver;
 
         public BasePage(IWebDriver webDriver) : base(webDriver)
         {
@@ -83,13 +84,13 @@ namespace CSET_Selenium.DriverConfiguration
         {
             if (CheckIfElementExists(ele, 5))
             {
-                if (isElementDisabled(ele))
+                if (IsElementDisabled(ele))
                 {
                     return false;
                 }
                 else
                 {
-                    clickWhenClickable(ele);
+                    ClickWhenClickable(ele);
                     return true;
                 }
             }
@@ -171,7 +172,7 @@ namespace CSET_Selenium.DriverConfiguration
             int normalizedTime = TimeFixer(timeInMilliseconds);
             try
             {
-                Thread.Sleep(normalizedTime); 
+                Thread.Sleep(normalizedTime);
             }
             catch (Exception e)
             {
@@ -184,7 +185,7 @@ namespace CSET_Selenium.DriverConfiguration
          * but that are grayed-out, for instance. A normal check to see if an element exists will always return true in this instance,
          * even though the element is not actually useable.
          *
-         * @param element WebElement to check
+         * @param element IWebElement to check
          * @return boolean disabled or not.
          */
         public bool IsElementDisabled(IWebElement element)
@@ -241,10 +242,9 @@ namespace CSET_Selenium.DriverConfiguration
             return popUpTextContents;
         }
 
-        public void SendArbitraryKeys(Keys keysToSend)
+        /*public void SendArbitraryKeys(Keys keysToSend)
         {
-            Keys[] = new Keys[] { Keys.Alt, Keys.Control, Keys.Shift, Keys.LeftAlt, Keys.LeftControl, Keys.LeftShift, Keys.Meta };
-            List<Keys> modifierKeys = new List<Keys> { (Keys.Alt, Keys.Control, Keys.Shift, Keys.LeftAlt, Keys.LeftControl, Keys.LeftShift, Keys.Meta};
+            List<Keys> modifierKeys = new List<Keys> { Keys.Alt, Keys.Control, Keys.Shift, Keys.LeftAlt, Keys.LeftControl, Keys.LeftShift, Keys.Meta };
             if (modifierKeys.Contains(keysToSend))
             {
                 new Actions(driver).KeyDown(keysToSend).KeyUp(keysToSend);
@@ -254,23 +254,23 @@ namespace CSET_Selenium.DriverConfiguration
                 new Actions(driver).SendKeys(keysToSend).Perform();
             }
             WaitForPostBack();
-        }
+        }*/
 
         public void SendArbitraryKeys(String keysToSend)
         {
-            new Actions(driver).sendKeys(keysToSend).perform();
-            waitForPostBack();
+            new Actions(driver).SendKeys(keysToSend).Perform();
+            WaitForPostBack();
         }
 
-        public void ClickElementByCordinates(WebElement ele, int x, int y)
+        public void ClickElementByCordinates(IWebElement ele, int x, int y)
         {
-            waitUntilElementIsClickable(ele);
+            WaitUntilElementIsClickable(ele);
             Actions builder = new Actions(driver);
-            builder.moveToElement(ele, x, y).click().perform();
-            waitForPostBack();
+            builder.MoveToElement(ele, x, y).Click().Perform();
+            WaitForPostBack();
         }
 
-        public void UploadOrSaveFile(String filePath) throws AWTException
+        /*public void UploadOrSaveFile(String filePath) throws AWTException
         {
             Path path = Paths.get(filePath).getParent();
     	    try {
@@ -302,38 +302,38 @@ namespace CSET_Selenium.DriverConfiguration
             robot.keyRelease(KeyEvent.VK_Y);
             robot.keyRelease(KeyEvent.VK_ALT);
             sleep(5); //Used to ensure that the download finishes before continuing, otherwise an incomplete download will happen.
-            waitForPostBack();
+            WaitForPostBack();
+        }*/
+
+        public void DragAndDrop(IWebElement elementToDrag, int xOffset, int yOffset)
+        {
+            Actions builder = new Actions(this.driver);
+            IAction dragAndDrop = builder.ClickAndHold(elementToDrag)
+                    .MoveByOffset(xOffset, yOffset)
+                    .Release(elementToDrag)
+                    .Build();
+            dragAndDrop.Perform();
+            WaitForPostBack();
         }
 
-        public void DragAndDrop(WebElement elementToDrag, int xOffset, int yOffset)
+        public void HoverOverAndClick(IWebElement element)
         {
-            Actions builder = new Actions(driver);
-            Action dragAndDrop = builder.clickAndHold(elementToDrag)
-                    .moveByOffset(xOffset, yOffset)
-                    .release(elementToDrag)
-                    .build();
-            dragAndDrop.perform();
-            waitForPostBack();
-        }
-
-        public void HoverOverAndClick(WebElement element)
-        {
-            //    	waitUntilElementIsClickable(element);
-            element = Find(By.XPath(getXpathFromElement(element)));
+            //    	WaitUntilElementIsClickable(element);
+            element = Find(By.XPath(GetXpathFromElement(element)));
             Actions mouse = new Actions(this.driver);
-            mouse.moveToElement(element);
-            mouse.click();
-            mouse.perform();
-            waitForPostBack();
+            mouse.MoveToElement(element);
+            mouse.Click();
+            mouse.Perform();
+            WaitForPostBack();
         }
 
-        public void HoverOver(WebElement element)
+        public void HoverOver(IWebElement element)
         {
-            element = waitUntilElementIsVisible(element);
+            element = WaitUntilElementIsVisible(element);
             Actions mouse = new Actions(this.driver);
-            mouse.moveToElement(element);
-            mouse.perform();
-            waitForPostBack();
+            mouse.MoveToElement(element);
+            mouse.Perform();
+            WaitForPostBack();
         }
 
         /**
@@ -343,12 +343,12 @@ namespace CSET_Selenium.DriverConfiguration
          * @param secondXPath The xPath of the second.
          * @return Whether this method succeeded in clicking the second element.
          */
-        public bool HoverOverFirstToClickSecond(WebElement first, String secondXPath)
+        public bool HoverOverFirstToClickSecond(IWebElement first, String secondXPath)
         {
-            if (hoverOverFirstToShowSecond(first, secondXPath))
+            if (HoverOverFirstToShowSecond(first, secondXPath))
             {
-                WebElement second = find(By.xpath(secondXPath));
-                clickWhenClickable(second);
+                IWebElement second = Find(By.XPath(secondXPath));
+                ClickWhenClickable(second);
                 return true;
             }
             return false;
@@ -361,19 +361,19 @@ namespace CSET_Selenium.DriverConfiguration
          * @param secondXPath The xPath of the second.
          * @return Whether this method succeeded in under 25 tries.
          */
-        public boolean HoverOverFirstToShowSecond(WebElement first, String secondXPath)
+        public bool HoverOverFirstToShowSecond(IWebElement first, String secondXPath)
         {
-            WebElement second;
+            IWebElement second;
             int index = 0;
-            boolean passed = false;
+            bool passed = false;
             do
             {
                 index++;
-                hoverOver(first);
+                HoverOver(first);
                 try
                 {
-                    second = find(By.xpath(secondXPath));
-                    hoverOver(second);
+                    second = Find(By.XPath(secondXPath));
+                    HoverOver(second);
                     passed = true;
                 }
                 catch (Exception e)
@@ -390,8 +390,8 @@ namespace CSET_Selenium.DriverConfiguration
          */
         public void ClickProductLogo()
         {
-            clickWhenClickable(By.xpath("//img[contains(@class,'product-logo')]"));
-            waitForPostBack();
+            ClickWhenClickable(By.XPath("//img[contains(@class,'product-logo')]"));
+            WaitForPostBack();
         }
 
         public bool CheckIfElementExists(IWebElement element, int checktimeInMilliseconds)
@@ -409,52 +409,52 @@ namespace CSET_Selenium.DriverConfiguration
 
         public bool CheckIfElementExists(String xpath, int checktimeInMilliseconds)
         {
-            int normalizedTime = timeFixer(checktimeInMilliseconds);
-            boolean found = finds(By.xpath(xpath)).size() > 0;
+            int normalizedTime = TimeFixer(checktimeInMilliseconds);
+            bool found = Finds(By.XPath(xpath)).Count > 0;
 
             for (int i = 0; !found && i < normalizedTime; ++i)
             {
-                this.sleep(1);
-                found = finds(By.xpath(xpath)).size() > 0;
+                this.Sleep(1000);
+                found = Finds(By.XPath(xpath)).Count > 0;
             }
             return found;
         }
 
-        public String GetXpathFromElement(WebElement element)
+        public String GetXpathFromElement(IWebElement element)
         {
-            String[] xpathSplit = element.toString().split("-> xpath: ");
+            String[] xpathSplit = StringsUtils.SplitStringByString(element.ToString(), "-> xpath: ");
             String xPath = "";
-            if (xpathSplit.length == 1)
+            if (xpathSplit.Length == 1)
             {
-                xpathSplit = element.toString().split("By.xpath: ");
-                if (xpathSplit.length == 1)
+                xpathSplit = StringsUtils.SplitStringByString(element.ToString(), "-> xpath: ");
+                if (xpathSplit.Length == 1)
                 {
-                    systemOut("The Element passed in is a proxy WebElement. As such, the original xPath cannot be extracted.");
+                    Console.WriteLine("The Element passed in is a proxy IWebElement. As such, the original xPath cannot be extracted.");
                 }
             }
 
-            for (int i = 1; i < xpathSplit.length; ++i)
+            for (int i = 1; i < xpathSplit.Length; ++i)
             {
                 String sanitizedXPath = xpathSplit[i];
-                if (sanitizedXPath.startsWith("."))
+                if (sanitizedXPath.StartsWith("."))
                 {
-                    sanitizedXPath = sanitizedXPath.substring(1, sanitizedXPath.length());
+                    sanitizedXPath = sanitizedXPath.Substring(1, sanitizedXPath.Length);
                 }
 
-                if (i == xpathSplit.length - 1)
+                if (i == xpathSplit.Length - 1)
                 {
-                    xPath = xPath + sanitizedXPath.substring(0, sanitizedXPath.length() - 1);
+                    xPath = xPath + sanitizedXPath.Substring(0, sanitizedXPath.Length - 1);
                 }
                 else
                 {
-                    xPath = xPath + sanitizedXPath.substring(0, sanitizedXPath.length() - 3);
+                    xPath = xPath + sanitizedXPath.Substring(0, sanitizedXPath.Length - 3);
                 }
             }
 
             return xPath;
         }
 
-        public void DoubleClickMouse(int x, int y) throws Exception
+        /*public void DoubleClickMouse(int x, int y) throws Exception
         {
             int windowX = this.driver.manage().window().getPosition().getX();
             int offsetBecauseIWant = 10;
@@ -466,112 +466,161 @@ namespace CSET_Selenium.DriverConfiguration
             Thread.sleep(50);//Used to ensure 2 individual button clicks.
             r.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             r.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-            waitForPostBack();
-        }
+            WaitForPostBack();
+        }*/
 
-        public void ScrollToElement(WebElement element)
+        public void ScrollToElement(IWebElement element)
         {
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
 
-        public void ClickAndHoldAndRelease(WebElement elementToClick)
+        public void ClickAndHoldAndRelease(IWebElement elementToClick)
         {
             Actions action = new Actions(this.driver);
-            action.clickAndHold(elementToClick).release().build().perform();
-            waitForPostBack();
+            action.ClickAndHold(elementToClick).Release().Build().Perform();
+            WaitForPostBack();
         }
 
         public void ClickOK()
         {
-            clickWhenClickable(By.xpath("//span[contains(text(), 'OK')]/parent::span"));
-            waitForPostBack();
+            ClickWhenClickable(By.XPath("//span[contains(text(), 'OK')]/parent::span"));
+            WaitForPostBack();
         }
 
         public void ClickNext()
         {
-            clickWhenClickable(By.xpath("//span[contains(@id, ':Next-btnEl') or contains(@id, ':Next-btnInnerEl') or contains(@id, ':nextButton') or contains(@id, 'NewPolicyChange-btnInnerEl')]"));
-            waitForPostBack();
+            ClickWhenClickable(By.XPath("//span[contains(@id, ':Next-btnEl') or contains(@id, ':Next-btnInnerEl') or contains(@id, ':nextButton') or contains(@id, 'NewPolicyChange-btnInnerEl')]"));
+            WaitForPostBack();
         }
 
         public void ClickBack()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Prev') or contains(@id, 'SubmissionWizard:Prev')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Prev') or contains(@id, 'SubmissionWizard:Prev')]"));
         }
 
         public void ClickDone()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Done')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Done')]"));
         }
 
         public void ClickComplete()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, 'Complete')]"));
-            if (checkIfElementExists("//div[contains(@id, 'messagebox-1001-displayfield-inputEl')]", 3))
+            ClickWhenClickable(By.XPath("//a[contains(@id, 'Complete')]"));
+            if (CheckIfElementExists("//div[contains(@id, 'messagebox-1001-displayfield-inputEl')]", 3))
             {
-                selectOKOrCancelFromPopup(OkCancel.OK);
+                SelectOKOrCancelFromPopup(OkCancel.OK);
             }
         }
 
         public void ClickCompleteWithoutPopup()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, 'Complete')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, 'Complete')]"));
         }
 
         public void ClickDiscardUnsavedChangesLink()
         {
-            if (checkIfElementExists("//div[contains(@id, ':_msgs')]/div/a[contains(., 'Discard Unsaved Change')]", 1000))
+            if (CheckIfElementExists("//div[contains(@id, ':_msgs')]/div/a[contains(., 'Discard Unsaved Change')]", 1000))
             {
-                clickWhenClickable(By.xpath("//div[contains(@id, ':_msgs')]/div/a[contains(., 'Discard Unsaved Change')]"));
+                ClickWhenClickable(By.XPath("//div[contains(@id, ':_msgs')]/div/a[contains(., 'Discard Unsaved Change')]"));
             }
         }
 
         public void ClickClose()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Close') or (contains(@id, 'NewDocumentFromTemplateScreen:ToolbarButton'))]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Close') or (contains(@id, 'NewDocumentFromTemplateScreen:ToolbarButton'))]"));
         }
 
         public void ClickAdd()
         {
-            clickWhenClickable(By.xpath("//span[contains(@id, ':Add-btnEl') or (contains(@id, ':AddEmptyPayments-btnInnerEl'))]"));
+            ClickWhenClickable(By.XPath("//span[contains(@id, ':Add-btnEl') or (contains(@id, ':AddEmptyPayments-btnInnerEl'))]"));
         }
 
         public void ClickRemove()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Remove')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Remove')]"));
         }
 
         public void ClickUpdate()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, 'Update')] | //span[contains(@id, ':FinishPCR-btnEl')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, 'Update')] | //span[contains(@id, ':FinishPCR-btnEl')]"));
         }
 
         public void ClickFinish()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Finish')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Finish')]"));
         }
         public void ClickCancel()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, 'LocationDetailPanelSet:fred:ToolbarButton') or contains (@id, 'LocationDetailPanelSet:fred:LocationToolbarButtonSet:ToolbarButton') or contains(@id, ':Cancel') or contains(@id, 'BOPSingleBuildingDetailScreen:ToolbarButton') or contains(@id, 'CancelButton')] | //span[contains(@id, ':Cancel-btnInnerEl')] | //span[contains(@id, 'HOBuilding_FBMPopup:ToolbarButton')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, 'LocationDetailPanelSet:fred:ToolbarButton') or contains (@id, 'LocationDetailPanelSet:fred:LocationToolbarButtonSet:ToolbarButton') or contains(@id, ':Cancel') or contains(@id, 'BOPSingleBuildingDetailScreen:ToolbarButton') or contains(@id, 'CancelButton')] | //span[contains(@id, ':Cancel-btnInnerEl')] | //span[contains(@id, 'HOBuilding_FBMPopup:ToolbarButton')]"));
         }
 
         public void ClickEdit()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':EditLink') or contains(@id, ':Edit') or contains(@id, ':editbutton') or contains(@id, 'viewEdit_LinkAsBtn')]"));
-            waitForPostBack();
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':EditLink') or contains(@id, ':Edit') or contains(@id, ':editbutton') or contains(@id, 'viewEdit_LinkAsBtn')]"));
+            WaitForPostBack();
         }
 
         public void ClickReset()
         {
-            clickWhenClickable(By.xpath("//a[contains(@id, ':Reset')]"));
+            ClickWhenClickable(By.XPath("//a[contains(@id, ':Reset')]"));
         }
 
         public void ClickSearch()
         {
-            clickWhenClickable(By.xpath("//a[(contains(@id, ':SearchLinksInputSet:Search')) or contains (@id, ':SearchLinksDocumentsInputSet:Search') or (contains(@id, ':SearchLinksNotesInputSet:Search')) or (contains(@id, 'AdditionalInterestLV_tb:ToolbarButton')) or (contains(@id, 'AddlInterestContactSearchPopup:LienholderSearchPanelSet:Search')) or (contains(@id, ':ABContactSearchScreen:ContactSearchDV:Search')) or (contains(@id, 'SimpleABContactSearch:SimpleSearchScreen:Search')) or (contains(@id, 'RecentlyViewedSearch:Search')) or (contains(@id, 'MenuItem_Search')) or (contains(@id, ':PhoneSearchDV:Search'))] |  //a[(contains(@id, ':InterestAddRemoveToolbarButtonSet:ToolbarButton'))]//span[(contains(text(), 'Search'))] | //*[contains(@id,':AddressSearchScreen:AddressSearchDV:Search')] | //a[contains(@id, 'SearchDV:Search')] | //a[contains(@id, ':LienholderSearchPanelSet:Search')]"));
+            ClickWhenClickable(By.XPath("//a[(contains(@id, ':SearchLinksInputSet:Search')) or contains (@id, ':SearchLinksDocumentsInputSet:Search') or (contains(@id, ':SearchLinksNotesInputSet:Search')) or (contains(@id, 'AdditionalInterestLV_tb:ToolbarButton')) or (contains(@id, 'AddlInterestContactSearchPopup:LienholderSearchPanelSet:Search')) or (contains(@id, ':ABContactSearchScreen:ContactSearchDV:Search')) or (contains(@id, 'SimpleABContactSearch:SimpleSearchScreen:Search')) or (contains(@id, 'RecentlyViewedSearch:Search')) or (contains(@id, 'MenuItem_Search')) or (contains(@id, ':PhoneSearchDV:Search'))] |  //a[(contains(@id, ':InterestAddRemoveToolbarButtonSet:ToolbarButton'))]//span[(contains(text(), 'Search'))] | //*[contains(@id,':AddressSearchScreen:AddressSearchDV:Search')] | //a[contains(@id, 'SearchDV:Search')] | //a[contains(@id, ':LienholderSearchPanelSet:Search')]"));
         }
 
         public void ClickOverride()
         {
             ClickWhenClickable(By.XPath("//a[contains(@id, ':Update')]"));
         }
+
+        public void SetTextAlternateClear(IWebElement textBox, String text)
+        {
+            WaitUntilElementIsClickable(textBox);
+            textBox.SendKeys(Keys.Control + "a");
+            textBox.SendKeys(text);
+            textBox.SendKeys(Keys.Tab);
+        }
+
+        //Not Yet Implemented
+        /** This method will perform a screen capture of the entire screen that has focus in that moment.
+         * @param screenCapName - String screen capture file name to save.
+         * @return - String file path to the screen capture file.
+         */
+        /*public String CaptureScreen(String screenCapName)
+        {
+            String filePath = "C:\\tmp\\screencaps\\";
+            File tempScreenCapsFolder = new File(filePath);
+            if (!tempScreenCapsFolder.exists())
+            {
+                tempScreenCapsFolder.mkdir();
+            }
+
+            String saveFilePath = filePath + screenCapName + ".png";
+            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+            BufferedImage capture = null;
+            try
+            {
+                capture = new Robot().createScreenCapture(screenRect);
+            }
+            catch (AWTException e)
+            {
+                e.printStackTrace();
+
+                return null;
+            }
+
+            try
+            {
+                ImageIO.write(capture, "png", new File(saveFilePath));
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+
+            return saveFilePath;
+        }*/
+    }
 }
