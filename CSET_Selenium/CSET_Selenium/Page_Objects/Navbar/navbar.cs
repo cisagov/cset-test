@@ -1,6 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +10,22 @@ namespace CSET_Selenium.Repository.Navbar
 {
     class navbar : BasePage
     {
+        private readonly IWebDriver driver;
+
         public navbar(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'New Assessment')]")]
-        private readonly IWebElement buttonLandingPage;
+        //Element Locators
+
+        private IWebElement buttonLandingPage
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//span[contains(text(),'New Assessment')]"));
+            }
+        }
 
     }
 }

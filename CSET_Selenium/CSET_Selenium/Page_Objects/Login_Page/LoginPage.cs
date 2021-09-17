@@ -1,6 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +10,55 @@ namespace CSET_Selenium.Repository.Login_Page
 {
     class LoginPage : BasePage
     {
+        private readonly IWebDriver driver;
+
         public LoginPage(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
         //Element Locators
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
-        private readonly IWebElement textboxEmail;
+        private IWebElement textboxEmail
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='password']")]
-        private IWebElement textboxPassword;
+        private IWebElement textboxPassword
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='password']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Login')]")]
-        private IWebElement buttonLogin;
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Forgot Password')]")]
-        private IWebElement textlinkForgotPassword;
+        private IWebElement buttonLogin
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Register New User Account')]")]
-        private IWebElement textlinkRegisterNewUserAccount;
+        private IWebElement textlinkForgotPassword
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//a[contains(text(),'Forgot Password')]"));
+            }
+        }
 
+        private IWebElement textlinkRegisterNewUserAccount
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//a[contains(text(),'Register New User Account')]"));
+            }
+        }
 
         //Interaction Methods
 

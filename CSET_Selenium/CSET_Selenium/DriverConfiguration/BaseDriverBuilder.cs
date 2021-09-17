@@ -51,7 +51,9 @@ namespace CSET_Selenium.DriverConfiguration
                 cf.GetChromeOptions().AddArgument("disable-popup-blocking");
                 cf.GetChromeOptions().AddArgument("start-maximized");
                 cf.GetChromeOptions().AddArgument("disable-infobars");
-                driver = new ChromeDriver(cf.GetChromeOptions());
+                cf.GetChromeOptions().AddArgument("no-sandbox");
+                //driver = new ChromeDriver(cf.GetChromeOptions());
+                driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), cf.GetChromeOptions(), TimeSpan.FromMinutes(3));
             }
             else if (cf.GetBrowser().Equals(Browsers.Edge))
             {
@@ -70,6 +72,7 @@ namespace CSET_Selenium.DriverConfiguration
             }
             if (driver != null)
             {
+                driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(cf.GetPageLoadTimeoutInSeconds()));
                 driver.Navigate().GoToUrl(cf.GetUrl());
                 new WaitUtils(driver).WaitForPageLoad();
             }

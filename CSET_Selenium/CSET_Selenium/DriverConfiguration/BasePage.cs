@@ -127,7 +127,7 @@ namespace CSET_Selenium.DriverConfiguration
             WaitUntilElementIsClickable(textBox);
             textBox.Clear();
             textBox.SendKeys(text);
-            ClickProductLogo();
+            //ClickProductLogo();
             WaitForPostBack();
         }
 

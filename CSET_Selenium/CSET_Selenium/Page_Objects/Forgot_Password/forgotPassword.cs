@@ -1,6 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,24 +10,54 @@ namespace CSET_Selenium.Repository.Forgot_Password
 {
     class ForgotPassword : BasePage
     {
+        private readonly IWebDriver driver;
+
         public ForgotPassword(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
-        private readonly IWebElement textboxEmail;
+        //Element Locators
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Next')]")]
-        private readonly IWebElement buttonNext;
+        private IWebElement textboxEmail
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Login')]")]
-        private readonly IWebElement textlinkLogin;
+        private IWebElement buttonNext
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//button[contains(text(),'Next')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='questionAnswer']")]
-        private readonly IWebElement textboxSecurityQuestionAnswer;
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Reset Password')]")]
-        private readonly IWebElement buttonResetPassword;
+        private IWebElement textlinkLogin
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//a[contains(text(),'Login')]"));
+            }
+        }
+
+        private IWebElement textboxSecurityQuestionAnswer
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='questionAnswer']"));
+            }
+        }
+
+        private IWebElement buttonResetPassword
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//button[contains(text(),'Reset Password')]"));
+            }
+        }
     }
 }

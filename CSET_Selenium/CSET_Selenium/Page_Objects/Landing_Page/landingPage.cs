@@ -1,6 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +10,30 @@ namespace CSET_Selenium.Repository.Landing_Page
 {
     class Landing_Page : BasePage
     {
+        private readonly IWebDriver driver;
+
         public Landing_Page(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
         //Element Locators
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'New Assessment')]/ancestor::button")]
-        private readonly IWebElement buttonNewAssessment;
 
-        [FindsBy(How = How.XPath, Using = "//label[contains(text(),'Import')]")]
-        private readonly IWebElement buttonImportAnExistingAssessment;
+        private IWebElement buttonNewAssessment
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+            }
+        }
+
+        private IWebElement buttonImportAnExistingAssessment
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//label[contains(text(),'Import')]"));
+            }
+        }
 
         //Interaction Methods
 

@@ -29,6 +29,7 @@ namespace CSET_Selenium.DriverConfiguration
         }
 
         private Browsers browser = Browsers.Chrome;
+        private int pageLoadTimeoutInSeconds = 300;
 
         private bool useCustomProfile = false;
         private String customProfilePath = null;
@@ -37,7 +38,7 @@ namespace CSET_Selenium.DriverConfiguration
         private String cookieFileLocation = null;
 
         private bool useBandwidthProxy = false;
-        private int latencyInSeconds = 0;
+        private int latencyInMilliseconds = 0;
 
         private Dictionary<String, Object> customBrowserPrefs = null;
 
@@ -84,6 +85,16 @@ namespace CSET_Selenium.DriverConfiguration
             this.url = url;
         }
 
+        public int GetPageLoadTimeoutInSeconds()
+        {
+            return pageLoadTimeoutInSeconds;
+        }
+
+        public void SetPageLoadTimeoutInSeconds(int pageLoadTimeoutInSeconds)
+        {
+            this.pageLoadTimeoutInSeconds = pageLoadTimeoutInSeconds;
+        }
+
         public String GetCustomProfilePath()
         {
             return customProfilePath;
@@ -116,12 +127,12 @@ namespace CSET_Selenium.DriverConfiguration
 
         public int GetLatencyInMilliseconds()
         {
-            return latencyInSeconds;
+            return latencyInMilliseconds;
         }
 
-        public void SetLatencyInMilliseconds(int latencyInSeconds)
+        public void SetLatencyInMilliseconds(int latencyInMilliseconds)
         {
-            this.latencyInSeconds = latencyInSeconds;
+            this.latencyInMilliseconds = latencyInMilliseconds;
         }
 
         public Dictionary<String, Object> GetCustomBrowserPrefs()

@@ -1,6 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,42 +10,101 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
 {
     class RegisterNewUserAccount : BasePage
     {
+        private readonly IWebDriver driver;
+
         public RegisterNewUserAccount(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='firstName']")]
-        private readonly IWebElement textboxFirstName;
+        //Element Locators
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='lastName']")]
-        private readonly IWebElement textboxLastName;
+        private IWebElement textboxFirstName
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='firstName']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='email']")]
-        private readonly IWebElement textboxEmail;
+        private IWebElement textboxLastName
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='lastName']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='confirmEmail']")]
-        private readonly IWebElement textboxConfirmEmail;
+        private IWebElement textboxEmail
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='securityQustion1']")]
-        private readonly IWebElement dropdownSecurityQustion1;
+        private IWebElement textboxConfirmEmail
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='confirmEmail']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='SecurityAnswer1']")]
-        private readonly IWebElement textboxSecurityAnswer1;
+        private IWebElement dropdownSecurityQustion1
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='securityQustion1']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='securityQustion2']")]
-        private readonly IWebElement dropdownSecurityQustion2;
+        private IWebElement textboxSecurityAnswer1
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='SecurityAnswer1']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='SecurityAnswer2']")]
-        private readonly IWebElement textboxSecurityAnswer2;
+        private IWebElement dropdownSecurityQustion2
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='securityQustion2']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Register')]")]
-        private readonly IWebElement buttonRegister;
+        private IWebElement textboxSecurityAnswer2
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//input[@name='SecurityAnswer2']"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Login')]")]
-        private readonly IWebElement textlinkLogin;
+        private IWebElement buttonRegister
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//button[contains(text(),'Register')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Forgot Password')]")]
-        private readonly IWebElement textlinkForgotPassword;
+        private IWebElement textlinkLogin
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//a[contains(text(),'Login')]"));
+            }
+        }
+
+        private IWebElement textlinkForgotPassword
+        {
+            get
+            {
+                return this.driver.FindElement(By.XPath("//a[contains(text(),'Forgot Password')]"));
+            }
+        }
     }
 }

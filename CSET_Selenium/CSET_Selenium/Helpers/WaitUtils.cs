@@ -87,7 +87,7 @@ namespace CSET_Selenium.Helpers
             bool jqueryLoaded = false;
             bool javaScriptLoaded = false;
 
-            for (var i = 0; i < 60; i++)
+            for (var i = 0; i < 100; i++)
             {
                 try
                 {
