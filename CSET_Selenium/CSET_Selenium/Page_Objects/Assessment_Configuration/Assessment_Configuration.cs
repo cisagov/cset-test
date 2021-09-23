@@ -11,36 +11,77 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 {
     class Assessment_Configuration : BasePage
     {
+        private readonly IWebDriver driver;
+
         public Assessment_Configuration(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name,'email')]")]
-        private readonly IWebElement textboxEmail;
+        //Element Locators
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name, 'date')]")]
-        private readonly IWebElement textboxDate;
+        private IWebElement textboxEmail
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'email')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name, 'facility')]")]
-        private readonly IWebElement textboxFacility;
+        private IWebElement textboxDate
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'date')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name, 'citySite')]")]
-        private readonly IWebElement textboxCitySite;
+        private IWebElement textboxFacility
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'facility')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name, 'stateProvRegion')]")]
-        private readonly IWebElement textboxStateProvRegion;
+        private IWebElement textboxCitySite
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'citySite')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name,'maturity')]")]
-        private readonly IWebElement checkboxMaturity;
+        private IWebElement textboxStateProvRegion
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'stateProvRegion')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name,'standard')]")]
-        private readonly IWebElement checkboxStandard;
+        private IWebElement checkboxMaturity
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'maturity')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//input[contains(@name,'diagram')]")]
-        private readonly IWebElement checkboxDiagram;
+        private IWebElement checkboxStandard
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'standard')]"));
+            }
+        }
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(), 'Next')]")]
-        private readonly IWebElement buttonNext;
+        private IWebElement checkboxDiagram
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'diagram')]"));
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='email']"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='password']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='password']"));
             }
         }
 
@@ -40,7 +40,7 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Login')]"));
             }
         }
 
@@ -48,7 +48,7 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//a[contains(text(),'Forgot Password')]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(),'Forgot Password')]"));
             }
         }
 
@@ -56,7 +56,7 @@ namespace CSET_Selenium.Repository.Login_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//a[contains(text(),'Register New User Account')]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(),'Register New User Account')]"));
             }
         }
 
@@ -64,12 +64,14 @@ namespace CSET_Selenium.Repository.Login_Page
 
         private void SetEmail(String email)
         {
-            SetText(textboxEmail, email);
+            ClickWhenClickable(textboxEmail);
+            textboxEmail.SendKeys(email);
         }
 
         private void SetPassword(String password)
         {
-            SetText(textboxPassword, password);
+            ClickWhenClickable(textboxPassword);
+            textboxPassword.SendKeys(password);
         }
 
         private void ClickLoginButton()

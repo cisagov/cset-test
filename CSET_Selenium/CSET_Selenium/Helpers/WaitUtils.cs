@@ -84,45 +84,171 @@ namespace CSET_Selenium.Helpers
 
         public bool WaitForPageLoad()
         {
-            bool jqueryLoaded = false;
-            bool javaScriptLoaded = false;
+            return WaitUntilJSReady() && AjaxComplete() && WaitUntilJQueryReady() && WaitUntilAngularReady() && WaitUntilAngular5Ready();
+        }
 
-            for (var i = 0; i < 100; i++)
+        private bool AjaxComplete()
+        {
+            return (bool)(driver as IJavaScriptExecutor).ExecuteScript("var callback = arguments[arguments.length - 1];"
+                + "var xhr = new XMLHttpRequest();" + "xhr.open('GET', '/Ajax_call', true);"
+                + "xhr.onreadystatechange = function() {" + "  if (xhr.readyState == 4) {"
+                + "    callback(xhr.responseText);" + "  }" + "};" + "xhr.send();");
+        }
+
+        private bool WaitForJQueryLoad()
+        {
+            try
             {
-                try
+                Func<IWebDriver, bool> jQueryLoad = webDriver => (bool)(driver as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0");
+                bool jqueryReady = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0");
+                if (!jqueryReady)
                 {
-                    jqueryLoaded = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0");
-                    if (jqueryLoaded)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Thread.Sleep(1000);
-                    }
-                } catch (Exception)
+                    return NewWait().Until(jQueryLoad);
+                } else
                 {
-                    //jQuery Does Not Exist on Page
-                    jqueryLoaded = true;
-                    break;
+                    return true;
                 }
             }
-
-            for (var i = 0; i < 60; i++)
+            catch (WebDriverException) //JQuery does not exist on page. Return true.
             {
-                javaScriptLoaded = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return document.readyState").Equals("complete");
-                if (javaScriptLoaded)
+                return true;
+            }
+        }
+
+        private bool WaitForAngularLoad()
+        {
+            try
+            {
+                Func<IWebDriver, bool> angularLoad = webDriver => (bool)(driver as IJavaScriptExecutor).ExecuteScript("return angular.element(document).injector().get('$http').pendingRequests.length === 0");
+                bool angularReady = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return angular.element(document).injector().get('$http').pendingRequests.length === 0");
+                if (!angularReady)
                 {
-                    break;
+                    return NewWait().Until(angularLoad);
+                } else
+                {
+                    return true;
+                }
+            }
+            catch (WebDriverException) //Angular Does not exist on page. Return true.
+            {
+                return true;
+            }
+        }
+
+        private bool WaitForAngular5Load()
+        {
+            try
+            {
+                Func<IWebDriver, bool> angularLoad = webDriver => (bool)(driver as IJavaScriptExecutor).ExecuteScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
+                bool angularReady = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
+                if (!angularReady)
+                {
+                    return NewWait().Until(angularLoad);
+                } else
+                {
+                    return true;
+                }
+            }
+            catch (WebDriverException) //Angular 5 does not exist on page. Return true.
+            {
+                return true;
+            }
+        }
+
+        private bool WaitUntilJSReady()
+        {
+            try
+            {
+                Func<IWebDriver, bool> jsLoad = webDriver => (bool)(driver as IJavaScriptExecutor).ExecuteScript("return document.readyState").Equals("complete");
+                bool jsReady = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return document.readyState").Equals("complete");
+                if (!jsReady)
+                {
+                    return NewWait().Until(jsLoad);
                 }
                 else
                 {
-                    Thread.Sleep(1000);
+                    return true;
                 }
             }
-
-            return jqueryLoaded && javaScriptLoaded;
+            catch (WebDriverException) //JS does not exist on Page. Return true.
+            {
+                return true;
+            }
         }
+
+        private bool WaitUntilJQueryReady()
+        {
+            var jQueryLoaded = false;
+            bool jQueryDefined = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return typeof jQuery != 'undefined'");
+            if (jQueryDefined)
+            {
+                PollForWaits(20);
+                jQueryLoaded = WaitForJQueryLoad();
+                PollForWaits(20);
+            }
+            return jQueryLoaded;
+        }
+
+        public bool WaitUntilAngularReady()
+        {
+            var angularLoaded = false;
+            try
+            {
+                bool angularUnDefined = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return window.angular === undefined");
+                if (!angularUnDefined)
+                {
+                    bool angularInjectorUnDefined = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return angular.element(document).injector() === undefined");
+                    if (!angularInjectorUnDefined)
+                    {
+                        PollForWaits(20);
+                        angularLoaded = WaitForAngularLoad();
+                        PollForWaits(20);
+                    }
+                }
+                return angularLoaded;
+            }
+            catch (WebDriverException) //Angular does not exist on page. Return true.
+            {
+                return true;
+            }
+        }
+
+        public bool WaitUntilAngular5Ready()
+        {
+            var angular5Loaded = false;
+            try
+            {
+                Object angular5Check = (driver as IJavaScriptExecutor).ExecuteScript("return getAllAngularRootElements()[0].attributes['ng-version']");
+                if (angular5Check != null)
+                {
+                    bool angularPageLoaded = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
+                    if (!angularPageLoaded)
+                    {
+                        PollForWaits(20);
+                        angular5Loaded = WaitForAngular5Load();
+                        PollForWaits(20);
+                    }
+                }
+                return angular5Loaded;
+            }
+            catch (WebDriverException) // Angular 5 does not exist on page. Return true.
+            {
+                return true;
+            }
+        }
+
+        private void PollForWaits(int waitTimeInMiliseconds)
+        {
+            try
+            {
+                Thread.Sleep(waitTimeInMiliseconds);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+
 
         public void WaitForPostBack(int milisecondsToWait = (120*1000))
         {

@@ -23,7 +23,7 @@ namespace CSET_Selenium.Repository.Navbar
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//span[contains(text(),'New Assessment')]"));
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]"));
             }
         }
 

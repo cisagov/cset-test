@@ -11,12 +11,154 @@ namespace CSET_Selenium.Page_Objects.Assessment_Info
 {
     class Assessment_Info : BasePage
     {
+        private readonly IWebDriver driver;
+
         public Assessment_Info(IWebDriver driver) : base(driver)
         {
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, this);
+            this.driver = driver;
         }
 
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'sector')]")]
+        //Element Locators
+
+        private IWebElement editBox_AssessmentName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='name']"));
+            }
+        }
+
+        private IWebElement editBox_AssessmentDate
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='date']"));
+            }
+        }
+
+
+        private IWebElement editBox_FacilityName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='facility']"));
+            }
+        }
+
+        private IWebElement editBox_CityOrSiteName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='citySite']"));
+            }
+        }
+
+        private IWebElement editBox_StateProvinceRegion
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='stateProvRegion']"));
+            }
+        }
+
+        private IWebElement button_AddContact
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Add Contact']/ancestor::button"));
+            }
+        }
+
+        private IWebElement editBox_ContactFirstName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='fName']"));
+            }
+        }
+
+        private IWebElement editBox_ContactLastName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='lName']"));
+            }
+        }
+
+        private IWebElement editBox_ContactEmail
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='email']"));
+            }
+        }
+
+        private IWebElement radioGroup_Role
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[@name='contactRoles']"));
+            }
+        }
+
+        private IWebElement button_ContactSave
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[@type='submit' and text()=' Save ']"));
+            }
+        }
+
+        private IWebElement button_ContactCancel
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[@type='button' and text()=' Cancel ']"));
+            }
+        }
+
+        private IWebElement select_Sector
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//select[@id='sector']"));
+            }
+        }
+
+        private IWebElement select_Industry
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//select[@id='industry']"));
+            }
+        }
+
+        private IWebElement select_AssetValue
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//select[@id='assetValue']"));
+            }
+        }
+
+        private IWebElement select_ExpectedEffort
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//select[@id='size']"));
+            }
+        }
+
+        private IWebElement button_Next
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[text()='Next']"));
+            }
+        }
+
+
+        /*[FindsBy(How = How.XPath, Using = "//select[contains(@id,'sector')]")]
         private readonly IWebElement selectSector;
 
         [FindsBy(How = How.XPath, Using = "//select[contains(@id,'industry')]")]
@@ -50,6 +192,22 @@ namespace CSET_Selenium.Page_Objects.Assessment_Info
         private readonly IWebElement buttonBack;
 
         [FindsBy(How = How.XPath, Using = "//button[contains(text(), 'Next')]")]
-        private readonly IWebElement buttonNext;
+        private readonly IWebElement buttonNext;*/
+
+        //Interaction Methods
+        public void setAssessmentName(String assessmentName)
+        {
+            ClickWhenClickable(editBox_AssessmentName);
+            editBox_AssessmentName.SendKeys(assessmentName);
+        }
+
+        public void setAssessmentDate(DateTime assessmentDate)
+        {
+            ClickWhenClickable(editBox_AssessmentDate);
+            editBox_AssessmentDate.SendKeys(assessmentDate.ToString());
+
+        }
+
+
     }
 }

@@ -23,7 +23,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='email']"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//button[contains(text(),'Next')]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Next')]"));
             }
         }
 
@@ -40,7 +40,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//a[contains(text(),'Login')]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(),'Login')]"));
             }
         }
 
@@ -48,7 +48,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='questionAnswer']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='questionAnswer']"));
             }
         }
 
@@ -56,7 +56,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//button[contains(text(),'Reset Password')]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Reset Password')]"));
             }
         }
     }

@@ -23,7 +23,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='firstName']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='firstName']"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='lastName']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='lastName']"));
             }
         }
 
@@ -39,7 +39,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='email']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='email']"));
             }
         }
 
@@ -47,7 +47,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='confirmEmail']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='confirmEmail']"));
             }
         }
 
@@ -55,7 +55,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='securityQustion1']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='securityQustion1']"));
             }
         }
 
@@ -63,7 +63,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='SecurityAnswer1']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='SecurityAnswer1']"));
             }
         }
 
@@ -71,7 +71,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='securityQustion2']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='securityQustion2']"));
             }
         }
 
@@ -79,7 +79,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//input[@name='SecurityAnswer2']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@name='SecurityAnswer2']"));
             }
         }
 
@@ -87,7 +87,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//button[contains(text(),'Register')]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Register')]"));
             }
         }
 
@@ -95,7 +95,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//a[contains(text(),'Login')]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(),'Login')]"));
             }
         }
 
@@ -103,7 +103,7 @@ namespace CSET_Selenium.Repository.RegisterNewUserAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//a[contains(text(),'Forgot Password')]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(),'Forgot Password')]"));
             }
         }
     }

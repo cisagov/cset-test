@@ -489,7 +489,7 @@ namespace CSET_Selenium.DriverConfiguration
 
         public void ClickNext()
         {
-            ClickWhenClickable(By.XPath("//span[contains(@id, ':Next-btnEl') or contains(@id, ':Next-btnInnerEl') or contains(@id, ':nextButton') or contains(@id, 'NewPolicyChange-btnInnerEl')]"));
+            ClickWhenClickable(By.XPath("//button[contains(text(), 'Next')] | //span[contains(@id, ':Next-btnEl') or contains(@id, ':Next-btnInnerEl') or contains(@id, ':nextButton') or contains(@id, 'NewPolicyChange-btnInnerEl')]"));
             WaitForPostBack();
         }
 

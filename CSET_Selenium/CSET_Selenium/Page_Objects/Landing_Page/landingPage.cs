@@ -23,7 +23,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//label[contains(text(),'Import')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(),'Import')]"));
             }
         }
 
