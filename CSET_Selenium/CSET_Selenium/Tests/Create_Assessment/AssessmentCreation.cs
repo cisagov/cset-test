@@ -15,15 +15,15 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
-    class CreateAssessment
+    class AssessmentCreation
     {
         [TestFixture]
-        public class Login : BaseTest
+        public class CreateAssessment : BaseTest
         {
             private IWebDriver driver;
 
             [Test]
-            public void Test()
+            public void CreateNewAssessment()
             {
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = driver = BuildDriver(cf);
@@ -32,7 +32,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
-                Landing_Page createNewAssessment = new Landing_Page(driver);
+                LandingPage createNewAssessment = new LandingPage(driver);
                 createNewAssessment.CreateNewAssessment();
             }
         }

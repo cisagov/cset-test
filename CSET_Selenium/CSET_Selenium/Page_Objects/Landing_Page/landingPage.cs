@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repository.Landing_Page
 {
-    class Landing_Page : BasePage
+    class LandingPage : BasePage
     {
         private readonly IWebDriver driver;
 
-        public Landing_Page(IWebDriver driver) : base(driver)
+        public LandingPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }

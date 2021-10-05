@@ -91,6 +91,7 @@ namespace CSET_Selenium.Repository.Login_Page
 
 
         //Aggregate Methods
+
         public void LoginToCSET(String email, String password)
         {
             SetEmail(email);

@@ -7,15 +7,15 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using CSET_Selenium.DriverConfiguration;
 
-namespace CSET_Selenium.Tests.Login
+namespace CSET_Selenium.Tests.Account_Login
 {
     [TestFixture]
-    public class Login : BaseTest
+    public class AccountLogin : BaseTest
     {
         private IWebDriver driver;
 
         [Test]
-        public void Test()
+        public void Login()
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = driver = BuildDriver(cf);

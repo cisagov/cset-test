@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.Page_Objects.Assessment_Info
+namespace CSET_Selenium.Page_Objects.AssessmentInfo
 {
-    class Assessment_Info : BasePage
+    class AssessmentInfo : BasePage
     {
         private readonly IWebDriver driver;
 
-        public Assessment_Info(IWebDriver driver) : base(driver)
+        public AssessmentInfo(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
@@ -195,19 +195,26 @@ namespace CSET_Selenium.Page_Objects.Assessment_Info
         private readonly IWebElement buttonNext;*/
 
         //Interaction Methods
-        public void setAssessmentName(String assessmentName)
+        private void setAssessmentName(String assessmentName)
         {
             ClickWhenClickable(editBox_AssessmentName);
             editBox_AssessmentName.SendKeys(assessmentName);
         }
 
-        public void setAssessmentDate(DateTime assessmentDate)
+        private void setAssessmentDate(DateTime assessmentDate)
         {
             ClickWhenClickable(editBox_AssessmentDate);
             editBox_AssessmentDate.SendKeys(assessmentDate.ToString());
 
         }
 
+
+        //Aggregate Methods
+        public void SetAssessmentInformation()
+        {
+
+            ClickNext();
+        }
 
     }
 }

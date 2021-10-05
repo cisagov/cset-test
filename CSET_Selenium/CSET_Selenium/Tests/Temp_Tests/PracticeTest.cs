@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.Tests.Login
+namespace CSET_Selenium.Tests.Temp_Tests
 {
 
     [TestFixture]
@@ -18,7 +18,7 @@ namespace CSET_Selenium.Tests.Login
         private IWebDriver driver;
 
         [Test]
-        public void Test()
+        public void GoogleSearch()
         {
             Console.Write("test case started ");
             //create the reference for the browser
@@ -28,7 +28,7 @@ namespace CSET_Selenium.Tests.Login
             
             IWebElement ele = driver.FindElement(By.Name("q"));
             //enter the value in the google search text box  
-            ele.SendKeys("javatpoint tutorials");
+            ele.SendKeys("Selenium C#");
             //identify the google search button  
             IWebElement ele1 = driver.FindElement(By.Name("btnK"));
             // click on the Google search button  

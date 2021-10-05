@@ -84,12 +84,13 @@ namespace CSET_Selenium.Helpers
 
         public bool WaitForPageLoad()
         {
-            return WaitUntilJSReady() && AjaxComplete() && WaitUntilJQueryReady() && WaitUntilAngularReady() && WaitUntilAngular5Ready();
+            AjaxComplete();
+            return WaitUntilJSReady() && WaitUntilJQueryReady() && WaitUntilAngularReady() && WaitUntilAngular5Ready();
         }
 
-        private bool AjaxComplete()
+        private void AjaxComplete()
         {
-            return (bool)(driver as IJavaScriptExecutor).ExecuteScript("var callback = arguments[arguments.length - 1];"
+            (driver as IJavaScriptExecutor).ExecuteScript("var callback = arguments[arguments.length - 1];"
                 + "var xhr = new XMLHttpRequest();" + "xhr.open('GET', '/Ajax_call', true);"
                 + "xhr.onreadystatechange = function() {" + "  if (xhr.readyState == 4) {"
                 + "    callback(xhr.responseText);" + "  }" + "};" + "xhr.send();");

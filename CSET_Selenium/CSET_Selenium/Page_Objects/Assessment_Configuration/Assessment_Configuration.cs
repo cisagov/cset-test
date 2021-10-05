@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 {
-    class Assessment_Configuration : BasePage
+    class AssessmentConfiguration : BasePage
     {
         private readonly IWebDriver driver;
 
-        public Assessment_Configuration(IWebDriver driver) : base(driver)
+        public AssessmentConfiguration(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
 
         //Element Locators
 
-        private IWebElement textboxEmail
+        private IWebElement textboxAssessmentName
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'email')]"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'name')]"));
             }
         }
 
-        private IWebElement textboxDate
+        private IWebElement textboxAssessmentDate
         {
             get
             {
@@ -36,7 +36,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxFacility
+        private IWebElement textboxFacilityName
         {
             get
             {
@@ -44,7 +44,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxCitySite
+        private IWebElement textboxCitySiteName
         {
             get
             {
@@ -76,12 +76,103 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement checkboxDiagram
+        private IWebElement checkboxNetworkDiagram
         {
             get
             {
                 return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'diagram')]"));
             }
         }
+
+
+        //Interaction Methods
+
+        private void SetAssessmentName(String assessmentName)
+        {
+            ClickWhenClickable(textboxAssessmentName);
+            textboxAssessmentName.Clear();            
+            textboxAssessmentName.SendKeys(assessmentName);
+        }
+
+        private void SetAssessmentDate(String assessmentDate)
+        {
+            ClickWhenClickable(textboxAssessmentDate);
+            //SendArbitraryKeys(Keys.Escape);
+            //textboxAssessmentDate.Clear();
+            //textboxAssessmentDate.SendKeys(Keys.Escape);
+            SetText(textboxAssessmentDate, assessmentDate);
+            SendArbitraryKeys(Keys.Escape);
+            SendArbitraryKeys(Keys.Tab);
+        }
+
+        private void SetFacilityName(String facilityName)
+        {
+            ClickWhenClickable(textboxFacilityName);
+            textboxFacilityName.SendKeys(facilityName);
+        }
+
+        private void SetCitySiteName(String citySiteName)
+        {
+            ClickWhenClickable(textboxCitySiteName);
+            textboxCitySiteName.SendKeys(citySiteName);
+        }
+
+        private void SetStateProvRegion(String stateProvRegion)
+        {
+            ClickWhenClickable(textboxStateProvRegion);
+            textboxStateProvRegion.SendKeys(stateProvRegion);
+        }
+
+        private void setStandard()
+        {
+            checkboxStandard.Click();
+        }
+
+        private void setNetworkDiagram()
+        {
+            checkboxNetworkDiagram.Click();
+        }
+
+        private void setMaturityModel()
+        {
+            checkboxMaturity.Click();
+        }
+
+
+        //Aggregate Methods
+
+        public void CreateStandardAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            setStandard();
+            ClickNext();
+        }
+
+        public void CreateNetworkDiagramAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            setNetworkDiagram();
+            ClickNext();
+        }
+
+        public void CreateMaturityModelAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            setMaturityModel();
+            ClickNext();
+        }
+
     }
 }
