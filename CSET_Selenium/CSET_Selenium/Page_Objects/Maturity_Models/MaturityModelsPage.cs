@@ -23,7 +23,7 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'ACET')]"));
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'ACET')] | //input[contains(@id, 'acet')]"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CMMC')]"));
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CMMC')] | //input[contains(@id, 'cmmc')]"));
             }
         }
 
@@ -39,7 +39,7 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'EDM')]"));
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'EDM')] | //input[contains(@id, 'edm')]"));
             }
         }
 
@@ -55,7 +55,7 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Ransomware Readiness Assessment')]"));
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Ransomware Readiness Assessment')] | //input[contains(@id, 'rra')]"));
             }
         }
 
