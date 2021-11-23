@@ -25,61 +25,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         {
             private IWebDriver driver;
 
-            [Test]
-            public void EDM()
-            {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
-                driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET"));
 
-                LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
-
-                LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
-
-                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model EDM", "S.T.A.R. Labs", "Star City", "Washington");
-
-                
-
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectEDM();
-
-                //EDM Tutorial Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Practices Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Summary Results Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Relationship Formation Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Relationship Management and Governance Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Service Protection and Sustainment Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Indicator Levels Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //High-Level Assessment Description, Executive Summary & Comments Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Reports Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Feedback Page
-                
-            }
 
             [Test]
             public void ACET()
@@ -119,7 +65,55 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //ACET Dashboard Page
                 assessmentInfo.SetAssessmentInformation();
 
-                //High-Level Assessment Description, Executive Summary & Comments Page
+                //Reports Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Feedback Page
+
+            }
+
+            [Test]
+            public void CMMC()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                driver = BuildDriver(cf);
+                Assert.True(driver.Title.Contains("CSET"));
+
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+
+                LandingPage createNewAssessment = new LandingPage(driver);
+                createNewAssessment.CreateNewAssessment();
+
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model CMMC", "Planet Express", "New New York", "New York");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
+
+                //Maturity Models Page
+                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                maturityModelsPage.SelectCMMC();
+
+                //CMMC Tutorial Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //CMMC Target Level Selection Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Practices Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Target and Achieved Levels Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Level Drill Down Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Compliance Score Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Detailed Gaps List Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //Reports Page
@@ -191,7 +185,101 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //Situatinal Awareness Page
                 assessmentInfo.SetAssessmentInformation();
 
-                //High-Level Assessment Description, Executive Summary & Comments Page
+                //Reports Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Feedback Page
+
+            }
+
+
+            [Test]
+            public void EDM()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                driver = BuildDriver(cf);
+                Assert.True(driver.Title.Contains("CSET"));
+
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+
+                LandingPage createNewAssessment = new LandingPage(driver);
+                createNewAssessment.CreateNewAssessment();
+
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model EDM", "S.T.A.R. Labs", "Star City", "Washington");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
+
+                //Maturity Models Page
+                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                maturityModelsPage.SelectEDM();
+
+                //EDM Tutorial Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Practices Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Summary Results Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Relationship Formation Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Relationship Management and Governance Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Service Protection and Sustainment Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Maturity Indicator Levels Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Reports Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Feedback Page
+
+            }
+
+            [Test]
+            public void RRA()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                driver = BuildDriver(cf);
+                Assert.True(driver.Title.Contains("CSET"));
+
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+
+                LandingPage createNewAssessment = new LandingPage(driver);
+                createNewAssessment.CreateNewAssessment();
+
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model RRA", "Curtis Farms", "Shady Sands", "New California");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
+
+                //Maturity Models Page
+                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                maturityModelsPage.SelectRRA();
+
+                //Ransomeware Readiness Tutorial Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Practices Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Goal Performance Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Assessment Tiers Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Performance Summary Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //Reports Page

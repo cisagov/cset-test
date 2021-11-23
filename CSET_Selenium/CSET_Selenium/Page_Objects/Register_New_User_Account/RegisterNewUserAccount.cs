@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.Repository.RegisterNewUserAccount
+namespace CSET_Selenium.Repository.Register_New_User_Account
 {
     class RegisterNewUserAccount : BasePage
     {

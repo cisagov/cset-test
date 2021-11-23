@@ -94,6 +94,7 @@ namespace CSET_Selenium.Repository.Login_Page
 
         public void LoginToCSET(String email, String password)
         {
+            
             SetEmail(email);
             SetPassword(password);
             ClickLoginButton();

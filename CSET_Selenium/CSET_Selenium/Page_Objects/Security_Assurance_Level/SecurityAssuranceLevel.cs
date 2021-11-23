@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.Page_Objects.Sidebar
+namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 {
-    class Sidebar : BasePage
+    class SecurityAssuranceLevel : BasePage
     {
         private readonly IWebDriver driver;
 
-        public Sidebar(IWebDriver driver) : base(driver)
+        public SecurityAssuranceLevel(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
