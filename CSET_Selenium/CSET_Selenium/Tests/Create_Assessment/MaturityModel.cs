@@ -41,7 +41,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model ACET", "S.T.A.R. Labs", "Star City", "Washington");
+                assessmentConfiguration.CreateMaturityModelAssessment("ACET", "S.T.A.R. Labs", "Star City", "Washington");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
@@ -73,7 +73,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
             }
 
             [Test]
-            public void CMMC()
+            public void CMMCVer1()
             {
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
@@ -86,14 +86,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model CMMC", "Planet Express", "New New York", "New York");
+                assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 1", "Planet Express", "New New York", "New York");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
 
                 //Maturity Models Page
                 MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectCMMC();
+                maturityModelsPage.SelectCMMC1();
 
                 //CMMC Tutorial Page
                 assessmentInfo.SetAssessmentInformation();
@@ -124,6 +124,51 @@ namespace CSET_Selenium.Tests.Create_Assessment
             }
 
             [Test]
+            public void CMMCVer2()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                driver = BuildDriver(cf);
+                Assert.True(driver.Title.Contains("CSET"));
+
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+
+                LandingPage createNewAssessment = new LandingPage(driver);
+                createNewAssessment.CreateNewAssessment();
+
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 2", "Planet Express", "New New York", "New York");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
+
+                //Maturity Models Page
+                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                maturityModelsPage.SelectCMMC2();
+
+                //CMMC Tutorial Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //CMMC Target Level Selection Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Practices Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Performance by Level Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Performance by Domain Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Reports Page
+                assessmentInfo.SetAssessmentInformation();
+
+                //Feedback Page
+
+            }
+
+            [Test]
             public void CRR()
             {
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
@@ -137,7 +182,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model CRR", "S.T.A.R. Labs", "Star City", "Washington");
+                assessmentConfiguration.CreateMaturityModelAssessment("CRR", "S.T.A.R. Labs", "Star City", "Washington");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
@@ -207,7 +252,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model EDM", "S.T.A.R. Labs", "Star City", "Washington");
+                assessmentConfiguration.CreateMaturityModelAssessment("EDM", "S.T.A.R. Labs", "Star City", "Washington");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
@@ -258,7 +303,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("Maturity Model RRA", "Curtis Farms", "Shady Sands", "New California");
+                assessmentConfiguration.CreateMaturityModelAssessment("RRA", "Curtis Farms", "Shady Sands", "New California");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();

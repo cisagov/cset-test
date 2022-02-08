@@ -19,7 +19,7 @@ namespace CSET_Selenium.Repository.Login_Page
 
         //Element Locators
 
-        private IWebElement textboxEmail
+        private IWebElement TextboxEmail
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CSET_Selenium.Repository.Login_Page
             }
         }
 
-        private IWebElement textboxPassword
+        private IWebElement TextboxPassword
         {
             get
             {
@@ -36,7 +36,7 @@ namespace CSET_Selenium.Repository.Login_Page
         }
 
 
-        private IWebElement buttonLogin
+        private IWebElement ButtonLogin
         {
             get
             {
@@ -44,7 +44,7 @@ namespace CSET_Selenium.Repository.Login_Page
             }
         }
 
-        private IWebElement textlinkForgotPassword
+        private IWebElement TextlinkForgotPassword
         {
             get
             {
@@ -52,7 +52,7 @@ namespace CSET_Selenium.Repository.Login_Page
             }
         }
 
-        private IWebElement textlinkRegisterNewUserAccount
+        private IWebElement TextlinkRegisterNewUserAccount
         {
             get
             {
@@ -64,29 +64,29 @@ namespace CSET_Selenium.Repository.Login_Page
 
         private void SetEmail(String email)
         {
-            ClickWhenClickable(textboxEmail);
-            textboxEmail.SendKeys(email);
+            ClickWhenClickable(TextboxEmail);
+            TextboxEmail.SendKeys(email);
         }
 
         private void SetPassword(String password)
         {
-            ClickWhenClickable(textboxPassword);
-            textboxPassword.SendKeys(password);
+            ClickWhenClickable(TextboxPassword);
+            TextboxPassword.SendKeys(password);
         }
 
         private void ClickLoginButton()
         {
-            ClickWhenClickable(buttonLogin);
+            ClickWhenClickable(ButtonLogin);
         }
 
         private void ClickForgotPasswordButton()
         {
-            ClickWhenClickable(textlinkForgotPassword);
+            ClickWhenClickable(TextlinkForgotPassword);
         }
 
         private void ClickRegisterNewUserButton()
         {
-            ClickWhenClickable(textlinkRegisterNewUserAccount);
+            ClickWhenClickable(TextlinkRegisterNewUserAccount);
         }
 
 

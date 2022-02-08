@@ -19,191 +19,105 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         //Element Locators
 
-        private IWebElement editBox_AssessmentName
+        private IWebElement DropdownSector
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='name']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'sector')]"));
             }
         }
 
-        private IWebElement editBox_AssessmentDate
+        private IWebElement DropdownIndustry
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='date']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'industry')]"));
             }
         }
 
-
-        private IWebElement editBox_FacilityName
+        private IWebElement DropdownAssetValue
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='facility']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'assetValue')]"));
             }
         }
 
-        private IWebElement editBox_CityOrSiteName
+        private IWebElement DropdownExpectedEffort
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='citySite']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'size')]"));
             }
         }
 
-        private IWebElement editBox_StateProvinceRegion
+        private IWebElement TextboxOrganizationName
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='stateProvRegion']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'edmOrganizationName')]"));
             }
         }
 
-        private IWebElement button_AddContact
+        private IWebElement TextboxAgency
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()='Add Contact']/ancestor::button"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'edmAgency')]"));
             }
         }
 
-        private IWebElement editBox_ContactFirstName
+        private IWebElement DropdownOrganizationType
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='fName']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'edmOrganizationType')]"));
             }
         }
 
-        private IWebElement editBox_ContactLastName
+        private IWebElement DropdownFacilitator
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='lName']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'edmFacilitator')]"));
             }
         }
 
-        private IWebElement editBox_ContactEmail
+        private IWebElement TextboxCriticalService
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@id='email']"));
+                return WaitUntilElementIsVisible(By.XPath("//textarea[contains(@name,'criticalService')]"));
             }
         }
 
-        private IWebElement radioGroup_Role
+        private IWebElement DropdownPointOfContact
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[@name='contactRoles']"));
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name,'critSvcPointOfContact')]"));
             }
         }
 
-        private IWebElement button_ContactSave
+        private IWebElement CheckboxScoped
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//button[@type='submit' and text()=' Save ']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'edmIsScoped')]"));
             }
         }
-
-        private IWebElement button_ContactCancel
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//button[@type='button' and text()=' Cancel ']"));
-            }
-        }
-
-        private IWebElement select_Sector
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//select[@id='sector']"));
-            }
-        }
-
-        private IWebElement select_Industry
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//select[@id='industry']"));
-            }
-        }
-
-        private IWebElement select_AssetValue
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//select[@id='assetValue']"));
-            }
-        }
-
-        private IWebElement select_ExpectedEffort
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//select[@id='size']"));
-            }
-        }
-
-        private IWebElement button_Next
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//button[text()='Next']"));
-            }
-        }
-
-
-        /*[FindsBy(How = How.XPath, Using = "//select[contains(@id,'sector')]")]
-        private readonly IWebElement selectSector;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'industry')]")]
-        private readonly IWebElement selectIndustry;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'assetValue')]")]
-        private readonly IWebElement selectAssetValue;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'size')]")]
-        private readonly IWebElement selectSize;
-
-        [FindsBy(How = How.XPath, Using = "//input[contains(@id,'OrganizationName')]")]
-        private readonly IWebElement textboxOrgName;
-
-        [FindsBy(How = How.XPath, Using = "//input[contains(@id,'Agency')]")]
-        private readonly IWebElement textboxAgency;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'OrganizationType')]")]
-        private readonly IWebElement selectOrgType;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'Facilitator')]")]
-        private readonly IWebElement selectFacilitator;
-
-        [FindsBy(How = How.XPath, Using = "//select[contains(@id,'PointOfContact')]")]
-        private readonly IWebElement selectPointOfContact;
-
-        [FindsBy(How = How.XPath, Using = "//input[contains(@id,'IsScoped')]")]
-        private readonly IWebElement checkboxIsScoped;
-        
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(), 'Back')]")]
-        private readonly IWebElement buttonBack;
-
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(), 'Next')]")]
-        private readonly IWebElement buttonNext;*/
 
         //Interaction Methods
-        private void setAssessmentName(String assessmentName)
+        private void SetAssessmentName(String assessmentName)
         {
-            ClickWhenClickable(editBox_AssessmentName);
-            editBox_AssessmentName.SendKeys(assessmentName);
+//            ClickWhenClickable(editBox_AssessmentName);
+  //          editBox_AssessmentName.SendKeys(assessmentName);
         }
 
-        private void setAssessmentDate(DateTime assessmentDate)
+        private void SetAssessmentDate(DateTime assessmentDate)
         {
-            ClickWhenClickable(editBox_AssessmentDate);
-            editBox_AssessmentDate.SendKeys(assessmentDate.ToString());
+            //ClickWhenClickable(editBox_AssessmentDate);
+            //editBox_AssessmentDate.SendKeys(assessmentDate.ToString());
 
         }
 

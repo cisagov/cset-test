@@ -19,7 +19,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
         //Element Locators
 
-        private IWebElement checkboxNerc_CIP_Rev6
+        private IWebElement CheckboxNerc_CIP_Rev6
         {
             get
             {
@@ -30,9 +30,9 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
         //Interaction Methods
 
-        private void setNerc_CIP_Rev6()
+        private void Nerc_CIP_Rev6()
         {
-            checkboxNerc_CIP_Rev6.Click();
+            CheckboxNerc_CIP_Rev6.Click();
         }
 
 
@@ -42,7 +42,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
         public void SetNerc_CIP_Rev6()
         {
-            setNerc_CIP_Rev6();
+            Nerc_CIP_Rev6();
             ClickNext();
         }
     }

@@ -19,7 +19,7 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         //Element Locators
 
-        private IWebElement buttonNewAssessment
+        private IWebElement ButtonNewAssessment
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CSET_Selenium.Repository.Landing_Page
             }
         }
 
-        private IWebElement buttonImportAnExistingAssessment
+        private IWebElement ButtonImportAnExistingAssessment
         {
             get
             {
@@ -39,12 +39,12 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         private void ClickNewAssessmentButton()
         {
-            buttonNewAssessment.Click();
+            ButtonNewAssessment.Click();
         }
 
         private void ClickImportAnExistingAssessmentButton()
         {
-            buttonImportAnExistingAssessment.Click();
+            ButtonImportAnExistingAssessment.Click();
         }
 
 

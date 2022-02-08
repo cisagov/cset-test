@@ -19,7 +19,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
 
         //Element Locators
 
-        private IWebElement textboxEmail
+        private IWebElement TextboxEmail
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
             }
         }
 
-        private IWebElement buttonNext
+        private IWebElement ButtonNext
         {
             get
             {
@@ -36,7 +36,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
         }
 
 
-        private IWebElement textlinkLogin
+        private IWebElement TextlinkLogin
         {
             get
             {
@@ -44,7 +44,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
             }
         }
 
-        private IWebElement textboxSecurityQuestionAnswer
+        private IWebElement TextboxSecurityQuestionAnswer
         {
             get
             {
@@ -52,7 +52,7 @@ namespace CSET_Selenium.Repository.Forgot_Password
             }
         }
 
-        private IWebElement buttonResetPassword
+        private IWebElement ButtonResetPassword
         {
             get
             {

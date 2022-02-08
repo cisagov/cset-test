@@ -27,11 +27,19 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
             }
         }
 
-        private IWebElement CardCMMC
+        private IWebElement CardCMMCVer1
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CMMC')] | //input[contains(@id, 'cmmc')]"));
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'(CMMC) 1')] | //input[contains(@id, 'cmmc')]"));
+            }
+        }
+
+        private IWebElement CardCMMCVer2
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CMMC 2')]"));
             }
         }
 
@@ -66,9 +74,14 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
             CardACET.Click();
         }
 
-        private void ClickCMMC()
+        private void ClickCMMC1()
         {
-            CardCMMC.Click();
+            CardCMMCVer1.Click();
+        }
+
+        private void ClickCMMC2()
+        {
+            CardCMMCVer2.Click();
         }
 
         private void ClickEDM()
@@ -95,9 +108,15 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
             ClickNext();
         }
 
-        public void SelectCMMC()
+        public void SelectCMMC1()
         {
-            ClickCMMC();
+            ClickCMMC1();
+            ClickNext();
+        }
+
+        public void SelectCMMC2()
+        {
+            ClickCMMC2();
             ClickNext();
         }
 

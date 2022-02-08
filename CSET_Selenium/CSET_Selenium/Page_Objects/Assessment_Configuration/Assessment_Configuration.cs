@@ -19,7 +19,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         //Element Locators
 
-        private IWebElement textboxAssessmentName
+        private IWebElement TextboxAssessmentName
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxAssessmentDate
+        private IWebElement TextboxAssessmentDate
         {
             get
             {
@@ -35,7 +35,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxFacilityName
+        private IWebElement TextboxFacilityName
         {
             get
             {
@@ -43,7 +43,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxCitySiteName
+        private IWebElement TextboxCitySiteName
         {
             get
             {
@@ -51,7 +51,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement textboxStateProvRegion
+        private IWebElement TextboxStateProvRegion
         {
             get
             {
@@ -59,7 +59,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement checkboxMaturity
+        private IWebElement CheckboxMaturity
         {
             get
             {
@@ -67,7 +67,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement checkboxStandard
+        private IWebElement CheckboxStandard
         {
             get
             {
@@ -75,7 +75,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
-        private IWebElement checkboxNetworkDiagram
+        private IWebElement CheckboxNetworkDiagram
         {
             get
             {
@@ -88,53 +88,53 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         private void SetAssessmentName(String assessmentName)
         {
-            ClickWhenClickable(textboxAssessmentName);
-            textboxAssessmentName.Clear();            
-            textboxAssessmentName.SendKeys(assessmentName);
+            ClickWhenClickable(TextboxAssessmentName);
+            TextboxAssessmentName.Clear();            
+            TextboxAssessmentName.SendKeys(assessmentName);
         }
 
         private void SetAssessmentDate(String assessmentDate)
         {
-            ClickWhenClickable(textboxAssessmentDate);
+            ClickWhenClickable(TextboxAssessmentDate);
             //SendArbitraryKeys(Keys.Escape);
             //textboxAssessmentDate.Clear();
             //textboxAssessmentDate.SendKeys(Keys.Escape);
-            SetText(textboxAssessmentDate, assessmentDate);
+            SetText(TextboxAssessmentDate, assessmentDate);
             SendArbitraryKeys(Keys.Escape);
             SendArbitraryKeys(Keys.Tab);
         }
 
         private void SetFacilityName(String facilityName)
         {
-            ClickWhenClickable(textboxFacilityName);
-            textboxFacilityName.SendKeys(facilityName);
+            ClickWhenClickable(TextboxFacilityName);
+            TextboxFacilityName.SendKeys(facilityName);
         }
 
         private void SetCitySiteName(String citySiteName)
         {
-            ClickWhenClickable(textboxCitySiteName);
-            textboxCitySiteName.SendKeys(citySiteName);
+            ClickWhenClickable(TextboxCitySiteName);
+            TextboxCitySiteName.SendKeys(citySiteName);
         }
 
         private void SetStateProvRegion(String stateProvRegion)
         {
-            ClickWhenClickable(textboxStateProvRegion);
-            textboxStateProvRegion.SendKeys(stateProvRegion);
+            ClickWhenClickable(TextboxStateProvRegion);
+            TextboxStateProvRegion.SendKeys(stateProvRegion);
         }
 
-        private void setStandard()
+        private void SetStandard()
         {
-            checkboxStandard.Click();
+            CheckboxStandard.Click();
         }
 
-        private void setNetworkDiagram()
+        private void SetNetworkDiagram()
         {
-            checkboxNetworkDiagram.Click();
+            CheckboxNetworkDiagram.Click();
         }
 
-        private void setMaturityModel()
+        private void SetMaturityModel()
         {
-            checkboxMaturity.Click();
+            CheckboxMaturity.Click();
         }
 
 
@@ -147,7 +147,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            setStandard();
+            SetStandard();
             ClickNext();
         }
 
@@ -158,7 +158,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            setNetworkDiagram();
+            SetNetworkDiagram();
             ClickNext();
         }
 
@@ -169,7 +169,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            setMaturityModel();
+            SetMaturityModel();
             ClickNext();
         }
 

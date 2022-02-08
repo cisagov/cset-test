@@ -19,7 +19,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
 
         //Element Locators
 
-        private IWebElement textboxFirstName
+        private IWebElement TextboxFirstName
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textboxLastName
+        private IWebElement TextboxLastName
         {
             get
             {
@@ -35,7 +35,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textboxEmail
+        private IWebElement TextboxEmail
         {
             get
             {
@@ -43,7 +43,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textboxConfirmEmail
+        private IWebElement TextboxConfirmEmail
         {
             get
             {
@@ -51,7 +51,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement dropdownSecurityQustion1
+        private IWebElement DropdownSecurityQustion1
         {
             get
             {
@@ -59,7 +59,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textboxSecurityAnswer1
+        private IWebElement TextboxSecurityAnswer1
         {
             get
             {
@@ -67,7 +67,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement dropdownSecurityQustion2
+        private IWebElement DropdownSecurityQustion2
         {
             get
             {
@@ -75,7 +75,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textboxSecurityAnswer2
+        private IWebElement TextboxSecurityAnswer2
         {
             get
             {
@@ -83,7 +83,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement buttonRegister
+        private IWebElement ButtonRegister
         {
             get
             {
@@ -91,7 +91,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textlinkLogin
+        private IWebElement TextlinkLogin
         {
             get
             {
@@ -99,7 +99,7 @@ namespace CSET_Selenium.Repository.Register_New_User_Account
             }
         }
 
-        private IWebElement textlinkForgotPassword
+        private IWebElement TextlinkForgotPassword
         {
             get
             {
