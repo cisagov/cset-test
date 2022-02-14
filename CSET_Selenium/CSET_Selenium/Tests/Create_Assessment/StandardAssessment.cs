@@ -2,6 +2,7 @@
 using CSET_Selenium.Page_Objects.Assessment_Configuration;
 using CSET_Selenium.Page_Objects.AssessmentInfo;
 using CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection;
+using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Repository.Landing_Page;
 using CSET_Selenium.Repository.Login_Page;
 using NUnit.Framework;
@@ -45,7 +46,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 assessmentInfo.SetAssessmentInformation();
 
                 //SAL Page
-                assessmentInfo.SetAssessmentInformation();
+                SecurityAssuranceLevel securityAssuranceLevel = new SecurityAssuranceLevel(driver);
+                securityAssuranceLevel.SelectHeaderNist();
+                securityAssuranceLevel.SelectHeaderGeneralRiskBased();
+                securityAssuranceLevel.SelectHeaderSimple();
+   
 
                 //Cybersecurity Standards Selection Page
                 CybersecurityStandardsSelection cybersecurityStandardsSelection = new CybersecurityStandardsSelection(driver);
