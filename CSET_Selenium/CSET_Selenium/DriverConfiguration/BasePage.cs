@@ -80,6 +80,45 @@ namespace CSET_Selenium.DriverConfiguration
             }
         }
 
+        public Boolean retryButtonClick(IWebElement element)
+        {
+            Boolean result = false;
+            int attempts = 0;
+            while (attempts < 5)
+            {
+                try
+                {
+                    element.Click();
+                    result = true;
+                    break;
+                }
+                catch (StaleElementReferenceException e)
+                {
+                }
+                attempts++;
+            }
+            return result;
+        }
+        public Boolean retryButtonScroll(IWebElement element, Actions actions)
+        {
+            Boolean result = false;
+            int attempts = 0;
+            while (attempts < 2)
+            {
+                try
+                {
+                    actions.MoveToElement(element).Perform();
+                    result = true;
+                    break;
+                }
+                catch (StaleElementReferenceException e)
+                {
+                }
+                attempts++;
+            }
+            return result;
+        }
+
         public bool ClickIfAvailable(IWebElement ele)
         {
             if (CheckIfElementExists(ele, 5))
@@ -225,7 +264,7 @@ namespace CSET_Selenium.DriverConfiguration
         {
             String popUpTextContents = "";
             popUpTextContents = Find(By.XPath("//div[contains(@id, 'messagebox-1001-displayfield-inputEl')]")).Text;
-            IWebElement okButton = Find(By.XPath("//div[contains(@id,'messagebox-1001')]//div//a[contains(.,'OK')]"));
+            IWebElement okButton = Find(By.XPath("//div[contains(@id,'messagebox-1001')]//div//a[contains(.,'OK')] | //*[@id='mat-dialog-2']/app-okay/div/mat-dialog-actions/button"));
             IWebElement cancelButton = Find(By.XPath("//div[contains(@id,'messagebox-1001')]//div//a[contains(.,'Cancel')]"));
 
             switch (okOrCancel)
