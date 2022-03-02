@@ -111,7 +111,7 @@ namespace CSET_Selenium.DriverConfiguration
                     result = true;
                     break;
                 }
-                catch (StaleElementReferenceException e)
+                catch (StaleElementReferenceException e1)
                 {
                 }
                 attempts++;
