@@ -135,6 +135,7 @@
     <Compile Include="Page_Objects\Assessment_Info\Assessment_Info.cs" />
     <Compile Include="Page_Objects\Cybersecurity_Standards_Selection\CybersecurityStandardsSelection.cs" />
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
+    <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
     <Compile Include="Page_Objects\Security_Assurance_Level\SecurityAssuranceLevel.cs" />
     <Compile Include="Page_Objects\Sidebar\Sidebar.cs" />
     <Compile Include="Page_Objects\Target_Level_Selection\TargetLevelSelectionCMMC2.cs" />

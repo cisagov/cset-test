@@ -26,7 +26,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[5]/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[5]/label[1]"));
             }
         }
 
@@ -34,7 +34,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(),'General Risk Based')]"));
+                return this.driver.FindElement(By.XPath("//label[contains(text(),'General Risk Based')]"));
             }
         }
 
@@ -42,7 +42,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(),'NIST-60 / FIPS-199')]"));
+                return this.driver.FindElement(By.XPath("//label[contains(text(),'NIST-60 / FIPS-199')]"));
             }
         }
 
@@ -51,7 +51,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Low')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Low')]"));
             }
         }
 
@@ -59,21 +59,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Moderate')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Moderate')]"));
             }
         }
         private IWebElement TextHeaderOverallSalHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
             }
         }
         private IWebElement TextHeaderOverallSalVeryHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Very High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Very High')]"));
             }
         }
 
@@ -82,7 +82,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Low')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Low')]"));
             }
         }
 
@@ -90,21 +90,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Moderate')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Moderate')]"));
             }
         }
         private IWebElement TextHeaderConfidentialityHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
             }
         }
         private IWebElement TextHeaderConfidentialityVeryHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Very High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Very High')]"));
             }
         }
         //integrity
@@ -112,7 +112,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Low')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Low')]"));
             }
         }
 
@@ -120,21 +120,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Moderate')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Moderate')]"));
             }
         }
         private IWebElement TextHeaderIntegrityHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Integrity')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
             }
         }
         private IWebElement TextHeaderIntegrityVeryHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Very High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Very High')]"));
             }
         }
 
@@ -143,7 +143,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Low')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Low')]"));
             }
         }
 
@@ -151,21 +151,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Moderate')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Moderate')]"));
             }
         }
         private IWebElement TextHeaderAvailabilityHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Availability')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
             }
         }
         private IWebElement TextHeaderAvailabilityVeryHigh
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Very High')]"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Very High')]"));
             }
         }
 
@@ -174,7 +174,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper/.//div"));
+                return this.driver.FindElement(By.XPath("/html/body/app-root/layout-main/div/div[1]/div/div/app-assessment/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/app-prepare/app-sals/div/div/div[6]/div/app-sal-gen/div[3]/div/div/ngx-slider[1]/span[12]/span[1]/ngx-slider-tooltip-wrapper/div"));
             }
         }
 
@@ -182,7 +182,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-gen/div[3]/div/div/ngx-slider[1]/span[12]/span[2]/ngx-slider-tooltip-wrapper"));
             }
         }
 
@@ -998,14 +998,14 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Air Transportation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Air Transportation']"));
             }
         }
         private IWebElement CheckboxNistAssetLiabilityManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Asset and Liability Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Asset and Liability Management']"));
             }
         }
 
@@ -1013,7 +1013,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Execution']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Execution']"));
             }
         }
 
@@ -1021,7 +1021,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Formulation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Formulation']"));
             }
         }
 
@@ -1029,126 +1029,126 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budgeting & Performance Integration']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budgeting & Performance Integration']"));
             }
         }
         private IWebElement CheckboxNistCapitalPlan
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Capital Planning']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Capital Planning']"));
             }
         }
         private IWebElement CheckboxNistCollectReceive
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Collections & Receivables']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Collections & Receivables']"));
             }
         }
         private IWebElement CheckboxNistContingencyPlan
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Contingency Planning']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Contingency Planning']"));
             }
         }
         private IWebElement CheckboxNistContinuityOfOps
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Continuity of Operations']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Continuity of Operations']"));
             }
         }
         private IWebElement CheckboxNistCostAccount
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Cost Accounting/Performance Measurement']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Cost Accounting/Performance Measurement']"));
             }
         }
         private IWebElement CheckboxNistCustomerServices
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Customer Services']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Customer Services']"));
             }
         }
         private IWebElement CheckboxNistDisasterPrep
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Disaster Preparedness & Planning']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Disaster Preparedness & Planning']"));
             }
         }
         private IWebElement CheckboxNistEmergencyResponse
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Emergency Response']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Emergency Response']"));
             }
         }
         private IWebElement CheckboxNistEnergyConservation
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Conservation & Preparedness']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Conservation & Preparedness']"));
             }
         }
         private IWebElement CheckboxNistEnergyProduction
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Production']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Production']"));
             }
         }
         private IWebElement CheckboxNistEnergyResourceManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Resource Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Resource Management']"));
             }
         }
         private IWebElement CheckboxNistEnergySupply
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Supply']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Supply']"));
             }
         }
         private IWebElement CheckboxNistEnterpriseArch
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Enterprise Architecture']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Enterprise Architecture']"));
             }
         }
         private IWebElement CheckboxNistGeneralPurpose
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Monitoring & Forecasting']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Monitoring & Forecasting']"));
             }
         }
         private IWebElement CheckboxNistEnvMonitor
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Remediation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Remediation']"));
             }
         }
         private IWebElement CheckboxNistEnvRemediation
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Facilities Fleet & Equipment Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Facilities Fleet & Equipment Management']"));
             }
         }
         private IWebElement CheckboxNistFacilitiesFleet
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='General Purpose Data & Statistics']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='General Purpose Data & Statistics']"));
             }
         }
 
@@ -1156,315 +1156,315 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Goods Acquisition']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Goods Acquisition']"));
             }
         }
         private IWebElement CheckboxNistGroundTransport
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Ground Transportation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Ground Transportation']"));
             }
         }
         private IWebElement CheckboxNistHelpDesk
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Help Desk Services']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Help Desk Services']"));
             }
         }
         private IWebElement CheckboxNistInfoInfraManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Infrastructure Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Infrastructure Management']"));
             }
         }
         private IWebElement CheckboxNistInfoManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Management']"));
             }
         }
         private IWebElement CheckboxNistInfoSec
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Security']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Security']"));
             }
         }
         private IWebElement CheckboxNistInfoShare
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Sharing']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Sharing']"));
             }
         }
         private IWebElement CheckboxNistIntellectualProperty
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Intellectual Property Protection']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Intellectual Property Protection']"));
             }
         }
         private IWebElement CheckboxNistInventoryControl
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Inventory Control']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Inventory Control']"));
             }
         }
         private IWebElement CheckboxNistKeyAsset
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Key Asset & Critical Infrastructure Protection']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Key Asset & Critical Infrastructure Protection']"));
             }
         }
         private IWebElement CheckboxNistLaborRights
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Labor Rights Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Labor Rights Management']"));
             }
         }
         private IWebElement CheckboxNistLifecycleChange
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Lifecycle/Change Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Lifecycle/Change Management']"));
             }
         }
         private IWebElement CheckboxNistLogisticsManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Logistics Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Logistics Management']"));
             }
         }
         private IWebElement CheckboxNistManagementImprovement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Management Improvement']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Management Improvement']"));
             }
         }
         private IWebElement CheckboxNistManufacturing
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Manufacturing']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Manufacturing']"));
             }
         }
         private IWebElement CheckboxNistOtherFinancial
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Financial']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Financial']"));
             }
         }
         private IWebElement CheckboxNistOtherInfoManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Information Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Information Management']"));
             }
         }
         private IWebElement CheckboxNistOtherManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Management']"));
             }
         }
         private IWebElement CheckboxNistOtherOps
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Operations']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Operations']"));
             }
         }
         private IWebElement CheckboxNistOtherRAndD
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Research & Development']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Research & Development']"));
             }
         }
         private IWebElement CheckboxNistOtherSecurity
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Security']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Security']"));
             }
         }
         private IWebElement CheckboxNistOtherSupportFunc
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Support Functions']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Support Functions']"));
             }
         }
         private IWebElement CheckboxNistPayments
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Payments']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Payments']"));
             }
         }
         private IWebElement CheckboxNistPercentageInraMaint
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Percentage Infrastructure Maintenance']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Percentage Infrastructure Maintenance']"));
             }
         }
         private IWebElement CheckboxNistPermitsAndLicensing
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Permits & Licensing']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Permits & Licensing']"));
             }
         }
         private IWebElement CheckboxNistPollutionPrevention
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Pollution Prevention & Control']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Pollution Prevention & Control']"));
             }
         }
         private IWebElement CheckboxNistProductOutreach
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Product Outreach']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Product Outreach']"));
             }
         }
         private IWebElement CheckboxNistPropertyProtection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Property Protection']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Property Protection']"));
             }
         }
         private IWebElement CheckboxNistPR
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Public Relations']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Public Relations']"));
             }
         }
         private IWebElement CheckboxNistRecordsRetention
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Records Retention']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Records Retention']"));
             }
         }
         private IWebElement CheckboxNistReportingInfo
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Reporting Information']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Reporting Information']"));
             }
         }
         private IWebElement CheckboxNistRAndD
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Research & Development']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Research & Development']"));
             }
         }
         private IWebElement CheckboxNistScientificAndTech
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Scientific & Technological Research & Innovation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Scientific & Technological Research & Innovation']"));
             }
         }
         private IWebElement CheckboxNistSecManagement
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Security Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Security Management']"));
             }
         }
         private IWebElement CheckboxNistServiceRecovery
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Service Recovery']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Service Recovery']"));
             }
         }
         private IWebElement CheckboxNistServicesAcquisition
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Services Acquisition']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Services Acquisition']"));
             }
         }
         private IWebElement CheckboxNistSystemAndNetMonitoring
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System & Networking Monitoring']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System & Networking Monitoring']"));
             }
         }
         private IWebElement CheckboxNistSystemDev
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Development']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Development']"));
             }
         }
         private IWebElement CheckboxNistSystemMaintenance
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Maintenance']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Maintenance']"));
             }
         }
         private IWebElement CheckboxNistTrainingAndEmployment
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Training & Employment']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Training & Employment']"));
             }
         }
         private IWebElement CheckboxNistWaterResource
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Resource Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Resource Management']"));
             }
         }
         private IWebElement CheckboxNistWaterTransport
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Transportation']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Transportation']"));
             }
         }
         private IWebElement CheckboxNistWorkForcePlanning
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Work-Force Planning']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Work-Force Planning']"));
             }
         }
         private IWebElement CheckboxNistWorkerSafety
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Worker Safety']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Worker Safety']"));
             }
         }
         private IWebElement CheckboxNistWorkplacePolicyDev
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Workplace Policy Development & Management']"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Workplace Policy Development & Management']"));
             }
         }
 
@@ -1472,7 +1472,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[3]/a"));
             }
         }
 
@@ -1480,7 +1480,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[3]/a"));
             }
         }
 
@@ -1488,7 +1488,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[3]/a"));
             }
         }
 
@@ -1496,84 +1496,84 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC16
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC18
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC20
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC22
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC23
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC25
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC33
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC51
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC60
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkC65
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[3]/a"));
             }
         }
         private IWebElement NistTableLinkI2
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[4]/a"));
             }
         }
 
@@ -1581,7 +1581,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[4]/a"));
             }
         }
 
@@ -1589,7 +1589,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[4]/a"));
             }
         }
 
@@ -1597,84 +1597,84 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI16
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI18
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI20
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI22
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI23
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI25
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI33
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI51
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI60
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkI65
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[4]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[4]/a"));
             }
         }
         private IWebElement NistTableLinkA2
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[5]/a"));
             }
         }
 
@@ -1682,7 +1682,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[5]/a"));
             }
         }
 
@@ -1690,7 +1690,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[5]/a"));
             }
         }
 
@@ -1698,77 +1698,77 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA16
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA18
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA20
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA22
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA23
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA25
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA33
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA51
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA60
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[5]/a"));
             }
         }
         private IWebElement NistTableLinkA65
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[5]/a"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[5]/a"));
             }
         }
 
@@ -1784,7 +1784,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[1]"));
             }
         }
 
@@ -1792,105 +1792,105 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         { 
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions2Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions2No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions3Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions3No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions4Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions4No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions5Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions5No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions6Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions6No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions7Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions7No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[2]"));
             }
         }
         private IWebElement NistAnswerQuestions8Yes
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[1]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[1]"));
             }
         }
         private IWebElement NistAnswerQuestions8No
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[2]"));
+                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[2]"));
             }
         }
         //Interaction Methods
@@ -3002,66 +3002,66 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         }
 
         //Aggregate Methods
-        public Boolean retryButtonClick(By by)
-        {
-            Boolean result = false;
-            int attempts = 0;
-            while (attempts < 2)
-            {
-                try
-                {
-                    this.driver.FindElement(by).Click();
-                    result = true;
-                    break;
-                }
-                catch (StaleElementReferenceException e)
-                {
-                }
-                attempts++;
-            }
-            return result;
-        }
-        public Boolean retryButtonScroll(By by)
-        {
-            Boolean result = false;
-            int attempts = 0;
-            while (attempts < 2)
-            {
-                try
-                {
-                    this.actions.MoveToElement(driver.FindElement(by)).Perform();
-                    result = true;
-                    break;
-                }
-                catch (StaleElementReferenceException e)
-                {
-                }
-                attempts++;
-            }
-            return result;
-        }
+        //public Boolean retryButtonClick(By by)
+        //{
+        //    Boolean result = false;
+        //    int attempts = 0;
+        //    while (attempts < 2)
+        //    {
+        //        try
+        //        {
+        //            this.driver.FindElement(by).Click();
+        //            result = true;
+        //            break;
+        //        }
+        //        catch (StaleElementReferenceException e)
+        //        {
+        //        }
+        //        attempts++;
+        //    }
+        //    return result;
+        //}
+        //public Boolean retryButtonScroll(By by)
+        //{
+        //    Boolean result = false;
+        //    int attempts = 0;
+        //    while (attempts < 2)
+        //    {
+        //        try
+        //        {
+        //            this.actions.MoveToElement(driver.FindElement(by)).Perform();
+        //            result = true;
+        //            break;
+        //        }
+        //        catch (StaleElementReferenceException e)
+        //        {
+        //        }
+        //        attempts++;
+        //    }
+        //    return result;
+        //}
         public void SelectHeaderSimple()
         {
 
-            retryButtonScroll(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[5]/label[1]"));
-            retryButtonClick(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[5]/label[1]"));
+            retryButtonScroll(TextHeaderSimple, actions);
+            retryButtonClick(TextHeaderSimple);
             //ClickHeaderSimple();
-            SelectHeaderOverallSalLow();
-            SelectHeaderOverallSalModerate();
-            SelectHeaderOverallSalHigh();
-            SelectHeaderOverallSalVeryHigh();
-            SelectHeaderConfidentialityLow();
-            SelectHeaderConfidentialityModerate();
-            SelectHeaderConfidentialityHigh();
-            SelectHeaderConfidentialityVeryHigh();
-            SelectHeaderIntegrityLow();
-            SelectHeaderIntegrityModerate();
-            SelectHeaderIntegrityHigh();
-            SelectHeaderIntegrityVeryHigh();
-            SelectHeaderAvailabilityLow();
-            SelectHeaderAvailabilityModerate();
-            SelectHeaderAvailabilityHigh();
-            SelectHeaderAvailabilityVeryHigh();
+            retryButtonClick(TextHeaderOverallSalLow);
+            retryButtonClick(TextHeaderOverallSalModerate);
+            retryButtonClick(TextHeaderOverallSalHigh);
+            retryButtonClick(TextHeaderOverallSalVeryHigh);
+            retryButtonClick(TextHeaderConfidentialityLow);
+            retryButtonClick(TextHeaderConfidentialityModerate);
+            retryButtonClick(TextHeaderConfidentialityHigh);
+            retryButtonClick(TextHeaderConfidentialityVeryHigh);
+            retryButtonClick(TextHeaderIntegrityLow);
+            retryButtonClick(TextHeaderIntegrityModerate);
+            retryButtonClick(TextHeaderIntegrityHigh);
+            retryButtonClick(TextHeaderIntegrityVeryHigh);
+            retryButtonClick(TextHeaderAvailabilityLow);
+            retryButtonClick(TextHeaderAvailabilityModerate);
+            retryButtonClick(TextHeaderAvailabilityHigh);
+            retryButtonClick(TextHeaderAvailabilityVeryHigh);
             ClickNext();
         }
 
@@ -3069,115 +3069,116 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             this.actions.MoveToElement(driver.FindElement(By.XPath("//label[contains(text(),'General Risk Based')]")));
             actions.Perform();
-            ClickHeaderGeneralRiskBased();
-            
-            SelectSliderGeneralRiskBasedInjuriesOnSite1();
-            SelectSliderGeneralRiskBasedInjuriesOnSiteNone();
-            SelectSliderGeneralRiskBasedInjuriesOnSite11();
-            SelectSliderGeneralRiskBasedInjuriesOnSite51();
-            SelectSliderGeneralRiskBasedInjuriesOnSite101();
-            SelectSliderGeneralRiskBasedInjuriesOnSite251();
-            SelectSliderGeneralRiskBasedInjuriesOnSite501();
-            SelectSliderGeneralRiskBasedInjuriesOnSite751();
-            SelectSliderGeneralRiskBasedInjuriesOnSite1000();
-            SelectSliderGeneralRiskBasedInjuriesOffSite1();
-            SelectSliderGeneralRiskBasedInjuriesOffSiteNone();
-            SelectSliderGeneralRiskBasedInjuriesOffSite11();
-            SelectSliderGeneralRiskBasedInjuriesOffSite51();
-            SelectSliderGeneralRiskBasedInjuriesOffSite101();
-            SelectSliderGeneralRiskBasedInjuriesOffSite251();
-            SelectSliderGeneralRiskBasedInjuriesOffSite501();
-            SelectSliderGeneralRiskBasedInjuriesOffSite751();
-            SelectSliderGeneralRiskBasedInjuriesOffSite1000();
+            retryButtonClick(TextHeaderGeneralRiskBased);
+
+            this.actions.MoveToElement(SliderGeneralRiskBasedInjuriesOnSite1);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite1);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite11);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite51);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite101);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite251);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite501);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite751);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite1000);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite1);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite11);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite51);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite101);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite251);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite501);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite751);
+            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite1000);
             //
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite1();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSiteNone();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite11();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite51();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite101();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite251();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite501();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite751();
-            SelectSliderGeneralRiskBasedHospitalizationsOnSite1000();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite1();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSiteNone();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite11();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite51();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite101();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite251();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite501();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite751();
-            SelectSliderGeneralRiskBasedHospitalizationsOffSite1000();
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite1);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite11);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite51);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite101);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite251);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite501);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite751);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite1000);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite1);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite11);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite51);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite101);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite251);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite501);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite751);
+            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite1000);
             //
-            SelectSliderGeneralRiskBasedDeathsOnSite1();
-            SelectSliderGeneralRiskBasedDeathsOnSiteNone();
-            SelectSliderGeneralRiskBasedDeathsOnSite11();
-            SelectSliderGeneralRiskBasedDeathsOnSite51();
-            SelectSliderGeneralRiskBasedDeathsOnSite101();
-            SelectSliderGeneralRiskBasedDeathsOnSite251();
-            SelectSliderGeneralRiskBasedDeathsOnSite501();
-            SelectSliderGeneralRiskBasedDeathsOnSite751();
-            SelectSliderGeneralRiskBasedDeathsOnSite1000();
-            SelectSliderGeneralRiskBasedDeathsOffSite1();
-            SelectSliderGeneralRiskBasedDeathsOffSiteNone();
-            SelectSliderGeneralRiskBasedDeathsOffSite11();
-            SelectSliderGeneralRiskBasedDeathsOffSite51();
-            SelectSliderGeneralRiskBasedDeathsOffSite101();
-            SelectSliderGeneralRiskBasedDeathsOffSite251();
-            SelectSliderGeneralRiskBasedDeathsOffSite501();
-            SelectSliderGeneralRiskBasedDeathsOffSite751();
-            SelectSliderGeneralRiskBasedDeathsOffSite1000();
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite1);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite11);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite51);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite101);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite251);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite501);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite751);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite1000);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite1);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite11);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite51);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite101);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite251);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite501);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite751);
+            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite1000);
             //
-            SelectSliderGeneralRiskBasedCapitalLossOnSite100k();
-            SelectSliderGeneralRiskBasedCapitalLossOnSiteNone();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite1M();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite10M();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite100M();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite1B();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite10B();
-            SelectSliderGeneralRiskBasedCapitalLossOnSite10BGreater();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite100k();
-            SelectSliderGeneralRiskBasedCapitalLossOffSiteNone();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite1M();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite10M();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite100M();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite1B();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite10B();
-            SelectSliderGeneralRiskBasedCapitalLossOffSite10BGreater();
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite100k);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite1M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite100M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite1B);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10B);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10BGreater);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite100k);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite1M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite100M);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite1B);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10B);
+            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10BGreater);
             
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite100k();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSiteNone();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite1M();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite10M();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite100M();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite1B();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite10B();
-            SelectSliderGeneralRiskBasedEconomicImpactOnSite10BGreater();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite100k();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSiteNone();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite1M();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite10M();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite100M();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite1B();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite10B();
-            SelectSliderGeneralRiskBasedEconomicImpactOffSite10BGreater();
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite100k);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite1M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite100M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite1B);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10B);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10BGreater);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite100k);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite1M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite100M);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite1B);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10B);
+            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10BGreater);
             
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite100k();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSiteNone();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite1M();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite10M();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite100M();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite1B();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite10B();
-            SelectSliderGeneralRiskBasedEnvironmentalOnSite10BGreater();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite100k();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSiteNone();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite1M();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite10M();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite100M();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite1B();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite10B();
-            SelectSliderGeneralRiskBasedEnvironmentalOffSite10BGreater();
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite100k);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite1M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite100M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite1B);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10B);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10BGreater);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite100k);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSiteNone);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite1M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite100M);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite1B);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10B);
+            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10BGreater);
             
             
         }
@@ -3187,193 +3188,193 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             this.actions.MoveToElement(driver.FindElement(By.XPath("//label[contains(text(),'NIST-60 / FIPS-199')]")));
             actions.Perform();
             ClickHeaderNist();
-            SelectHeaderOverallSalLow();
-            SelectHeaderOverallSalModerate();
-            SelectHeaderOverallSalHigh();
-            SelectHeaderOverallSalVeryHigh();
-            SelectHeaderConfidentialityLow();
-            SelectHeaderConfidentialityModerate();
-            SelectHeaderConfidentialityHigh();
-            SelectHeaderConfidentialityVeryHigh();
-            SelectHeaderIntegrityLow();
-            SelectHeaderIntegrityModerate();
-            SelectHeaderIntegrityHigh();
-            SelectHeaderIntegrityVeryHigh();
-            SelectHeaderAvailabilityLow();
-            SelectHeaderAvailabilityModerate();
-            SelectHeaderAvailabilityHigh();
-            SelectHeaderAvailabilityVeryHigh();
-            SelectNistCheckAirTransportation();
-            SelectNistCheckAssetLM();
-            SelectNistCheckBE();
-            SelectNistCheckBF();
-            SelectNistCheckBPI();
-            SelectNistCheckCAPM();
-            SelectNistC2();
-            SelectNistPleaseConfirmYes();
-            SelectNistA2();
-            SelectNistPleaseConfirmYes();
-            SelectNistI2();
-            SelectNistPleaseConfirmYes();
-            SelectNistCheckContingencyP();
-            SelectNistCheckCOps();
-            SelectNistCheckCP();
-            SelectNistCheckCR();
-            SelectNistCheckCS();
-            SelectNistCheckDPP();
-            SelectNistCheckEArch();
-            SelectNistCheckECP();
-            SelectNistCheckEnvMF();
-            SelectNistCheckEnvR();
-            SelectNistCheckEP();
-            SelectNistCheckER();
-            SelectNistCheckERM();
-            SelectNistCheckESSSS();
-            SelectNistCheckFFEM();
-            SelectNistCheckGoodsAcq();
-            SelectNistCheckGPDS();
-            SelectNistCheckGroundTrans();
-            SelectNistCheckHDS();
-            SelectNistC13();
-            SelectNistPleaseConfirmYes();
-            SelectNistC14();
-            SelectNistPleaseConfirmYes();
-            SelectNistC15();
-            SelectNistPleaseConfirmYes();
-            SelectNistC16();
-            SelectNistPleaseConfirmYes();
-            SelectNistC18();
-            SelectNistPleaseConfirmYes();
-            SelectNistC20();
-            SelectNistPleaseConfirmYes();
-            SelectNistC22();
-            SelectNistPleaseConfirmYes();
-            SelectNistC23();
-            SelectNistPleaseConfirmYes();
-            SelectNistC25();
-            SelectNistPleaseConfirmYes();
-            SelectNistA13();
-            SelectNistPleaseConfirmYes();
-            SelectNistA14();
-            SelectNistPleaseConfirmYes();
-            SelectNistA15();
-            SelectNistPleaseConfirmYes();
-            SelectNistA16();
-            SelectNistPleaseConfirmYes();
-            SelectNistA18();
-            SelectNistPleaseConfirmYes();
-            SelectNistA20();
-            SelectNistPleaseConfirmYes();
-            SelectNistA22();
-            SelectNistPleaseConfirmYes();
-            SelectNistA23();
-            SelectNistPleaseConfirmYes();
-            SelectNistA25();
-            SelectNistPleaseConfirmYes();
-            SelectNistI13();
-            SelectNistPleaseConfirmYes();
-            SelectNistI14();
-            SelectNistPleaseConfirmYes();
-            SelectNistI15();
-            SelectNistPleaseConfirmYes();
-            SelectNistI16();
-            SelectNistPleaseConfirmYes();
-            SelectNistI18();
-            SelectNistPleaseConfirmYes();
-            SelectNistI20();
-            SelectNistPleaseConfirmYes();
-            SelectNistI22();
-            SelectNistPleaseConfirmYes();
-            SelectNistI23();
-            SelectNistPleaseConfirmYes();
-            SelectNistI25();
-            SelectNistPleaseConfirmYes();
-            SelectNistCheckIC();
-            SelectNistCheckIIM();
-            SelectNistCheckInfoM();
-            SelectNistCheckInfoSec();
-            SelectNistCheckInfoShare();
-            SelectNistCheckIPP();
-            SelectNistCheckKACIP();
-            SelectNistC33();
-            SelectNistPleaseConfirmYes();
-            SelectNistA33();
-            SelectNistPleaseConfirmYes();
-            SelectNistI33();
-            SelectNistPleaseConfirmYes();
-            SelectNistCheckLCM();
-            SelectNistCheckLogM();
-            SelectNistCheckLRM();
-            SelectNistCheckManufacturing();
-            SelectNistCheckMI();
-            SelectNistCheckOtherFin();
-            SelectNistCheckOtherInfoM();
-            SelectNistCheckOtherM();
-            SelectNistCheckOtherOps();
-            SelectNistCheckOtherRD();
-            SelectNistCheckOtherSec();
-            SelectNistCheckOtherSuppF();
-            SelectNistCheckPayments();
-            SelectNistCheckPIM();
-            SelectNistCheckPL();
-            SelectNistCheckPO();
-            SelectNistCheckPP();
-            SelectNistCheckPPC();
-            SelectNistCheckPR();
-            SelectNistC51();
-            SelectNistPleaseConfirmYes();
-            SelectNistA51();
-            SelectNistPleaseConfirmYes();
-            SelectNistI51();
-            SelectNistPleaseConfirmYes();
-            SelectNistCheckRD();
-            SelectNistCheckRI();
-            SelectNistCheckRR();
-            SelectNistCheckSAcq();
-            SelectNistCheckSD();
-            SelectNistCheckSM();
-            SelectNistCheckSNM();
-            SelectNistCheckSR();
-            SelectNistCheckSTRI();
-            SelectNistCheckSysM();
-            SelectNistCheckTE();
-            SelectNistCheckWFP();
-            SelectNistCheckWRM();
-            SelectNistCheckWS();
-            SelectNistCheckWTrans();
-            SelectNistCheckWPDM();
-            SelectNistC60();
-            SelectNistPleaseConfirmYes();
-            SelectNistC65();
-            SelectNistPleaseConfirmYes();
-            SelectNistA60();
-            SelectNistPleaseConfirmYes();
-            SelectNistA65();
-            SelectNistPleaseConfirmYes();
-            SelectNistI60();
-            SelectNistPleaseConfirmYes();
-            SelectNistI65();
-            SelectNistPleaseConfirmYes();
+            retryButtonClick(TextHeaderOverallSalLow);
+            retryButtonClick(TextHeaderOverallSalModerate);
+            retryButtonClick(TextHeaderOverallSalHigh);
+            retryButtonClick(TextHeaderOverallSalVeryHigh);
+            retryButtonClick(TextHeaderConfidentialityLow);
+            retryButtonClick(TextHeaderConfidentialityModerate);
+            retryButtonClick(TextHeaderConfidentialityHigh);
+            retryButtonClick(TextHeaderConfidentialityVeryHigh);
+            retryButtonClick(TextHeaderIntegrityLow);
+            retryButtonClick(TextHeaderIntegrityModerate);
+            retryButtonClick(TextHeaderIntegrityHigh);
+            retryButtonClick(TextHeaderIntegrityVeryHigh);
+            retryButtonClick(TextHeaderAvailabilityLow);
+            retryButtonClick(TextHeaderAvailabilityModerate);
+            retryButtonClick(TextHeaderAvailabilityHigh);
+            retryButtonClick(TextHeaderAvailabilityVeryHigh);
+            retryButtonClick(CheckboxNistAirTransportation);
+            retryButtonClick(CheckboxNistAssetLiabilityManagement);
+            retryButtonClick(CheckboxNistBudgetExecution);
+            retryButtonClick(CheckboxNistBudgetFormulation);
+            retryButtonClick(CheckboxNistBudgetingPerformanceInt);
+            retryButtonClick(CheckboxNistCapitalPlan);
+            retryButtonClick(NistTableLinkC2);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA2);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI2);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(CheckboxNistContingencyPlan);
+            retryButtonClick(CheckboxNistContinuityOfOps);
+            retryButtonClick(CheckboxNistCostAccount);
+            retryButtonClick(CheckboxNistCollectReceive);
+            retryButtonClick(CheckboxNistCustomerServices);
+            retryButtonClick(CheckboxNistDisasterPrep);
+            retryButtonClick(CheckboxNistEnterpriseArch);
+            retryButtonClick(CheckboxNistEnergyConservation);
+            retryButtonClick(CheckboxNistEnvMonitor);
+            retryButtonClick(CheckboxNistEnvRemediation);
+            retryButtonClick(CheckboxNistEnergyProduction);
+            retryButtonClick(CheckboxNistEmergencyResponse);
+            retryButtonClick(CheckboxNistEnergyResourceManagement);
+            retryButtonClick(CheckboxNistEnergySupply);
+            retryButtonClick(CheckboxNistFacilitiesFleet);
+            retryButtonClick(CheckboxNistGoodsAcquisition);
+            retryButtonClick(CheckboxNistGeneralPurpose);
+            retryButtonClick(CheckboxNistGroundTransport);
+            retryButtonClick(CheckboxNistHelpDesk);
+            retryButtonClick(NistTableLinkC13);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC14);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC15);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC16);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC18);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC20);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC22);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC23);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC25);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA13);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA14);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA15);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA16);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA18);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA20);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA22);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA23);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA25);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI13);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI14);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI15);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI16);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI18);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI20);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI22);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI23);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI25);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(CheckboxNistInventoryControl);
+            retryButtonClick(CheckboxNistInfoInfraManagement);
+            retryButtonClick(CheckboxNistInfoManagement);
+            retryButtonClick(CheckboxNistInfoSec);
+            retryButtonClick(CheckboxNistInfoShare);
+            retryButtonClick(CheckboxNistIntellectualProperty);
+            retryButtonClick(CheckboxNistKeyAsset);
+            retryButtonClick(NistTableLinkC33);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA33);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI33);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(CheckboxNistLifecycleChange);
+            retryButtonClick(CheckboxNistLogisticsManagement);
+            retryButtonClick(CheckboxNistLaborRights);
+            retryButtonClick(CheckboxNistManufacturing);
+            retryButtonClick(CheckboxNistManagementImprovement);
+            retryButtonClick(CheckboxNistOtherFinancial);
+            retryButtonClick(CheckboxNistOtherInfoManagement);
+            retryButtonClick(CheckboxNistOtherManagement);
+            retryButtonClick(CheckboxNistOtherOps);
+            retryButtonClick(CheckboxNistOtherRAndD);
+            retryButtonClick(CheckboxNistOtherSecurity);
+            retryButtonClick(CheckboxNistOtherSupportFunc);
+            retryButtonClick(CheckboxNistPayments);
+            retryButtonClick(CheckboxNistPercentageInraMaint);
+            retryButtonClick(CheckboxNistPermitsAndLicensing);
+            retryButtonClick(CheckboxNistProductOutreach);
+            retryButtonClick(CheckboxNistPropertyProtection);
+            retryButtonClick(CheckboxNistPollutionPrevention);
+            retryButtonClick(CheckboxNistPR);
+            retryButtonClick(NistTableLinkC51);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA51);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI51);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(CheckboxNistRAndD);
+            retryButtonClick(CheckboxNistReportingInfo);
+            retryButtonClick(CheckboxNistRecordsRetention);
+            retryButtonClick(CheckboxNistServicesAcquisition);
+            retryButtonClick(CheckboxNistSystemDev);
+            retryButtonClick(CheckboxNistSecManagement);
+            retryButtonClick(CheckboxNistSystemAndNetMonitoring);
+            retryButtonClick(CheckboxNistServiceRecovery);
+            retryButtonClick(CheckboxNistScientificAndTech);
+            retryButtonClick(CheckboxNistSystemMaintenance);
+            retryButtonClick(CheckboxNistTrainingAndEmployment);
+            retryButtonClick(CheckboxNistWorkForcePlanning);
+            retryButtonClick(CheckboxNistWaterResource);
+            retryButtonClick(CheckboxNistWorkerSafety);
+            retryButtonClick(CheckboxNistWaterTransport);
+            retryButtonClick(CheckboxNistWorkplacePolicyDev);
+            retryButtonClick(NistTableLinkC60);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkC65);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA60);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkA65);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI60);
+            retryButtonClick(NistPleaseConfirmYesButton);
+            retryButtonClick(NistTableLinkI65);
+            retryButtonClick(NistPleaseConfirmYesButton);
 
             this.actions.MoveToElement(driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[1]")));
             actions.Perform();
-            SelectNistAnswerQ1No();
-            SelectNistAnswerQ1Yes();
-            SelectNistAnswerQ2Yes();
-            SelectNistAnswerQ3Yes();
-            SelectNistAnswerQ4Yes();
-            SelectNistAnswerQ5Yes();
-            SelectNistAnswerQ6Yes();
-            SelectNistAnswerQ7Yes();
-            SelectNistAnswerQ8Yes();
+            retryButtonClick(NistAnswerQuestions1No);
+            retryButtonClick(NistAnswerQuestions1Yes);
+            retryButtonClick(NistAnswerQuestions2Yes);
+            retryButtonClick(NistAnswerQuestions3Yes);
+            retryButtonClick(NistAnswerQuestions4Yes);
+            retryButtonClick(NistAnswerQuestions5Yes);
+            retryButtonClick(NistAnswerQuestions6Yes);
+            retryButtonClick(NistAnswerQuestions7Yes);
+            retryButtonClick(NistAnswerQuestions8Yes);
 
-            SelectNistAnswerQ2No();
-            SelectNistAnswerQ3No();
-            SelectNistAnswerQ4No();
-            SelectNistAnswerQ5No();
-            SelectNistAnswerQ6No();
-            SelectNistAnswerQ7No();
-            SelectNistAnswerQ8No();
+            retryButtonClick(NistAnswerQuestions2No);
+            retryButtonClick(NistAnswerQuestions3No);
+            retryButtonClick(NistAnswerQuestions4No);
+            retryButtonClick(NistAnswerQuestions5No);
+            retryButtonClick(NistAnswerQuestions6No);
+            retryButtonClick(NistAnswerQuestions7No);
+            retryButtonClick(NistAnswerQuestions8No);
         }
 
         public void SelectHeaderOverallSalLow()

@@ -47,10 +47,9 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 //SAL Page
                 SecurityAssuranceLevel securityAssuranceLevel = new SecurityAssuranceLevel(driver);
-                /*
-                securityAssuranceLevel.SelectHeaderNist();
-                securityAssuranceLevel.SelectHeaderGeneralRiskBased();
-                */
+                
+                //securityAssuranceLevel.SelectHeaderNist();
+                securityAssuranceLevel.SelectHeaderGeneralRiskBased(); 
                 securityAssuranceLevel.SelectHeaderSimple();
    
 

@@ -84,7 +84,7 @@ namespace CSET_Selenium.DriverConfiguration
         {
             Boolean result = false;
             int attempts = 0;
-            while (attempts < 5)
+            while (attempts < 10)
             {
                 try
                 {
@@ -103,7 +103,7 @@ namespace CSET_Selenium.DriverConfiguration
         {
             Boolean result = false;
             int attempts = 0;
-            while (attempts < 2)
+            while (attempts < 10)
             {
                 try
                 {
