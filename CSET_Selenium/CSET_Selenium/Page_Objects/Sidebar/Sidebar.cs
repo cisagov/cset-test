@@ -43,11 +43,27 @@ namespace CSET_Selenium.Page_Objects.Sidebar
             }
         }
 
+        private IWebElement TextMaturityModels
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'Maturity Models')]"));
+            }
+        }
+
         private IWebElement TextSecurityAssuranceLevel
         {
             get
             {
                 return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'Security Assurance Level')]"));
+            }
+        }
+
+        private IWebElement TextNetworkDiagram
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'Network Diagram')]"));
             }
         }
 

@@ -34,7 +34,8 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//app-prepare/app-diagram/app-info/div/div[2]/button[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Create a Network Diagram')]"));
+                ////app-prepare/app-diagram/app-info/div/div[3]/button[1]
             }
         }
 
@@ -319,7 +320,10 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             retryButtonClick(ButtonReturnToCset);
         }
+
+
         //Aggregate Methods
+        //Use multiple Interactions to create the processess used in tests
 
         //public Boolean retryButtonClick(By by)
         //{

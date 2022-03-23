@@ -39,7 +39,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 //Network Diagram Page
                 Page_Objects.Cybersecurity_Standards_Selection.NetDiagramObjects netDiagram = new Page_Objects.Cybersecurity_Standards_Selection.NetDiagramObjects(driver);
-                netDiagram.SelectButtonNetworkDiagram();
+//                netDiagram.SelectButtonNetworkDiagram();
                 netDiagram.SelectButtonCreateNetworkDiagram();
                 netDiagram.SelectButtonDCS();
                 netDiagram.SelectClickButtonCreate();

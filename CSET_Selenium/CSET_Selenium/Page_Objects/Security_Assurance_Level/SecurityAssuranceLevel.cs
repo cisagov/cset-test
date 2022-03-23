@@ -26,7 +26,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[5]/label[1]"));
+                return this.driver.FindElement(By.XPath("//label[contains(text(),'Simple')]"));
             }
         }
 
