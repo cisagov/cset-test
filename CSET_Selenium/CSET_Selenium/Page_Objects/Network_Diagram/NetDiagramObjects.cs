@@ -22,19 +22,11 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
         //Element Locators
 
-        private IWebElement ButtonNetDiagram
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav']/div/mat-tree/mat-nested-tree-node[1]/ul/mat-tree-node[17]/button"));
-            }
-        }
-
         private IWebElement ButtonCreateNetworkDiagram
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//app-prepare/app-diagram/app-info/div/div[2]/button[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Create a Network Diagram')]"));
             }
         }
 
@@ -42,7 +34,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='DCS']"));
             }
         }
 
@@ -50,7 +42,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='PCS']"));
             }
         }
 
@@ -58,7 +50,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[3]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='SCADA']"));
             }
         }
 
@@ -66,7 +58,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[4]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Electric']"));
             }
         }
 
@@ -74,7 +66,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[5]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Hydro']"));
             }
         }
 
@@ -82,84 +74,84 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[6]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Nuclear']"));
             }
         }
         private IWebElement ButtonOilAndGas1
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[7]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Oil & Gas 1']"));
             }
         }
         private IWebElement ButtonOilAndGas2
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[8]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Oil & Gas 2']"));
             }
         }
         private IWebElement ButtonTrafficControl
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[9]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Traffic Control']"));
             }
         }
         private IWebElement ButtonWasteWaterTreatementPlant
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[10]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Waste Water Treatment Plant']"));
             }
         }
         private IWebElement ButtonWaterPlantSystem
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[11]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Water Plant System']"));
             }
         }
         private IWebElement ButtonHVAC
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[12]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='HVAC']"));
             }
         }
         private IWebElement ButtonBuildingAccessControl
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[13]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Building Access Control']"));
             }
         }
         private IWebElement ButtonMedical
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[14]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Medical']"));
             }
         }
         private IWebElement ButtonRadio
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[15]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Radio']"));
             }
         }
         private IWebElement ButtonWindEnergy
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[16]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Wind Energy']"));
             }
         }
         private IWebElement ButtonEmergencyComm
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[2]/div[17]"));
+                return WaitUntilElementIsVisible(By.XPath("//div[@title='Emergency Management']"));
             }
         }
 
@@ -167,7 +159,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[14]/div/div[3]/button[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(), 'Create')]"));
             }
         }
 
@@ -175,7 +167,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[3]/div[1]/a[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(), 'Edit')]"));
 
             }
         }
@@ -184,7 +176,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[3]/div[1]/a[1]"));          
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(), 'File')]"));          
             }
         }
 
@@ -192,7 +184,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[13]/table/tbody/tr[1]/td[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//td[contains(text(), 'New From Template')]"));
             }
         }
 
@@ -200,7 +192,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//html/body/div[3]/div[1]/a[7]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[contains(text(), 'Return to CSET')]"));
             }
         }
 
@@ -210,11 +202,6 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
 
         //Interaction Methods
-
-        private void ClickNetDiagram()
-        {
-            ButtonNetDiagram.Click();
-        }
 
         private void ClickButtonCreateNetworkDiagram()
         {
@@ -321,30 +308,6 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         }
         //Aggregate Methods
 
-        //public Boolean retryButtonClick(By by)
-        //{
-        //    Boolean result = false;
-        //    int attempts = 0;
-        //    while (attempts < 2)
-        //    {
-        //        try
-        //        {
-        //            this.driver.FindElement(by).Click();
-        //            result = true;
-        //            break;
-        //        }
-        //        catch (StaleElementReferenceException e)
-        //        {
-        //        }
-        //        attempts++;
-        //    }
-        //    return result;
-        //}
-
-        public void SelectButtonNetworkDiagram()
-        {
-            ClickNetDiagram();
-        }
 
         public void SelectButtonCreateNetworkDiagram()
         {
@@ -354,75 +317,143 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         public void SelectButtonDCS()
         {
             ClickButtonDCS();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectButtonPCS()
         {
             ClickButtonPCS();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectButtonSCADA()
         {
             ClickButtonSCADA();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectButtonElectricUtility()
         {
             ClickButtonElectricUtility();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectButtonHydroelectricSystem()
         {
             ClickButtonHydroelectricSystem();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectButtonNuclearPlant()
         {
             ClickButtonNuclearPlant();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonOilAndGas1()
         {
             ClickButtonOilAndGas1();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonOilAndGas2()
         {
             ClickButtonOilAndGas2();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonTrafficControl()
         {
             ClickButtonTrafficControl();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonWasteWaterTreatementPlant()
         {
             ClickButtonWasteWaterTreatementPlant();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonWaterPlantSystem()
         {
             ClickButtonWaterPlantSystem();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonHVAC()
         {
             ClickButtonHVAC();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonBuildingAccessControl()
         {
             ClickButtonBuildingAccessControl();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonMedical()
         {
             ClickButtonMedical();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonRadio()
         {
             ClickButtonRadio();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectButtonWindEnergy()
         {
             ClickButtonWindEnergy();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
         public void SelectClickButtonEmergencyComm()
         {
             ClickButtonEmergencyComm();
+            SelectClickButtonCreate();
+            SelectButtonEdit();
+            SelectDropdownFile();
+            SelectDropdownNewFromTemplate();
         }
 
         public void SelectClickButtonCreate()
@@ -448,6 +479,7 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
         public void SelectClickButtonReturnToCset()
         {
             ClickButtonReturnToCset();
+            ClickNext();
         }
     }
 }

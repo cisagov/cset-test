@@ -88,7 +88,8 @@ namespace CSET_Selenium.DriverConfiguration
             {
                 try
                 {
-                    element.Click();
+
+                    WaitUntilElementIsVisible(element).Click();
                     result = true;
                     break;
                 }

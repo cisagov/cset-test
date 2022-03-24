@@ -1472,7 +1472,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Air Transportation']/../following-sibling::td[2]//a"));
             }
         }
 
@@ -1480,7 +1480,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[3]/a"));
+                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Disaster Preparedness & Planning']/../following-sibling::td[2]//a"));
             }
         }
 
