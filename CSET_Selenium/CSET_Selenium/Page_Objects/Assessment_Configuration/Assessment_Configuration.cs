@@ -63,7 +63,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'maturity')]"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'maturity')]/parent::div"));
             }
         }
 
@@ -71,7 +71,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'standard')]"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'standard')]/parent::div"));
             }
         }
 
@@ -79,7 +79,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'diagram')]"));
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'diagram')]/parent::div"));
             }
         }
 

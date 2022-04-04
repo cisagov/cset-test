@@ -147,11 +147,11 @@
     <Compile Include="Page_Objects\Landing_Page\LandingPage.cs" />
     <Compile Include="Page_Objects\Login_Page\LoginPage.cs" />
     <Compile Include="Page_Objects\Register_New_User_Account\RegisterNewUserAccount.cs" />
+    <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />
     <Compile Include="Tests\Create_Assessment\MaturityModel.cs" />
     <Compile Include="Tests\Create_Assessment\NetworkDiagram.cs" />
-    <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Temp_Tests\PracticeTest.cs" />
     <Compile Include="Tests\Create_Assessment\StandardAssessment.cs" />
   </ItemGroup>
