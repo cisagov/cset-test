@@ -41,7 +41,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 createNewAssessment.CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("ACET", "S.T.A.R. Labs", "Star City", "Washington");
+                assessmentConfiguration.CreateMaturityModelAssessment("ACET(CSET Build)", "S.T.A.R. Labs", "Star City", "Washington");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();

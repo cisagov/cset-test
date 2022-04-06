@@ -27,6 +27,14 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
+        private IWebElement TextboxCreditUnion
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'creditUnion')]"));
+            }
+        }
+
         private IWebElement TextboxAssessmentDate
         {
             get
@@ -56,6 +64,22 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             get
             {
                 return WaitUntilElementIsVisible(By.XPath("//input[contains(@name, 'stateProvRegion')]"));
+            }
+        }
+
+        private IWebElement TextboxCharter
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'charter')]"));
+            }
+        }
+
+        private IWebElement TextboxAssets
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@name,'assets')]"));
             }
         }
 
@@ -89,8 +113,15 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         private void SetAssessmentName(String assessmentName)
         {
             ClickWhenClickable(TextboxAssessmentName);
-            TextboxAssessmentName.Clear();            
+            TextboxAssessmentName.Clear();
             TextboxAssessmentName.SendKeys(assessmentName);
+        }
+
+        private void SetAssessmentCreditUnion(String assessmentCreditUnion)
+        {
+            ClickWhenClickable(TextboxCreditUnion);
+            TextboxCreditUnion.Clear();
+            TextboxCreditUnion.SendKeys(assessmentCreditUnion);
         }
 
         private void SetAssessmentDate(String assessmentDate)
@@ -120,6 +151,20 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             ClickWhenClickable(TextboxStateProvRegion);
             TextboxStateProvRegion.SendKeys(stateProvRegion);
+        }
+
+        private void SetCharter(String assessmentCharter)
+        {
+            ClickWhenClickable(TextboxCharter);
+            TextboxCharter.Clear();
+            TextboxCharter.SendKeys(assessmentCharter);
+        }
+
+        private void SetAssets(String assessmentAssets)
+        {
+            ClickWhenClickable(TextboxAssets);
+            TextboxCharter.Clear();
+            TextboxCharter.SendKeys(assessmentAssets);
         }
 
         private void SetStandard()
@@ -170,6 +215,17 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
             SetMaturityModel();
+            ClickNext();
+        }
+
+        public void CreateAcetBuildAssessment(String assessmentCreditUnion, String citySiteName, String stateProvRegion, String assessmentCharter, String assessmentAssets)
+        {
+            SetAssessmentCreditUnion(assessmentCreditUnion);
+            //SetAssessmentDate(assessmentDate);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetCharter(assessmentCharter);
+            SetAssets(assessmentAssets);
             ClickNext();
         }
 
