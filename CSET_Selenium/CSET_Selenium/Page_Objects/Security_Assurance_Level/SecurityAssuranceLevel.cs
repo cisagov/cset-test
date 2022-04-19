@@ -21,12 +21,19 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 
         
         //Element Locators
+        private IWebElement SALAssessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(), 'SAL')]"));
+            }
+        }
 
         private IWebElement TextHeaderSimple
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//label[contains(text(),'Simple')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='SimpleSalLevelSelector']"));
             }
         }
 
@@ -34,7 +41,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//label[contains(text(),'General Risk Based')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='GeneralRiskSalLevelSelector']"));
             }
         }
 
@@ -42,7 +49,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//label[contains(text(),'NIST-60 / FIPS-199')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='NistSalLevelSelector']"));
             }
         }
 
@@ -51,7 +58,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Low')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='OverallSALLow']"));
             }
         }
 
@@ -59,21 +66,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Moderate')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='OverallSALModerate']"));
             }
         }
         private IWebElement TextHeaderOverallSalHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='OverallSALHigh']"));
             }
         }
         private IWebElement TextHeaderOverallSalVeryHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Overall SAL')]/..//label[contains(text(),'Very High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='OverallSALVery High']"));
             }
         }
 
@@ -82,7 +89,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Low')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='ConfidentialityLow']"));
             }
         }
 
@@ -90,21 +97,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Moderate')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='ConfidentialityModerate']"));
             }
         }
         private IWebElement TextHeaderConfidentialityHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='ConfidentialityHigh']"));
             }
         }
         private IWebElement TextHeaderConfidentialityVeryHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Confidentiality')]/..//label[contains(text(),'Very High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='ConfidentialityVery High']"));
             }
         }
         //integrity
@@ -112,7 +119,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Low')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='IntegrityLow']"));
             }
         }
 
@@ -120,21 +127,21 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Moderate')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='IntegrityModerate']"));
             }
         }
         private IWebElement TextHeaderIntegrityHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='IntegrityHigh']"));
             }
         }
         private IWebElement TextHeaderIntegrityVeryHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Integrity')]/..//label[contains(text(),'Very High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='IntegrityVery High']"));
             }
         }
 
@@ -143,7 +150,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Low')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='AvailabilityLow']"));
             }
         }
 
@@ -151,861 +158,126 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Moderate')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='AvailabilityModerate']"));
             }
         }
         private IWebElement TextHeaderAvailabilityHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[not(contains(text(), 'Very')) and contains(text(),'High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='AvailabilityHigh']"));
             }
         }
         private IWebElement TextHeaderAvailabilityVeryHigh
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'Availability')]/..//label[contains(text(),'Very High')]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='AvailabilityVery High']"));
             }
         }
 
         //General Risk Based Injuries On Site Slider
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSiteNone
+        private IWebElement GenRiskSliderInjuriesOnSite
         {
             get
             {
-                return this.driver.FindElement(By.XPath("/html/body/app-root/layout-main/div/div[1]/div/div/app-assessment/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/app-prepare/app-sals/div/div/div[6]/div/app-sal-gen/div[3]/div/div/ngx-slider[1]/span[12]/span[1]/ngx-slider-tooltip-wrapper/div"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Physical_Injury']/span[@role='slider']"));
             }
         }
 
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite1
+        private IWebElement GenRiskSliderInjuriesOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-gen/div[3]/div/div/ngx-slider[1]/span[12]/span[2]/ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Physical_Injury']/span[@role='slider']"));
             }
         }
 
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite11
+        private IWebElement GenRiskSliderHospitalizationssOnSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Hospital_Injury']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOnSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based Injuries Offsite Slider
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite1
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite11
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedInjuriesOffSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Injuries')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based On Site Hospitalizations Slider
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite1
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite11
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOnSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based  Off Site Hospitalizations Slider
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite1
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite11
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedHospitalizationsOffSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Hospitalizations')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based On Site Deaths Slider
-        private IWebElement SliderGeneralRiskBasedDeathsOnSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite1
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite11
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOnSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based Off Site Deaths Slider
-        private IWebElement SliderGeneralRiskBasedDeathsOffSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite1
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '5')) and contains(text(),'1-10')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite11
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'11-50')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite51
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '7')) and contains(text(),'51-100')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite101
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'101')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite251
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'251')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite501
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'501')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite751
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'751')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedDeathsOffSite1000
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Deaths')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'> 1000')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        //General Risk Based Capital Loss On Site Slider
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite100k
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite1M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite10M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite100M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite1B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite10B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOnSite10BGreater
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-
-        //General Risk Based Capital Loss Off Site Slider
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite100k
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite1M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite10M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite100M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite1B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite10B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedCapitalLossOffSite10BGreater
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Capital Loss')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-        //General Risk Based Economic Impact On Site Slider
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite100k
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite1M
+        private IWebElement GenRiskSliderHospitalizationsOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Hospital_Injury']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite10M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite100M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite1B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite10B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOnSite10BGreater
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-        //General Risk Based Economic Impact Off Site Slider
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite100k
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite1M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite10M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite100M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite1B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite10B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEconomicImpactOffSite10BGreater
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Economic Impact')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-        //General Risk Based Environmental On Site Slider
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSiteNone
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite100k
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite1M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite10M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite100M
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite1B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite10B
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOnSite10BGreater
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'On Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
-            }
-        }
-        //General Risk Based Environmental Off Site Slider
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSiteNone
+        private IWebElement GenRiskSliderDeathsOnSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[contains(text(),'None')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Death']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite100k
+        private IWebElement GenRiskSliderDeathsOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'M')) and contains(text(),'K')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Death']/span[@role='slider']"));
             }
         }
 
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite1M
+        private IWebElement GenRiskSliderCapitalLossOnSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Capital_Assets']/span[@role='slider']"));
             }
         }
 
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite10M
+        private IWebElement GenRiskSliderCapitalLossOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '00')) and contains(text(),'10M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Capital_Assets']/span[@role='slider']"));
             }
         }
 
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite100M
+        private IWebElement GenRiskSliderEconomicImpactOnSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), 'B')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Economic_Impact']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite1B
+        private IWebElement GenRiskSliderEconomicImpactOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '10M')) and contains(text(),'100M')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Economic_Impact']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite10B
+        private IWebElement GenRiskSliderEnvironmentalOnSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '>')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='On_Site_Environmental_Cleanup']/span[@role='slider']"));
             }
         }
-
-        private IWebElement SliderGeneralRiskBasedEnvironmentalOffSite10BGreater
+        private IWebElement GenRiskSliderEnvironmentalOffSite
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//h5[contains(text(),'Environmental')]/..//div[contains(text(),'Off Site  None ')]/following-sibling::ngx-slider[1]/.//span[not(contains(text(), '-')) and contains(text(),'10B')]/preceding-sibling::ngx-slider-tooltip-wrapper"));
+                return WaitUntilElementIsVisible(By.XPath("//ngx-slider[@csetid='Off_Site_Environmental_Cleanup']/span[@role='slider']"));
             }
         }
-
         private IWebElement CheckboxNistAirTransportation
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Air Transportation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxAir Transportation']"));
             }
         }
         private IWebElement CheckboxNistAssetLiabilityManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Asset and Liability Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxAsset and Liability Management']"));
             }
         }
 
@@ -1013,7 +285,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Execution']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxBudget Execution']"));
             }
         }
 
@@ -1021,7 +293,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budget Formulation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxBudget Formulation']"));
             }
         }
 
@@ -1029,126 +301,126 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Budgeting & Performance Integration']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxBudgeting & Performance Integration']"));
             }
         }
         private IWebElement CheckboxNistCapitalPlan
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Capital Planning']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxCapital Planning']"));
             }
         }
         private IWebElement CheckboxNistCollectReceive
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Collections & Receivables']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxCollections & Receivables']"));
             }
         }
         private IWebElement CheckboxNistContingencyPlan
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Contingency Planning']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxContingency Planning']"));
             }
         }
         private IWebElement CheckboxNistContinuityOfOps
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Continuity of Operations']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxContinuity of Operations']"));
             }
         }
         private IWebElement CheckboxNistCostAccount
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Cost Accounting/Performance Measurement']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxCost Accounting/Performance Measurement']"));
             }
         }
         private IWebElement CheckboxNistCustomerServices
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Customer Services']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxCustomer Services']"));
             }
         }
         private IWebElement CheckboxNistDisasterPrep
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Disaster Preparedness & Planning']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxDisaster Preparedness & Planning']"));
             }
         }
         private IWebElement CheckboxNistEmergencyResponse
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Emergency Response']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEmergency Response']"));
             }
         }
         private IWebElement CheckboxNistEnergyConservation
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Conservation & Preparedness']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnergy Conservation & Preparedness']"));
             }
         }
         private IWebElement CheckboxNistEnergyProduction
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Production']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnergy Production']"));
             }
         }
         private IWebElement CheckboxNistEnergyResourceManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Resource Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnergy Resource Management']"));
             }
         }
         private IWebElement CheckboxNistEnergySupply
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Energy Supply']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnergy Supply']"));
             }
         }
         private IWebElement CheckboxNistEnterpriseArch
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Enterprise Architecture']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnterprise Architecture']"));
             }
         }
         private IWebElement CheckboxNistGeneralPurpose
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Monitoring & Forecasting']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnvironmental Monitoring & Forecasting']"));
             }
         }
         private IWebElement CheckboxNistEnvMonitor
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Environmental Remediation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxEnvironmental Remediation']"));
             }
         }
         private IWebElement CheckboxNistEnvRemediation
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Facilities Fleet & Equipment Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxFacilities Fleet & Equipment Management']"));
             }
         }
         private IWebElement CheckboxNistFacilitiesFleet
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='General Purpose Data & Statistics']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxGeneral Purpose Data & Statistics']"));
             }
         }
 
@@ -1156,635 +428,636 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Goods Acquisition']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxGoods Acquisition']"));
             }
         }
         private IWebElement CheckboxNistGroundTransport
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Ground Transportation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxGround Transportation']"));
             }
         }
         private IWebElement CheckboxNistHelpDesk
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Help Desk Services']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxHelp Desk Services']"));
             }
         }
         private IWebElement CheckboxNistInfoInfraManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Infrastructure Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxInformation Infrastructure Management']"));
             }
         }
         private IWebElement CheckboxNistInfoManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxInformation Management']"));
             }
         }
         private IWebElement CheckboxNistInfoSec
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Security']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxInformation Security']"));
             }
         }
         private IWebElement CheckboxNistInfoShare
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Information Sharing']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxInformation Sharing']"));
             }
         }
         private IWebElement CheckboxNistIntellectualProperty
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Intellectual Property Protection']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxIntellectual Property Protection']"));
             }
         }
         private IWebElement CheckboxNistInventoryControl
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Inventory Control']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxInventory Control']"));
             }
         }
         private IWebElement CheckboxNistKeyAsset
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Key Asset & Critical Infrastructure Protection']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxKey Asset & Critical Infrastructure Protection']"));
             }
         }
         private IWebElement CheckboxNistLaborRights
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Labor Rights Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxLabor Rights Management']"));
             }
         }
         private IWebElement CheckboxNistLifecycleChange
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Lifecycle/Change Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxLifecycle/Change Management']"));
             }
         }
         private IWebElement CheckboxNistLogisticsManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Logistics Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxLogistics Management']"));
             }
         }
         private IWebElement CheckboxNistManagementImprovement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Management Improvement']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxManagement Improvement']"));
             }
         }
         private IWebElement CheckboxNistManufacturing
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Manufacturing']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxManufacturing']"));
             }
         }
         private IWebElement CheckboxNistOtherFinancial
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Financial']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Financial']"));
             }
         }
         private IWebElement CheckboxNistOtherInfoManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Information Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Information Management']"));
             }
         }
         private IWebElement CheckboxNistOtherManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Management']"));
             }
         }
         private IWebElement CheckboxNistOtherOps
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Operations']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Operations']"));
             }
         }
         private IWebElement CheckboxNistOtherRAndD
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Research & Development']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Research & Development']"));
             }
         }
         private IWebElement CheckboxNistOtherSecurity
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Security']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Security']"));
             }
         }
         private IWebElement CheckboxNistOtherSupportFunc
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Other Support Functions']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxOther Support Functions']"));
             }
         }
         private IWebElement CheckboxNistPayments
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Payments']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxPayments']"));
             }
         }
         private IWebElement CheckboxNistPercentageInraMaint
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Percentage Infrastructure Maintenance']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxPercentage Infrastructure Maintenance']"));
             }
         }
         private IWebElement CheckboxNistPermitsAndLicensing
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Permits & Licensing']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxPermits & Licensing']"));
             }
         }
         private IWebElement CheckboxNistPollutionPrevention
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Pollution Prevention & Control']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxPollution Prevention & Control']"));
             }
         }
         private IWebElement CheckboxNistProductOutreach
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Product Outreach']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxProduct Outreach']"));
             }
         }
         private IWebElement CheckboxNistPropertyProtection
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Property Protection']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxProperty Protection']"));
             }
         }
         private IWebElement CheckboxNistPR
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Public Relations']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxPublic Relations']"));
             }
         }
         private IWebElement CheckboxNistRecordsRetention
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Records Retention']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxRecords Retention']"));
             }
         }
         private IWebElement CheckboxNistReportingInfo
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Reporting Information']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxReporting Information']"));
             }
         }
         private IWebElement CheckboxNistRAndD
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Research & Development']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxResearch & Development']"));
             }
         }
         private IWebElement CheckboxNistScientificAndTech
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Scientific & Technological Research & Innovation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxScientific & Technological Research & Innovation']"));
             }
         }
         private IWebElement CheckboxNistSecManagement
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Security Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxSecurity Management']"));
             }
         }
         private IWebElement CheckboxNistServiceRecovery
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Service Recovery']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxService Recovery']"));
             }
         }
         private IWebElement CheckboxNistServicesAcquisition
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Services Acquisition']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxServices Acquisition']"));
             }
         }
         private IWebElement CheckboxNistSystemAndNetMonitoring
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System & Networking Monitoring']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxSystem & Networking Monitoring']"));
             }
         }
         private IWebElement CheckboxNistSystemDev
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Development']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxSystem Development']"));
             }
         }
         private IWebElement CheckboxNistSystemMaintenance
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='System Maintenance']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxSystem Maintenance']"));
             }
         }
         private IWebElement CheckboxNistTrainingAndEmployment
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Training & Employment']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxTraining & Employment']"));
             }
         }
         private IWebElement CheckboxNistWaterResource
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Resource Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxWater Resource Management']"));
             }
         }
         private IWebElement CheckboxNistWaterTransport
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Water Transportation']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxWater Transportation']"));
             }
         }
         private IWebElement CheckboxNistWorkForcePlanning
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Work-Force Planning']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxWork-Force Planning']"));
             }
         }
         private IWebElement CheckboxNistWorkerSafety
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Worker Safety']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxWorker Safety']"));
             }
         }
         private IWebElement CheckboxNistWorkplacePolicyDev
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Workplace Policy Development & Management']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@csetid='checkboxWorkplace Policy Development & Management']"));
             }
         }
 
-        private IWebElement NistTableLinkC2
+        private IWebElement NistPleaseConfirmYes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Air Transportation']/../following-sibling::td[2]//a"));
+                return WaitUntilElementIsVisible(By.XPath("//button[@class='btn btn-primary m-0 mr-2']"));
             }
         }
 
-        private IWebElement NistTableLinkC13
+        private IWebElement NistTableLinkSpecialFactorAirTransC
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//h4[contains(text(),'CIA Values Based on Selected Information Types')]/..//input[@value='Disaster Preparedness & Planning']/../following-sibling::td[2]//a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCAir Transportation']"));
             }
         }
 
-        private IWebElement NistTableLinkC14
+        private IWebElement NistTableLinkSpecialFactorDPPC
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[3]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCDisaster Preparedness & Planning']"));
             }
         }
 
-        private IWebElement NistTableLinkC15
+        private IWebElement NistTableLinkSpecialFactorSpecialFactorERC
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC16
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC18
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC20
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC22
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC23
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC25
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC33
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC51
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC60
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkC65
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[3]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI2
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[4]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCEmergency Response']"));
             }
         }
 
-        private IWebElement NistTableLinkI13
+        private IWebElement NistTableLinkSpecialFactorECPC
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[4]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCEnergy Conservation & Preparedness']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnergyProdC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCEnergy Production']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnergySupplyC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCEnergy Supply']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnvMonitorForeC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCEnvironmental Monitoring & Forecasting']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorFacilitiesFleetEMC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCFacilities Fleet & Equipment Management']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGPDSC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCGeneral Purpose Data & Statistics']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGroundTransC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCGround Transportation']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorKeyAssetCIPC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCKey Asset & Critical Infrastructure Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorPropertyProtectionC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCProperty Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorSysNetMonitoringC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCSystem & Networking Monitoring']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorWaterTransC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorCWater Transportation']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorAirTransI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIAir Transportation']"));
             }
         }
 
-        private IWebElement NistTableLinkI14
+        private IWebElement NistTableLinkSpecialFactorDPPI
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[4]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIDisaster Preparedness & Planning']"));
             }
         }
 
-        private IWebElement NistTableLinkI15
+        private IWebElement NistTableLinkSpecialFactorSpecialFactorERI
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI16
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI18
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI20
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI22
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI23
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI25
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI33
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI51
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI60
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkI65
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[4]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA2
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[2]/td[5]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIEmergency Response']"));
             }
         }
 
-        private IWebElement NistTableLinkA13
+        private IWebElement NistTableLinkSpecialFactorECPI
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[13]/td[5]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIEnergy Conservation & Preparedness']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnergyProdI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIEnergy Production']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnergySupplyI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIEnergy Supply']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnvMonitorForeI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIEnvironmental Monitoring & Forecasting']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorFacilitiesFleetEMI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIFacilities Fleet & Equipment Management']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGPDSI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIGeneral Purpose Data & Statistics']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGroundTransI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIGround Transportation']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorKeyAssetCIPI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIKey Asset & Critical Infrastructure Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorPropertyProtectionI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIProperty Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorSysNetMonitoringI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorISystem & Networking Monitoring']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorWaterTransI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorIWater Transportation']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorAirTransA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAAir Transportation']"));
             }
         }
 
-        private IWebElement NistTableLinkA14
+        private IWebElement NistTableLinkSpecialFactorDPPA
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[14]/td[5]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorADisaster Preparedness & Planning']"));
             }
         }
 
-        private IWebElement NistTableLinkA15
+        private IWebElement NistTableLinkSpecialFactorSpecialFactorERA
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[15]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA16
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[16]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA18
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[18]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA20
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[20]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA22
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[22]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA23
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[23]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA25
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[25]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA33
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[33]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA51
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[51]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA60
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[60]/td[5]/a"));
-            }
-        }
-        private IWebElement NistTableLinkA65
-        {
-            get
-            {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[1]/table/tr[65]/td[5]/a"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAEmergency Response']"));
             }
         }
 
-        private IWebElement NistPleaseConfirmYesButton
+        private IWebElement NistTableLinkSpecialFactorECPA
         {
             get
             {
-                return WaitUntilElementIsClickable(By.XPath("/html/body/div[1]//div[2]//mat-dialog-container//div//mat-dialog-actions//button[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAEnergy Conservation & Preparedness']"));
             }
         }
+        private IWebElement NistTableLinkSpecialFactorEnergyProdA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAEnergy Production']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnergySupplyA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAEnergy Supply']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorEnvMonitorForeA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAEnvironmental Monitoring & Forecasting']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorFacilitiesFleetEMA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAFacilities Fleet & Equipment Management']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGPDSA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAGeneral Purpose Data & Statistics']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorGroundTransA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAGround Transportation']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorKeyAssetCIPA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAKey Asset & Critical Infrastructure Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorPropertyProtectionA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAProperty Protection']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorSysNetMonitoringA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorASystem & Networking Monitoring']"));
+            }
+        }
+        private IWebElement NistTableLinkSpecialFactorWaterTransA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//a[@csetid='ConfidentialitySpecialFactorAWater Transportation']"));
+            }
+        }
+
 
         private IWebElement NistAnswerQuestions1Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does aggregation of information on this system reveal sensitive patterns and plans, or facilitate access to sensitive or critical systems?Yes']"));
             }
         }
 
@@ -1792,108 +1065,118 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         { 
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[1]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does aggregation of information on this system reveal sensitive patterns and plans, or facilitate access to sensitive or critical systems?No']"));
             }
         }
         private IWebElement NistAnswerQuestions2Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does/could access to this system result in some form of access to other more sensitive or critical systems (e.g., over a network)?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions2No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[2]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does/could access to this system result in some form of access to other more sensitive or critical systems (e.g., over a network)?No']"));
             }
         }
         private IWebElement NistAnswerQuestions3Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Are there extenuating circumstances such as: The system provides critical process flow or security capability, the public visibility of the system, the sheer number of other systems reliant on its operation, or the overall cost of the systems replacement?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions3No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[3]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Are there extenuating circumstances such as: The system provides critical process flow or security capability, the public visibility of the system, the sheer number of other systems reliant on its operation, or the overall cost of the systems replacement?No']"));
             }
         }
         private IWebElement NistAnswerQuestions4Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Would unauthorized modification or destruction of information affecting external communications (e.g., web pages, electronic mail) adversely affect operations or seriously damage mission function and/or public confidence?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions4No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[4]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Would unauthorized modification or destruction of information affecting external communications (e.g., web pages, electronic mail) adversely affect operations or seriously damage mission function and/or public confidence?No']"));
             }
         }
         private IWebElement NistAnswerQuestions5Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Would either physical or logical destruction of the system result in very large expenditures to restore the system and/or require a long period of time for recovery?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions5No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[5]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Would either physical or logical destruction of the system result in very large expenditures to restore the system and/or require a long period of time for recovery?No']"));
             }
         }
         private IWebElement NistAnswerQuestions6Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the mission served by the system, or the information that the system processes, affect the security of critical infrastructures and key resources?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions6No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[6]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the mission served by the system, or the information that the system processes, affect the security of critical infrastructures and key resources?No']"));
             }
         }
         private IWebElement NistAnswerQuestions7Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the system store, communicate, or process any privacy act information?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions7No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[7]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the system store, communicate, or process any privacy act information?No']"));
             }
         }
         private IWebElement NistAnswerQuestions8Yes
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[1]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the systems store, communicate, or process any trade secrets information?Yes']"));
             }
         }
         private IWebElement NistAnswerQuestions8No
         {
             get
             {
-                return this.driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[2]"));
+                return WaitUntilElementIsVisible(By.XPath("//label[@csetid='Does the systems store, communicate, or process any trade secrets information?No']"));
             }
         }
         //Interaction Methods
+        private void MoveToElement(IWebElement element)
+        {
+            Actions action = new Actions(driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+        private void ClickSALAssessment()
+        {
+            SALAssessment.Click();
+        }
 
         private void ClickHeaderSimple()
         {
@@ -1989,509 +1272,153 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             TextHeaderAvailabilityVeryHigh.Click();
         }
 
-        private void ClickSliderGeneralRiskBasedInjuriesOnSiteNone()
+        private void ClickSliderGenRiskInjuriesOnSite()
         {
-            SliderGeneralRiskBasedInjuriesOnSiteNone.Click();
+            GenRiskSliderInjuriesOnSite.Click();
         }
 
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite1()
+        private void ClickSliderGenRiskInuriesOffSite()
         {
-            SliderGeneralRiskBasedInjuriesOnSite1.Click();
+            GenRiskSliderInjuriesOffSite.Click();
         }
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite11()
+        private void ClickSliderGenRiskHospitalizationsOnSite()
         {
-          SliderGeneralRiskBasedInjuriesOnSite11.Click();
+            GenRiskSliderHospitalizationssOnSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite51()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite101()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite251()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite501()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite751()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOnSite1000()
-        {
-            SliderGeneralRiskBasedInjuriesOnSite1000.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSiteNone()
-        {
-            SliderGeneralRiskBasedInjuriesOffSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite1()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite1.Click();
-        }
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite11()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite11.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite51()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite101()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite251()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite501()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite751()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedInjuriesOffSite1000()
-        {
-            SliderGeneralRiskBasedInjuriesOffSite1000.Click();
-        }
-        //
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSiteNone()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite1()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite1.Click();
-        }
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite11()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite11.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite51()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite101()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite251()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite501()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite751()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOnSite1000()
-        {
-            SliderGeneralRiskBasedHospitalizationsOnSite1000.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSiteNone()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite1()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite1.Click();
-        }
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite11()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite11.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite51()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite101()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite251()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite501()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite751()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedHospitalizationsOffSite1000()
-        {
-            SliderGeneralRiskBasedHospitalizationsOffSite1000.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSiteNone()
-        {
-            SliderGeneralRiskBasedDeathsOnSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite1()
-        {
-            SliderGeneralRiskBasedDeathsOnSite1.Click();
-        }
-        private void ClickSliderGeneralRiskBasedDeathsOnSite11()
-        {
-            SliderGeneralRiskBasedDeathsOnSite11.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite51()
-        {
-            SliderGeneralRiskBasedDeathsOnSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite101()
-        {
-            SliderGeneralRiskBasedDeathsOnSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite251()
-        {
-            SliderGeneralRiskBasedDeathsOnSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite501()
-        {
-            SliderGeneralRiskBasedDeathsOnSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite751()
-        {
-            SliderGeneralRiskBasedDeathsOnSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOnSite1000()
-        {
-            SliderGeneralRiskBasedDeathsOnSite1000.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSiteNone()
-        {
-            SliderGeneralRiskBasedDeathsOffSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite1()
-        {
-            SliderGeneralRiskBasedDeathsOffSite1.Click();
-        }
-        private void ClickSliderGeneralRiskBasedDeathsOffSite11()
-        {
-            SliderGeneralRiskBasedDeathsOffSite11.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite51()
-        {
-            SliderGeneralRiskBasedDeathsOffSite51.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite101()
-        {
-            SliderGeneralRiskBasedDeathsOffSite101.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite251()
-        {
-            SliderGeneralRiskBasedDeathsOffSite251.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite501()
-        {
-            SliderGeneralRiskBasedDeathsOffSite501.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite751()
-        {
-            SliderGeneralRiskBasedDeathsOffSite751.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedDeathsOffSite1000()
-        {
-            SliderGeneralRiskBasedDeathsOffSite1000.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSiteNone()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite100k()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite100k.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite1M()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite1M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite10M()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite10M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite100M()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite100M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite1B()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite1B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite10B()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite10B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOnSite10BGreater()
-        {
-            SliderGeneralRiskBasedCapitalLossOnSite10BGreater.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSiteNone()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite100k()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite100k.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite1M()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite1M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite10M()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite10M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite100M()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite100M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite1B()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite1B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite10B()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite10B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedCapitalLossOffSite10BGreater()
-        {
-            SliderGeneralRiskBasedCapitalLossOffSite10BGreater.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSiteNone()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite100k()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite100k.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite1M()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite1M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite10M()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite10M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite100M()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite100M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite1B()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite1B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite10B()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite10B.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOnSite10BGreater()
-        {
-            SliderGeneralRiskBasedEconomicImpactOnSite10BGreater.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSiteNone()
-        {
-            SliderGeneralRiskBasedEconomicImpactOffSiteNone.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite100k()
+        private void ClickSliderGenRiskHospitalizationsOffSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite100k.Click();
+            GenRiskSliderHospitalizationsOffSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite1M()
-        {
-            SliderGeneralRiskBasedEconomicImpactOffSite1M.Click();
-        }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite10M()
+        private void ClickSliderGenRiskDeathsOnSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite10M.Click();
+            GenRiskSliderDeathsOnSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite100M()
+        private void ClickSliderGenRiskDeathsOffSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite100M.Click();
+            GenRiskSliderDeathsOffSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite1B()
+        private void ClickSliderGenRiskCapitalLossOnSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite1B.Click();
+            GenRiskSliderCapitalLossOnSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite10B()
+        private void ClickSliderGenRiskCapitalLossOffSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite10B.Click();
+            GenRiskSliderCapitalLossOffSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEconomicImpactOffSite10BGreater()
+        private void ClickSliderGenRiskEconomicImpactOnSite()
         {
-            SliderGeneralRiskBasedEconomicImpactOffSite10BGreater.Click();
+            GenRiskSliderEconomicImpactOnSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSiteNone()
+        private void ClickSliderGenRiskEconomicImpactOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSiteNone.Click();
+            GenRiskSliderEconomicImpactOffSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite100k()
+        private void ClickSliderGenRiskEnvironmentalOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite100k.Click();
+            GenRiskSliderEnvironmentalOnSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite1M()
+        private void ClickSliderGenRiskEnvironmentalOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite1M.Click();
+            GenRiskSliderEnvironmentalOffSite.Click();
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite10M()
+        private void SendKeysGenRiskInjuriesOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite10M.Click();
+            ClickSliderGenRiskInjuriesOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderInjuriesOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
 
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite100M()
+        private void SendKeysGenRiskInuriesOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite100M.Click();
+            ClickSliderGenRiskInuriesOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderInjuriesOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite1B()
+        private void SendKeysGenRiskHospitalizationsOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite1B.Click();
+            ClickSliderGenRiskHospitalizationsOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderHospitalizationssOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite10B()
+        private void SendKeysGenRiskHospitalizationsOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite10B.Click();
+            ClickSliderGenRiskHospitalizationsOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderHospitalizationsOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOnSite10BGreater()
+        private void SendKeysGenRiskDeathsOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOnSite10BGreater.Click();
+            ClickSliderGenRiskDeathsOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderDeathsOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSiteNone()
+        private void SendKeysGenRiskDeathsOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSiteNone.Click();
+            ClickSliderGenRiskDeathsOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderDeathsOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite100k()
+        private void SendKeysGenRiskCapitalLossOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite100k.Click();
+            ClickSliderGenRiskCapitalLossOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderCapitalLossOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite1M()
+        private void SendKeysGenRiskCapitalLossOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite1M.Click();
+            ClickSliderGenRiskCapitalLossOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderCapitalLossOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite10M()
+        private void SendKeysGenRiskEconomicImpactOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite10M.Click();
+            ClickSliderGenRiskEconomicImpactOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderEconomicImpactOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite100M()
+        private void SendKeysGenRiskEconomicImpactOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite100M.Click();
+            ClickSliderGenRiskEconomicImpactOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderEconomicImpactOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite1B()
+        private void SendKeysGenRiskEnvironmentalOnSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite1B.Click();
+            ClickSliderGenRiskEnvironmentalOnSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderEnvironmentalOnSite.SendKeys(Keys.ArrowRight);
+            }
         }
-
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite10B()
+        private void SendKeysGenRiskEnvironmentalOffSite()
         {
-            SliderGeneralRiskBasedEnvironmentalOffSite10B.Click();
+            ClickSliderGenRiskEnvironmentalOffSite();
+            for (int i = 0; i < 8; i++)
+            {
+                GenRiskSliderEnvironmentalOffSite.SendKeys(Keys.ArrowRight);
+            }
         }
 
-        private void ClickSliderGeneralRiskBasedEnvironmentalOffSite10BGreater()
-        {
-            SliderGeneralRiskBasedEnvironmentalOffSite10BGreater.Click();
-        }
 
         private void ClickNistCheckAirTransportation()
         {
@@ -2764,177 +1691,177 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             CheckboxNistWorkplacePolicyDev.Click();
         }
-        private void ClickNistA2()
+        private void ClickNistAirTransA()
         {
-            NistTableLinkA2.Click();
+            NistTableLinkSpecialFactorAirTransA.Click();
         }
-        private void ClickNistA13()
+        private void ClickNistAirTransC()
         {
-            NistTableLinkA13.Click();
+            NistTableLinkSpecialFactorAirTransC.Click();
         }
-        private void ClickNistA14()
+        private void ClickNistAirTransI()
         {
-            NistTableLinkA14.Click();
+            NistTableLinkSpecialFactorAirTransI.Click();
         }
-        private void ClickNistA15()
+        private void ClickNistDPPA()
         {
-            NistTableLinkA15.Click();
+            NistTableLinkSpecialFactorDPPA.Click();
         }
-        private void ClickNistA16()
+        private void ClickNistDPPC()
         {
-            NistTableLinkA16.Click();
+            NistTableLinkSpecialFactorDPPC.Click();
         }
-        private void ClickNistA18()
+        private void ClickNistDPPI()
         {
-            NistTableLinkA18.Click();
+            NistTableLinkSpecialFactorDPPI.Click();
         }
-        private void ClickNistA20()
+        private void ClickNistECPA()
         {
-            NistTableLinkA20.Click();
+            NistTableLinkSpecialFactorECPA.Click();
         }
-        private void ClickNistA22()
+        private void ClickNistECPC()
         {
-            NistTableLinkA22.Click();
+            NistTableLinkSpecialFactorECPC.Click(); 
         }
-        private void ClickNistA23()
+        private void ClickNistECPI()
         {
-            NistTableLinkA23.Click();
+            NistTableLinkSpecialFactorECPI.Click();
         }
-        private void ClickNistA25()
+        private void ClickNistEnergyProdA()
         {
-            NistTableLinkA25.Click();
+            NistTableLinkSpecialFactorEnergyProdA.Click();
         }
-        private void ClickNistA33()
+        private void ClickNistEnergyProdC()
         {
-            NistTableLinkA33.Click();
+            NistTableLinkSpecialFactorEnergyProdC.Click();
         }
-        private void ClickNistA51()
+        private void ClickNistEnergyProdI()
         {
-            NistTableLinkA51.Click();
+            NistTableLinkSpecialFactorEnergyProdI.Click();
         }
-        private void ClickNistA60()
+        private void ClickNistEnergySupplyA()
         {
-            NistTableLinkA60.Click();
+            NistTableLinkSpecialFactorEnergySupplyA.Click();
         }
-        private void ClickNistA65()
+        private void ClickNistEnergySupplyC()
         {
-            NistTableLinkA65.Click();
+            NistTableLinkSpecialFactorEnergySupplyC.Click();
         }
-        private void ClickNistC2()
+        private void ClickNistEnergySupplyI()
         {
-            NistTableLinkC2.Click();
+            NistTableLinkSpecialFactorEnergySupplyI.Click();
         }
-        private void ClickNistC13()
+        private void ClickNistEnvMonitorForeA()
         {
-            NistTableLinkC13.Click();
+            NistTableLinkSpecialFactorEnvMonitorForeA.Click();
         }
-        private void ClickNistC14()
+        private void ClickNistEnvMonitorForeC()
         {
-            NistTableLinkC14.Click();
+            NistTableLinkSpecialFactorEnvMonitorForeC.Click();  
         }
-        private void ClickNistC15()
+        private void ClickNistEnvMonitorForeI()
         {
-            NistTableLinkC15.Click();
+            NistTableLinkSpecialFactorEnvMonitorForeI.Click();
         }
-        private void ClickNistC16()
+        private void ClickNistFacilitiesFleetEMA()
         {
-            NistTableLinkC16.Click();
+            NistTableLinkSpecialFactorFacilitiesFleetEMA.Click();
         }
-        private void ClickNistC18()
+        private void ClickNistFacilitiesFleetEMC()
         {
-            NistTableLinkC18.Click();
+            NistTableLinkSpecialFactorFacilitiesFleetEMC.Click();
         }
-        private void ClickNistC20()
+        private void ClickNistFacilitiesFleetEMI()
         {
-            NistTableLinkC20.Click();
+            NistTableLinkSpecialFactorFacilitiesFleetEMI.Click();
         }
-        private void ClickNistC22()
+        private void ClickNistGPDSA()
         {
-            NistTableLinkC22.Click();
+            NistTableLinkSpecialFactorGPDSA.Click();
         }
-        private void ClickNistC23()
+        private void ClickNistGPDSC()
         {
-            NistTableLinkC23.Click();
+            NistTableLinkSpecialFactorGPDSC.Click();
         }
-        private void ClickNistC25()
+        private void ClickNistGPDSI()
         {
-            NistTableLinkC25.Click();
+            NistTableLinkSpecialFactorGPDSI.Click();
         }
-        private void ClickNistC33()
+        private void ClickNistGroundTransA()
         {
-            NistTableLinkC33.Click();
+            NistTableLinkSpecialFactorGroundTransA.Click();
         }
-        private void ClickNistC51()
+        private void ClickNistGroundTransC()
         {
-            NistTableLinkC51.Click();
+            NistTableLinkSpecialFactorGroundTransC.Click();
         }
-        private void ClickNistC60()
+        private void ClickNistGroundTransI()
         {
-            NistTableLinkC60.Click();
+            NistTableLinkSpecialFactorGroundTransI.Click();
         }
-        private void ClickNistC65()
+        private void ClickNistKeyAssetCIPA()
         {
-            NistTableLinkC65.Click();
+            NistTableLinkSpecialFactorKeyAssetCIPA.Click();
         }
-        private void ClickNistI2()
+        private void ClickNistKeyAssetCIPC()
         {
-            NistTableLinkI2.Click();
+            NistTableLinkSpecialFactorKeyAssetCIPC.Click();
         }
-        private void ClickNistI13()
+        private void ClickNistKeyAssetCIPI()
         {
-            NistTableLinkI13.Click();
+            NistTableLinkSpecialFactorKeyAssetCIPI.Click();
         }
-        private void ClickNistI14()
+        private void ClickNistPropertyProtectionA()
         {
-            NistTableLinkI14.Click();
+            NistTableLinkSpecialFactorPropertyProtectionA.Click();
         }
-        private void ClickNistI15()
+        private void ClickNistPropertyProtectionC()
         {
-            NistTableLinkI15.Click();
+            NistTableLinkSpecialFactorPropertyProtectionC.Click();
         }
-        private void ClickNistI16()
+        private void ClickNistPropertyProtectionI()
         {
-            NistTableLinkI16.Click();
+            NistTableLinkSpecialFactorPropertyProtectionI.Click();
         }
-        private void ClickNistI18()
+        private void ClickNistERA()
         {
-            NistTableLinkI18.Click();
+            NistTableLinkSpecialFactorSpecialFactorERA.Click();
         }
-        private void ClickNistI20()
+        private void ClickNistERC()
         {
-            NistTableLinkI20.Click();
+            NistTableLinkSpecialFactorSpecialFactorERC.Click();
         }
-        private void ClickNistI22()
+        private void ClickNistERI()
         {
-            NistTableLinkI22.Click();
+            NistTableLinkSpecialFactorSpecialFactorERI.Click();
         }
-        private void ClickNistI23()
+        private void ClickNistSysNetMonitoringA()
         {
-            NistTableLinkI23.Click();
+            NistTableLinkSpecialFactorSysNetMonitoringA.Click();
         }
-        private void ClickNistI25()
+        private void ClickNistSysNetMonitoringC()
         {
-            NistTableLinkI25.Click();
+            NistTableLinkSpecialFactorSysNetMonitoringC.Click();
         }
-        private void ClickNistI33()
+        private void ClickNistSysNetMonitoringI()
         {
-            NistTableLinkI33.Click();
+            NistTableLinkSpecialFactorSysNetMonitoringI.Click();
         }
-        private void ClickNistI51()
+        private void ClickNistWaterTransA()
         {
-            NistTableLinkI51.Click();
+            NistTableLinkSpecialFactorWaterTransA.Click();
         }
-        private void ClickNistI60()
+        private void ClickNistWaterTransC()
         {
-            NistTableLinkI60.Click();
+            NistTableLinkSpecialFactorWaterTransC.Click();
         }
-        private void ClickNistI65()
+        private void ClickNistWaterTransI()
         {
-            NistTableLinkI65.Click();
+            NistTableLinkSpecialFactorWaterTransI.Click();
         }
         private void ClickNistPleaseConfirmYes()
         {
-            NistPleaseConfirmYesButton.Click();
+            NistPleaseConfirmYes.Click();
         }
         private void ClickNistAnswerQ1No()
         {
@@ -3001,381 +1928,179 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             NistAnswerQuestions8Yes.Click();
         }
 
-        //Aggregate Methods
-        //public Boolean retryButtonClick(By by)
-        //{
-        //    Boolean result = false;
-        //    int attempts = 0;
-        //    while (attempts < 2)
-        //    {
-        //        try
-        //        {
-        //            this.driver.FindElement(by).Click();
-        //            result = true;
-        //            break;
-        //        }
-        //        catch (StaleElementReferenceException e)
-        //        {
-        //        }
-        //        attempts++;
-        //    }
-        //    return result;
-        //}
-        //public Boolean retryButtonScroll(By by)
-        //{
-        //    Boolean result = false;
-        //    int attempts = 0;
-        //    while (attempts < 2)
-        //    {
-        //        try
-        //        {
-        //            this.actions.MoveToElement(driver.FindElement(by)).Perform();
-        //            result = true;
-        //            break;
-        //        }
-        //        catch (StaleElementReferenceException e)
-        //        {
-        //        }
-        //        attempts++;
-        //    }
-        //    return result;
-        //}
+        //Aggregate methods
+        public void SelectSALAssessment()
+        {
+            ClickSALAssessment();
+        }
         public void SelectHeaderSimple()
         {
-
-            retryButtonScroll(TextHeaderSimple, actions);
-            retryButtonClick(TextHeaderSimple);
-            //ClickHeaderSimple();
-            retryButtonClick(TextHeaderOverallSalLow);
-            retryButtonClick(TextHeaderOverallSalModerate);
-            retryButtonClick(TextHeaderOverallSalHigh);
-            retryButtonClick(TextHeaderOverallSalVeryHigh);
-            retryButtonClick(TextHeaderConfidentialityLow);
-            retryButtonClick(TextHeaderConfidentialityModerate);
-            retryButtonClick(TextHeaderConfidentialityHigh);
-            retryButtonClick(TextHeaderConfidentialityVeryHigh);
-            retryButtonClick(TextHeaderIntegrityLow);
-            retryButtonClick(TextHeaderIntegrityModerate);
-            retryButtonClick(TextHeaderIntegrityHigh);
-            retryButtonClick(TextHeaderIntegrityVeryHigh);
-            retryButtonClick(TextHeaderAvailabilityLow);
-            retryButtonClick(TextHeaderAvailabilityModerate);
-            retryButtonClick(TextHeaderAvailabilityHigh);
-            retryButtonClick(TextHeaderAvailabilityVeryHigh);
-            ClickNext();
+            ClickHeaderSimple();
         }
 
         public void SelectHeaderGeneralRiskBased()
         {
-            this.actions.MoveToElement(driver.FindElement(By.XPath("//label[contains(text(),'General Risk Based')]")));
-            actions.Perform();
-            retryButtonClick(TextHeaderGeneralRiskBased);
-
-            this.actions.MoveToElement(SliderGeneralRiskBasedInjuriesOnSite1);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite1);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite11);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite51);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite101);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite251);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite501);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite751);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOnSite1000);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite1);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite11);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite51);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite101);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite251);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite501);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite751);
-            retryButtonClick(SliderGeneralRiskBasedInjuriesOffSite1000);
-            //
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite1);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite11);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite51);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite101);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite251);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite501);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite751);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOnSite1000);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite1);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite11);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite51);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite101);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite251);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite501);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite751);
-            retryButtonClick(SliderGeneralRiskBasedHospitalizationsOffSite1000);
-            //
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite1);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite11);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite51);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite101);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite251);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite501);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite751);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOnSite1000);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite1);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite11);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite51);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite101);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite251);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite501);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite751);
-            retryButtonClick(SliderGeneralRiskBasedDeathsOffSite1000);
-            //
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite100k);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite1M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite100M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite1B);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10B);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOnSite10BGreater);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite100k);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite1M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite100M);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite1B);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10B);
-            retryButtonClick(SliderGeneralRiskBasedCapitalLossOffSite10BGreater);
-            
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite100k);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite1M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite100M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite1B);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10B);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOnSite10BGreater);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite100k);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite1M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite100M);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite1B);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10B);
-            retryButtonClick(SliderGeneralRiskBasedEconomicImpactOffSite10BGreater);
-            
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite100k);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite1M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite100M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite1B);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10B);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOnSite10BGreater);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite100k);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSiteNone);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite1M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite100M);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite1B);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10B);
-            retryButtonClick(SliderGeneralRiskBasedEnvironmentalOffSite10BGreater);
-            
-            
+            MoveToElement(TextHeaderGeneralRiskBased);
+            ClickHeaderGeneralRiskBased();
         }
 
         public void SelectHeaderNist()
         {
-            this.actions.MoveToElement(driver.FindElement(By.XPath("//label[contains(text(),'NIST-60 / FIPS-199')]")));
-            actions.Perform();
+            MoveToElement(TextHeaderNist);
             ClickHeaderNist();
-            retryButtonClick(TextHeaderOverallSalLow);
-            retryButtonClick(TextHeaderOverallSalModerate);
-            retryButtonClick(TextHeaderOverallSalHigh);
-            retryButtonClick(TextHeaderOverallSalVeryHigh);
-            retryButtonClick(TextHeaderConfidentialityLow);
-            retryButtonClick(TextHeaderConfidentialityModerate);
-            retryButtonClick(TextHeaderConfidentialityHigh);
-            retryButtonClick(TextHeaderConfidentialityVeryHigh);
-            retryButtonClick(TextHeaderIntegrityLow);
-            retryButtonClick(TextHeaderIntegrityModerate);
-            retryButtonClick(TextHeaderIntegrityHigh);
-            retryButtonClick(TextHeaderIntegrityVeryHigh);
-            retryButtonClick(TextHeaderAvailabilityLow);
-            retryButtonClick(TextHeaderAvailabilityModerate);
-            retryButtonClick(TextHeaderAvailabilityHigh);
-            retryButtonClick(TextHeaderAvailabilityVeryHigh);
-            retryButtonClick(CheckboxNistAirTransportation);
-            retryButtonClick(CheckboxNistAssetLiabilityManagement);
-            retryButtonClick(CheckboxNistBudgetExecution);
-            retryButtonClick(CheckboxNistBudgetFormulation);
-            retryButtonClick(CheckboxNistBudgetingPerformanceInt);
-            retryButtonClick(CheckboxNistCapitalPlan);
-            retryButtonClick(NistTableLinkC2);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA2);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI2);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(CheckboxNistContingencyPlan);
-            retryButtonClick(CheckboxNistContinuityOfOps);
-            retryButtonClick(CheckboxNistCostAccount);
-            retryButtonClick(CheckboxNistCollectReceive);
-            retryButtonClick(CheckboxNistCustomerServices);
-            retryButtonClick(CheckboxNistDisasterPrep);
-            retryButtonClick(CheckboxNistEnterpriseArch);
-            retryButtonClick(CheckboxNistEnergyConservation);
-            retryButtonClick(CheckboxNistEnvMonitor);
-            retryButtonClick(CheckboxNistEnvRemediation);
-            retryButtonClick(CheckboxNistEnergyProduction);
-            retryButtonClick(CheckboxNistEmergencyResponse);
-            retryButtonClick(CheckboxNistEnergyResourceManagement);
-            retryButtonClick(CheckboxNistEnergySupply);
-            retryButtonClick(CheckboxNistFacilitiesFleet);
-            retryButtonClick(CheckboxNistGoodsAcquisition);
-            retryButtonClick(CheckboxNistGeneralPurpose);
-            retryButtonClick(CheckboxNistGroundTransport);
-            retryButtonClick(CheckboxNistHelpDesk);
-            retryButtonClick(NistTableLinkC13);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC14);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC15);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC16);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC18);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC20);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC22);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC23);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC25);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA13);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA14);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA15);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA16);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA18);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA20);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA22);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA23);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA25);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI13);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI14);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI15);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI16);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI18);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI20);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI22);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI23);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI25);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(CheckboxNistInventoryControl);
-            retryButtonClick(CheckboxNistInfoInfraManagement);
-            retryButtonClick(CheckboxNistInfoManagement);
-            retryButtonClick(CheckboxNistInfoSec);
-            retryButtonClick(CheckboxNistInfoShare);
-            retryButtonClick(CheckboxNistIntellectualProperty);
-            retryButtonClick(CheckboxNistKeyAsset);
-            retryButtonClick(NistTableLinkC33);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA33);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI33);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(CheckboxNistLifecycleChange);
-            retryButtonClick(CheckboxNistLogisticsManagement);
-            retryButtonClick(CheckboxNistLaborRights);
-            retryButtonClick(CheckboxNistManufacturing);
-            retryButtonClick(CheckboxNistManagementImprovement);
-            retryButtonClick(CheckboxNistOtherFinancial);
-            retryButtonClick(CheckboxNistOtherInfoManagement);
-            retryButtonClick(CheckboxNistOtherManagement);
-            retryButtonClick(CheckboxNistOtherOps);
-            retryButtonClick(CheckboxNistOtherRAndD);
-            retryButtonClick(CheckboxNistOtherSecurity);
-            retryButtonClick(CheckboxNistOtherSupportFunc);
-            retryButtonClick(CheckboxNistPayments);
-            retryButtonClick(CheckboxNistPercentageInraMaint);
-            retryButtonClick(CheckboxNistPermitsAndLicensing);
-            retryButtonClick(CheckboxNistProductOutreach);
-            retryButtonClick(CheckboxNistPropertyProtection);
-            retryButtonClick(CheckboxNistPollutionPrevention);
-            retryButtonClick(CheckboxNistPR);
-            retryButtonClick(NistTableLinkC51);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA51);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI51);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(CheckboxNistRAndD);
-            retryButtonClick(CheckboxNistReportingInfo);
-            retryButtonClick(CheckboxNistRecordsRetention);
-            retryButtonClick(CheckboxNistServicesAcquisition);
-            retryButtonClick(CheckboxNistSystemDev);
-            retryButtonClick(CheckboxNistSecManagement);
-            retryButtonClick(CheckboxNistSystemAndNetMonitoring);
-            retryButtonClick(CheckboxNistServiceRecovery);
-            retryButtonClick(CheckboxNistScientificAndTech);
-            retryButtonClick(CheckboxNistSystemMaintenance);
-            retryButtonClick(CheckboxNistTrainingAndEmployment);
-            retryButtonClick(CheckboxNistWorkForcePlanning);
-            retryButtonClick(CheckboxNistWaterResource);
-            retryButtonClick(CheckboxNistWorkerSafety);
-            retryButtonClick(CheckboxNistWaterTransport);
-            retryButtonClick(CheckboxNistWorkplacePolicyDev);
-            retryButtonClick(NistTableLinkC60);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkC65);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA60);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkA65);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI60);
-            retryButtonClick(NistPleaseConfirmYesButton);
-            retryButtonClick(NistTableLinkI65);
-            retryButtonClick(NistPleaseConfirmYesButton);
-
-            this.actions.MoveToElement(driver.FindElement(By.XPath("//*[@id='sidenav-content']/app-prepare/app-sals/div/div/div[6]/div/app-sal-nist/div[2]/div[2]/table/tr[8]/td[2]/div/label[1]")));
-            actions.Perform();
-            retryButtonClick(NistAnswerQuestions1No);
-            retryButtonClick(NistAnswerQuestions1Yes);
-            retryButtonClick(NistAnswerQuestions2Yes);
-            retryButtonClick(NistAnswerQuestions3Yes);
-            retryButtonClick(NistAnswerQuestions4Yes);
-            retryButtonClick(NistAnswerQuestions5Yes);
-            retryButtonClick(NistAnswerQuestions6Yes);
-            retryButtonClick(NistAnswerQuestions7Yes);
-            retryButtonClick(NistAnswerQuestions8Yes);
-
-            retryButtonClick(NistAnswerQuestions2No);
-            retryButtonClick(NistAnswerQuestions3No);
-            retryButtonClick(NistAnswerQuestions4No);
-            retryButtonClick(NistAnswerQuestions5No);
-            retryButtonClick(NistAnswerQuestions6No);
-            retryButtonClick(NistAnswerQuestions7No);
-            retryButtonClick(NistAnswerQuestions8No);
         }
+        public void SALSimpleSelectorsTest()
+        {
+            ClickHeaderOverallSalLow();
+            ClickHeaderOverallSalModerate();
+            ClickHeaderOverallSalHigh();
+            ClickHeaderOverallSalVeryHigh();
+            ClickHeaderConfidentialityLow();
+            ClickHeaderConfidentialityModerate();
+            ClickHeaderConfidentialityHigh();
+            ClickHeaderConfidentialityVeryHigh();
+            ClickHeaderIntegrityLow();
+            ClickHeaderIntegrityModerate();
+            ClickHeaderIntegrityHigh();
+            ClickHeaderIntegrityVeryHigh();
+            ClickHeaderAvailabilityLow();
+            ClickHeaderAvailabilityModerate();
+            ClickHeaderAvailabilityHigh();
+            ClickHeaderAvailabilityVeryHigh();
+            System.Threading.Thread.Sleep(5000);
+        }
+
+        public void SALGeneralRiskSelectorsTest()
+        {
+            SendKeysGenRiskInjuriesOnSite();
+            SendKeysGenRiskInuriesOffSite();
+            SendKeysGenRiskHospitalizationsOnSite();
+            SendKeysGenRiskHospitalizationsOffSite();
+            SendKeysGenRiskDeathsOnSite();
+            SendKeysGenRiskDeathsOffSite();
+            SendKeysGenRiskCapitalLossOnSite();
+            SendKeysGenRiskCapitalLossOffSite();
+            SendKeysGenRiskEconomicImpactOnSite();
+            SendKeysGenRiskEconomicImpactOffSite();
+            SendKeysGenRiskEnvironmentalOnSite();
+            SendKeysGenRiskEnvironmentalOffSite();
+            System.Threading.Thread.Sleep(5000);
+        }
+
+
+        public void NISTOverallSALTest()
+        {
+            SelectHeaderOverallSalLow();
+            SelectHeaderOverallSalModerate();
+            SelectHeaderOverallSalHigh();
+            SelectHeaderOverallSalVeryHigh();
+        }
+
+        public void NISTConfidentialityTest()
+        {
+            SelectHeaderConfidentialityLow();
+            SelectHeaderConfidentialityModerate();
+            SelectHeaderConfidentialityHigh();
+            SelectHeaderConfidentialityVeryHigh();
+        }
+
+        public void NISTIntegrityTest()
+        {
+            SelectHeaderIntegrityLow();
+            SelectHeaderIntegrityModerate();
+            SelectHeaderIntegrityHigh();
+            SelectHeaderIntegrityVeryHigh();
+        }
+
+        public void NISTAvailabilityTest()
+        {
+            SelectHeaderAvailabilityLow();
+            SelectHeaderAvailabilityModerate();
+            SelectHeaderAvailabilityHigh();
+            SelectHeaderAvailabilityVeryHigh();
+        }
+
+        public void NISTCIAValuesCheckboxTest()
+        {
+            SelectNistCheckAirTransportation();
+            SelectNistCheckAssetLM();
+            SelectNistCheckBE();
+            SelectNistCheckBF();
+            SelectNistCheckBPI();
+            SelectNistCheckCAPM();
+            SelectNistCheckContingencyP();
+            SelectNistCheckCOps();
+            SelectNistCheckCP();
+            SelectNistCheckCR();
+            SelectNistCheckCS();
+            SelectNistCheckDPP();
+            SelectNistCheckEArch();
+            SelectNistCheckECP();
+            SelectNistCheckEnvMF();
+            SelectNistCheckEnvR();
+            SelectNistCheckEP();
+            SelectNistCheckER();
+            SelectNistCheckERM();
+            SelectNistCheckESSSS();
+            SelectNistCheckFFEM();
+            SelectNistCheckGoodsAcq();
+            SelectNistCheckGPDS();
+            SelectNistCheckGroundTrans();
+            SelectNistCheckHDS();
+            SelectNistCheckIC();
+            SelectNistCheckIIM();
+            SelectNistCheckInfoM();
+            SelectNistCheckInfoSec();
+            SelectNistCheckInfoShare();
+            SelectNistCheckIPP();
+            SelectNistCheckKACIP();
+            SelectNistCheckLCM();
+            SelectNistCheckLogM();
+            SelectNistCheckLRM();
+            SelectNistCheckManufacturing();
+            SelectNistCheckMI();
+            SelectNistCheckOtherFin();
+            SelectNistCheckOtherInfoM();
+            SelectNistCheckOtherM();
+            SelectNistCheckOtherOps();
+            SelectNistCheckOtherRD();
+            SelectNistCheckOtherSec();
+            SelectNistCheckOtherSuppF();
+            SelectNistCheckPayments();
+            SelectNistCheckPIM();
+            SelectNistCheckPL();
+            SelectNistCheckPO();
+            SelectNistCheckPP();
+            SelectNistCheckPPC();
+            SelectNistCheckPR();
+            SelectNistCheckRD();
+            SelectNistCheckRI();
+            SelectNistCheckRR();
+            SelectNistCheckSAcq();
+            SelectNistCheckSD();
+            SelectNistCheckSM();
+            SelectNistCheckSNM();
+            SelectNistCheckSR();
+            SelectNistCheckSTRI();
+            SelectNistCheckSysM();
+            SelectNistCheckTE();
+            SelectNistCheckWFP();
+            SelectNistCheckWPDM();
+            SelectNistCheckWRM();
+            SelectNistCheckWS();
+            SelectNistCheckWTrans();
+        }
+
+        public void SelectHeaderSimpleTest()
+        {
+            ClickHeaderSimple();
+            ClickHeaderOverallSalLow();
+            System.Threading.Thread.Sleep(5000);
+        }
+
+
+
+
 
         public void SelectHeaderOverallSalLow()
         {
@@ -3455,512 +2180,61 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             ClickHeaderAvailabilityVeryHigh();
         }
 
-        public void SelectSliderGeneralRiskBasedInjuriesOnSiteNone()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite1()
-        {
-            
-            ClickSliderGeneralRiskBasedInjuriesOnSite1();
-        }
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite11()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite51()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite101()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite251()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite501()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite751()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOnSite1000()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOnSite1000();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSiteNone()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite1()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite1();
-        }
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite11()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite51()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite101()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite251()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite501()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite751()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedInjuriesOffSite1000()
-        {
-            ClickSliderGeneralRiskBasedInjuriesOffSite1000();
-        }
-        //
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSiteNone()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite1()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite1();
-        }
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite11()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite51()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite101()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite251()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite501()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite751()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOnSite1000()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOnSite1000();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSiteNone()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite1()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite1();
-        }
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite11()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite51()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite101()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite251()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite501()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite751()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedHospitalizationsOffSite1000()
-        {
-            ClickSliderGeneralRiskBasedHospitalizationsOffSite1000();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSiteNone()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite1()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite1();
-        }
-        public void SelectSliderGeneralRiskBasedDeathsOnSite11()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite51()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite101()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite251()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite501()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite751()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOnSite1000()
-        {
-            ClickSliderGeneralRiskBasedDeathsOnSite1000();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSiteNone()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite1()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite1();
-        }
-        public void SelectSliderGeneralRiskBasedDeathsOffSite11()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite11();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite51()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite51();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite101()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite101();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite251()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite251();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite501()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite501();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite751()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite751();
-        }
-
-        public void SelectSliderGeneralRiskBasedDeathsOffSite1000()
-        {
-            ClickSliderGeneralRiskBasedDeathsOffSite1000();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSiteNone()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite100k()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite100k();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite1M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite1M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite10M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite10M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite100M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite100M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite1B()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite1B();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite10B()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite10B();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOnSite10BGreater()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOnSite10BGreater();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSiteNone()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite100k()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite100k();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite1M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite1M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite10M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite10M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite100M()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite100M();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite1B()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite1B();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite10B()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite10B();
-        }
-
-        public void SelectSliderGeneralRiskBasedCapitalLossOffSite10BGreater()
-        {
-            ClickSliderGeneralRiskBasedCapitalLossOffSite10BGreater();
-        }
+        //general risk based
 
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSiteNone()
+        public void SelectGenRiskInjuriesOnSite()
         {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite100k()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite100k();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite1M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite1M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite10M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite10M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite100M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite100M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite1B()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite1B();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite10B()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite10B();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOnSite10BGreater()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOnSite10BGreater();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSiteNone()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite100k()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite100k();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite1M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite1M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite10M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite10M();
-        }
+            SendKeysGenRiskInjuriesOnSite();
 
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite100M()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite100M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite1B()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite1B();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite10B()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite10B();
-        }
-
-        public void SelectSliderGeneralRiskBasedEconomicImpactOffSite10BGreater()
-        {
-            ClickSliderGeneralRiskBasedEconomicImpactOffSite10BGreater();
-        }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSiteNone()
-        {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSiteNone();
-        }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite100k()
-        {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite100k();
-        }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite1M()
-        {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite1M();
-        }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite10M()
-        {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite10M();
         }
 
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite100M()
+        public void SelectGenRiskInuriesOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite100M();
+            SendKeysGenRiskInuriesOffSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite1B()
+        public void SelectGenRiskHospitalizationsOnSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite1B();
+            SendKeysGenRiskHospitalizationsOnSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite10B()
+        public void SelectGenRiskHospitalizationsOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite10B();
+            SendKeysGenRiskHospitalizationsOffSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOnSite10BGreater()
+        public void SelectGenRiskDeathsOnSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOnSite10BGreater();
+            SendKeysGenRiskDeathsOnSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSiteNone()
+        public void SelectGenRiskDeathsOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSiteNone();
+            SendKeysGenRiskDeathsOffSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite100k()
+        public void SelectGenRiskCapitalLossOnSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite100k();
+            SendKeysGenRiskCapitalLossOnSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite1M()
+        public void SelectGenRiskCapitalLossOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite1M();
+            SendKeysGenRiskCapitalLossOffSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite10M()
+        public void SelectGenRiskEconomicImpactOnSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite10M();
+            SendKeysGenRiskEconomicImpactOnSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite100M()
+        public void SelectGenRiskEconomicImpactOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite100M();
+            SendKeysGenRiskEconomicImpactOffSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite1B()
+        public void SelectGenRiskEnvironmentalOnSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite1B();
+            SendKeysGenRiskEnvironmentalOnSite();
         }
-
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite10B()
+        public void SelectGenRiskEnvironmentalOffSite()
         {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite10B();
+            SendKeysGenRiskEnvironmentalOffSite();
         }
 
-        public void SelectSliderGeneralRiskBasedEnvironmentalOffSite10BGreater()
-        {
-            ClickSliderGeneralRiskBasedEnvironmentalOffSite10BGreater();
-        }
 
-        //nist
+            //nist
         public void SelectNistCheckAirTransportation()
         {
             ClickNistCheckAirTransportation();
@@ -4130,6 +2404,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         }
         public void SelectNistCheckOtherRD()
         {
+            MoveToElement(CheckboxNistOtherRAndD);
             ClickNistCheckOtherRD();
         }
         public void SelectNistCheckOtherSec()
@@ -4232,173 +2507,216 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             ClickNistCheckWPDM();
         }
-        public void SelectNistA2()
+        public void SelectNistAirTransA()
         {
-            ClickNistA2();
+            MoveToElement(NistTableLinkSpecialFactorAirTransA);
+            ClickNistAirTransA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA13()
+        public void SelectNistAirTransC()
         {
-            ClickNistA13();
+            ClickNistAirTransC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA14()
+        public void SelectNistAirTransI()
         {
-            ClickNistA14();
+            ClickNistAirTransI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA15()
+        public void SelectNistDPPA()
         {
-            ClickNistA15();
+            ClickNistDPPA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA16()
+        public void SelectNistDPPC()
         {
-            ClickNistA16();
+            ClickNistDPPC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA18()
+        public void SelectNistDPPI()
         {
-            ClickNistA18();
+            ClickNistDPPI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA20()
+        public void SelectNistECPA()
         {
-            ClickNistA20();
+            ClickNistECPA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA22()
+        public void SelectNistECPC()
         {
-            ClickNistA22();
+            ClickNistECPC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA23()
+        public void SelectNistECPI()
         {
-            ClickNistA23();
+            ClickNistECPI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA25()
+        public void SelectNistEnergyProdA()
         {
-            ClickNistA25();
+            ClickNistEnergyProdA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA33()
+        public void SelectNistEnergyProdC()
         {
-            ClickNistA33();
+            ClickNistEnergyProdC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA51()
+        public void SelectNistEnergyProdI()
         {
-            ClickNistA51();
+            ClickNistEnergyProdI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA60()
+        public void SelectNistEnergySupplyA()
         {
-            ClickNistA60();
+            ClickNistEnergySupplyA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistA65()
+        public void SelectNistEnergySupplyC()
         {
-            ClickNistA65();
+            ClickNistEnergySupplyC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC2()
+        public void SelectNistEnergySupplyI()
         {
-            ClickNistC2();
+            ClickNistEnergySupplyI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC13()
+        public void SelectNistEnvMonitorForeA()
         {
-            ClickNistC13();
+            ClickNistEnvMonitorForeA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC14()
+        public void SelectNistEnvMonitorForeC()
         {
-            ClickNistC14();
+            ClickNistEnvMonitorForeC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC15()
+        public void SelectNistEnvMonitorForeI()
         {
-            ClickNistC15();
+            ClickNistEnvMonitorForeI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC16()
+        public void SelectNistFacilitiesFleetEMA()
         {
-            ClickNistC16();
+            ClickNistFacilitiesFleetEMA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC18()
+        public void SelectNistFacilitiesFleetEMC()
         {
-            ClickNistC18();
+            ClickNistFacilitiesFleetEMC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC20()
+        public void SelectNistFacilitiesFleetEMI()
         {
-            ClickNistC20();
+            ClickNistFacilitiesFleetEMI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC22()
+        public void SelectNistGPDSA()
         {
-            ClickNistC22();
+            ClickNistGPDSA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC23()
+        public void SelectNistGPDSC()
         {
-            ClickNistC23();
+            ClickNistGPDSC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC25()
+        public void SelectNistGPDSI()
         {
-            ClickNistC25();
+            ClickNistGPDSI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC33()
+        public void SelectNistGroundTransA()
         {
-            ClickNistC33();
+            ClickNistGroundTransA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC51()
+        public void SelectNistGroundTransC()
         {
-            ClickNistC51();
+            ClickNistGroundTransC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC60()
+        public void SelectNistGroundTransI()
         {
-            ClickNistC60();
+            ClickNistGroundTransI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistC65()
+        public void SelectNistKeyAssetCIPA()
         {
-            ClickNistC65();
+            ClickNistKeyAssetCIPA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI2()
+        public void SelectNistKeyAssetCIPC()
         {
-            ClickNistI2();
+            ClickNistKeyAssetCIPC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI13()
+        public void SelectNistKeyAssetCIPI()
         {
-            ClickNistI13();
+            ClickNistKeyAssetCIPI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI14()
+        public void SelectNistPropertyProtectionA()
         {
-            ClickNistI14();
+            ClickNistPropertyProtectionA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI15()
+        public void SelectNistPropertyProtectionC()
         {
-            ClickNistI15();
+            ClickNistPropertyProtectionC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI16()
+        public void SelectNistPropertyProtectionI()
         {
-            ClickNistI16();
+            ClickNistPropertyProtectionI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI18()
+        public void SelectNistERA()
         {
-            ClickNistI18();
+            ClickNistERA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI20()
+        public void SelectNistERC()
         {
-            ClickNistI20();
+            ClickNistERC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI22()
+        public void SelectNistERI()
         {
-            ClickNistI22();
+            ClickNistERI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI23()
+        public void SelectNistSysNetMonitoringA()
         {
-            ClickNistI23();
+            ClickNistSysNetMonitoringA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI25()
+        public void SelectNistSysNetMonitoringC()
         {
-            ClickNistI25();
+            ClickNistSysNetMonitoringC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI33()
+        public void SelectNistSysNetMonitoringI()
         {
-            ClickNistI33();
+            ClickNistSysNetMonitoringI();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI51()
+        public void SelectNistWaterTransA()
         {
-            ClickNistI51();
+            ClickNistWaterTransA();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI60()
+        public void SelectNistWaterTransC()
         {
-            ClickNistI60();
+            ClickNistWaterTransC();
+            ClickNistPleaseConfirmYes();
         }
-        public void SelectNistI65()
+        public void SelectNistWaterTransI()
         {
-            ClickNistI65();
+            ClickNistWaterTransI();
+            ClickNistPleaseConfirmYes();
         }
         public void SelectNistPleaseConfirmYes()
         {
