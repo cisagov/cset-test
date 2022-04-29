@@ -29,22 +29,21 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void NERC2Rev6()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://localhost:4200/home/landing-page");
-                //BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
                 Assert.True(driver.Title.Contains("CSET"));
 
-/*                LoginPage loginPage = new LoginPage(driver);
+                LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();*/
+                createNewAssessment.CreateNewAssessment();
 
-/*                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateStandardAssessment("Standard Assessment NERC2 Rev6", "Wayne Tech", "Gotham City", "New Jersey");
 
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();*/
+                assessmentInfo.SetAssessmentInformation();
 
                 //SAL Page
                 SecurityAssuranceLevel securityAssuranceLevel = new SecurityAssuranceLevel(driver);
