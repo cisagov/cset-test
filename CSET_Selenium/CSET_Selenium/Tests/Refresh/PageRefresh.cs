@@ -19,12 +19,10 @@ namespace CSET_Selenium.Tests.Refresh
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = BuildDriver(cf);
-            Assert.True(driver.Title.Contains("CSET"));
+            Assert.True(driver.Title.Contains("CSET"), "****CSET did not load correctly****");
 
             driver.Navigate().Refresh();
-            
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+            Assert.True(driver.Title.Contains("CSET"), "****CSET did not refresh proplerly****");
         }
     }
 }
