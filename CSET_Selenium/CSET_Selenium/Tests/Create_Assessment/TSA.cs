@@ -98,25 +98,6 @@ namespace CSET_Selenium.Tests.TSA
                 // Analysis Dashboard Page
                 assessmentInfo.SetAssessmentInformation();
 
-                // Control Priorities Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Standards Summary Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Ranked Categories Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Results By Category Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // High-Level Assessment Description Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Reports Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Assessment Complete Page
             }
 
             [Test]
@@ -145,25 +126,6 @@ namespace CSET_Selenium.Tests.TSA
                 // Analysis Dashboard Page
                 assessmentInfo.SetAssessmentInformation();
 
-                // Control Priorities Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Standards Summary Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Ranked Categories Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Results By Category Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // High-Level Assessment Description Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Reports Page
-                assessmentInfo.SetAssessmentInformation();
-
-                // Assessment Complete Page
             }
 
             [Test]
