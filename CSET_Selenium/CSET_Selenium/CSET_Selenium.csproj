@@ -149,6 +149,7 @@
     <Compile Include="Page_Objects\Register_New_User_Account\RegisterNewUserAccount.cs" />
     <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
+    <Compile Include="Tests\Create_Assessment\TSA.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />
     <Compile Include="Tests\Create_Assessment\ACET.cs" />
     <Compile Include="Tests\Create_Assessment\MaturityModel.cs" />

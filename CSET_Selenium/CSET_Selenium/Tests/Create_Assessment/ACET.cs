@@ -21,7 +21,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
     class AcetBuildAssessment
     {
         [TestFixture]
-        public class CreateMaturityModelAssessment : BaseTest
+        public class CreateAcetBuildAssessment : BaseTest
         {
             private IWebDriver driver;
 

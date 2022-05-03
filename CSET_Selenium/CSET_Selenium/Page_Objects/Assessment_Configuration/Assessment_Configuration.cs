@@ -91,6 +91,54 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             }
         }
 
+        private IWebElement CheckboxTSA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'TSA')]/parent::div"));
+            }
+        }
+
+        private IWebElement CheckboxVADR
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'vadr')]/parent::div"));
+            }
+        }
+
+        private IWebElement CheckboxRRA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'rra')]/parent::div"));
+            }
+        }
+
+        private IWebElement CheckboxCRR
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'crr')]/parent::div"));
+            }
+        }
+
+        private IWebElement CheckboxCSC
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'CSC')]/parent::div"));
+            }
+        }
+
+        private IWebElement CheckboxAPTA
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'APTA')]/parent::div"));
+            }
+        }
+
         private IWebElement CheckboxStandard
         {
             get
@@ -182,6 +230,36 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             CheckboxMaturity.Click();
         }
 
+        private void SetTSA()
+        {
+            CheckboxTSA.Click();
+        }
+
+        private void SetVADR()
+        {
+            CheckboxVADR.Click();
+        }
+
+        private void SetRRA()
+        {
+            CheckboxRRA.Click();
+        }
+
+        private void SetCRR()
+        {
+            CheckboxCRR.Click();
+        }
+
+        private void SetCSC()
+        {
+            CheckboxCSC.Click();
+        }
+
+        private void SetAPTA()
+        {
+            CheckboxAPTA.Click();
+        }
+
 
         //Aggregate Methods
 
@@ -215,6 +293,76 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
             SetMaturityModel();
+            ClickNext();
+        }
+
+        public void CreateTSAAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            ClickNext();
+        }
+
+        public void CreateVADRAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetVADR();
+            SetTSA(); //unselecting TSA
+            ClickNext();
+        }
+
+        public void CreateRRAAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetRRA();
+            SetTSA(); //unselecting TSA
+            ClickNext();
+        }
+
+        public void CreateCRRAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetCRR();
+            SetTSA(); //unselecting TSA
+            ClickNext();
+        }
+
+        public void CreateCSCAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetTSA(); //unselecting TSA
+            SetCSC();
+            ClickNext();
+        }
+
+        public void CreateAPTAAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            SetTSA(); //unselecting TSA
+            SetAPTA();
             ClickNext();
         }
 
