@@ -40,12 +40,12 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateTSAAssessment("TSA", "Planet Express", "New New York", "New York");
 
-                // Practices Page
+                // Assessment Information
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
+                assessmentInfo.SetAssessInfo();
 
                 // Standard Questions Page
-                assessmentInfo.SetAssessmentInformation();
+                assessmentInfo.SetStandardQuestions();
 
                 // Analysis Dashboard Page
                 assessmentInfo.SetAssessmentInformation();
@@ -66,7 +66,7 @@ namespace CSET_Selenium.Tests.TSA
                 assessmentInfo.SetAssessmentInformation();
 
                 // Reports Page
-                assessmentInfo.SetAssessmentInformation();
+                assessmentInfo.SetReports();
 
                 // Assessment Complete Page
                 
