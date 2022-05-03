@@ -66,7 +66,7 @@ namespace CSET_Selenium.Tests.TSA
                 assessmentInfo.SetAssessmentInformation();
 
                 // Reports Page
-                assessmentInfo.SetReports();
+                assessmentInfo.SetTSAReports();
 
                 // Assessment Complete Page
                 
@@ -88,15 +88,17 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateVADRAssessment("VADR", "Planet Express", "New New York", "New York");
 
-                // Practices Page
+                // Assessment Information Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessInfo();
+
+                // Practices Page
                 assessmentInfo.SetAssessmentInformation();
 
-                // Standard Questions Page
-                assessmentInfo.SetAssessmentInformation();
+                // Reports Page
+                assessmentInfo.SetVADRReports();
 
-                // Analysis Dashboard Page
-                assessmentInfo.SetAssessmentInformation();
+                // Assessment Complete Page
 
             }
 

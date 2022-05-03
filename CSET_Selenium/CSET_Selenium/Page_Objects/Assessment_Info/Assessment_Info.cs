@@ -326,6 +326,14 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             }
         }
 
+        private IWebElement VADRDeficiencyReport
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'VADR')]"));
+            }
+        }
+
         //Interaction Methods
         private void SetAssessmentName(String assessmentName)
         {
@@ -383,13 +391,20 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             ClickNext();
         }
 
-        public void SetReports()
+        public void SetTSAReports()
         {
             ObservationsTearOutSheets.Click();
             ExecutiveSummary.Click();
             SiteSummaryReport.Click();
             SiteCybersecurityPlan.Click();
             SiteDetail.Click();
+            ClickNext();
+        }
+
+        public void SetVADRReports()
+        {
+            ObservationsTearOutSheets.Click();
+            VADRDeficiencyReport.Click();
             ClickNext();
         }
 
