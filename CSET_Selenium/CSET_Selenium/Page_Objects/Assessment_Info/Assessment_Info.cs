@@ -334,6 +334,78 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             }
         }
 
+        private IWebElement CRRReport
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'CRR Report')]"));
+            }
+        }
+
+        private IWebElement DropdownCRRConfidentiality
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'security')]"));
+            }
+        }
+
+        private IWebElement OptionBusinessConfidential
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//option[contains(text(),'Business')]"));
+            }
+        }
+
+        private IWebElement OptionCUI
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//option[contains(text(),'CUI')]"));
+            }
+        }
+
+        private IWebElement CRRDeficiencyReport
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'CRR Deficiency')]"));
+            }
+        }
+
+        private IWebElement CRRCommentsAndMarkedForReview
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'CRR Comments')]"));
+            }
+        }
+
+        private IWebElement RRAReport
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'RRA Report')]"));
+            }
+        }
+
+        private IWebElement RRADeficiencyReport
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'RRA Deficiency')]"));
+            }
+        }
+
+        private IWebElement CommentsAndMarkedForReview
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Comments')]"));
+            }
+        }
+
         //Interaction Methods
         private void SetAssessmentName(String assessmentName)
         {
@@ -405,6 +477,27 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
         {
             ObservationsTearOutSheets.Click();
             VADRDeficiencyReport.Click();
+            ClickNext();
+        }
+
+        public void SetCRRReports()
+        {
+            ObservationsTearOutSheets.Click();
+            CRRReport.Click();
+            DropdownCRRConfidentiality.Click();
+            OptionBusinessConfidential.Click();
+            OptionCUI.Click();
+            CRRDeficiencyReport.Click();
+            CRRCommentsAndMarkedForReview.Click();
+            ClickNext();
+        }
+
+        public void SetRRAReports()
+        {
+            ObservationsTearOutSheets.Click();
+            RRAReport.Click();
+            RRADeficiencyReport.Click();
+            CommentsAndMarkedForReview.Click();
             ClickNext();
         }
 

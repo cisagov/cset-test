@@ -118,15 +118,17 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateRRAAssessment("RRA", "Planet Express", "New New York", "New York");
 
-                // Practices Page
+                // Assessment Information Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessInfo();
+
+                // Practices Page
                 assessmentInfo.SetAssessmentInformation();
 
-                // Standard Questions Page
-                assessmentInfo.SetAssessmentInformation();
+                // Reports Page
+                assessmentInfo.SetRRAReports();
 
-                // Analysis Dashboard Page
-                assessmentInfo.SetAssessmentInformation();
+                // Assessment Complete Page
 
             }
 
@@ -146,15 +148,17 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateCRRAssessment("CRR", "Planet Express", "New New York", "New York");
 
-                // Practices Page
+                // Assessment Information Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessInfo();
+
+                // Practices Page
                 assessmentInfo.SetAssessmentInformation();
 
-                // Standard Questions Page
-                assessmentInfo.SetAssessmentInformation();
+                // Reports Page
+                assessmentInfo.SetCRRReports();
 
-                // Analysis Dashboard Page
-                assessmentInfo.SetAssessmentInformation();
+                // Assessment Complete Page
 
             }
 
