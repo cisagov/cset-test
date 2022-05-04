@@ -178,8 +178,12 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateCSCAssessment("CSC", "Planet Express", "New New York", "New York");
 
-                // Standard Questions Page
+
+                // Assessment Information Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessInfo();
+
+                // Standard Questions Page
                 assessmentInfo.SetAssessmentInformation();
 
                 // Analysis Dashboard Page
@@ -201,10 +205,9 @@ namespace CSET_Selenium.Tests.TSA
                 assessmentInfo.SetAssessmentInformation();
 
                 // Reports Page
-                assessmentInfo.SetAssessmentInformation();
+                assessmentInfo.SetCSCReports();
 
-                assessmentInfo.SetAssessmentInformation();
-
+                // Assessment Complete Page
 
             }
 
@@ -224,8 +227,11 @@ namespace CSET_Selenium.Tests.TSA
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateAPTAAssessment("APTA", "Planet Express", "New New York", "New York");
 
-                // Standard Questions Page
+                // Assessment Information Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessInfo();
+
+                // Standard Questions Page
                 assessmentInfo.SetAssessmentInformation();
 
                 // Analysis Dashboard Page
@@ -247,10 +253,9 @@ namespace CSET_Selenium.Tests.TSA
                 assessmentInfo.SetAssessmentInformation();
 
                 // Reports Page
-                assessmentInfo.SetAssessmentInformation();
+                assessmentInfo.SetAPTAReports();
 
-                assessmentInfo.SetAssessmentInformation();
-
+                // Assessment Complete Page
 
             }
         }

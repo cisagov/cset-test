@@ -501,5 +501,25 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             ClickNext();
         }
 
+        public void SetCSCReports()
+        {
+            ObservationsTearOutSheets.Click();
+            ExecutiveSummary.Click();
+            SiteSummaryReport.Click();
+            SiteCybersecurityPlan.Click();
+            SiteDetail.Click();
+            ClickNext();
+        }
+
+        public void SetAPTAReports()
+        {
+            ObservationsTearOutSheets.Click();
+            ExecutiveSummary.Click();
+            SiteSummaryReport.Click();
+            SiteCybersecurityPlan.Click();
+            SiteDetail.Click();
+            ClickNext();
+        }
+
     }
 }
