@@ -121,6 +121,7 @@
     <Compile Include="Enums\AssessmentInformation.cs" />
     <Compile Include="Enums\DateAddSubtractOptions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
+    <Compile Include="Enums\Questions\TSAStandardQuestions.cs" />
     <Compile Include="Enums\States.cs" />
     <Compile Include="Enums\DateDifferenceOptions.cs" />
     <Compile Include="Enums\MobileEmulationDevices.cs" />
