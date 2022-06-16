@@ -26,9 +26,9 @@ namespace CSET_Selenium.Tests.Scratch
             //identify the google search button  
             IWebElement ele1 = driver.FindElement(By.Name("btnK"));
             // click on the Google search button  
-            new BasePage(driver).ClickWhenClickable(ele1);
+            /*new BasePage(driver).ClickWhenClickable(ele1);
             driver.Close();
-            Console.Write("test case ended ");
+            Console.Write("test case ended ");*/
         }
     }
 }
