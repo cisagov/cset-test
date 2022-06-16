@@ -9,7 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Safari;
-using OpenQA.Selenium.Opera;
+//using OpenQA.Selenium.Opera;
 
 namespace CSET_Selenium.DriverConfiguration
 {
@@ -73,7 +73,7 @@ namespace CSET_Selenium.DriverConfiguration
         private InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
         private FirefoxOptions firefoxOptions = new FirefoxOptions();
         private SafariOptions safariOptions = new SafariOptions();
-        private OperaOptions operaOptions = new OperaOptions();
+        //private OperaOptions operaOptions = new OperaOptions();
 
         public String GetUrl()
         {
