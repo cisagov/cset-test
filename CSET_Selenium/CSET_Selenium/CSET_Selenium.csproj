@@ -119,6 +119,7 @@
     <Compile Include="DriverConfiguration\BaseTest.cs" />
     <Compile Include="Enums\Browsers.cs" />
     <Compile Include="Enums\AssessmentInformation.cs" />
+    <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
     <Compile Include="Enums\DateAddSubtractOptions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\Questions\CSETCISQuestions.cs" />
@@ -135,6 +136,9 @@
     <Compile Include="Helpers\WaitUtils.cs" />
     <Compile Include="Page_Objects\Assessment_Configuration\Assessment_Configuration.cs" />
     <Compile Include="Page_Objects\Assessment_Info\Assessment_Info.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\Customers\Customers.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
     <Compile Include="Page_Objects\Cybersecurity_Standards_Selection\CybersecurityStandardsSelection.cs" />
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
@@ -151,6 +155,8 @@
     <Compile Include="Page_Objects\Register_New_User_Account\RegisterNewUserAccount.cs" />
     <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
+    <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
+    <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
     <Compile Include="Tests\Create_Assessment\TSA.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />
     <Compile Include="Tests\Create_Assessment\ACET.cs" />
