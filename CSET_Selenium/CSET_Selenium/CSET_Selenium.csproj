@@ -119,6 +119,7 @@
     <Compile Include="DriverConfiguration\BaseTest.cs" />
     <Compile Include="Enums\Browsers.cs" />
     <Compile Include="Enums\AssessmentInformation.cs" />
+    <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
     <Compile Include="Enums\DateAddSubtractOptions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
