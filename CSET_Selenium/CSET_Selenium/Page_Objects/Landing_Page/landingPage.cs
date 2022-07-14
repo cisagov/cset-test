@@ -35,6 +35,22 @@ namespace CSET_Selenium.Repository.Landing_Page
             }
         }
 
+        private IWebElement ToolsButton
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[@class='cset-icons-tools fs-base-4 mr-2 align-middle']"));
+            }
+        }
+
+        private IWebElement ModuleBuilder
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Module Builder')]"));
+            }
+        }
+
 
         //Interaction Methods
 
@@ -48,11 +64,26 @@ namespace CSET_Selenium.Repository.Landing_Page
             ButtonImportAnExistingAssessment.Click();
         }
 
+        private void ClickToolsButton()
+        {
+            ToolsButton.Click();
+        }
+
+        private void ClickModuleBuilder()
+        {
+            ModuleBuilder.Click();
+        }
 
         //Aggregate Methods
         public void CreateNewAssessment()
         {
             ClickNewAssessmentButton();
+        }
+
+        public void NavigateToModuleBuilder()
+        {
+            ClickToolsButton();
+            ClickModuleBuilder();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace CSET_Selenium.ConPCA_Repository.Login_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@placeholder='Username']"));
+                return WaitUntilElementIsVisible(By.XPath("//input[@placeholder='Email']"));
             }
         }
 
