@@ -175,7 +175,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
         public void SelectPrimaryContactByIndex(int index)
         {
             ClickWhenClickable(SelectPrimaryContact);
-            driver.FindElement(By.XPath("//div/mat-option[" + (index+1) + "]")).Click();
+            driver.FindElement(By.XPath("//div/mat-option[" + (index + 1) + "]")).Click();
         }
 
         public void SelectAdminEmailByIndex(int index)
@@ -211,7 +211,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             ClickCreateSubscriptionButton();
             //get newly created subscription name
             String xpath = ".//mat-dialog-content/div[contains(text(), 'Your subscription was created as')]";
-            
+
             //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             //IWebElement title = wait.Until<IWebElement>((d) =>
             //{
@@ -221,9 +221,9 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             w.Until
             (ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
             IWebElement popUpMsg = driver.FindElement(By.XPath(xpath));
-            String subscriptionName  = popUpMsg.Text.Split(' ')[5];
+            String subscriptionName = popUpMsg.Text.Split(' ')[5];
             popUpMsg.FindElement(By.XPath("../../following-sibling::div/mat-dialog-actions/button/span[text() = ' OK ']")).Click();
-            
+
             return subscriptionName;
         }
     }
