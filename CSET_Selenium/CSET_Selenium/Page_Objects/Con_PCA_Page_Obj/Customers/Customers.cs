@@ -344,6 +344,12 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             return rows;
         }
 
+        public String GetCustomerNameByRowNumber(int rowNum)
+        {
+            IList<IWebElement> rows = GetCustomerTableRows();
+            return rows[rowNum - 1].Text.Split('\r')[0];                    
+        }
+
         public void ClickCustomersTableEditByIdentifier(String id)
         {           
             IList<IWebElement> rows = GetCustomerTableRows();           

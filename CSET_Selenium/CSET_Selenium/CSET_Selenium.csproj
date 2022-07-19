@@ -140,6 +140,7 @@
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Customers\Customers.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\Subscriptions\Subscriptions.cs" />
     <Compile Include="Page_Objects\Cybersecurity_Standards_Selection\CybersecurityStandardsSelection.cs" />
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
     <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
+    <Compile Include="Tests\Con_PCA\Subscription\SubscriptionCreation.cs" />
     <Compile Include="Tests\Create_Assessment\TSA.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />
     <Compile Include="Tests\Create_Assessment\ACET.cs" />
