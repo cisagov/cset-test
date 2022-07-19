@@ -6,15 +6,6 @@ using CSET_Selenium.Repository.Landing_Page;
 using CSET_Selenium.Repository.Login_Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {

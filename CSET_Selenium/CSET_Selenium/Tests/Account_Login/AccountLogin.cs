@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
 using CSET_Selenium.Repository.Login_Page;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 using CSET_Selenium.DriverConfiguration;
 
 namespace CSET_Selenium.Tests.Account_Login
