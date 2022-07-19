@@ -163,13 +163,10 @@
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
     <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
-<<<<<<< HEAD
     <Compile Include="Tests\Con_PCA\Subscription\SubscriptionCreation.cs" />
-=======
     <Compile Include="Tests\Create_Assessment\BasicModuleCreation.cs" />
     <Compile Include="Tests\Module_Builder\CustomModule.cs" />
     <Compile Include="Tests\Module_Builder\ChemOilGasModule.cs" />
->>>>>>> 15ba4e98b69c4b2b841a327c48438d32513e50d7
     <Compile Include="Tests\Create_Assessment\TSA.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />
     <Compile Include="Tests\Create_Assessment\ACET.cs" />
