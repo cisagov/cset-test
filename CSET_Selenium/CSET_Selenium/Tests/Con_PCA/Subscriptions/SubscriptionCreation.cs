@@ -30,13 +30,13 @@ namespace CSET_Selenium.Tests.Con_PCA.Subscription
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectCustomers();
             Customers customer = new Customers(driver);
-            //String customerName = customer.GetCustomerNameByRowNumber(1);
+            String customerName = customer.GetCustomerNameByRowNumber(1);
             //create subscription
             sideMenu.SelectSubscriptions();
             Subscriptions subscription = new Subscriptions(driver);
             subscription.CreateNewSubscription();
             subscription.AssignCustomer();
-            //subscription.ClickCustomerTableRowByName(customerName);
+            subscription.ClickCustomerTableRowByName(customerName);
             subscription.SelectPrimaryContactByIndex(1);
             subscription.SelectAdminEmailByIndex(1);
             subscription.SelectSendingProfileByIndex(1);

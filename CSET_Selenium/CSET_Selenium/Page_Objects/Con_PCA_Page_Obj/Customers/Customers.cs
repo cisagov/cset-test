@@ -20,7 +20,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             this.driver = driver;
         }
 
-        //Element Locators
+        //Element   Locators
 
         private IWebElement ButtonNewCustomer
         {
