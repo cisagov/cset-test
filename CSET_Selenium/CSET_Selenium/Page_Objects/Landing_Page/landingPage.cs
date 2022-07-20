@@ -19,7 +19,16 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+                //return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+                return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Start a new and empty assessment.']"));
+            }
+        }
+
+        private IWebElement TabMyAssessments
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'My Assessments')]/ancestor::button"));
             }
         }
 
@@ -55,6 +64,11 @@ namespace CSET_Selenium.Repository.Landing_Page
             ButtonNewAssessment.Click();
         }
 
+        private void ClickMyAssessmentsTab()
+        {
+            TabMyAssessments.Click();
+        }
+
         private void ClickImportAnExistingAssessmentButton()
         {
             ButtonImportAnExistingAssessment.Click();
@@ -73,6 +87,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         //Aggregate Methods
         public void CreateNewAssessment()
         {
+            ClickMyAssessmentsTab();
             ClickNewAssessmentButton();
         }
 
