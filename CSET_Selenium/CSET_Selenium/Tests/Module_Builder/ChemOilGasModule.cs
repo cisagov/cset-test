@@ -8,10 +8,7 @@ using CSET_Selenium.Repository.Landing_Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
-<<<<<<< HEAD
 using System.Collections.Generic;
-=======
->>>>>>> 3409d4cce474aa3731b8384d818faae00b51e3ed
 using System.Threading;
 
 namespace CSET_Selenium.Tests.Module_Builder
