@@ -140,6 +140,7 @@
     <Compile Include="Helpers\WaitUtils.cs" />
     <Compile Include="Page_Objects\Assessment_Configuration\Assessment_Configuration.cs" />
     <Compile Include="Page_Objects\Assessment_Info\Assessment_Info.cs" />
+    <Compile Include="Page_Objects\Compare\Compare.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Customers\Customers.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Page_Objects\Security_Assurance_Level\SecurityAssuranceLevel.cs" />
     <Compile Include="Page_Objects\Sidebar\Sidebar.cs" />
     <Compile Include="Page_Objects\Target_Level_Selection\TargetLevelSelectionCMMC2.cs" />
+    <Compile Include="Page_Objects\Trend\Trend.cs" />
     <Compile Include="Page_Objects\User_Guides\UserGuides.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
