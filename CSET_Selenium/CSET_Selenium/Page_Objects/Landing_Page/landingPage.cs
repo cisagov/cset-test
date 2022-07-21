@@ -30,7 +30,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+                //return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
             }
         }
 
@@ -84,7 +84,11 @@ namespace CSET_Selenium.Repository.Landing_Page
         //Aggregate Methods
         public void CreateNewAssessment()
         {
+<<<<<<< HEAD
             MyAssessmentButton.Click();
+=======
+            ClickMyAssessmentsTab();
+>>>>>>> 3409d4cce474aa3731b8384d818faae00b51e3ed
             ClickNewAssessmentButton();
         }
 

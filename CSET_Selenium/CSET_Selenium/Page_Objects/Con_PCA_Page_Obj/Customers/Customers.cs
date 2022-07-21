@@ -20,7 +20,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             this.driver = driver;
         }
 
-        //Element Locators
+        //Element   Locators
 
         private IWebElement ButtonNewCustomer
         {
@@ -342,6 +342,12 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             IList<IWebElement> rows;           
             rows =   GetCustomerTable().FindElements(By.TagName("mat-row"));
             return rows;
+        }
+
+        public String GetCustomerNameByRowNumber(int rowNum)
+        {
+            IList<IWebElement> rows = GetCustomerTableRows();
+            return rows[rowNum - 1].Text.Split('\r')[0];                    
         }
 
         public void ClickCustomersTableEditByIdentifier(String id)

@@ -60,7 +60,7 @@ namespace CSET_Selenium.DriverConfiguration
                 new DriverManager().SetUpDriver(new EdgeConfig());
                 driver = new EdgeDriver(cf.GetEdgeOptions());
             }
-            else if (cf.GetBrowser().Equals(Browsers.InternetExplorer))
+            /*else if (cf.GetBrowser().Equals(Browsers.InternetExplorer))
             {
                 new DriverManager().SetUpDriver(new InternetExplorerConfig());
                 driver = new InternetExplorerDriver(cf.GetInternetExplorerOptions());
@@ -69,7 +69,7 @@ namespace CSET_Selenium.DriverConfiguration
             {
                 new DriverManager().SetUpDriver(new FirefoxConfig());
                 driver = new FirefoxDriver(cf.GetFirefoxOptions());
-            }
+            }*/
             if (driver != null)
             {
                 driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(cf.GetPageLoadTimeoutInSeconds()));

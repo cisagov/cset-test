@@ -205,22 +205,22 @@ namespace CSET_Selenium.DriverConfiguration
             this.chromeOptions = chromeOptions;
         }
 
-        public InternetExplorerOptions GetInternetExplorerOptions()
+        /*public InternetExplorerOptions GetInternetExplorerOptions()
         {
             internetExplorerOptions.AddAdditionalCapability("ie.ensureCleanSession", true);
             return internetExplorerOptions;
-        }
+        }*/
 
         public void SetInternetExplorerOptions(InternetExplorerOptions internetExplorerOptions)
         {
             this.internetExplorerOptions = internetExplorerOptions;
         }
 
-        public FirefoxOptions GetFirefoxOptions()
+        /*public FirefoxOptions GetFirefoxOptions()
         {
             firefoxOptions.AddAdditionalCapability("marionette", true);
             return firefoxOptions;
-        }
+        }*/
 
         public void SetFirefoxOptions(FirefoxOptions firefoxOptions)
         {
