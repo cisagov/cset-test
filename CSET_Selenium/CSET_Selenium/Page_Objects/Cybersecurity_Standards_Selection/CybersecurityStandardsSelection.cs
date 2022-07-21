@@ -21,6 +21,22 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
 
         //Element Locators
 
+        private IWebElement RequirementsMode
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(), 'Requirements Mode')]"));
+            }
+        }
+
+        private IWebElement QuestionsMode
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(), 'Questions Mode')]"));
+            }
+        }
+
         private IWebElement CheckboxNerc_CIP_Rev6
         {
             get
@@ -1705,9 +1721,28 @@ private IWebElement CSSBasicQuestionsStandardSystemUseNotification8Reviewed
             CheckboxTsaPipelineSecGuidelinesMarch208wApril2021Revision.Click();
         }
 
+        private void ClickRequirementsMode()
+        {
+            RequirementsMode.Click();
+        }
+
+        private void ClickQuestionsMode()
+        {
+            QuestionsMode.Click();
+        }
 
 
 //Aggregate Methods
+
+        public void SetRequirementsMode()
+        {
+            ClickRequirementsMode();
+        }
+
+        public void SetQuestionsMode()
+        {
+            ClickQuestionsMode();
+        }
 
         public void SetNerc_CIP_Rev6()
         {

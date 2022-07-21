@@ -18,6 +18,13 @@ namespace CSET_Selenium.Repository.Landing_Page
         }
 
         //Element Locators
+        private IWebElement MyAssessmentButton
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[@class='btn bgc-trans d-flex align-items-center flex-00a h-100']"));
+            }
+        }
 
         private IWebElement ButtonNewAssessment
         {
@@ -77,6 +84,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         //Aggregate Methods
         public void CreateNewAssessment()
         {
+            MyAssessmentButton.Click();
             ClickNewAssessmentButton();
         }
 
