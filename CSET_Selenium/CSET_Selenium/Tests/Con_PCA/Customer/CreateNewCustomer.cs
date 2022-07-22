@@ -30,7 +30,7 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
             driver = driver = BuildDriver(cf);
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("jessica.qu", "Abc123$$");
+            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
 
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectCustomers();
@@ -52,7 +52,7 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
 
             /*edit the customer*/
 
-            var newID = StringsUtils.generateRandomString(10);
+            var newID = StringsUtils.GenerateRandomString(10);
 
             customer.ClickCustomersTableEditByIdentifier(Customer.Customer_Identifier.GetValue());
             customer.EditCustomerIdentifier(newID);

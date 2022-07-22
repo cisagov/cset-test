@@ -357,7 +357,7 @@ namespace CSET_Selenium.Helpers
 			return toReturn.Trim();
 		}
 
-		public static String generateRandomString(int size, bool lowerCase = false)
+		public static String GenerateRandomString(int size, bool lowerCase = false)
 		{
 			Random _random = new Random();
 			var builder = new StringBuilder(size);

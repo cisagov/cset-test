@@ -25,7 +25,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Subscription
             driver = driver = BuildDriver(cf);
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("jessica.qu", "Abc123$$");
+            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
             //find a customer to assign 
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectCustomers();

@@ -29,7 +29,7 @@ namespace CSET_Selenium.Tests.Scratch
             //// click on the Google search button  
             ///*new BasePage(driver).ClickWhenClickable(ele1);
             //driver.Close();
-            String radomString = StringsUtils.generateRandomString(10);
+            String radomString = StringsUtils.GenerateRandomString(10);
             Console.Write("test case ended "+ radomString);
         }
     }

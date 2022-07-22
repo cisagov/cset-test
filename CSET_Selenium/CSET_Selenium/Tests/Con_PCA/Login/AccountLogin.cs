@@ -26,7 +26,7 @@ namespace CSET_Selenium.Tests.Con_PCA
             driver = driver = BuildDriver(cf);
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("jessica.qu", "Abc123$$");
+            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
         }
     }
 }

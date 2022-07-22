@@ -97,7 +97,7 @@ namespace CSET_Selenium.ConPCA_Repository.Login_Page
 
         //Aggregate Methods
 
-        public void LoginToCSET(String userName, String password)
+        public void LoginToConPCA(String userName, String password)
         {
             
             SetUserName(userName);
