@@ -8,10 +8,7 @@ using CSET_Selenium.Repository.Landing_Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
-<<<<<<< HEAD
 using System.Collections.Generic;
-=======
->>>>>>> 3409d4cce474aa3731b8384d818faae00b51e3ed
 using System.Threading;
 
 namespace CSET_Selenium.Tests.Module_Builder
@@ -128,6 +125,24 @@ namespace CSET_Selenium.Tests.Module_Builder
                     el.Click();
                 }
 
+                Assert.IsTrue(DoesModBuilderInputExist(els, 17, "span"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 7, "span"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 10, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 20, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "span"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "span"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 4, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 14, "div"));
+
+                buttons = driver.FindElements(By.XPath("//app-question-block//div//div//div//div//button[2]"));
+                foreach (var el in buttons)
+                {
+                    el.Click();
+                }
+                Thread.Sleep(2000);
+
+                Assert.IsTrue(DoesModBuilderInputExist(els, 6, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 16, "div"));
                 Thread.Sleep(4000);
             }
         }
