@@ -119,8 +119,10 @@
     <Compile Include="DriverConfiguration\BaseTest.cs" />
     <Compile Include="Enums\Browsers.cs" />
     <Compile Include="Enums\AssessmentInformation.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
+    <Compile Include="Enums\Con_PCA\YesNo.cs" />
     <Compile Include="Enums\DateAddSubtractOptions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\Module_Builder\ModuleBuilderReqCategories.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Enums\DateDifferenceOptions.cs" />
     <Compile Include="Enums\MobileEmulationDevices.cs" />
     <Compile Include="Enums\OkCancel.cs" />
+    <Compile Include="Helpers\Con_PCA\PopupHelper.cs" />
     <Compile Include="Helpers\DateUtils.cs" />
     <Compile Include="Helpers\HolidayUtils.cs" />
     <Compile Include="Helpers\Murder.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Subscriptions\Subscriptions.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\Templates\Templates.cs" />
     <Compile Include="Page_Objects\Cybersecurity_Standards_Selection\CybersecurityStandardsSelection.cs" />
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Module_Builder\ModuleBuilder.cs" />
@@ -164,6 +168,7 @@
     <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
     <Compile Include="Tests\Con_PCA\Subscriptions\SubscriptionCreation.cs" />
+    <Compile Include="Tests\Con_PCA\Templates\TemplateCreateEditRetireDeleteTest.cs" />
     <Compile Include="Tests\Create_Assessment\BasicModuleCreation.cs" />
     <Compile Include="Tests\Module_Builder\CustomModule.cs" />
     <Compile Include="Tests\Module_Builder\ChemOilGasModule.cs" />
