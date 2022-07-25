@@ -145,6 +145,9 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 Assert.IsTrue(DoesModBuilderInputExist(els, 6, "div"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 16, "div"));
                 Thread.Sleep(4000);
+
+                createNewAssessment.NavigateToModuleBuilder();
+                newModule.DeleteModule();
             }
         }
     }
