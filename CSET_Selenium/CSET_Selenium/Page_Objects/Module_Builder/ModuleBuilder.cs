@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace CSET_Selenium.Repository.Landing_Page
 {
@@ -11,6 +12,28 @@ namespace CSET_Selenium.Repository.Landing_Page
         private readonly IWebDriver driver;
         private Random r = new Random();
         private List<String> moduleInputs = new List<String>();
+        private String fullName;
+        private String shortName;
+        private String description;
+        private String category;
+        private List<String> categoryList = new List<String>
+        {
+            "Chemical, Oil, and Natural Gas",
+            "Custom",
+            "Defense Infrastructure",
+            "DoDI and CNSSI",
+            "Electrical",
+            "Financial",
+            "General",
+            "Health Care",
+            "Information Technology",
+            "NIST Cybersecurity Framework",
+            "Nuclear",
+            "Process Control and SCADA",
+            "Questions Only",
+            "Supply Chain",
+            "Transportation"
+        };
 
         public ModuleBuilder(IWebDriver driver) : base(driver)
         {
@@ -583,7 +606,8 @@ namespace CSET_Selenium.Repository.Landing_Page
             var catoptions = driver.FindElements(By.XPath("//datalist[@id='catoptions']//option"));
             var input = GetCatInput;
             int random = r.Next(1, 92);
-            moduleInputs.Add(driver.FindElement(By.XPath("//option[" + random + "]")).GetAttribute("value"));
+            driver.FindElement(By.XPath("//input[@id='category']"));
+            moduleInputs.Add(driver.FindElement(By.XPath("//datalist[@id='catoptions']//option[" + random + "]")).GetAttribute("value"));
             Console.WriteLine("Getting option " + random + " from " + catoptions.Count() + " total options\nThe option is " + driver.FindElement(By.XPath("//option[" + random + "]")).GetAttribute("value"));
             input.SendKeys(driver.FindElement(By.XPath("//option[" + random + "]")).GetAttribute("value"));
         }
@@ -747,78 +771,16 @@ namespace CSET_Selenium.Repository.Landing_Page
             CSET.Click();
         }
 
-        private void ClickChemOilGasCheckbox()
+        private void ClickCheckbox(String cat)
         {
-            ChemOilGasCheckbox.Click();
+            var el = WaitUntilElementIsVisible(By.XPath("//label[contains(text(), '" + cat + " Test')]"));
+            el.Click();
         }
 
         //Aggregate Methods
-        public void CybersecStandardCheckbox(String category)
+        public void CybersecStandardCheckbox()
         {
-            if (category.Equals("Chemical, Oil, and Natural Gas", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickChemOilGasCheckbox();
-            }/*
-            else if (category.Equals("Custom", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickCustomCheckbox();
-            }
-            else if (category.Equals("Defense Infrastructure", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickDefenseInfrastructureCheckbox();
-            }
-            else if (category.Equals("DoDI and CNSSI", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickDoDIandCNSSICheckbox();
-            }
-            else if (category.Equals("Electrical", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickElectricalCheckbox();
-            }
-            else if (category.Equals("Financial", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickFinancialCheckbox();
-            }
-            else if (category.Equals("General", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickGeneralCheckbox();
-            }
-            else if (category.Equals("Health Care", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickHealthcareCheckbox();
-            }
-            else if (category.Equals("Information Technology", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickInformationTechnologyCheckbox();
-            }
-            else if (category.Equals("NIST Cybersecurity Framework", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickNistCyberFrameworkCheckbox();
-            }
-            else if (category.Equals("Nuclear", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickNuclearCheckbox();
-            }
-            else if (category.Equals("Process Control and SCADA", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickProcessControlAndSCADACheckbox();
-            }
-            else if (category.Equals("Questions Only", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickQuestionsOnlyCheckbox();
-            }
-            else if (category.Equals("Supply Chain", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickSupplyChainCheckbox();
-            }
-            else if (category.Equals("Transportation", StringComparison.InvariantCultureIgnoreCase))
-            {
-                ClickTransportationCheckbox();
-            }*/
-            else
-            {
-                Console.Error.WriteLine("Please specify a correct category.");
-            }
+            ClickCheckbox(category);
         }
 
         public void GoHome()
@@ -843,6 +805,7 @@ namespace CSET_Selenium.Repository.Landing_Page
             moduleInputs.Add(info);
             moduleInputs.Add(questionText);
             ClickCreateRequirementButton();
+            Thread.Sleep(3000);
             GetCatOption();
             GetQuestionOption();
             GetSubCatOption();
@@ -893,8 +856,13 @@ namespace CSET_Selenium.Repository.Landing_Page
             ClickCloneFromExistingModulesButton();
         }
 
-        public void SetModuleDetails(String fullName, String shortName, String description, String category)
+        public void SetModuleDetails()
         {
+            var rand = r.Next(0, 15);
+            fullName = categoryList[rand] + " Test" ;
+            shortName = "Test1";
+            description = categoryList[rand] + " category test module";
+            category = categoryList[rand];
             moduleInputs.Add(fullName);
             moduleInputs.Add(shortName);
             moduleInputs.Add(description);
@@ -902,6 +870,9 @@ namespace CSET_Selenium.Repository.Landing_Page
             SetModuleName(fullName);
             SetShortName(shortName);
             SetDescription(description);
+
+            Thread.Sleep(2000);
+
             if(category.Equals("Chemical, Oil, and Natural Gas", StringComparison.InvariantCultureIgnoreCase))
             {
                 ClickChemOilGasCategoryInput();

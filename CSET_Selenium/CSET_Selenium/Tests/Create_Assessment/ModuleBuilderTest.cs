@@ -11,9 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace CSET_Selenium.Tests.Module_Builder
+namespace CSET_Selenium.Tests.Create_Assessment
 {
-    class ChemOilGasModule
+    class ModuleBuilderTest
     {
         [TestFixture]
         public class Module_Builder : BaseTest
@@ -30,7 +30,7 @@ namespace CSET_Selenium.Tests.Module_Builder
             }
 
             [Test]
-            public void ChemOilGasModule()
+            public void ModuleBuilderTest()
             {
 
                 //Create a base configuration
@@ -50,12 +50,12 @@ namespace CSET_Selenium.Tests.Module_Builder
                 newModule.CreateNewModule();
 
                 //Set module details using the Chemical Oil, and Natural Gas category
-                newModule.SetModuleDetails("Chem Oil and Gas Test", "Test1", "'Chemical, Oil, and Natural Gas' category test module", "Chemical, Oil, and Natural Gas");
+                newModule.SetModuleDetails();
 
                 //Add 2 random requirements to the module and 2 questions to the module
                 newModule.GoToRequirements();
-                newModule.AddRequirement("Random requirement 1 for Chem, Oil, Gas Test", "Requirement 1", "Requirement 1 Supplemental Info", "Is this test working 1?");
-                newModule.AddRequirement("Random requirement 2 for Chem, Oil, Gas Test", "Requirement 2", "Requirement 2 Supplemental Info", "Is this test working 2?");
+                newModule.AddRequirement("Random requirement 1", "Requirement 1", "Requirement 1 Supplemental Info", "Is this test working 1?");
+                newModule.AddRequirement("Random requirement 2", "Requirement 2", "Requirement 2 Supplemental Info", "Is this test working 2?");
 
                 //Navigate back to CSET home and create a new assessment
                 newModule.GoHome();
@@ -71,11 +71,11 @@ namespace CSET_Selenium.Tests.Module_Builder
                 Sidebar sidebar = new Sidebar(driver);
                 sidebar.SelectCybersecurityStandardsSelection();
 
-                newModule.CybersecStandardCheckbox("Chemical, Oil, and Natural Gas");
+                newModule.CybersecStandardCheckbox();
 
                 CybersecurityStandardsSelection css = new CybersecurityStandardsSelection(driver);
                 css.ClickNext();
-
+                Thread.Sleep(2000);
 
                 //Assert that the module was created correctly
 
@@ -93,7 +93,7 @@ namespace CSET_Selenium.Tests.Module_Builder
                 {
                     el.Click();
                 }
-                Thread.Sleep(2000);
+                Thread.Sleep(5000);
 
                 Assert.IsTrue(DoesModBuilderInputExist(els, 23, "span"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 13, "span"));
@@ -125,12 +125,13 @@ namespace CSET_Selenium.Tests.Module_Builder
                     el.Click();
                 }
 
-                Assert.IsTrue(DoesModBuilderInputExist(els, 17, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 7, "span"));
+                Thread.Sleep(2000);
+                Assert.IsTrue(DoesModBuilderInputExist(els, 17, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 7, "div"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 10, "div"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 20, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "span"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "div"));
+                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "div"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 4, "div"));
                 Assert.IsTrue(DoesModBuilderInputExist(els, 14, "div"));
 
