@@ -10,15 +10,18 @@ using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using CSET_Selenium.Page_Objects.Trend;
+using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
     class TrendTest
     {
         [TestFixture]
-        public class Trend : BaseTest
+        public class Trend_Test : BaseTest
         {
             private IWebDriver driver;
+           
             Random r = new Random();
 
             [Test]
@@ -31,10 +34,34 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 //Login and navigate to module builder
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("kyle.hanson@inl.gov", "Nitocket14$");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Standard Assessment for Trend Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetSALAssessmentInfo();
+
+                SecurityAssuranceLevel sal = new SecurityAssuranceLevel(driver);
+                var generalRiskNum = r.Next(9);
+                sal.SelectHeaderGeneralRiskBased();
+                sal.SetRandomGeneralRisk(generalRiskNum);
+                sal.SelectHeaderNist();
+                Thread.Sleep(3000);
+                for(int i = 0; i < 5; i++)
+                {
+                    sal.SetRandomNistCheck();
+                }
+                sal.SetRandomNistQuestion();
+                sal.ClickNext();
+/*              Trend trend = new Trend(driver);
+                trend.GoHome();
+                createNewAssessment.ClickMyAssessments();
+                Thread.Sleep(3000);
+                trend.DeleteAssessment();
+                trend.Yes();*/
             }
 
             [Test]
@@ -50,7 +77,20 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Cyber Assessment for Trend Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetCyberAssessmentInfo();
+
+                Trend trend = new Trend(driver);
+                trend.GoHome();
+                createNewAssessment.ClickMyAssessments();
+                Thread.Sleep(3000);
+               // trend.DeleteAssessment();
+               // trend.Yes();
+
             }
 
             [Test]
@@ -66,7 +106,20 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Net Diagram for Trend Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetNetDiagramAssessmentInfo();
+
+                Trend trend = new Trend(driver);
+                trend.GoHome();
+                createNewAssessment.ClickMyAssessments();
+                Thread.Sleep(3000);
+                trend.DeleteAssessment();
+                trend.Yes();
+
             }
         }
     }

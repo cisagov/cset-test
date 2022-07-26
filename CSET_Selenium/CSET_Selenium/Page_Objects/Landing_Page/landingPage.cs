@@ -88,6 +88,10 @@ namespace CSET_Selenium.Repository.Landing_Page
         }
 
         //Aggregate Methods
+        public void ClickMyAssessments()
+        {
+            ClickMyAssessmentsTab();
+        }
         public void CreateNewAssessment()
         {           
             ClickMyAssessmentsTab();

@@ -34,8 +34,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Standard Assessment for Compare Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
             }
+
             [Test]
             public void CyberAssessmentCompareTest()
             {
@@ -49,8 +55,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Cyber Assessment for Compare Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
             }
+
             [Test]
             public void NetDiagramCompareTest()
             {
@@ -64,7 +76,12 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.NavigateToModuleBuilder();
+                createNewAssessment.CreateNewAssessment();
+                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                assessmentConfiguration.CreateStandardAssessment("Net Diagram for Compare Test", "Wayne Tech", "Gotham City", "New Jersey");
+
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
             }
         }
     }

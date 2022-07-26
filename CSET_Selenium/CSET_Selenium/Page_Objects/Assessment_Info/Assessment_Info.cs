@@ -11,6 +11,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
     class AssessmentInfo : BasePage
     {
         private readonly IWebDriver driver;
+        Random r = new Random();
 
         public AssessmentInfo(IWebDriver driver) : base(driver)
         {
@@ -34,6 +35,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
                 return WaitUntilElementIsVisible(By.XPath("//select[contains(@name, 'industry')]"));
             }
         }
+
 
         private IWebElement DropdownAssetValue
         {
@@ -261,6 +263,23 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             }
         }
 
+        //Other Assessment Info
+        private IWebElement OrgName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='edmOrganizationName']"));
+            }
+        }
+
+        private IWebElement AgencyName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id='edmAgency']"));
+            }
+        }
+
         //Standard Questions
         private IWebElement ExpandAll
         {
@@ -407,6 +426,78 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
         }
 
         //Interaction Methods
+
+        private void SetRandomSector()
+        {
+  
+            List<IWebElement> sectorList = new List<IWebElement>
+                {
+                    OptionChemicalSector,
+                    OptionCommercialFacilitiesSector,
+                    OptionCommunicationsSector,
+                    OptionCriticalManufacturingSector,
+                    OptionDamsSector,
+                    OptionDefenseIndustrialBaseSector,
+                    OptionEmergencyServicesSector,
+                    OptionEnergySector,
+                    OptionFinancialServicesSector,
+                    OptionFoodAndAgricultureSector,
+                    OptionGovernmentFacilitiesSector,
+                    OptionHealthcareandPublicHealthSector,
+                    OptionInformationTechnologySector,
+                    OptionNuclearReactorsSector,
+                    OptionTransportationSystemsSector,
+                    OptionWaterandWastewaterSystemsSector
+                };
+            var el = sectorList[r.Next(1, 17)];
+            el.Click();
+        }
+
+        private void SetRandomIndustry()
+        {
+            List<IWebElement> industryList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='industry']//option")));
+            Console.WriteLine(industryList.Count());
+            var el = WaitUntilElementIsVisible(industryList[r.Next(1, industryList.Count())]);
+            el.Click();
+        }
+
+        private void SetRandomGross()
+        {
+            List<IWebElement> grossList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='assetValue']//option")));
+            var el = WaitUntilElementIsVisible(grossList[r.Next(1, grossList.Count())]);
+            el.Click();
+        }
+        private void SetRandomExpectedEffort()
+        {
+            List<IWebElement> effortList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='size']//option")));
+            var el = WaitUntilElementIsVisible(effortList[r.Next(1, effortList.Count())]);
+            el.Click();
+        }
+
+        private void SetOrgName(String name)
+        {
+            OrgName.SendKeys(name);
+        }
+
+        private void SetAgencyName(String name)
+        {
+            AgencyName.SendKeys(name);
+        }
+
+        private void SetOrgType()
+        {
+            List<IWebElement> orgTypeList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmOrganizationType']//option")));
+            var el = WaitUntilElementIsVisible(orgTypeList[r.Next(1, orgTypeList.Count())]);
+            el.Click();
+        }
+
+        private void SetFacilitator()
+        {
+            List<IWebElement> facilitatorList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmFacilitator']//option")));
+            var el = WaitUntilElementIsVisible(facilitatorList[0]);
+            el.Click();
+        }
+
         private void SetAssessmentName(String assessmentName)
         {
 //            ClickWhenClickable(editBox_AssessmentName);
@@ -422,9 +513,33 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
 
         //Aggregate Methods
-        public void SetAssessmentInformation()
+        public void SetSALAssessmentInfo()
+        {
+            DropdownSector.Click();
+            SetRandomSector();
+            DropdownIndustry.Click();
+            SetRandomIndustry();
+            SetRandomGross();
+            SetRandomExpectedEffort();
+            SetOrgName("INL");
+            SetAgencyName("CSET Testing");
+            SetOrgType();
+            SetFacilitator();
+            ClickNext();
+        }
+
+        public void SetCyberAssessmentInfo()
         {
 
+        }
+
+        public void SetNetDiagramAssessmentInfo()
+        {
+
+        }
+
+        public void SetAssessmentInformation()
+        {
             ClickNext();
         }
 

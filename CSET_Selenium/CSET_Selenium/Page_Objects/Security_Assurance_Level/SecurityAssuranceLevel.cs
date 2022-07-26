@@ -13,6 +13,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
     {
         private readonly IWebDriver driver;
         private Actions actions;
+        private Random r = new Random();
         public SecurityAssuranceLevel(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
@@ -1321,99 +1322,99 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         {
             GenRiskSliderEnvironmentalOffSite.Click();
         }
-        private void SendKeysGenRiskInjuriesOnSite()
+        private void SendKeysGenRiskInjuriesOnSite(int num)
         {
             ClickSliderGenRiskInjuriesOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderInjuriesOnSite.SendKeys(Keys.ArrowRight);
             }
         }
 
-        private void SendKeysGenRiskInuriesOffSite()
+        private void SendKeysGenRiskInuriesOffSite(int num)
         {
             ClickSliderGenRiskInuriesOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderInjuriesOffSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskHospitalizationsOnSite()
+        private void SendKeysGenRiskHospitalizationsOnSite(int num)
         {
             ClickSliderGenRiskHospitalizationsOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderHospitalizationssOnSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskHospitalizationsOffSite()
+        private void SendKeysGenRiskHospitalizationsOffSite(int num)
         {
             ClickSliderGenRiskHospitalizationsOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderHospitalizationsOffSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskDeathsOnSite()
+        private void SendKeysGenRiskDeathsOnSite(int num)
         {
             ClickSliderGenRiskDeathsOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderDeathsOnSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskDeathsOffSite()
+        private void SendKeysGenRiskDeathsOffSite(int num)
         {
             ClickSliderGenRiskDeathsOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderDeathsOffSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskCapitalLossOnSite()
+        private void SendKeysGenRiskCapitalLossOnSite(int num)
         {
             ClickSliderGenRiskCapitalLossOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderCapitalLossOnSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskCapitalLossOffSite()
+        private void SendKeysGenRiskCapitalLossOffSite(int num)
         {
             ClickSliderGenRiskCapitalLossOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderCapitalLossOffSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskEconomicImpactOnSite()
+        private void SendKeysGenRiskEconomicImpactOnSite(int num)
         {
             ClickSliderGenRiskEconomicImpactOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderEconomicImpactOnSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskEconomicImpactOffSite()
+        private void SendKeysGenRiskEconomicImpactOffSite(int num)
         {
             ClickSliderGenRiskEconomicImpactOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderEconomicImpactOffSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskEnvironmentalOnSite()
+        private void SendKeysGenRiskEnvironmentalOnSite(int num)
         {
             ClickSliderGenRiskEnvironmentalOnSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderEnvironmentalOnSite.SendKeys(Keys.ArrowRight);
             }
         }
-        private void SendKeysGenRiskEnvironmentalOffSite()
+        private void SendKeysGenRiskEnvironmentalOffSite(int num)
         {
             ClickSliderGenRiskEnvironmentalOffSite();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < num; i++)
             {
                 GenRiskSliderEnvironmentalOffSite.SendKeys(Keys.ArrowRight);
             }
@@ -1928,7 +1929,62 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             NistAnswerQuestions8Yes.Click();
         }
 
+        private void RandomGeneralRisk(int num)
+        {
+            SendKeysGenRiskInjuriesOnSite(num);
+            SendKeysGenRiskInuriesOffSite(num);
+            SendKeysGenRiskHospitalizationsOnSite(num);
+            SendKeysGenRiskHospitalizationsOffSite(num);
+            MoveToElement(GenRiskSliderCapitalLossOffSite);
+            SendKeysGenRiskDeathsOnSite(num);
+            SendKeysGenRiskDeathsOffSite(num);
+            SendKeysGenRiskCapitalLossOnSite(num);
+            SendKeysGenRiskCapitalLossOffSite(num);
+            SendKeysGenRiskEconomicImpactOnSite(num);
+            SendKeysGenRiskEconomicImpactOffSite(num);
+            SendKeysGenRiskEnvironmentalOnSite(num);
+            SendKeysGenRiskEnvironmentalOffSite(num);
+        }
+
+        private void RandomNist()
+        {
+            List<IWebElement> checkboxList = new List<IWebElement>(driver.FindElements(By.XPath("//table//input[@type='checkbox']")));
+            Console.WriteLine("Nist Checkbox Count: " + checkboxList.Count());
+            var el = checkboxList[r.Next(64)];           
+            MoveToElement(el);
+            el.Click();
+        }
+
+        private void RandomNistSALQuestions()
+        {
+            var fiftyFifty = r.Next(2);
+            List<IWebElement> questionList = new List<IWebElement>(driver.FindElements(By.XPath("//table[@class='nist-sal-questions table']//input/ancestor::label")));
+            Console.WriteLine("Nist Question Count: " + questionList.Count());
+            for(int i = fiftyFifty; i < questionList.Count(); i+=2)
+            {
+                MoveToElement(questionList[i]);
+                questionList[i].Click();
+            }
+            
+        }
+
         //Aggregate methods
+
+        public void SetRandomGeneralRisk(int num)
+        {
+            RandomGeneralRisk(num);
+        }
+
+        public void SetRandomNistCheck()
+        {
+            RandomNist();
+        }
+
+        public void SetRandomNistQuestion()
+        {
+            RandomNistSALQuestions();
+        }
+
         public void SelectSALAssessment()
         {
             ClickSALAssessment();
@@ -1949,6 +2005,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             MoveToElement(TextHeaderNist);
             ClickHeaderNist();
         }
+
         public void SALSimpleSelectorsTest()
         {
             ClickHeaderOverallSalLow();
@@ -1972,18 +2029,18 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 
         public void SALGeneralRiskSelectorsTest()
         {
-            SendKeysGenRiskInjuriesOnSite();
-            SendKeysGenRiskInuriesOffSite();
-            SendKeysGenRiskHospitalizationsOnSite();
-            SendKeysGenRiskHospitalizationsOffSite();
-            SendKeysGenRiskDeathsOnSite();
-            SendKeysGenRiskDeathsOffSite();
-            SendKeysGenRiskCapitalLossOnSite();
-            SendKeysGenRiskCapitalLossOffSite();
-            SendKeysGenRiskEconomicImpactOnSite();
-            SendKeysGenRiskEconomicImpactOffSite();
-            SendKeysGenRiskEnvironmentalOnSite();
-            SendKeysGenRiskEnvironmentalOffSite();
+            SendKeysGenRiskInjuriesOnSite(8);
+            SendKeysGenRiskInuriesOffSite(8);
+            SendKeysGenRiskHospitalizationsOnSite(8);
+            SendKeysGenRiskHospitalizationsOffSite(8);
+            SendKeysGenRiskDeathsOnSite(8);
+            SendKeysGenRiskDeathsOffSite(8);
+            SendKeysGenRiskCapitalLossOnSite(8);
+            SendKeysGenRiskCapitalLossOffSite(8);
+            SendKeysGenRiskEconomicImpactOnSite(8);
+            SendKeysGenRiskEconomicImpactOffSite(8);
+            SendKeysGenRiskEnvironmentalOnSite(8);
+            SendKeysGenRiskEnvironmentalOffSite(8);
             System.Threading.Thread.Sleep(5000);
         }
 
@@ -2184,53 +2241,56 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 
         public void SelectGenRiskInjuriesOnSite()
         {
-            SendKeysGenRiskInjuriesOnSite();
-
+            SendKeysGenRiskInjuriesOnSite(8);
         }
 
         public void SelectGenRiskInuriesOffSite()
         {
-            SendKeysGenRiskInuriesOffSite();
+            SendKeysGenRiskInuriesOffSite(8);
         }
+
         public void SelectGenRiskHospitalizationsOnSite()
         {
-            SendKeysGenRiskHospitalizationsOnSite();
+            SendKeysGenRiskHospitalizationsOnSite(8);
         }
+
         public void SelectGenRiskHospitalizationsOffSite()
         {
-            SendKeysGenRiskHospitalizationsOffSite();
+            SendKeysGenRiskHospitalizationsOffSite(8);
         }
+
         public void SelectGenRiskDeathsOnSite()
         {
-            SendKeysGenRiskDeathsOnSite();
+            SendKeysGenRiskDeathsOnSite(8);
         }
+
         public void SelectGenRiskDeathsOffSite()
         {
-            SendKeysGenRiskDeathsOffSite();
+            SendKeysGenRiskDeathsOffSite(8);
         }
         public void SelectGenRiskCapitalLossOnSite()
         {
-            SendKeysGenRiskCapitalLossOnSite();
+            SendKeysGenRiskCapitalLossOnSite(8);
         }
         public void SelectGenRiskCapitalLossOffSite()
         {
-            SendKeysGenRiskCapitalLossOffSite();
+            SendKeysGenRiskCapitalLossOffSite(8);
         }
         public void SelectGenRiskEconomicImpactOnSite()
         {
-            SendKeysGenRiskEconomicImpactOnSite();
+            SendKeysGenRiskEconomicImpactOnSite(8);
         }
         public void SelectGenRiskEconomicImpactOffSite()
         {
-            SendKeysGenRiskEconomicImpactOffSite();
+            SendKeysGenRiskEconomicImpactOffSite(8);
         }
         public void SelectGenRiskEnvironmentalOnSite()
         {
-            SendKeysGenRiskEnvironmentalOnSite();
+            SendKeysGenRiskEnvironmentalOnSite(8);
         }
         public void SelectGenRiskEnvironmentalOffSite()
         {
-            SendKeysGenRiskEnvironmentalOffSite();
+            SendKeysGenRiskEnvironmentalOffSite(8);
         }
 
 
