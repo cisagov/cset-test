@@ -1,5 +1,7 @@
 ﻿using CSET_Selenium.Enums.Con_PCA;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 
@@ -212,6 +214,19 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
             IList<IWebElement> rows;
             rows = GetTemplatesTable().FindElements(By.TagName("mat-row"));
             return rows;
+        }
+
+        public bool NewTemplateButtonPresent()
+        {
+            try
+            {
+                WaitUntilElementIsVisible(ButtonNewTemplate, 2);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public void ClickEditButtonByTemplateName(String name)

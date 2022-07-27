@@ -221,8 +221,6 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
         {
             ClickWhenClickable(TextboxCustomerType);
             driver.FindElement(By.XPath("//span[text()='" + customerType + "']")).Click();
-            //SelectElement select = new SelectElement(TextboxCustomerType);
-            //select.SelectByText(customerType);
         }
 
         private void SetCustomerDomain(String customerDomain)
@@ -387,7 +385,5 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
                 }
             }
         }
-
-
     }
 }

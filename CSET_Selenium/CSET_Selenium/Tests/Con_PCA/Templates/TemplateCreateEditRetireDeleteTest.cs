@@ -26,6 +26,12 @@ namespace CSET_Selenium.Tests.Con_PCA.Template
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectTemplates();
             Templates template = new Templates(driver);
+            if (!template.NewTemplateButtonPresent())
+            {
+                sideMenu.SelectSubscriptions();
+                sideMenu.SelectTemplates();
+            }
+
             template.CreateNewTemplate(templateName, "whatever");
             
             Assert.IsTrue(template.FindTemplateByName(templateName));

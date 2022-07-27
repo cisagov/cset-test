@@ -1,15 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 using CSET_Selenium.DriverConfiguration;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CSET_Selenium.ConPCA_Repository.Login_Page;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers;
