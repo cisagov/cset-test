@@ -18,63 +18,32 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
         [Test]
         public void CustomerTest()
         {
-            BaseConfiguration cf = new BaseConfiguration("https://pca.dev.inltesting.xyz/login");
-            driver = driver = BuildDriver(cf);
+            BaseConfiguration cf = new BaseConfiguration(Env.Dev.GetValue());
+            driver = BuildDriver(cf);
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
+            loginPage.LoginToConPCA(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
 
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectCustomers();
+
             /*create a new customer and validate */
             Customers customer = new Customers(driver);
-            customer.CreateNewCustomer(Enums.Con_PCA.CustomerTypes.Federal);
-            IList<IWebElement> rows = customer.GetCustomerTableRows();
-            bool foundCustomer = false;
-            for (var i= 0; i< rows.Count;i++)
-            {
-                if (rows[i].Text.Contains(Customer.Customer_Identifier.GetValue()))
-                {
-                    foundCustomer = true;
-                    break;
-                }
-            }
-
-            Assert.IsTrue(foundCustomer);
+            customer.CreateNewCustomer(Enums.Con_PCA.CustomerTypes.Federal);          
+            bool foundCustomer = customer.FindCustomerByID(Customer.Customer_Identifier.GetValue());
+            Assert.IsTrue(foundCustomer, "Didn't find the new customer");
 
             /*edit the customer*/
-
             var newID = StringsUtils.GenerateRandomString(10);
-
             customer.ClickCustomersTableEditByIdentifier(Customer.Customer_Identifier.GetValue());
-            customer.EditCustomerIdentifier(newID);
-            rows = customer.GetCustomerTableRows();
-            foundCustomer = false;
-            for (var i = 0; i < rows.Count; i++)
-            {
-                if (rows[i].Text.Contains(newID))
-                {
-                    foundCustomer = true;
-                    break;
-                }
-            }
+            customer.EditCustomerIdentifier(newID);          
+            foundCustomer = customer.FindCustomerByID(newID);
+            Assert.IsTrue(foundCustomer, "Didn't find the new customer with the edited ID");
 
-            Assert.IsTrue(foundCustomer);
-
-            //delete the new customer and verify
-            
+            //delete the new customer and verify           
             customer.DeleteCustomersByIdentifier(newID);
-            rows = customer.GetCustomerTableRows();
-            foundCustomer = false;
-            for (var i = 0; i < rows.Count; i++)
-            {
-                if (rows[i].Text.Contains(newID))
-                {
-                    foundCustomer = true;
-                    break;
-                }
-            }
-            Assert.IsFalse(foundCustomer);
+            foundCustomer = customer.FindCustomerByID(newID);
+            Assert.IsFalse(foundCustomer, "The customer was not successfully deleted.");
         }
     }
 }

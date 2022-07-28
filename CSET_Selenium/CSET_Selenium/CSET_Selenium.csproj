@@ -119,6 +119,8 @@
     <Compile Include="DriverConfiguration\BaseTest.cs" />
     <Compile Include="Enums\Browsers.cs" />
     <Compile Include="Enums\AssessmentInformation.cs" />
+    <Compile Include="Enums\Con_PCA\Env.cs" />
+    <Compile Include="Enums\Con_PCA\LoginInfo.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="Page_Objects\Assessment_Info\Assessment_Info.cs" />
     <Compile Include="Page_Objects\Compare\Compare.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Customers\Customers.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\LandingPages\LandingPages.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Subscriptions\Subscriptions.cs" />
@@ -168,6 +171,7 @@
     <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
     <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
+    <Compile Include="Tests\Con_PCA\LandingPages\LandingPageCreateEditDeleteTest.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
     <Compile Include="Tests\Con_PCA\Subscriptions\SubscriptionCreation.cs" />
     <Compile Include="Tests\Con_PCA\Templates\TemplateCreateEditRetireDeleteTest.cs" />

@@ -11,7 +11,7 @@ using CSET_Selenium.Enums;
 
 namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
 {
-    class Customers : BasePage
+    class Customers : ConPCABase
     {
         private readonly IWebDriver driver;
 
@@ -286,6 +286,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
 
         private void ClickDeleteCustomerButton()
         {
+            WaitUntilElementIsClickable(DeleteCustomerButton, 3);
             ClickWhenClickable(DeleteCustomerButton);
         }
 
@@ -384,6 +385,21 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
                     ClickOKButton();
                 }
             }
+        }
+
+        public bool FindCustomerByID(String ID)
+        {
+            IList<IWebElement> rows = GetCustomerTableRows();
+            bool foundCustomer = false;
+            for (var i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Text.Contains(ID))
+                {
+                    foundCustomer = true;
+                    break;
+                }
+            }
+            return foundCustomer;
         }
     }
 }

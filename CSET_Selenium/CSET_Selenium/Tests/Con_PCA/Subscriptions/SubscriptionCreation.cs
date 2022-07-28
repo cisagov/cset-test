@@ -21,7 +21,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Subscription
         [Test]
         public void SubscriptionTest()
         {
-            BaseConfiguration cf = new BaseConfiguration("https://pca.dev.inltesting.xyz/login");
+            BaseConfiguration cf = new BaseConfiguration(Env.Dev.GetValue());
             driver = driver = BuildDriver(cf);
 
             LoginPage loginPage = new LoginPage(driver);
