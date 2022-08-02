@@ -23,7 +23,7 @@ namespace CSET_Selenium.Tests.Con_PCA.LandingPages
             String landingPageName = StringsUtils.GenerateRandomString(6);
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginToConPCA(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
-            //Create a new template
+            
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectLandingPages();
             LandingPage page = new LandingPage(driver);
