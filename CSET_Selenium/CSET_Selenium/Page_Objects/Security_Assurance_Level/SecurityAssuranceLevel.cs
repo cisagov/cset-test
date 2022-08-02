@@ -14,6 +14,7 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
         private readonly IWebDriver driver;
         private Actions actions;
         private Random r = new Random();
+        private Dictionary<string, string> standardMap = new Dictionary<string, string>();
         public SecurityAssuranceLevel(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
@@ -1948,11 +1949,35 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 
         private void RandomNist()
         {
+            var rand = r.Next(64);
             List<IWebElement> checkboxList = new List<IWebElement>(driver.FindElements(By.XPath("//table//input[@type='checkbox']")));
-            Console.WriteLine("Nist Checkbox Count: " + checkboxList.Count());
-            var el = checkboxList[r.Next(64)];           
-            MoveToElement(el);
-            el.Click();
+            //Console.WriteLine("Nist Checkbox Count: " + checkboxList.Count());
+            
+            var el = checkboxList[rand];
+            if (!standardMap.ContainsKey(el.GetAttribute("value"))){
+                MoveToElement(el);
+                Console.WriteLine("Added to SAL standardMap: " + el.GetAttribute("value"));
+                standardMap.Add(el.GetAttribute("value"), "Nist");
+                el.Click();
+            }
+        }
+
+        private void NistCheckChanged(Dictionary<string, string> statMap)
+        {
+            List<IWebElement> checkboxList = new List<IWebElement>(driver.FindElements(By.XPath("//table//input[@type='checkbox']")));
+            List<String> cList = new List<String>(statMap.Where(x => x.Value == "Nist").Select(x => x.Key));
+            foreach(string str in cList)
+            {
+                Console.WriteLine("this is the old check: " + str);
+            }
+            foreach(IWebElement el in checkboxList)
+            {
+                Console.WriteLine("This is el.GetAttribute('value'): " + el.GetAttribute("value"));
+                if (cList.Contains(el.GetAttribute("value")))
+                {
+                    el.Click();
+                }
+            }
         }
 
         private void RandomNistSALQuestions()
@@ -1964,11 +1989,32 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             {
                 MoveToElement(questionList[i]);
                 questionList[i].Click();
+            }            
+        }
+
+        private void NistQuestionChanged(Dictionary<string, string> statMap)
+        {
+            List<IWebElement> questionList = new List<IWebElement>(driver.FindElements(By.XPath("//table[@class='nist-sal-questions table']//input/ancestor::label")));
+            List<String> qList = new List<String>(statMap.Where(x => x.Value == "Standard Question").Select(x => x.Key));
+            foreach (string str in qList)
+            {
+                Console.WriteLine("this is an old question: " + str);
             }
-            
+            foreach (IWebElement el in questionList)
+            {
+                if (qList.Contains(el.GetAttribute("value")))
+                {
+                    el.Click();
+                }
+            }
         }
 
         //Aggregate methods
+
+        public Dictionary<string, string> GetStandardMap()
+        {
+            return standardMap;
+        }
 
         public void SetRandomGeneralRisk(int num)
         {
@@ -1980,11 +2026,19 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             RandomNist();
         }
 
+        public void SetNistCheckChanged(Dictionary<string, string> statMap)
+        {
+            NistCheckChanged(statMap);
+        }
+
         public void SetRandomNistQuestion()
         {
             RandomNistSALQuestions();
         }
-
+        public void SetNistQuestionChanged(Dictionary<string, string> statMap)
+        {
+            NistQuestionChanged(statMap);
+        }
         public void SelectSALAssessment()
         {
             ClickSALAssessment();

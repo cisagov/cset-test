@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Threading;
 using CSET_Selenium.Page_Objects.Trend;
 using CSET_Selenium.Page_Objects.Security_Assurance_Level;
+using CSET_Selenium.Helpers;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
@@ -30,66 +31,35 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //Create a base configuration
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET"));
 
-                //Login and navigate to module builder
-                LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("kyle.hanson@inl.gov", "Nitocket14$");
+                //Create the assessments to be compared
+                AssessmentUtils assessment1 = new AssessmentUtils(driver);
+                assessment1.NewRandomStandard();
 
-                LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
-                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateStandardAssessment("Standard Assessment for Trend Test", "Wayne Tech", "Gotham City", "New Jersey");
-
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetSALAssessmentInfo();
-
-                SecurityAssuranceLevel sal = new SecurityAssuranceLevel(driver);
-                var generalRiskNum = r.Next(9);
-                sal.SelectHeaderGeneralRiskBased();
-                sal.SetRandomGeneralRisk(generalRiskNum);
-                sal.SelectHeaderNist();
-                Thread.Sleep(3000);
-                for(int i = 0; i < 5; i++)
-                {
-                    sal.SetRandomNistCheck();
-                }
-                sal.SetRandomNistQuestion();
-                sal.ClickNext();
-/*              Trend trend = new Trend(driver);
+                //Analyze the trends for the above assessments
+                Trend trend = new Trend(driver);
                 trend.GoHome();
-                createNewAssessment.ClickMyAssessments();
-                Thread.Sleep(3000);
-                trend.DeleteAssessment();
-                trend.Yes();*/
+                assessment1.ChangedStandardAssessment(assessment1.GetStats());
+                trend.GoHome();
+                trend.NewTrend("Standard Assessment (From Assessment Utils)", "Standard Assessment (From Assessment Utils) 2");
+                var numQuestionsA = driver.FindElement(By.XPath("//table[@class='cset-table table-bordered assessment-summary']//td[contains(text(), 'A')]/following-sibling::td[2]"));
+                var numQuestionsB = driver.FindElement(By.XPath("//table[@class='cset-table table-bordered assessment-summary']//td[contains(text(), 'B')]/following-sibling::td[2]"));
+                Assert.That(Int32.Parse(numQuestionsB.GetAttribute("value")) >= 2 * Int32.Parse(numQuestionsA.GetAttribute("value")));
+
+
             }
 
             [Test]
-            public void CyberAssessmentTrendTest()
+            public void MaturityModelTrendTest()
             {
                 //Create a base configuration
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET"));
 
-                //Login and navigate to module builder
-                LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
-
-                LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
-                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateStandardAssessment("Cyber Assessment for Trend Test", "Wayne Tech", "Gotham City", "New Jersey");
-
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetCyberAssessmentInfo();
-
-                Trend trend = new Trend(driver);
-                trend.GoHome();
-                createNewAssessment.ClickMyAssessments();
-                Thread.Sleep(3000);
-               // trend.DeleteAssessment();
-               // trend.Yes();
+                AssessmentUtils assessment1 = new AssessmentUtils(driver);
+               // AssessmentUtils assessment2 = new AssessmentUtils(driver);
+                assessment1.NewMaturityModel();
+               // assessment2.NewStandard();
 
             }
 

@@ -11,7 +11,8 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
     class MaturityModelsPage : BasePage
     {
         private readonly IWebDriver driver;
-
+        private static Boolean isACET, isCMMC1, isCMMC2, isCRR, isEDM, isCIS, isRRA = false;
+        private List<Boolean> matList = new List<Boolean> { isACET, isCMMC1, isCMMC2, isCRR, isEDM, isCIS, isRRA };
         public MaturityModelsPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
@@ -67,6 +68,14 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
             }
         }
 
+        private IWebElement CardCIS
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//h4[contains(text(),'CISA Cyber Infrastructure Survey')]"));
+            }
+        }
+
         //Interaction Methods
 
         private void ClickACET()
@@ -87,6 +96,11 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         private void ClickEDM()
         {
             CardEDM.Click();
+        }
+
+        private void ClickCIS()
+        {
+            CardCIS.Click();
         }
 
         private void ClickCRR()
@@ -126,6 +140,12 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
             ClickNext();
         }
 
+        public void SelectCIS()
+        {
+            ClickCIS();
+            ClickNext();
+        }
+
         public void SelectCRR()
         {
             ClickCRR();
@@ -136,6 +156,48 @@ namespace CSET_Selenium.Page_Objects.Maturity_Models
         {
             ClickRRA();
             ClickNext();
+        }
+
+        public void SelectRandomMaturityModel()
+        {
+            Random r = new Random();
+            var rand = r.Next(7);
+            if(rand == 0)
+            {
+                SelectACET();
+                isACET = true;
+            }else if(rand == 1)
+            {
+                SelectCMMC1();
+                isCMMC1 = true;
+            }else if(rand == 2)
+            {
+                SelectCMMC2();
+                isCMMC2 = true;
+            }else if(rand == 3)
+            {
+                SelectCRR();
+                isCRR = true;
+            }else if(rand == 4)
+            {
+                SelectEDM();
+                isEDM = true;
+            }
+            else if(rand == 5)
+            {
+                SelectCIS();
+                isCIS = true;
+            }
+            else
+            {
+                SelectRRA();
+                isRRA = true;
+            }
+        }
+
+        public List<Boolean> GetMatModel()
+        {
+            return matList;
         }
     }
 }

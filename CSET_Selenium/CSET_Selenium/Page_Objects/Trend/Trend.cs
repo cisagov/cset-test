@@ -90,6 +90,16 @@ namespace CSET_Selenium.Page_Objects.Trend
             }
         }
 
+        private IWebElement GoToTrends
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Trend')]"));
+            }
+        }
+
+
+
         //Interaction Methods
 
         private void ClickCSET()
@@ -138,6 +148,12 @@ namespace CSET_Selenium.Page_Objects.Trend
             Remove.Click();
         }
 
+        private void ClickGoToTrends()
+        {
+            GoToTrends.Click();
+        }
+
+
         //Aggregate Methods
         public void GoHome()
         {
@@ -156,6 +172,7 @@ namespace CSET_Selenium.Page_Objects.Trend
 
         public void NewTrend(String assessment1, String assessment2)
         {
+            ClickGoToTrends();
             ClickNewTrend();
             ClickSelectAssessments();
             CheckboxAssessment(assessment1);

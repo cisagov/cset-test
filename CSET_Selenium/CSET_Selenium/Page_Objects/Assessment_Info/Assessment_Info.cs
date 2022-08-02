@@ -12,6 +12,8 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
     {
         private readonly IWebDriver driver;
         Random r = new Random();
+        private Dictionary<string, string> infoMap = new Dictionary<string, string>();
+        private List<IWebElement> infoList = new List<IWebElement>();
 
         public AssessmentInfo(IWebDriver driver) : base(driver)
         {
@@ -449,8 +451,39 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
                     OptionTransportationSystemsSector,
                     OptionWaterandWastewaterSystemsSector
                 };
-            var el = sectorList[r.Next(1, 17)];
+            var el = sectorList[r.Next(0, 16)];
+            infoMap.Add(el.Text, "Sector");
             el.Click();
+        }
+
+        private void SetSectorChanged(string sector)
+        {
+               List<IWebElement> sectorList = new List<IWebElement>
+                {
+                    OptionChemicalSector,
+                    OptionCommercialFacilitiesSector,
+                    OptionCommunicationsSector,
+                    OptionCriticalManufacturingSector,
+                    OptionDamsSector,
+                    OptionDefenseIndustrialBaseSector,
+                    OptionEmergencyServicesSector,
+                    OptionEnergySector,
+                    OptionFinancialServicesSector,
+                    OptionFoodAndAgricultureSector,
+                    OptionGovernmentFacilitiesSector,
+                    OptionHealthcareandPublicHealthSector,
+                    OptionInformationTechnologySector,
+                    OptionNuclearReactorsSector,
+                    OptionTransportationSystemsSector,
+                    OptionWaterandWastewaterSystemsSector
+                };
+            foreach(IWebElement el in sectorList)
+            {
+                if (el.Text.Equals(sector))
+                {
+                    el.Click();
+                }
+            }
         }
 
         private void SetRandomIndustry()
@@ -458,20 +491,60 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             List<IWebElement> industryList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='industry']//option")));
             Console.WriteLine(industryList.Count());
             var el = WaitUntilElementIsVisible(industryList[r.Next(1, industryList.Count())]);
+            infoMap.Add(el.Text, "Industry");
             el.Click();
+        }
+
+        private void SetIndustryChanged(string industry)
+        {
+            List<IWebElement> industryList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='industry']//option")));
+            foreach (IWebElement el in industryList)
+            {
+                if (el.Text.Equals(industry))
+                {
+                    el.Click();
+                }
+            }
         }
 
         private void SetRandomGross()
         {
             List<IWebElement> grossList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='assetValue']//option")));
             var el = WaitUntilElementIsVisible(grossList[r.Next(1, grossList.Count())]);
+            infoMap.Add(el.Text, "Gross");
             el.Click();
         }
+
+        private void SetGrossChanged(string gross)
+        {
+            List<IWebElement> grossList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='assetValue']//option")));
+            foreach (IWebElement el in grossList)
+            {
+                if (el.Text.Equals(gross))
+                {
+                    el.Click();
+                }
+            }
+        }
+
         private void SetRandomExpectedEffort()
         {
             List<IWebElement> effortList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='size']//option")));
             var el = WaitUntilElementIsVisible(effortList[r.Next(1, effortList.Count())]);
+            infoMap.Add(el.Text, "Effort");
             el.Click();
+        }
+
+        private void SetExpectedEffortChanged(string effort)
+        {
+            List<IWebElement> effortList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='size']//option")));
+            foreach (IWebElement el in effortList)
+            {
+                if (el.Text.Equals(effort))
+                {
+                    el.Click();
+                }
+            }
         }
 
         private void SetOrgName(String name)
@@ -488,14 +561,42 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
         {
             List<IWebElement> orgTypeList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmOrganizationType']//option")));
             var el = WaitUntilElementIsVisible(orgTypeList[r.Next(1, orgTypeList.Count())]);
+            infoMap.Add(el.Text, "OrgType");
             el.Click();
+        }
+
+        private void SetOrgTypeChanged(String orgtype)
+        {
+            List<IWebElement> orgTypeList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmOrganizationType']//option")));
+            foreach (IWebElement el in orgTypeList)
+            {
+                if (el.Text.Equals(orgtype))
+                {
+                    el.Click();
+                }
+            }
+
         }
 
         private void SetFacilitator()
         {
             List<IWebElement> facilitatorList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmFacilitator']//option")));
-            var el = WaitUntilElementIsVisible(facilitatorList[0]);
+            var el = WaitUntilElementIsVisible(facilitatorList[1]);
+            infoMap.Add(el.Text, "Facilitator");
             el.Click();
+        }
+
+        private void SetFacilitatorChanged(String facilitator)
+        {
+            List<IWebElement> facilitatorList = new List<IWebElement>(driver.FindElements(By.XPath("//select[@id='edmFacilitator']//option")));
+            foreach (IWebElement el in facilitatorList)
+            {
+                if (el.Text.Equals(facilitator))
+                {
+                    el.Click();
+                }
+            }
+
         }
 
         private void SetAssessmentName(String assessmentName)
@@ -522,9 +623,26 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             SetRandomGross();
             SetRandomExpectedEffort();
             SetOrgName("INL");
+            infoMap.Add("INL", "OrgName");
             SetAgencyName("CSET Testing");
+            infoMap.Add("CSET Testing", "AgencyName");
             SetOrgType();
             SetFacilitator();
+            ClickNext();
+        }
+
+        public void SetChangedSalAssessmentInfo(Dictionary<string, string> statMap)
+        {
+            DropdownSector.Click();
+            SetSectorChanged(statMap.FirstOrDefault(x => x.Value == "Sector").Key);
+            DropdownIndustry.Click();
+            SetIndustryChanged(statMap.FirstOrDefault(x => x.Value == "Industry").Key);
+            SetGrossChanged(statMap.FirstOrDefault(x => x.Value == "Gross").Key);
+            SetExpectedEffortChanged(statMap.FirstOrDefault(x => x.Value == "Effort").Key);
+            SetOrgName("INL");
+            SetAgencyName("CSET Testing");
+            SetOrgTypeChanged(statMap.FirstOrDefault(x => x.Value == "OrgType").Key);
+            SetFacilitatorChanged(statMap.FirstOrDefault(x => x.Value == "Facilitator").Key);
             ClickNext();
         }
 
@@ -571,6 +689,10 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             ClickNext();
         }
 
+        public Dictionary<string, string> GetAssessmentInfo()
+        {
+            return infoMap;
+        }
         public void SetStandardQuestions()
         {
             //ExpandAll.Click();

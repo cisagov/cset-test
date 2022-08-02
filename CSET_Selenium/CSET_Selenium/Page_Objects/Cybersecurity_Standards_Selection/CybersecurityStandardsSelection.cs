@@ -13,6 +13,8 @@ namespace CSET_Selenium.Page_Objects.Cybersecurity_Standards_Selection
     {
         private readonly IWebDriver driver;
         private Actions actions;
+        private List<String> standardRecs;
+
         public CybersecurityStandardsSelection(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
@@ -1511,6 +1513,27 @@ private IWebElement CSSBasicQuestionsStandardSystemUseNotification8Reviewed
 //Interaction Methods
 
 
+        private void ClickRecommendedStandards()
+        {
+            //Click the recommended standards
+            var recommendedList = driver.FindElements(By.XPath("//span[contains(text(), 'recommended')]/ancestor::label"));
+            if(recommendedList.Count() > 0)
+            {
+                foreach (IWebElement el in recommendedList)
+                {
+                    WaitUntilElementIsVisible(el);
+                    el.Click();
+              //      standardRecs.Add(el.GetAttribute("value"));
+                }
+            }
+            //If there aren't recommendations, click "I want to do a basic assessment instead"
+            else
+            {
+                WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Start an assessment with a basic standard selected']")).Click();
+              //  standardRecs.Add()
+            }
+
+        }
 
         private void ClickNerc_CIP_Rev6()
         {
@@ -1733,6 +1756,12 @@ private IWebElement CSSBasicQuestionsStandardSystemUseNotification8Reviewed
 
 
 //Aggregate Methods
+        
+        public void RecommendedStandards()
+        {
+            ClickRecommendedStandards();
+            ClickNext();
+        }
 
         public void SetRequirementsMode()
         {
