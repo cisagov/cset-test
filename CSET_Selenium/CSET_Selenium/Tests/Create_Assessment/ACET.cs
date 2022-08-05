@@ -38,7 +38,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.ACETCreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateAcetBuildAssessment("ACET(ACET Build)", "New-New-York", "New York", "2525", "100000");

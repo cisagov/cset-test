@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSET_Selenium.Page_Objects.AssessmentInfo
@@ -465,6 +466,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetTSAReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             ExecutiveSummary.Click();
             SiteSummaryReport.Click();
@@ -475,6 +477,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetVADRReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             VADRDeficiencyReport.Click();
             ClickNext();
@@ -482,6 +485,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetCRRReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             CRRReport.Click();
             DropdownCRRConfidentiality.Click();
@@ -494,6 +498,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetRRAReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             RRAReport.Click();
             RRADeficiencyReport.Click();
@@ -503,6 +508,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetCSCReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             ExecutiveSummary.Click();
             SiteSummaryReport.Click();
@@ -513,6 +519,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetAPTAReports()
         {
+            Thread.Sleep(2000);
             ObservationsTearOutSheets.Click();
             ExecutiveSummary.Click();
             SiteSummaryReport.Click();
