@@ -45,8 +45,6 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 var numQuestionsA = driver.FindElement(By.XPath("//table[@class='cset-table table-bordered assessment-summary']//td[contains(text(), 'A')]/following-sibling::td[2]"));
                 var numQuestionsB = driver.FindElement(By.XPath("//table[@class='cset-table table-bordered assessment-summary']//td[contains(text(), 'B')]/following-sibling::td[2]"));
                 Assert.That(Int32.Parse(numQuestionsB.GetAttribute("value")) >= 2 * Int32.Parse(numQuestionsA.GetAttribute("value")));
-
-
             }
 
             [Test]
@@ -56,10 +54,42 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
 
-                AssessmentUtils assessment1 = new AssessmentUtils(driver);
+                AssessmentUtils assessment = new AssessmentUtils(driver);
                // AssessmentUtils assessment2 = new AssessmentUtils(driver);
-                assessment1.NewMaturityModel();
-               // assessment2.NewStandard();
+                assessment.NewRandomMaturityModel();
+                assessment.ChangedMaturityModel(assessment.GetStats());
+                Trend trend = new Trend(driver);
+                trend.NewTrend("Cyber Assessment (From Assessment Utils)", "Cyber Assessment (From Assessment Utils) 2");
+
+                if (assessment.GetStats().ContainsKey("ACET"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if (assessment.GetStats().ContainsKey("CMMC1"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if (assessment.GetStats().ContainsKey("CMMC2"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if (assessment.GetStats().ContainsKey("CRR"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if (assessment.GetStats().ContainsKey("EDM"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if (assessment.GetStats().ContainsKey("CIS"))
+                {
+                    Console.WriteLine("Success");
+                }
+                if(assessment.GetStats().ContainsKey("RRA"))
+                {
+                    Console.WriteLine("Success");
+                }
+
 
             }
 

@@ -89,7 +89,7 @@ namespace CSET_Selenium.Page_Objects.Trend
                 return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'Generate Trend Report')]"));
             }
         }
-
+        
         private IWebElement GoToTrends
         {
             get

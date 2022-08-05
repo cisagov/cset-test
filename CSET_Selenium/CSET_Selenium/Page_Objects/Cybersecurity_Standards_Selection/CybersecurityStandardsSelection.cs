@@ -1760,7 +1760,7 @@ private IWebElement CSSBasicQuestionsStandardSystemUseNotification8Reviewed
         public void RecommendedStandards()
         {
             ClickRecommendedStandards();
-            ClickNext();
+            driver.FindElement(By.XPath("//button[contains(text(), 'Next')]"));
         }
 
         public void SetRequirementsMode()

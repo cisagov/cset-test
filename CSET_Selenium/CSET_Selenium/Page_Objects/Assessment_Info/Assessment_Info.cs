@@ -631,7 +631,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
             ClickNext();
         }
 
-        public void SetChangedSalAssessmentInfo(Dictionary<string, string> statMap)
+        public void SetChangedAssessmentInfo(Dictionary<string, string> statMap)
         {
             DropdownSector.Click();
             SetSectorChanged(statMap.FirstOrDefault(x => x.Value == "Sector").Key);
