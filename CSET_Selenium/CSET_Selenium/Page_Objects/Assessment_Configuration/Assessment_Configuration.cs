@@ -104,7 +104,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'vadr')]/parent::div"));
+                //return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'vadr')]/parent::div"));
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(@for,'VADR')]"));
             }
         }
 
@@ -112,7 +113,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'rra')]/parent::div"));
+                //return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'rra')]/parent::div"));
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(@for,'RRA')]"));
             }
         }
 
@@ -120,7 +122,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'crr')]/parent::div"));
+                //return WaitUntilElementIsVisible(By.XPath("//input[contains(@id,'crr')]/parent::div"));
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(@for,'CRR')]"));
             }
         }
 
@@ -314,8 +317,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetVADR();
             SetTSA(); //unselecting TSA
+            SetVADR();
             ClickNext();
         }
 
@@ -326,8 +329,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetRRA();
             SetTSA(); //unselecting TSA
+            SetRRA();
             ClickNext();
         }
 
@@ -338,8 +341,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetCRR();
             SetTSA(); //unselecting TSA
+            SetCRR();
             ClickNext();
         }
 

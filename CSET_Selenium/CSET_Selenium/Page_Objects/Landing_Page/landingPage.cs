@@ -96,6 +96,11 @@ namespace CSET_Selenium.Repository.Landing_Page
             ClickNewAssessmentButton();
         }
 
+        public void ACETCreateNewAssessment()
+        {
+            ClickNewAssessmentButton();
+        }
+
         public void NavigateToModuleBuilder()
         {
             ClickToolsButton();
