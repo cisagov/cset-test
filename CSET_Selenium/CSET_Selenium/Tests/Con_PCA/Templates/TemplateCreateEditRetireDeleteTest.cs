@@ -6,6 +6,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates;
 using CSET_Selenium.Helpers;
+using CSET_Selenium.Enums.Con_PCA;
 
 namespace CSET_Selenium.Tests.Con_PCA.Template
 {
@@ -17,17 +18,17 @@ namespace CSET_Selenium.Tests.Con_PCA.Template
         [Test]
         public void TemplateTest()
         {
-            BaseConfiguration cf = new BaseConfiguration("https://pca.dev.inltesting.xyz/login");
+            BaseConfiguration cf = new BaseConfiguration(Env.Dev.GetValue());
             driver = BuildDriver(cf);
             String templateName = StringsUtils.GenerateRandomString(6);
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
+            loginPage.LoginToConPCA(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
             //Create a new template
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectTemplates();
             Templates template = new Templates(driver);
-            template.CreateNewTemplate(templateName, "whatever");
             
+            template.CreateNewTemplate(templateName, "whatever");           
             Assert.IsTrue(template.FindTemplateByName(templateName));
 
             //Edit a template 

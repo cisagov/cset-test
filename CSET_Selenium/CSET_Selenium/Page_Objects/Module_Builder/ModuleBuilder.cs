@@ -41,7 +41,6 @@ namespace CSET_Selenium.Repository.Landing_Page
         }
 
         //Element Locators
-
         private IWebElement CreateModuleButton
         {
             get
@@ -777,7 +776,21 @@ namespace CSET_Selenium.Repository.Landing_Page
             el.Click();
         }
 
+        private void ClickDeleteModuleAndConfirm(String cat)
+        {
+            var el = WaitUntilElementIsClickable(By.XPath("//span[contains(text(), 'Delete')]/ancestor::button"));
+            //var el = WaitUntilElementIsVisible(By.XPath("//button[contains(text(), '" + cat + " Test')]/ancestor::td/following-sibling::td//span[contains(text(), 'Delete')]/ancestor::button"));
+            el.Click();
+            var el2 = WaitUntilElementIsClickable(By.XPath("//button[contains(text(), 'Yes')]"));
+            el2.Click();
+        }
+
         //Aggregate Methods
+        public void DeleteModule()
+        {
+            ClickDeleteModuleAndConfirm(category);
+        }
+
         public void CybersecStandardCheckbox()
         {
             ClickCheckbox(category);
@@ -812,6 +825,7 @@ namespace CSET_Selenium.Repository.Landing_Page
             SetTitleId(title);
             SetRequirementText(text);
             ClickCreate();
+            Thread.Sleep(2000);
             ClickReqModerateSAL();
             ClickReqHighSAL();
             ClickReqVeryHighSAL();

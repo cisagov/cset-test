@@ -18,6 +18,30 @@ namespace CSET_Selenium.Page_Objects.Trend
         }
 
         //Element Locators
+        private IWebElement CSET
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//app-logo-cset"));
+            }
+        }
+
+        private IWebElement Remove
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(), 'Standard Assessment for Trend Test')]/ancestor::td/following-sibling::td//button[@mattooltip='Permanently remove this assessment.']"));
+            }
+        }
+
+        private IWebElement YesButton
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(), 'Yes')]"));
+            }
+        }
+
         private IWebElement NewTrendButton
         {
             get
@@ -66,7 +90,28 @@ namespace CSET_Selenium.Page_Objects.Trend
             }
         }
 
+        private IWebElement GoToTrends
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Trend')]"));
+            }
+        }
+
+
+
         //Interaction Methods
+
+        private void ClickCSET()
+        {
+            CSET.Click();
+        }
+
+        private void ClickYes()
+        {
+            YesButton.Click();
+        }
+
         private void ClickNewTrend()
         {
             NewTrendButton.Click();
@@ -98,10 +143,36 @@ namespace CSET_Selenium.Page_Objects.Trend
             GenerateTrendReportButton.Click();
         }
 
+        private void ClickRemove()
+        {
+            Remove.Click();
+        }
+
+        private void ClickGoToTrends()
+        {
+            GoToTrends.Click();
+        }
+
+
         //Aggregate Methods
+        public void GoHome()
+        {
+            ClickCSET();
+        }
+
+        public void Yes()
+        {
+            ClickYes();
+        }
+
+        public void DeleteAssessment()
+        {
+            ClickRemove();
+        }
 
         public void NewTrend(String assessment1, String assessment2)
         {
+            ClickGoToTrends();
             ClickNewTrend();
             ClickSelectAssessments();
             CheckboxAssessment(assessment1);

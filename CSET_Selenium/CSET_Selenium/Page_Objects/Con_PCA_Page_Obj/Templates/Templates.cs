@@ -1,5 +1,7 @@
 ﻿using CSET_Selenium.Enums.Con_PCA;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 
@@ -20,7 +22,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()=' New Template ']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()=' New Template ']"), 1);
             }
         }
 
@@ -121,6 +123,14 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
             }
         }
 
+        private IWebElement TextPageTitle
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[@class = 'header-title']"));
+            }
+        }
+
         //Interaction Methods
 
         private void ClickNewTemplateButton()
@@ -183,21 +193,35 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
 
         private void ClickDeleteTemplateButton()
         {
+            WaitUntilElementIsClickable(ButtonDeleteTemplate, 2);
             ButtonDeleteTemplate.Click();
+        }
+
+        private void ClickPageTitle()
+        {
+            TextPageTitle.Click();
         }
 
 
         //Aggregate Methods
 
-        public void SetHTMLView()
+        public void SetHTMLView(String view)
         {
-            TextAreaHTMLView.SendKeys("Test");
+            TextAreaHTMLView.SendKeys(view);
         }
 
         public void SetTemplateName(String name)
         {
-            TextboxTemplateName.SendKeys(Keys.Control + "a");
-            TextboxTemplateName.SendKeys(Keys.Delete);
+            int loop = 0;
+            WaitUntilElementIsVisible(TextPageTitle, 2);
+            do {
+                TextboxTemplateName.Clear();
+                TextboxTemplateName.SendKeys(Keys.Control + "a" + Keys.Delete);
+                loop++;
+                WaitForPostBack();
+            }while(loop < 5 && TextboxTemplateName.Text.Length > 0);
+            
+            TextboxTemplateName.Click();
             TextboxTemplateName.SendKeys(name);
         }
 
@@ -212,6 +236,13 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
             IList<IWebElement> rows;
             rows = GetTemplatesTable().FindElements(By.TagName("mat-row"));
             return rows;
+        }
+
+        public bool NewTemplateButtonPresent()
+        {
+            
+            return CheckIfElementExists(ButtonNewTemplate, 2);
+
         }
 
         public void ClickEditButtonByTemplateName(String name)
@@ -253,9 +284,13 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates
 
         public void CreateNewTemplate(String templateName, String subject)
         {
+            if (!NewTemplateButtonPresent())
+            {
+                RefreshPage();
+            }
             ClickNewTemplateButton();
             SetTemplateName(templateName);
-            SetHTMLView();
+            SetHTMLView(templateName + " "+subject);
             SetTemplateSubject(subject);
             SelectOrganization(YesNo.Yes);
             ClickSaveTemplateButton();

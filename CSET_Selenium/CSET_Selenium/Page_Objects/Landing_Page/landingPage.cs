@@ -58,8 +58,6 @@ namespace CSET_Selenium.Repository.Landing_Page
                 return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Module Builder')]"));
             }
         }
-
-
         //Interaction Methods
 
         private void ClickNewAssessmentButton()
@@ -88,6 +86,10 @@ namespace CSET_Selenium.Repository.Landing_Page
         }
 
         //Aggregate Methods
+        public void ClickMyAssessments()
+        {
+            ClickMyAssessmentsTab();
+        }
         public void CreateNewAssessment()
         {           
             ClickMyAssessmentsTab();
