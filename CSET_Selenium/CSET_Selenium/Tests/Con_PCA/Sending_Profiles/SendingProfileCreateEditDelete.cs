@@ -11,7 +11,7 @@ using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SendingProfiles;
 namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
 {
     [TestFixture]
-    public class LandingPageCreateEditDeleteTest : BaseTest
+    public class ProfileCreateEditDeleteTest : BaseTest
     {
         private IWebDriver driver;
 
@@ -20,7 +20,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
         {
             BaseConfiguration cf = new BaseConfiguration(Env.Dev.GetValue());
             driver = BuildDriver(cf);
-            String landingPageName = StringsUtils.GenerateRandomString(6)+".xyz";
+            String profileDomain = StringsUtils.GenerateRandomString(6, true)+".xyz";
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginToConPCA(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
 
@@ -28,9 +28,20 @@ namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
             sideMenu.SelectSendingProfiles();
             //Create a new profile
             SendingProfiles profile = new SendingProfiles(driver);
+            profile.CreateNewProfile(profileDomain);
+            bool foundNewProfile = profile.FindProfileByName(profileDomain);
+            Assert.IsTrue(foundNewProfile, "Didn't find the new Profile.");
 
-            Console.WriteLine("");
+            //Edit profile and verify
+            profile.UpdateInterfaceType(profileDomain, ProfileInterfaceType.Mailgun);
+            String newType = profile.GetCellValueInProfilesTableRow(profile.GetProfilesTableRowByName(profileDomain), 2);
+            String typeShouldBe = ProfileInterfaceType.Mailgun.GetValue();           
+            Assert.IsTrue(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing Profile.");
 
+            //delete a profile and verify
+            profile.DeleteProfile(profileDomain);
+            foundNewProfile = profile.FindProfileByName(profileDomain);
+            Assert.IsFalse(foundNewProfile, "Profile is not deleted successfully");
         }
     }
 }

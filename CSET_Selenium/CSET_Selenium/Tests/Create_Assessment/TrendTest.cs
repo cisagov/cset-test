@@ -22,7 +22,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         public class Trend_Test : BaseTest
         {
             private IWebDriver driver;
-           
+
             Random r = new Random();
 
             [Test]
@@ -55,7 +55,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 driver = BuildDriver(cf);
 
                 AssessmentUtils assessment = new AssessmentUtils(driver);
-               // AssessmentUtils assessment2 = new AssessmentUtils(driver);
+                // AssessmentUtils assessment2 = new AssessmentUtils(driver);
                 assessment.NewRandomMaturityModel();
                 assessment.ChangedMaturityModel(assessment.GetStats());
                 Trend trend = new Trend(driver);
@@ -85,7 +85,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 {
                     Console.WriteLine("Success");
                 }
-                if(assessment.GetStats().ContainsKey("RRA"))
+                if (assessment.GetStats().ContainsKey("RRA"))
                 {
                     Console.WriteLine("Success");
                 }

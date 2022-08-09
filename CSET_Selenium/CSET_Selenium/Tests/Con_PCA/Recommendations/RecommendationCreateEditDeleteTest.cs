@@ -36,8 +36,7 @@ namespace CSET_Selenium.Tests.Con_PCA.RecommendationsTest
             recommendation.EditRecommendationType(recommendationTitle, RecommendationType.Sophisticated);
             String newType = recommendation.GetCellValueInRecommendationTableRow(recommendation.GetRecommendationsTableRowByTitle(recommendationTitle), 2);
             String typeShouldBe = RecommendationType.Sophisticated.GetValue();
-            bool tmp = String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase);
-
+            
             Assert.IsTrue(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing recommendation.");
             
 

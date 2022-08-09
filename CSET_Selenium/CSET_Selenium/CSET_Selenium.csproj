@@ -121,7 +121,9 @@
     <Compile Include="Enums\AssessmentInformation.cs" />
     <Compile Include="Enums\Con_PCA\Env.cs" />
     <Compile Include="Enums\Con_PCA\LoginInfo.cs" />
+    <Compile Include="Enums\Con_PCA\ProfileInterfaceType.cs" />
     <Compile Include="Enums\Con_PCA\RecommendationType.cs" />
+    <Compile Include="Helpers\AssessmentUtils.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />

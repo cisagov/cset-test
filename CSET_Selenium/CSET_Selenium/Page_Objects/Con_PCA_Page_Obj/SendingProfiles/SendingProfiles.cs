@@ -71,10 +71,10 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SendingProfiles
             ClickWhenClickable(ButtonSaveProfile);
         }
 
-        private void SelectInterfaceType(String type)
+        private void SelectInterfaceType(ProfileInterfaceType type)
         {
             ClickWhenClickable(MatSelectInterfaceType);
-            Find(By.XPath(".//mat-option[span[text() = '" + type + "']]")).Click();
+            Find(By.XPath(".//mat-option[span[text() = '" + type.GetValue() + "']]")).Click();
         }
 
         private IWebElement GetProfilesTable()
@@ -102,13 +102,89 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SendingProfiles
             return rows;
         }
 
-        public void CreateNewProfile(String domainName, String interFaceType)
+        public void CreateNewProfile(String domainName)
         {
             ClickNewProfileButton();
-            SetDomainName(domainName);
-            SelectInterfaceType(interFaceType);
+            SetDomainName(domainName);            
             ClickSaveProfileButton();
-            ClickOKFromPopup();
+            //ClickOKFromPopup();
+        }
+
+        public bool FindProfileByName(String name)
+        {
+            IList<IWebElement> rows = GetProfilesTableRows();
+            bool found = false;
+            for (var i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Text.Contains(name))
+                {
+                    found = true;
+                    break;
+                }
+            }
+            return found;
+        }
+
+        public IWebElement GetProfilesTableRowByName(String name)
+        {
+            IList<IWebElement> rows = GetProfilesTableRows();
+            //bool foundRecommendation = false;
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Text.Contains(name))
+                {
+                    return rows[i];
+                }
+            }
+            return null;
+        }
+
+        public String GetCellValueInProfilesTableRow(IWebElement row, int cellNumber)
+        {
+            return row.FindElement(By.XPath(".//mat-cell[" + cellNumber + "]")).Text;
+        }
+
+        public void ClickEditButtonByDomainName(String name)
+        {
+            IList<IWebElement> rows = GetProfilesTableRows();
+            for (var i = 0; i < rows.Count; i++)
+            {
+                //String oneRow = rows[i].FindElement(By.XPath(".//mat-cell[1]")).Text;
+                if (rows[i].FindElement(By.XPath(".//mat-cell[1]")).Text.Equals(name))
+                {
+                    rows[i].FindElement(By.XPath(".//mat-cell[5]/button/span/mat-icon[text() = 'edit']")).Click();
+                    break;
+                }
+            }
+        }
+
+        public void ClickDeleteButtonByDomainName(String title)
+        {
+            IList<IWebElement> rows = GetProfilesTableRows();
+            for (var i = 0; i < rows.Count; i++)
+            {
+                //String oneRow = rows[i].FindElement(By.XPath(".//mat-cell[1]")).Text;
+                if (rows[i].FindElement(By.XPath(".//mat-cell[1]")).Text.Equals(title))
+                {
+                    rows[i].FindElement(By.XPath(".//mat-cell[5]/button/span/mat-icon[text() = 'delete']")).Click();
+                    break;
+                }
+            }
+        }
+
+        public void UpdateInterfaceType(String domainName, ProfileInterfaceType newType)
+        {
+            ClickEditButtonByDomainName(domainName);
+            SelectInterfaceType(newType);
+            ClickSaveProfileButton();
+        }
+
+        public void DeleteProfile(String domainName)
+        {
+            ClickDeleteButtonByDomainName(domainName);
+            ClickYesOrNoFromPopup(YesNo.Yes);
         }
     }
  }
+    
