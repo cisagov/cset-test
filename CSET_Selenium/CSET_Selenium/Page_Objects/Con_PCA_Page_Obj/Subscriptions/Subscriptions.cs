@@ -1,8 +1,10 @@
 ﻿using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Enums.Con_PCA;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
@@ -154,7 +156,8 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             return TableSubcriptions;
         }
 
-        public ReadOnlyCollection<IWebElement> GetSubscriptionsTableRows()
+        //public ReadOnlyCollection<IWebElement> GetSubscriptionsTableRows()
+        public IList<IWebElement> GetSubscriptionsTableRows()
         {
             return GetSubscriptionsTable().FindElements(By.XPath(".//mat-row"));
         }
@@ -223,6 +226,37 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             popUpMsg.FindElement(By.XPath("../../following-sibling::div/mat-dialog-actions/button/span[text() = ' OK ']")).Click();
 
             return subscriptionName;
+        }
+
+        public String getTitleClassByColumnName(String name)
+        {
+            String tmp = GetSubscriptionsTable().FindElement(By.XPath(".//mat-header-cell[//div/div[text() = '"+name+"']]")).GetAttribute("class");
+            return tmp;
+        }
+
+        public List<String> GetColumnCellsListByLabelName(String name)
+        {           
+            String classAttributeString = GetSubscriptionsTable().FindElement(By.XPath(".//div[text() = '" + name + "']/ancestor::mat-header-cell")).GetAttribute("class");
+            String commonClassText = classAttributeString.Substring(classAttributeString.IndexOf("cdk-column-")); ;
+            IList<IWebElement> rows = GetSubscriptionsTableRows();
+            List<String> columnCellsList = new List<String>();
+            for (var i = 0; i < rows.Count; i++)
+            {
+                columnCellsList.Add(rows[i].FindElement(By.XPath(".//mat-cell[contains(@class, '" + commonClassText + "')]")).Text.Trim());
+            }
+            return columnCellsList;
+        }
+
+        public void SortColumn(String columnName, Sort sort)
+        {
+            IWebElement columnTitle = GetSubscriptionsTable().FindElement(By.XPath(".//div[text() = '" + columnName + "']"));
+            columnTitle.Click();
+            String ariaSort = columnTitle.FindElement(By.XPath("../..")).GetAttribute("aria-sort");
+            do
+            {
+                columnTitle.Click();
+            } while (!(columnTitle.FindElement(By.XPath("../..")).GetAttribute("aria-sort").Equals(sort.ToString())));
+            driver.FindElement(By.XPath("//span[@class = 'loggin-user']")).Click();
         }
     }
 }

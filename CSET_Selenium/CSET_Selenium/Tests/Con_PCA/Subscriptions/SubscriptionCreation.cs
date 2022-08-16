@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using CSET_Selenium.DriverConfiguration;
 using CSET_Selenium.ConPCA_Repository.Login_Page;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu;
@@ -10,6 +8,7 @@ using OpenQA.Selenium;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions;
 using System.Collections.ObjectModel;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Tests.Con_PCA.Subscription
 {
@@ -44,7 +43,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Subscription
             subscription.SetTargetRecipients("test@inl.gov");
             String newSubscriptionName = subscription.Submit();
 
-            ReadOnlyCollection<IWebElement> rows = subscription.GetSubscriptionsTableRows();
+            IList<IWebElement> rows = subscription.GetSubscriptionsTableRows();
             bool foundSubscription = false;
             for (var i = 0; i < rows.Count; i++)
             {

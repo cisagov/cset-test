@@ -123,6 +123,7 @@
     <Compile Include="Enums\Con_PCA\LoginInfo.cs" />
     <Compile Include="Enums\Con_PCA\ProfileInterfaceType.cs" />
     <Compile Include="Enums\Con_PCA\RecommendationType.cs" />
+    <Compile Include="Enums\Con_PCA\Sort.cs" />
     <Compile Include="Helpers\AssessmentUtils.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Tests\Con_PCA\Customer\CreateNewCustomer.cs" />
     <Compile Include="Tests\Con_PCA\LandingPages\LandingPageCreateEditDeleteTest.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
+    <Compile Include="Tests\Con_PCA\Others\TablesColumnsSortingTest.cs" />
     <Compile Include="Tests\Con_PCA\Recommendations\RecommendationCreateEditDeleteTest.cs" />
     <Compile Include="Tests\Con_PCA\Sending_Profiles\SendingProfileCreateEditDelete.cs" />
     <Compile Include="Tests\Con_PCA\Subscriptions\SubscriptionCreation.cs" />
