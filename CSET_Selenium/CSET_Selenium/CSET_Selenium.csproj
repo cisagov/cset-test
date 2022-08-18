@@ -125,6 +125,7 @@
     <Compile Include="Enums\Con_PCA\RecommendationType.cs" />
     <Compile Include="Enums\Con_PCA\Sort.cs" />
     <Compile Include="Helpers\AssessmentUtils.cs" />
+    <Compile Include="Helpers\Con_PCA\TableUtils.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />

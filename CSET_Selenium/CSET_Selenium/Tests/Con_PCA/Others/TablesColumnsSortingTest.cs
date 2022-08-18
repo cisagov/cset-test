@@ -7,7 +7,8 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions;
 using System.Collections.Generic;
-
+using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Templates;
+using CSET_Selenium.Helpers.Con_PCA;
 
 namespace CSET_Selenium.Tests.Con_PCA.Others
 {
@@ -21,35 +22,72 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
         {
             BaseConfiguration cf = new BaseConfiguration(Env.Dev.GetValue());
             driver = driver = BuildDriver(cf);
-
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");
-            
+            loginPage.LoginToConPCA("jessica.qu", "Abc123$$");           
             SideMenu sideMenu = new SideMenu(driver);
-            
+
+            /*test subscriptions table*/
             sideMenu.SelectSubscriptions();
-            Subscriptions subscription = new Subscriptions(driver);
+            TableUtils table = new TableUtils(driver);
+            List<String> cl = table.GetColumnCellsListByLabelName("Start Date");
+            cl.Sort();//ascending order
+            cl.Reverse();//descending order
+            List<String> listAfterSortShouldBe = cl;
+            table.SortColumn("Start Date", Sort.descending);
+            List<String> listFromUI = table.GetColumnCellsListByLabelName("Start Date");
+            Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Subscriptions table sorting failed, please see console output for details.");
 
-            List<String> cl = subscription.GetColumnCellsListByLabelName("Start Date");
+            /*test templates table*/
+            sideMenu.SelectTemplates();
+            cl = table.GetColumnCellsListByLabelName("Template Name");
             cl.Sort();
-            List<String> listAfterSortAsShoouldBe = cl;
-            cl.Reverse();
-            List<String> listAfterSortDesShouldBe = cl;
+            listAfterSortShouldBe = cl;
+            table.SortColumn("Template Name", Sort.ascending);
+            listFromUI = table.GetColumnCellsListByLabelName("Template Name");
+            Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Templates table sorting failed, please see console output for details.");
 
-            subscription.SortColumn("Start Date", Sort.descending);
-            List<String> listFromUI = subscription.GetColumnCellsListByLabelName("Start Date");
+            /*test Customers table*/
+            sideMenu.SelectCustomers();
+            cl = table.GetColumnCellsListByLabelName("Name");
+            cl.Sort();
+            listAfterSortShouldBe = cl;
+            table.SortColumn("Name", Sort.ascending);
+            listFromUI = table.GetColumnCellsListByLabelName("Name");
+            Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Customers table sorting failed, please see console output for details.");
 
+            /*test Sending Profiles table*/
+            sideMenu.SelectSendingProfiles();
+            cl = table.GetColumnCellsListByLabelName("Name");
+            cl.Sort();
+            listAfterSortShouldBe = cl;
+            table.SortColumn("Name", Sort.ascending);
+            listFromUI = table.GetColumnCellsListByLabelName("Name");
+            Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Profiles table sorting failed, please see console output for details.");
+
+            /*test Recommendations table*/
+            sideMenu.SelectRecommendation();
+            cl = table.GetColumnCellsListByLabelName("Type");
+            cl.Sort();
+            listAfterSortShouldBe = cl;
+            table.SortColumn("Type", Sort.ascending);
+            listFromUI = table.GetColumnCellsListByLabelName("Type");
+            Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Recommendations table sorting failed, please see console output for details.");
+        }
+
+        private bool CompareLists(List<String> listShouldBe, List<String> listFromUI)
+        {
             Boolean foundDifference = false;
 
-            for(int i=0; i< listAfterSortDesShouldBe.Count-1; i++)
+            for (int i = 0; i < listShouldBe.Count - 1; i++)
             {
-                if (!listAfterSortDesShouldBe[i].Equals(listFromUI[i]))
+                if (!listShouldBe[i].Equals(listFromUI[i]))
                 {
                     foundDifference = true;
-                    Console.WriteLine("Row " + i + " should be " + listAfterSortDesShouldBe[i] + ", while it is " + listFromUI[i]);
+                    Console.WriteLine("Row " + i + " should be " + listShouldBe[i] + ", while it is " + listFromUI[i]);
                 }
             }
-            Assert.IsFalse(foundDifference, "Table sorting failed, please see console output for details.");
+
+            return foundDifference;
         }
     }
 }
