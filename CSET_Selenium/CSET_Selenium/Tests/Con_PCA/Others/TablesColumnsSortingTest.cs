@@ -49,9 +49,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
                     Console.WriteLine("Row " + i + " should be " + listAfterSortDesShouldBe[i] + ", while it is " + listFromUI[i]);
                 }
             }
-
             Assert.IsFalse(foundDifference, "Table sorting failed, please see console output for details.");
-
         }
     }
 }
