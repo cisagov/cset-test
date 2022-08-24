@@ -1,20 +1,16 @@
-﻿using CSET_Selenium.ConPCA_Repository.Con_PCA;
-using CSET_Selenium.DriverConfiguration;
-using CSET_Selenium.Enums.Con_PCA;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using OpenQA.Selenium;
+using CSET_Selenium.Enums.Con_PCA;
+using CSET_Selenium.ConPCA_Repository.Con_PCA;
 
-namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
+namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
 {
-    class Subscriptions : ConPCABase
+    class Overview : ConPCABase
     {
         private readonly IWebDriver driver;
 
-        public Subscriptions(IWebDriver driver) : base(driver)
+        public Overview(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
@@ -184,80 +180,6 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
         {
             ClickWhenClickable(SelectAdminEmail);
             driver.FindElement(By.XPath("//div/mat-option[" + (index + 1) + "]")).Click();
-        }
-
-        public void SelectSendingProfileByIndex(int index)
-        {
-            ClickWhenClickable(SelectSendingProfile);
-            driver.FindElement(By.XPath("//div/mat-option[" + (index + 1) + "]")).Click();
-        }
-
-        public void SetTargetEmailDomain(String emailDomain)
-        {
-            ClickEmailDomain();
-            TextboxTargetEmailDomain.SendKeys(Keys.Control + "a");
-            TextboxTargetEmailDomain.SendKeys(Keys.Delete);
-            TextboxTargetEmailDomain.SendKeys(emailDomain);
-        }
-
-        public void SetTargetRecipients(String recipients)
-        {
-            ClickTargetRecipients();
-            TextboxTargetRecipients.SendKeys(Keys.Control + "a");
-            TextboxTargetRecipients.SendKeys(Keys.Delete);
-            TextboxTargetRecipients.SendKeys(recipients);
-        }
-
-        public String Submit()
-        {
-            ClickCreateSubscriptionButton();
-            //get newly created subscription name
-            String xpath = ".//mat-dialog-content/div[contains(text(), 'Your subscription was created as')]";
-
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            //IWebElement title = wait.Until<IWebElement>((d) =>
-            //{
-            //    return d.FindElement(By.XPath(xpath));
-            //});
-            WebDriverWait w = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-            w.Until
-            (ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
-            IWebElement popUpMsg = driver.FindElement(By.XPath(xpath));
-            String subscriptionName = popUpMsg.Text.Split(' ')[5];
-            popUpMsg.FindElement(By.XPath("../../following-sibling::div/mat-dialog-actions/button/span[text() = ' OK ']")).Click();
-
-            return subscriptionName;
-        }
-
-        public String getTitleClassByColumnName(String name)
-        {
-            String tmp = GetSubscriptionsTable().FindElement(By.XPath(".//mat-header-cell[//div/div[text() = '"+name+"']]")).GetAttribute("class");
-            return tmp;
-        }
-
-        public List<String> GetColumnCellsListByLabelName(String name)
-        {           
-            String classAttributeString = GetSubscriptionsTable().FindElement(By.XPath(".//div[text() = '" + name + "']/ancestor::mat-header-cell")).GetAttribute("class");
-            String commonClassText = classAttributeString.Substring(classAttributeString.IndexOf("cdk-column-")); ;
-            IList<IWebElement> rows = GetSubscriptionsTableRows();
-            List<String> columnCellsList = new List<String>();
-            for (var i = 0; i < rows.Count; i++)
-            {
-                columnCellsList.Add(rows[i].FindElement(By.XPath(".//mat-cell[contains(@class, '" + commonClassText + "')]")).Text.Trim());
-            }
-            return columnCellsList;
-        }
-
-        public void SortColumn(String columnName, Sort sort)
-        {
-            IWebElement columnTitle = GetSubscriptionsTable().FindElement(By.XPath(".//div[text() = '" + columnName + "']"));
-            columnTitle.Click();
-            String ariaSort = columnTitle.FindElement(By.XPath("../..")).GetAttribute("aria-sort");
-            do
-            {
-                columnTitle.Click();
-            } while (!(columnTitle.FindElement(By.XPath("../..")).GetAttribute("aria-sort").Equals(sort.ToString())));
-            driver.FindElement(By.XPath("//span[@class = 'loggin-user']")).Click();
         }
     }
 }

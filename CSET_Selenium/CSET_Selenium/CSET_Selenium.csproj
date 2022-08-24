@@ -154,6 +154,7 @@
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Customers\Customers.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LandingPages\LandingPages.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\LoginPage.cs" />
+    <Compile Include="Page_Objects\Con_PCA_Page_Obj\Overview\Overview.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Recommendations\Recommendations.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SendingProfiles\SendingProfiles.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\SideMenu\SideMenu.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Tests\Con_PCA\LandingPages\LandingPageCreateEditDeleteTest.cs" />
     <Compile Include="Tests\Con_PCA\Login\AccountLogin.cs" />
     <Compile Include="Tests\Con_PCA\Others\TablesColumnsSortingTest.cs" />
+    <Compile Include="Tests\Con_PCA\Overview\OverviewLoadingTest.cs" />
     <Compile Include="Tests\Con_PCA\Recommendations\RecommendationCreateEditDeleteTest.cs" />
     <Compile Include="Tests\Con_PCA\Sending_Profiles\SendingProfileCreateEditDelete.cs" />
     <Compile Include="Tests\Con_PCA\Subscriptions\SubscriptionCreation.cs" />

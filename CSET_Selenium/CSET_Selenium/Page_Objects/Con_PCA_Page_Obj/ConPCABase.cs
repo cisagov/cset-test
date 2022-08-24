@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Enums.Con_PCA;
 using OpenQA.Selenium;
 
-namespace CSET_Selenium.Enums.Con_PCA
+namespace CSET_Selenium.ConPCA_Repository.Con_PCA
 {
     class ConPCABase : BasePage
     {
