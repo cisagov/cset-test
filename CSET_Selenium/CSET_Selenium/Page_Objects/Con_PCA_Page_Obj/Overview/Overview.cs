@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenQA.Selenium;
-using CSET_Selenium.Enums.Con_PCA;
+﻿using OpenQA.Selenium;
 using CSET_Selenium.ConPCA_Repository.Con_PCA;
+using System;
+using CSET_Selenium.Enums.Con_PCA;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
 {
@@ -17,169 +18,124 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
 
         //Element Locators
 
-        private IWebElement ButtonNewSubscription
+        private IWebElement TabAggregateStatistics
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()=' New Subscription ']"));
+                return WaitUntilElementIsVisible(By.XPath("//div[text()='Aggregate Statistics']"));
             }
         }
 
-        private IWebElement ButtonAssignCustomer
+        private IWebElement TabSubscriptionStatus
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()=' Assign Customer ']"));
+                return WaitUntilElementIsVisible(By.XPath("//div[text()='Subscription Status']"));
             }
         }
 
-        private IWebElement ButtonCreateSubscription
+        private IWebElement TabLoggingErrors
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//button[@type='submit']"));
+                return WaitUntilElementIsVisible(By.XPath("//div[text()='Logging Errors']"));
             }
         }
 
-        private IWebElement TableCustomer
+        private IWebElement TabFailedEmails
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//mat-table[@class='mat-table cdk-table mat-sort']"));
+                return WaitUntilElementIsVisible(By.XPath("//div[text()='Failed Emails']"));
             }
         }
 
-        private IWebElement SelectPrimaryContact
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//mat-select[@formcontrolname='primaryContact']"));
-            }
-        }
 
-        private IWebElement SelectAdminEmail
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//mat-select[@formcontrolname='adminEmail']"));
-            }
-        }
-
-        private IWebElement SelectSendingProfile
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//mat-select[@formcontrolname='sendingProfile']"));
-            }
-        }
-
-        private IWebElement TextboxTargetEmailDomain
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//input[@formcontrolname='targetDomain']"));
-            }
-        }
-
-        private IWebElement TextboxTargetRecipients
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//textarea[@formcontrolname='csvText']"));
-            }
-        }
-
-        private IWebElement TextNewSubcriptionName
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//mat-dialog-content[@formcontrolname='csvText']"));
-            }
-        }
-
-        private IWebElement TableSubcriptions
-        {
-            get
-            {
-                return WaitUntilElementIsVisible(By.XPath("//mat-table[@class='mat-table cdk-table mat-sort']"));
-            }
-        }
 
         //Interaction Methods
 
-        private void ClickNewSubscriptionButton()
-        {
-            ButtonNewSubscription.Click();
-        }
 
-        private void ClickAssignCustomerButton()
-        {
-            ButtonAssignCustomer.Click();
-        }
-
-        private void ClickCreateSubscriptionButton()
-        {
-            ButtonCreateSubscription.Click();
-        }
-
-        private void ClickEmailDomain()
-        {
-            ClickWhenClickable(TextboxTargetEmailDomain);
-        }
-
-        private void ClickTargetRecipients()
-        {
-            ClickWhenClickable(TextboxTargetRecipients);
-        }
 
         //Aggregate Methods
-        public void CreateNewSubscription()
+        public void ClickAggregateStatisticsTab()
         {
-            ClickNewSubscriptionButton();
+            ClickWhenClickable(TabAggregateStatistics);
         }
 
-        public void AssignCustomer()
+        public void ClickSubscriptionStatusTab()
         {
-            ClickAssignCustomerButton();
+            ClickWhenClickable(TabSubscriptionStatus);
         }
 
-        public IWebElement GetCustomerTable()
+        public void ClickLoggingErrorsTab()
         {
-            return TableCustomer;
+            ClickWhenClickable(TabLoggingErrors);
         }
 
-        public IWebElement GetSubscriptionsTable()
+        public void ClickFailedEmailsTab()
         {
-            return TableSubcriptions;
+            ClickWhenClickable(TabFailedEmails);
         }
 
-        //public ReadOnlyCollection<IWebElement> GetSubscriptionsTableRows()
-        public IList<IWebElement> GetSubscriptionsTableRows()
+        public string GetAggregateStatisticsOverviewValue(string overviewCategory)
         {
-            return GetSubscriptionsTable().FindElements(By.XPath(".//mat-row"));
+            return Find(By.XPath("//h3[text() = 'Overview']/following-sibling::div/div/table/tr/td[text() = '"+overviewCategory+"']/following-sibling::td")).Text;
         }
 
-        public void ClickCustomerTableRowByName(String name)
+        /*Subtype: Subscription Count/Cycle Count/Emails Sent/Email Click Ratio
+         */
+        public string GetAggregateStatisticsValueByCustomerCategory(CustomerTypes type, string subCategory)
         {
-            GetCustomerTable().FindElement(By.XPath(".//mat-row/mat-cell[text() = ' " + name + " ']")).Click();
+            return Find(By.XPath("//h3[text() = 'Customer Totals By Category']/following-sibling::table/tr/td/div[contains(text(), '" + type.ToString() + "')]/following-sibling::div/table/tr/td[text()='"+ subCategory + "']/following-sibling::td")).Text;
         }
 
-        public void SelectPrimaryContactByName(String contactName)
+        /*
+         */
+        public Dictionary<string, string> GetAggregateStatisticsOverviewItemsAndValues()
         {
-            ClickWhenClickable(SelectPrimaryContact);
-            driver.FindElement(By.XPath("//span[text()=' " + contactName + " ']")).Click();
+            var map = new Dictionary<string, string>();
+            string key, value;
+            IList<IWebElement> list = driver.FindElements(By.XPath("//h3[text() = 'Overview']/following-sibling::div/div/table[1]/tr"));
+            foreach(var tr in list)
+            {
+                key = tr.FindElement(By.XPath(".//td[1]")).Text;
+                value = tr.FindElement(By.XPath(".//td[2]")).Text;
+                map.Add(key, value);
+            }
+
+            return map;
         }
 
-        public void SelectPrimaryContactByIndex(int index)
+        public Dictionary<string, string> GetAggregateStatisticsOCustomerTotalsByCategory(CustomerTypes type)
         {
-            ClickWhenClickable(SelectPrimaryContact);
-            driver.FindElement(By.XPath("//div/mat-option[" + (index + 1) + "]")).Click();
+            var map = new Dictionary<string, string>();
+            string key, value;
+            IList<IWebElement> list = driver.FindElements(By.XPath("//div[text() = '"+type.ToString()+"']/following-sibling::div/table[1]/tr"));
+            foreach (var tr in list)
+            {
+                key = tr.FindElement(By.XPath(".//td[1]")).Text;
+                value = tr.FindElement(By.XPath(".//td[2]")).Text;
+                map.Add(key, value);
+            }
+
+            return map;
         }
 
-        public void SelectAdminEmailByIndex(int index)
+        public bool IsPageLoaded(int timeoutInSecondsToWait)
         {
-            ClickWhenClickable(SelectAdminEmail);
-            driver.FindElement(By.XPath("//div/mat-option[" + (index + 1) + "]")).Click();
+            String spinnerXpath = "//mat-spinner[contains(@class, 'mat-progress-spinner-indeterminate-animation')]";
+    
+            int secondsToDelay = 2;
+            bool spinnerNotShowing = WaitUntilElementIsNotVisible(By.XPath(spinnerXpath), 1000);
+            while (!spinnerNotShowing && timeoutInSecondsToWait > 0)
+            {
+
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                timeoutInSecondsToWait = timeoutInSecondsToWait - secondsToDelay;
+
+                spinnerNotShowing = WaitUntilElementIsNotVisible(By.XPath(spinnerXpath), 1000);
+            }
+            return spinnerNotShowing;
         }
     }
 }
