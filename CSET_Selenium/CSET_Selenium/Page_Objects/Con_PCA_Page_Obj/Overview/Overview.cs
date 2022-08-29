@@ -51,11 +51,6 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
         }
 
 
-
-        //Interaction Methods
-
-
-
         //Aggregate Methods
         public void ClickAggregateStatisticsTab()
         {
@@ -106,6 +101,9 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
             return map;
         }
 
+        /*Categorys: Federal/State/Local/Tribal/Private
+         * 
+         */
         public Dictionary<string, string> GetAggregateStatisticsOCustomerTotalsByCategory(CustomerTypes type)
         {
             var map = new Dictionary<string, string>();
@@ -136,6 +134,31 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Overview
                 spinnerNotShowing = WaitUntilElementIsNotVisible(By.XPath(spinnerXpath), 1000);
             }
             return spinnerNotShowing;
+        }
+
+        public IWebElement GetSubscriptionStatusEndingSoonTable()
+        {
+            return Find(By.XPath("//h2[text() = 'Subscriptions Ending Soon']/following-sibling::mat-table"));
+        }
+
+        public IWebElement GetSubscriptionStatusInProgressTable()
+        {
+            return Find(By.XPath("//h2[text() = 'Subscriptions in Progress']/following-sibling::mat-table"));
+        }
+
+        public IWebElement GetSubscriptionStatusStoppedTable()
+        {
+            return Find(By.XPath("//h2[text() = 'Stopped Subscriptions']/following-sibling::mat-table"));
+        }
+
+        public IWebElement GetLoggingErrorsTable()
+        {
+            return Find(By.XPath("//h2[text() = 'Application Logging Errors']/following-sibling::div/following-sibling::mat-table"));
+        }
+
+        public IWebElement GetFailedEmailsTable()
+        {
+            return Find(By.XPath("//h2[text() = 'Failed Emails']/following-sibling::p/following-sibling::p/following-sibling::div/following-sibling::div/mat-table"));
         }
     }
 }
