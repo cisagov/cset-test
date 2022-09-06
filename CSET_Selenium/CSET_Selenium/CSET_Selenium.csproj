@@ -161,6 +161,9 @@
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Subscriptions\Subscriptions.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\Templates\Templates.cs" />
     <Compile Include="Page_Objects\Cybersecurity_Standards_Selection\CybersecurityStandardsSelection.cs" />
+    <Compile Include="Page_Objects\Domain_Manager_Page_Obj\Domains\Domains.cs" />
+    <Compile Include="Page_Objects\Domain_Manager_Page_Obj\LoginPage.cs" />
+    <Compile Include="Page_Objects\Domain_Manager_Page_Obj\SideMenu\SideMenu.cs" />
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Module_Builder\ModuleBuilder.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
@@ -196,6 +199,7 @@
     <Compile Include="Tests\Create_Assessment\ACET.cs" />
     <Compile Include="Tests\Create_Assessment\MaturityModel.cs" />
     <Compile Include="Tests\Create_Assessment\NetworkDiagram.cs" />
+    <Compile Include="Tests\Domain_Manager\Domains\DomainCRUD.cs" />
     <Compile Include="Tests\Refresh\PageRefresh.cs" />
     <Compile Include="Tests\Scratch\ScratchTest.cs" />
     <Compile Include="Tests\Temp_Tests\PracticeTest.cs" />

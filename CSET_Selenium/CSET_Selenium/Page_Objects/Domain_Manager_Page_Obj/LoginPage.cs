@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.ConPCA_Repository.Login_Page
+namespace CSET_Selenium.Domain_Manager_Page_Obj.Login_Page
 {
     class LoginPage : BasePage
     {
@@ -96,14 +96,6 @@ namespace CSET_Selenium.ConPCA_Repository.Login_Page
 
 
         //Aggregate Methods
-
-        public void LoginToConPCA(String userName, String password)
-        {
-            
-            SetUserName(userName);
-            SetPassword(password);
-            ClickLoginButton();
-        }
 
         public void LoginToDomainManager(String userName, String password)
         {
