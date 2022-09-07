@@ -59,6 +59,7 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.SideMenu
         private void ClickDomains()
         {
             Domains.Click();
+            WaitUntilElementIsVisible(By.XPath("//h1[text() = 'Domains']"), 3);
         }
 
         private void ClickApplications()

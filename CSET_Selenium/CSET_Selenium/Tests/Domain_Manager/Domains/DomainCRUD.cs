@@ -9,28 +9,54 @@ using System.Collections.Generic;
 using CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.SideMenu;
 using CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains;
 using CSET_Selenium.Helpers;
+using CSET_Selenium.Helpers.Con_PCA;
 
-namespace CSET_Selenium.Tests.Domain_Manager.DomainsTest
+namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
 {
     [TestFixture]
-    public class DomainsTest : BaseTest
+    public class DomainsCRUDTest : BaseTest
     {
         private IWebDriver driver;
+        private String template = "computer-repair";
 
         [Test]
-        public void DomainsCRUDTest()
+        public void DomainsTest()
         {
             BaseConfiguration cf = new BaseConfiguration("https://dm.dev.inltesting.xyz/login");
-            driver = driver = BuildDriver(cf);
+            driver = BuildDriver(cf);
+            TableUtils table = new TableUtils(driver);
             String domainURL = StringsUtils.GenerateRandomString(6, true) + ".xyz";
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginToDomainManager(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectDomains();
+            //create a new domain and veriry
             Domains domain = new Domains(driver);
             domain.AddNewDomain(domainURL);
+            bool found = domain.FindDomainByName(domainURL);
+            Assert.IsTrue(found, "Didn't find the new domain "+ domainURL);
 
-            String tmp = "";
+            //update the domain
+            domain.ClickDomainsTableRowByName(domainURL);
+            domain.SelectTemplate(template);
+            sideMenu.SelectDomains();
+            IList<IWebElement> rows = domain.GetDomainsTableRows();
+            found = false;
+            for (var i = 0; i < rows.Count; i++)
+            {
+                String tmpStr = rows[i].Text;
+                if (rows[i].Text.Contains(domainURL) && rows[i].Text.Contains(template))
+                {
+                    found = true;
+                    break;
+                }
+            }
+            Assert.IsTrue(found, "The updated domain was not found.");
+
+            //delete the domain
+            domain.DeleteDomain(domainURL);
+            found = domain.FindDomainByName(domainURL);
+            Assert.IsFalse(found, "Domain " + domainURL+" is not deleted successfully");            
         }
     }
 }

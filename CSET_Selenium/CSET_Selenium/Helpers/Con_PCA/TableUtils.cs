@@ -27,6 +27,11 @@ namespace CSET_Selenium.Helpers.Con_PCA
             return GetCommonTable().FindElements(By.XPath(".//mat-row"));
         }
 
+        public IList<IWebElement> GetTableRows(IWebElement table)
+        {
+            return table.FindElements(By.XPath(".//mat-row"));
+        }
+
         public void ClickCommonTableRowByName(String name)
         {
             GetCommonTable().FindElement(By.XPath(".//mat-row/mat-cell[text() = ' " + name + " ']")).Click();
