@@ -26,25 +26,27 @@ namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
             driver = BuildDriver(cf);
             TableUtils table = new TableUtils(driver);
             String domainURL = StringsUtils.GenerateRandomString(6, true) + ".xyz";
+
+            Console.WriteLine("DomainURL is "+ domainURL);
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginToDomainManager(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectDomains();
             //create a new domain and veriry
             Domains domain = new Domains(driver);
-            domain.AddNewDomain(domainURL);
-            bool found = domain.FindDomainByName(domainURL);
-            Assert.IsTrue(found, "Didn't find the new domain "+ domainURL);
+            domain.AddNewDomain(domainURL);          
+            //domain.SearchDomain(domainURL);
+            //int rowsCount = domain.GetDomainsTableRows().Count;
+            Assert.IsTrue(domain.FindDomainByName(domainURL), "Didn't find the new domain " + domainURL);
 
             //update the domain
             domain.ClickDomainsTableRowByName(domainURL);
             domain.SelectTemplate(template);
             sideMenu.SelectDomains();
             IList<IWebElement> rows = domain.GetDomainsTableRows();
-            found = false;
+            bool found = false;
             for (var i = 0; i < rows.Count; i++)
-            {
-                String tmpStr = rows[i].Text;
+            {              
                 if (rows[i].Text.Contains(domainURL) && rows[i].Text.Contains(template))
                 {
                     found = true;
@@ -55,6 +57,7 @@ namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
 
             //delete the domain
             domain.DeleteDomain(domainURL);
+            sideMenu.SelectDomains();
             found = domain.FindDomainByName(domainURL);
             Assert.IsFalse(found, "Domain " + domainURL+" is not deleted successfully");            
         }

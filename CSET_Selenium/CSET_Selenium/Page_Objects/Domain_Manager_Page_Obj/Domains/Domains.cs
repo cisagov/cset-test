@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using CSET_Selenium.ConPCA_Repository.Con_PCA;
 using CSET_Selenium.Enums.Con_PCA;
 using CSET_Selenium.Helpers.Con_PCA;
@@ -95,6 +96,14 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
             }
         }
 
+        private IWebElement TextboxSearch
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@placeholder = 'Search']"));
+            }
+        }
+
         //Interaction Methods
         private void ClickAddNewDomainsButton()
         {
@@ -136,6 +145,11 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
             ClickWhenClickable(LinkDelete);
         }
 
+        private void SetSearchBox(String searchStr)
+        {
+            TextboxSearch.SendKeys(searchStr);
+        }
+
         //Aggregate Methods
 
 
@@ -146,7 +160,7 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
 
         public IList<IWebElement> GetDomainsTableRows()
         {
-            WaitUntilElementIsClickable(table.GetCommonTable(), 5);
+            WaitUntilElementIsClickable(table.GetCommonTable(), 15);
             return table.GetCommonTableRows();
         }
 
@@ -154,19 +168,29 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
         public bool FindDomainByName(String name)
         {
             bool found = false;
-            WaitUntilElementIsClickable(table.GetCommonTable(), 5);
-            if (CheckIfElementExists(table.GetCommonTable(), 10))
+            WaitUntilElementIsNotVisible(By.XPath(".//span[text()= 'Close']"));
+            RefreshPage();
+            WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
+            IWebElement theTable = table.GetCommonTable();
+            if (CheckIfElementExists(theTable, 10))
             {
+
                 IList<IWebElement> rows = GetDomainsTableRows();
-    
+                Console.WriteLine("Found the table and rows are " + rows.Count);
                 for (var i = 0; i < rows.Count; i++)
                 {
+                    Console.WriteLine("Row is : " + rows[i].Text);
                     if (rows[i].Text.Contains(name))
                     {
                         found = true;
                         break;
                     }
-                }
+                }             
+            }
+            else
+            {
+                Console.WriteLine("didn't find the table");
+                throw new ElementNotVisibleException("The Domains table is not showing");
             }
             return found;
         }
@@ -177,8 +201,8 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
             SetAddNewDomainURL(URL);
             ClickAddNewDomainsSubmitButton();
             ClickCloseFromPopup();
-            WaitUntilElementIsClickable(table.GetCommonTable(), 5);
-            //WaitUntilElementIsVisible(By.XPath("//h1[text() = 'Domains']"), 3);
+            WaitUntilElementIsClickable(table.GetCommonTable(), 15);
+            WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
         }
 
         public void ClickDomainsTableRowByName(String name)
@@ -199,7 +223,7 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
 
             ClickSelectButtonInTableByTemplateName(template);
             ClickCreateDomainHTMLButton();
-            WaitUntilElementIsVisible(By.XPath("//div[text() = 'A demo of the domain as it will be seen directly']"), 5);
+            WaitUntilElementIsVisible(By.XPath("//div[text() = 'A demo of the domain as it will be seen directly']"));
         }
 
         public void DeleteDomain(String domainName)
@@ -208,7 +232,15 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
             ClickOptionsButton();
             ClickOptionsDelete();
             ClickConfirmFromPopup();
-            //WaitUntilElementIsVisible(By.XPath("//div[text() = 'A demo of the domain as it will be seen directly']"), 5);
+            WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
+            
+        }
+
+        public void SearchDomain(String searchString)
+        {
+            SetSearchBox(searchString);
+            Find(By.XPath("//mat-icon[text() = 'search']")).Click();
+
         }
 
     }
