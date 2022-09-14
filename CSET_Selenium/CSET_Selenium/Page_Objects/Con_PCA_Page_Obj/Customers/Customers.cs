@@ -91,7 +91,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//input[@formcontrolname='state']"));
+                return WaitUntilElementIsVisible(By.XPath("//mat-select[@placeholder='State']"));
             }
         }
 
@@ -190,6 +190,38 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
                 return WaitUntilElementIsVisible(By.XPath("//span[text() =' OK ']"));
             }
         }
+
+        private IWebElement ButtonActions
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Actions')]"));
+            }
+        }
+
+        private IWebElement LinkRetire
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//mat-icon[contains(text(), 'archive')]"));
+            }
+        }
+
+        private IWebElement TextAreaRetireReason
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//h3[contains(text(), 'reason for archiving')]/following-sibling::mat-form-field/div/div/div[3]/textarea"));
+            }
+        }
+
+        private IWebElement ButtonRetire
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[text() = ' Archive ']"));
+            }
+        }
         //Interaction Methods
 
         private void ClickNewCustomerButton()
@@ -253,7 +285,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
         private void SetCustomerState(String state)
         {
             ClickWhenClickable(TextboxCustomerState);
-            TextboxCustomerState.SendKeys(state);
+            driver.FindElement(By.XPath("//mat-option/span[contains(text(), '" + state + "')]")).Click();
         }
 
         private void SetCustomerZIP(String zip)
@@ -299,6 +331,26 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
         private void ClickOKButton()
         {
             ClickWhenClickable(OKButton);
+        }
+
+        private void ClickActionsButton()
+        {
+            ButtonActions.Click();
+        }
+
+        private void ClickActionsRetire()
+        {
+            LinkRetire.Click();
+        }
+
+        private void SetRetireReason(String reason)
+        {
+            TextAreaRetireReason.SendKeys(reason);
+        }
+
+        private void ClickRetireButton()
+        {
+            ButtonRetire.Click();
         }
 
         //Aggregate Methods
@@ -355,9 +407,9 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             IList<IWebElement> rows = GetCustomerTableRows();           
             for (var i = 0; i < rows.Count; i++)
             {
-                if (rows[i].FindElement(By.XPath(".//mat-cell[2]")).Text.Equals(id))
+                if (rows[i].FindElement(By.XPath(".//mat-cell[3]")).Text.Equals(id))
                 {   
-                    rows[i].FindElement(By.XPath(".//mat-cell[8]/button")).Click();
+                    rows[i].FindElement(By.XPath(".//mat-cell[9]/button")).Click();
                 }
             }
         }
@@ -371,21 +423,12 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
 
         public void DeleteCustomersByIdentifier(String id)
         {
-            IList<IWebElement> rows = GetCustomerTableRows();
-            for (var i = 0; i < rows.Count; i++)
-            {
-                var tmp = rows[i].FindElement(By.XPath(".//mat-cell[2]")).Text;
-                var tmprow = rows[i].Text;
-                if (rows[i].FindElement(By.XPath(".//mat-cell[2]")).Text.Equals(id))
-                {
-                    rows[i].FindElement(By.XPath(".//mat-cell[8]/button")).Click();
-                    DeleteContactByRowNumber(1);
-                    ClickDeleteCustomerButton();
-                    ClickConfirmDeleteYesButton();
-                    ClickSaveButton();
-                    ClickOKButton();
-                }
-            }
+            ClickCustomersTableEditByIdentifier(id);
+            DeleteContactByRowNumber(1);
+            ClickDeleteCustomerButton();
+            ClickConfirmDeleteYesButton();
+            ClickSaveButton();
+            ClickOKButton();          
         }
 
         public bool FindCustomerByID(String ID)
@@ -402,5 +445,44 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             }
             return foundCustomer;
         }
+
+        public void SelectCheckboxByCustomerName(String name)
+        {
+            IList<IWebElement> rows = GetCustomerTableRows();
+            for (var i = 0; i < rows.Count; i++)
+            {
+                String oneRow = rows[i].FindElement(By.XPath(".//mat-cell[2]")).Text;
+                if (rows[i].FindElement(By.XPath(".//mat-cell[2]")).Text.Equals(name))
+                {
+                    rows[i].FindElement(By.XPath(".//mat-cell[1]/mat-checkbox")).Click();
+                    break;
+                }
+            }
+        }
+        public void RetireTemplate(String templateName, String retireReason)
+        {
+            SelectCheckboxByCustomerName(templateName);
+            ClickActionsButton();
+            ClickActionsRetire();
+            SetRetireReason(retireReason);
+            ClickRetireButton();
+        }
+
+        public void ShowRetired()
+        {
+            IWebElement showRetired = driver.FindElement(By.XPath("//input[@class='mat-slide-toggle-input cdk-visually-hidden']"));
+            if (showRetired.GetAttribute("aria-checked").Equals("false"))
+            {
+                showRetired.FindElement(By.XPath(".//../following-sibling::span")).Click();
+            }
+        }
+
+        //public void DeleteCustomerByID(String ID)
+        //{
+        //    ClickCustomersTableEditByIdentifier(ID);
+        //    ClickDeleteTemplateButton();
+        //    ClickYesOrNoFromPopup(YesNo.Yes);
+        //    ClickOKFromPopup();
+        //}
     }
 }

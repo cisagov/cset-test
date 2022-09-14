@@ -45,6 +45,13 @@ namespace CSET_Selenium.ConPCA_Repository.Con_PCA
                 WaitUntilElementIsVisible(By.XPath("//span[text()=' No ']")).Click();
             }
         }
+
+        public void WaitUntilSpinnerNotShowing()
+        {
+            if(CheckIfElementExists(Find(By.XPath("//mat-spinner")), 1)){
+                WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
+            }
+        }
     }
 
 

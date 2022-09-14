@@ -40,10 +40,20 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
             foundCustomer = customer.FindCustomerByID(newID);
             Assert.IsTrue(foundCustomer, "Didn't find the new customer with the edited ID");
 
-            //delete the new customer and verify           
+            //retire a customer
+            customer.RetireTemplate(Customer.Customer_Name.GetValue(), "Retire");
+            customer.ShowRetired();
+
+            Assert.IsTrue(customer.FindCustomerByID(newID));
+
+            //delete a customer
+            customer.ShowRetired();
             customer.DeleteCustomersByIdentifier(newID);
-            foundCustomer = customer.FindCustomerByID(newID);
-            Assert.IsFalse(foundCustomer, "The customer was not successfully deleted.");
+            sideMenu.SelectCustomers();
+            customer.ShowRetired();
+
+            Assert.IsFalse(customer.FindCustomerByID(newID), "The customer was not successfully deleted.");
+            
         }
     }
 }
