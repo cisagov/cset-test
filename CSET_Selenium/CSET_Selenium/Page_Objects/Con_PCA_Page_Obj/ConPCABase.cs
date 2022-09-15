@@ -48,9 +48,15 @@ namespace CSET_Selenium.ConPCA_Repository.Con_PCA
 
         public void WaitUntilSpinnerNotShowing()
         {
-            if(CheckIfElementExists(Find(By.XPath("//mat-spinner")), 1)){
+            //if(CheckIfElementExists(Find(By.XPath("//mat-spinner")), 1)){
+            try
+            {
                 WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
+            }catch(Exception e)
+            {
+
             }
+            //}
         }
     }
 

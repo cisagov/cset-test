@@ -7,6 +7,7 @@ using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
 {
@@ -165,7 +166,12 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
 
         public void ClickCustomerTableRowByName(String name)
         {
-            GetCustomerTable().FindElement(By.XPath(".//mat-row/mat-cell[text() = ' " + name + " ']")).Click();
+            //if (name.Contains("'"))
+            //{
+            //    name = name.Replace("'", "\'");
+            //}
+            //GetCustomerTable().FindElement(By.XPath("mat-row/mat-cell[text() = ' " + name + " ']")).Click();
+            GetCustomerTable().FindElement(By.XPath("mat-row/mat-cell[contains(text(), \"" + name + "\")]")).Click();
         }
 
         public void SelectPrimaryContactByName(String contactName)

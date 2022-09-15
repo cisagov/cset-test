@@ -34,7 +34,7 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()='Application']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Applications']"));
             }
         }
 
