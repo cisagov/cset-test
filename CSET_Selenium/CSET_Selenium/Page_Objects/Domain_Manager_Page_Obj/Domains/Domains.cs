@@ -201,7 +201,7 @@ namespace CSET_Selenium.Page_Objects.Domain_Manager_Page_Obj.Domains
             SetAddNewDomainURL(URL);
             ClickAddNewDomainsSubmitButton();
             ClickCloseFromPopup();
-            WaitUntilElementIsClickable(table.GetCommonTable(), 15);
+            WaitUntilElementIsClickable(table.GetCommonTable(), 60);
             WaitUntilElementIsNotVisible(By.XPath("//mat-spinner"));
         }
 

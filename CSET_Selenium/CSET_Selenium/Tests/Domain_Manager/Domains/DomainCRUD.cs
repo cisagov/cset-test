@@ -32,11 +32,10 @@ namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
             loginPage.LoginToDomainManager(LoginInfo.User_Name.GetValue(), LoginInfo.Password.GetValue());
             SideMenu sideMenu = new SideMenu(driver);
             sideMenu.SelectDomains();
-            //create a new domain and veriry
+            //create a new domain and verify
             Domains domain = new Domains(driver);
             domain.AddNewDomain(domainURL);          
-            //domain.SearchDomain(domainURL);
-            //int rowsCount = domain.GetDomainsTableRows().Count;
+            
             Assert.IsTrue(domain.FindDomainByName(domainURL), "Didn't find the new domain " + domainURL);
 
             //update the domain
