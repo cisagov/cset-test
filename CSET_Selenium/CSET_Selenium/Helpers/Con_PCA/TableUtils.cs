@@ -34,7 +34,7 @@ namespace CSET_Selenium.Helpers.Con_PCA
 
         public void ClickCommonTableRowByName(String name)
         {
-            GetCommonTable().FindElement(By.XPath(".//mat-row/mat-cell[text() = ' " + name + " ']")).Click();
+            GetCommonTable().FindElement(By.XPath(".//mat-row/mat-cell[contains(text(), '" + name + "')]")).Click();
         }
 
         public List<String> GetColumnCellsListByLabelName(String name)

@@ -1,12 +1,14 @@
 ﻿using CSET_Selenium.ConPCA_Repository.Con_PCA;
 using CSET_Selenium.DriverConfiguration;
 using CSET_Selenium.Enums.Con_PCA;
+using CSET_Selenium.Helpers.Con_PCA;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
@@ -14,10 +16,12 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
     class Subscriptions : ConPCABase
     {
         private readonly IWebDriver driver;
+        TableUtils table;
 
         public Subscriptions(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
+            table = new TableUtils(driver);
         }
 
         //Element Locators
@@ -110,11 +114,58 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             }
         }
 
+        private IWebElement ButtonActions
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[text() =' Actions']"));
+            }
+        }
+
+        private IWebElement LinkActionsDelete
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//delete-subscription/button"));
+            }
+        }
+
+        private IWebElement LinkPopupDeleteLink
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//span[text() =' Delete ']"));
+            }
+        }
+
+        private IWebElement TextboxDeletePopupSubscriptionName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@id = 'confirmDeleteInput']"));
+            }
+        }
+
         //Interaction Methods
 
         private void ClickNewSubscriptionButton()
         {
             ButtonNewSubscription.Click();
+        }
+
+        private void ClickActionsButton()
+        {
+            ButtonActions.Click();
+        }
+
+        private void ClickActionsDeleteLink()
+        {
+            LinkActionsDelete.Click();
+        }
+
+        private void ClickDeletePopupDeleteLink()
+        {
+            LinkPopupDeleteLink.Click();
         }
 
         private void ClickAssignCustomerButton()
@@ -135,6 +186,11 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
         private void ClickTargetRecipients()
         {
             ClickWhenClickable(TextboxTargetRecipients);
+        }
+
+        private void SetDeletePopupSubscriptionName(String name)
+        {
+            TextboxDeletePopupSubscriptionName.SendKeys(name);
         }
 
         //Aggregate Methods
@@ -264,6 +320,17 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
                 columnTitle.Click();
             } while (!(columnTitle.FindElement(By.XPath("../..")).GetAttribute("aria-sort").Equals(sort.ToString())));
             driver.FindElement(By.XPath("//span[@class = 'loggin-user']")).Click();
+        }
+
+        public void DeleteSubscription(String subscriptionName)
+        {
+            table.ClickCommonTableRowByName(subscriptionName);
+            ClickActionsButton();
+            ClickActionsDeleteLink();
+            SetDeletePopupSubscriptionName(subscriptionName);
+            ClickDeletePopupDeleteLink();
+            Thread.Sleep(2);
+            //WaitUntilElementIsVisible(table.GetCommonTable(), 2);
         }
     }
 }

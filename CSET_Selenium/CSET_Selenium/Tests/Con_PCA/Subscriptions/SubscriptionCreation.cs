@@ -5,12 +5,11 @@ using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu;
 using CSET_Selenium.Enums.Con_PCA;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions;
-using System.Collections.ObjectModel;
 using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers;
 using System.Collections.Generic;
+using CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions;
 
-namespace CSET_Selenium.Tests.Con_PCA.Subscription
+namespace CSET_Selenium.Tests.Con_PCA.SubscriptionTest
 {
     [TestFixture]
     public class SubscriptionCreation : BaseTest
