@@ -222,6 +222,14 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
                 return WaitUntilElementIsVisible(By.XPath("//span[text() = ' Archive ']"));
             }
         }
+
+        private IWebElement TextboxCustomerShortName
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@formcontrolname='customerShortname']"));
+            }
+        }
         //Interaction Methods
 
         private void ClickNewCustomerButton()
@@ -248,6 +256,13 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
         {
             ClickWhenClickable(TextboxCustomerName);
             TextboxCustomerName.SendKeys(customerName);
+        }
+
+        private void SetCustomerShortName(String customerShortName)
+        {
+            TextboxCustomerShortName.Clear();
+            ClickWhenClickable(TextboxCustomerShortName);
+            TextboxCustomerShortName.SendKeys(customerShortName);
         }
 
         private void SelectCustomerType(String customerType)
@@ -365,6 +380,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             ClickNewCustomerButton();
             SelectCustomerType(customerType.GetValue());
             SetCustomerName(Customer.Customer_Name.GetValue());
+            SetCustomerShortName(Customer.Customer_Name.GetValue() + "123");
             SetCustomerDomain(Customer.Customer_Domain.GetValue());
             SetCustomerIdentifier(Customer.Customer_Identifier.GetValue());
             SetCustomerAddress1(Customer.Address1.GetValue());
@@ -409,7 +425,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Customers
             {
                 if (rows[i].FindElement(By.XPath(".//mat-cell[3]")).Text.Equals(id))
                 {   
-                    rows[i].FindElement(By.XPath(".//mat-cell[9]/button")).Click();
+                    rows[i].FindElement(By.XPath(".//mat-cell[10]/button")).Click();
                 }
             }
         }

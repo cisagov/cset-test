@@ -40,6 +40,9 @@ namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
 
             //delete a profile and verify
             profile.DeleteProfile(profileDomain);
+            sideMenu.SelectCustomers();
+            sideMenu.SelectSendingProfiles();
+
             foundNewProfile = profile.FindProfileByName(profileDomain);
             Assert.IsFalse(foundNewProfile, "Profile is not deleted successfully");
         }

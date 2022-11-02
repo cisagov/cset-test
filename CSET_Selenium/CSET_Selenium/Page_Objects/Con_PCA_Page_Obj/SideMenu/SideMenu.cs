@@ -18,7 +18,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Subscriptions']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Subscriptions']"));
             }
         }
 
@@ -26,7 +26,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Templates']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Templates']"));
             }
         }
 
@@ -34,7 +34,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Customers']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Customers']"));
             }
         }
 
@@ -42,7 +42,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Sending Profiles']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Sending Profiles']"));
             }
         }
 
@@ -50,7 +50,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Simulated URLs']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Simulated URLs']"));
             }
         }
 
@@ -58,7 +58,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Landing Pages']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Landing Pages']"));
             }
         }
 
@@ -66,7 +66,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Recommendations']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Recommendations']"));
             }
         }
 
@@ -74,7 +74,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Tags']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Tags']"));
             }
         }
 
@@ -82,7 +82,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Users']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Users']"));
             }
         }
 
@@ -90,7 +90,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text(),'Configuration']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text(),'Configuration']"));
             }
         }
 
@@ -98,7 +98,7 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.SideMenu
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[text()='Overview']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='Overview']"));
             }
         }
 

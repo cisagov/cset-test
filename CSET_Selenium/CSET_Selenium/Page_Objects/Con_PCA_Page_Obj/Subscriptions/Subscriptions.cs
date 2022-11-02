@@ -146,6 +146,22 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             }
         }
 
+        private IWebElement TextboxStartDate
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@formcontrolname='startDate']"));
+            }
+        }
+
+        private IWebElement TextboxStartTime
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//input[@formcontrolname='startTime']"));
+            }
+        }
+
         //Interaction Methods
 
         private void ClickNewSubscriptionButton()
@@ -193,6 +209,8 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
             TextboxDeletePopupSubscriptionName.SendKeys(name);
         }
 
+       
+
         //Aggregate Methods
         public void CreateNewSubscription()
         {
@@ -207,6 +225,18 @@ namespace CSET_Selenium.Page_Objects.Con_PCA_Page_Obj.Subscriptions
         public IWebElement GetCustomerTable()
         {
             return TableCustomer;
+        }
+
+        public void SetStartDate(String date)
+        {
+            TextboxStartDate.Clear();
+            TextboxStartDate.SendKeys(date);
+        }
+
+        public void SetStartTime(String time)
+        {
+            TextboxStartTime.Clear();
+            TextboxStartTime.SendKeys(time);
         }
 
         public IWebElement GetSubscriptionsTable()
