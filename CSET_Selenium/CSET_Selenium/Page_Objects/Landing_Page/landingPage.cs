@@ -58,6 +58,14 @@ namespace CSET_Selenium.Repository.Landing_Page
                 return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Module Builder')]"));
             }
         }
+
+        private IWebElement ButtonExportAllAssessments
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Export a copy of all assessments to another location.']"));
+            }
+        }
         //Interaction Methods
 
         private void ClickNewAssessmentButton()
@@ -85,6 +93,11 @@ namespace CSET_Selenium.Repository.Landing_Page
             ModuleBuilder.Click();
         }
 
+        private void ClickButtonExportAllAssessments()
+        {
+            ButtonExportAllAssessments.Click();
+        }
+
         //Aggregate Methods
         public void ClickMyAssessments()
         {
@@ -105,6 +118,14 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             ClickToolsButton();
             ClickModuleBuilder();
+        }
+        public void ClickImportAssessment()
+        {
+            ClickImportAnExistingAssessmentButton();
+        }
+        public void ClickExportAllAssessments()
+        {
+            ClickButtonExportAllAssessments();
         }
     }
 }
