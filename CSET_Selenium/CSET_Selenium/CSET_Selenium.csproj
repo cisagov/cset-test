@@ -256,6 +256,7 @@
     <Compile Include="Tests\Domain_Manager\Applications\ApplicatonsTest.cs" />
     <Compile Include="Tests\Domain_Manager\Domains\DomainCRUD.cs" />
     <Compile Include="Tests\Domain_Manager\Templates\TemplateCrud.cs" />
+    <Compile Include="Tests\Import_Export\Import.cs" />
     <Compile Include="Tests\Import_Export\Export.cs" />
     <Compile Include="Tests\Refresh\PageRefresh.cs" />
     <Compile Include="Tests\Scratch\ScratchTest.cs" />

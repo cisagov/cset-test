@@ -42,7 +42,7 @@ namespace CSET_Selenium.DriverConfiguration
                 else
                 {
                     chromePrefs.Add("safebrowsing.enabled", true);
-                    chromePrefs.Add("download.prompt_for_download", true);
+                    chromePrefs.Add("download.prompt_for_download", false);
                 }
                 foreach (KeyValuePair<String, Object> preference in chromePrefs)
                 {
@@ -52,6 +52,7 @@ namespace CSET_Selenium.DriverConfiguration
                 cf.GetChromeOptions().AddArgument("start-maximized");
                 cf.GetChromeOptions().AddArgument("disable-infobars");
                 cf.GetChromeOptions().AddArgument("no-sandbox");
+                cf.GetChromeOptions().AddArgument("download.default_directory");
                 //driver = new ChromeDriver(cf.GetChromeOptions());
                 driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), cf.GetChromeOptions(), TimeSpan.FromMinutes(3));
             }
