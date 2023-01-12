@@ -48,9 +48,54 @@ namespace CSET_Selenium.Tests.Import_Export
                 By importInput = By.XPath("//input[@id='importFile']");
                 By importLabel = By.XPath("//label[@for='importFile']");
 
-                string username = Environment.UserName;
+                List<string> filesInDownload = Directory.GetFiles("C:\\Users\\" + Environment.UserName
+                                                                                + "\\Downloads").ToList();
+                string fileListForSendKeys = "";
 
-                List<string> filesInDownload = Directory.GetFiles("C:\\Users\\" + username + "\\Downloads").ToList();
+                for (int i = 0; i < filesInDownload.Count; i++)
+                {
+                    if (filesInDownload[i].Trim(' ').EndsWith(".csetw") || filesInDownload[i].Trim(' ').EndsWith(".acet"))
+                    {
+                        if (fileListForSendKeys.Length == 0)
+                        {
+                            fileListForSendKeys = filesInDownload[i];
+                        }
+                        else
+                        {
+                            fileListForSendKeys += " \n " + filesInDownload[i];
+
+                        }
+                    }
+                }
+
+                By uploadProgressPopup = By.XPath("//mat-dialog-container/child::app-upload-export");
+
+                waitUtils.WaitUntilElementIsVisible(importLabel);
+                driver.FindElement(importInput).SendKeys(fileListForSendKeys);
+                Thread.Sleep(1000);
+
+                waitUtils.WaitUntilElementIsNotVisible(uploadProgressPopup, 50000);
+                waitUtils.WaitForPageLoad();
+            }
+
+            [Test]
+            public void ImportAllLocal()
+            {
+                BaseConfiguration cf = new BaseConfiguration("http://localhost:4200/");
+
+                driver = driver = BuildDriver(cf);
+
+                LandingPage landingPage = new LandingPage(driver);
+                landingPage.WaitForPageLoad();
+
+                WaitUtils waitUtils = new WaitUtils(driver);
+                Actions actions = new Actions(driver);
+
+                By importInput = By.XPath("//input[@id='importFile']");
+                By importLabel = By.XPath("//label[@for='importFile']");
+
+                List<string> filesInDownload = Directory.GetFiles("C:\\Users\\" + Environment.UserName 
+                                                                                + "\\Downloads").ToList();
                 string fileListForSendKeys = "";
 
                 for (int i = 0; i < filesInDownload.Count; i++)
