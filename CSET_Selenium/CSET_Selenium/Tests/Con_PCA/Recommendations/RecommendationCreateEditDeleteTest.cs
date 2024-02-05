@@ -29,7 +29,7 @@ namespace CSET_Selenium.Tests.Con_PCA.RecommendationsTest
             Recommendations recommendation = new Recommendations(driver);
             recommendation.CreateNewRecommendation(recommendationTitle, RecommendationType.Red_Flag, "Test");
             bool foundNewRecommendation = recommendation.FindRecommendationByTitle(recommendationTitle);
-            Assert.IsTrue(foundNewRecommendation, "Didn't find the new recommendation.");
+            Assert.That(foundNewRecommendation, "Didn't find the new recommendation.");
 
             //Edit the recommendation and verify
             
@@ -37,12 +37,12 @@ namespace CSET_Selenium.Tests.Con_PCA.RecommendationsTest
             String newType = recommendation.GetCellValueInRecommendationTableRow(recommendation.GetRecommendationsTableRowByTitle(recommendationTitle), 2);
             String typeShouldBe = RecommendationType.Sophisticated.GetValue();
             
-            Assert.IsTrue(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing recommendation.");
+            Assert.That(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing recommendation.");
             
 
             //Delete a recommendation
             recommendation.DeleteRecommendationByTitle(recommendationTitle);
-            Assert.IsFalse(recommendation.FindRecommendationByTitle(recommendationTitle), "The recommendation is not deleted as expected.");
+            Assert.That(recommendation.FindRecommendationByTitle(recommendationTitle), Is.False, "The recommendation is not deleted as expected.");
         }
     }
 }

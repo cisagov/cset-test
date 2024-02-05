@@ -33,7 +33,7 @@ namespace CSET_Selenium.Tests.Domain_Manager.ApplicationsCRUD
             sideMenu.SelectApplications();
             Applications app = new Applications(driver);
             app.CreateNewApplication(appName);
-            Assert.IsTrue(app.FindApplicationByName(appName), "Didn't find the new application "+appName);
+            Assert.That(app.FindApplicationByName(appName), "Didn't find the new application "+appName);
 
             //Edit an Application
             app.ClickApplicationsTableRowByName(appName);
@@ -45,13 +45,13 @@ namespace CSET_Selenium.Tests.Domain_Manager.ApplicationsCRUD
             String leadName = app.GetApplicationSummaryValue("Program Lead Name");
             String leadEmail = app.GetApplicationSummaryValue("Program Lead Email");
             String leadPhone = app.GetApplicationSummaryValue("Program Lead Phone");
-            Assert.IsTrue(leadName.Contains(Contact.General_Name.GetValue()) && leadEmail.Contains(Contact.Email.GetValue()) && leadPhone.Contains(Contact.Phone.GetValue()), "Edit Application has some issues");
+            Assert.That(leadName.Contains(Contact.General_Name.GetValue()) && leadEmail.Contains(Contact.Email.GetValue()) && leadPhone.Contains(Contact.Phone.GetValue()), "Edit Application has some issues");
 
             //delete the application
             sideMenu.SelectApplications();
             app.WaitUntilSpinnerNotShowing();
             app.DeleteApplication(appName);
-            Assert.IsFalse(app.FindApplicationByName(appName), "Application is not deleted as expected.");
+            Assert.That(app.FindApplicationByName(appName), Is.False, "Application is not deleted as expected.");
         }
     }
 }

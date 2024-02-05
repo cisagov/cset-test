@@ -30,13 +30,13 @@ namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
             SendingProfiles profile = new SendingProfiles(driver);
             profile.CreateNewProfile(profileDomain);
             bool foundNewProfile = profile.FindProfileByName(profileDomain);
-            Assert.IsTrue(foundNewProfile, "Didn't find the new Profile.");
+            Assert.That(foundNewProfile, "Didn't find the new Profile.");
 
             //Edit profile and verify
             profile.UpdateInterfaceType(profileDomain, ProfileInterfaceType.Mailgun);
             String newType = profile.GetCellValueInProfilesTableRow(profile.GetProfilesTableRowByName(profileDomain), 2);
             String typeShouldBe = ProfileInterfaceType.Mailgun.GetValue();           
-            Assert.IsTrue(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing Profile.");
+            Assert.That(String.Equals(newType, typeShouldBe, StringComparison.OrdinalIgnoreCase), "Failed editing Profile.");
 
             //delete a profile and verify
             profile.DeleteProfile(profileDomain);
@@ -44,7 +44,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Sending_Profiles
             sideMenu.SelectSendingProfiles();
 
             foundNewProfile = profile.FindProfileByName(profileDomain);
-            Assert.IsFalse(foundNewProfile, "Profile is not deleted successfully");
+            Assert.That(foundNewProfile, Is.False, "Profile is not deleted successfully");
         }
     }
 }

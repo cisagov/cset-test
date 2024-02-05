@@ -31,20 +31,20 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
             Customers customer = new Customers(driver);
             customer.CreateNewCustomer(Enums.Con_PCA.CustomerTypes.Federal);          
             bool foundCustomer = customer.FindCustomerByID(Customer.Customer_Identifier.GetValue());
-            Assert.IsTrue(foundCustomer, "Didn't find the new customer");
+            Assert.That(foundCustomer, "Didn't find the new customer");
 
             /*edit the customer*/
             var newID = StringsUtils.GenerateRandomString(10);
             customer.ClickCustomersTableEditByIdentifier(Customer.Customer_Identifier.GetValue());
             customer.EditCustomerIdentifier(newID);          
             foundCustomer = customer.FindCustomerByID(newID);
-            Assert.IsTrue(foundCustomer, "Didn't find the new customer with the edited ID");
+            Assert.That(foundCustomer, "Didn't find the new customer with the edited ID");
 
             //retire a customer
             customer.RetireTemplate(Customer.Customer_Name.GetValue(), "Retire");
             customer.ShowRetired();
 
-            Assert.IsTrue(customer.FindCustomerByID(newID));
+            Assert.That(customer.FindCustomerByID(newID));
 
             //delete a customer
             customer.ShowRetired();
@@ -52,7 +52,7 @@ namespace CSET_Selenium.Tests.Con_PCA.CustomerTest
             sideMenu.SelectCustomers();
             customer.ShowRetired();
 
-            Assert.IsFalse(customer.FindCustomerByID(newID), "The customer was not successfully deleted.");
+            Assert.That(customer.FindCustomerByID(newID), Is.False,  "The customer was not successfully deleted.");
             
         }
     }

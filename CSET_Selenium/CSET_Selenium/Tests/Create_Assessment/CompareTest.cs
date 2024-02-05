@@ -109,7 +109,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //Create a base configuration
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET"));
+                Assert.That(driver.Title.Contains("CSET"));
 
                 //Login and navigate to module builder
                 LoginPage loginPage = new LoginPage(driver);

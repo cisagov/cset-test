@@ -36,7 +36,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //Create a base configuration
                 BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
                 driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET"));
+                Assert.That(driver.Title.Contains("CSET"));
 
                 //Login and navigate to module builder
                 LoginPage loginPage = new LoginPage(driver);
@@ -95,14 +95,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 }
                 Thread.Sleep(5000);
 
-                Assert.IsTrue(DoesModBuilderInputExist(els, 23, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 13, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 10, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 20, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "span"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 4, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 14, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 23, "span"));
+                Assert.That(DoesModBuilderInputExist(els, 13, "span"));
+                Assert.That(DoesModBuilderInputExist(els, 10, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 20, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 5, "span"));
+                Assert.That(DoesModBuilderInputExist(els, 15, "span"));
+                Assert.That(DoesModBuilderInputExist(els, 4, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 14, "div"));
 
 
                 buttons = driver.FindElements(By.XPath("//app-question-block//div//div//div//div//button[2]"));
@@ -112,8 +112,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 }
                 Thread.Sleep(2000);
 
-                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 5, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 15, "div"));
 
                 driver.FindElement(By.XPath("//label[contains(text(),'Requirements')]")).Click();
                 Thread.Sleep(3000);
@@ -126,14 +126,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 }
 
                 Thread.Sleep(2000);
-                Assert.IsTrue(DoesModBuilderInputExist(els, 17, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 7, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 10, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 20, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 5, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 15, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 4, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 14, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 17, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 7, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 10, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 20, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 5, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 15, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 4, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 14, "div"));
 
                 buttons = driver.FindElements(By.XPath("//app-question-block//div//div//div//div//button[2]"));
                 foreach (var el in buttons)
@@ -142,8 +142,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 }
                 Thread.Sleep(2000);
 
-                Assert.IsTrue(DoesModBuilderInputExist(els, 6, "div"));
-                Assert.IsTrue(DoesModBuilderInputExist(els, 16, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 6, "div"));
+                Assert.That(DoesModBuilderInputExist(els, 16, "div"));
                 Thread.Sleep(4000);
 
                 createNewAssessment.NavigateToModuleBuilder();

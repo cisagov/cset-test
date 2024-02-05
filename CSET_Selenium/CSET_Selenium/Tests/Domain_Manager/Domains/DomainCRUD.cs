@@ -36,7 +36,7 @@ namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
             Domains domain = new Domains(driver);
             domain.AddNewDomain(domainURL);          
             
-            Assert.IsTrue(domain.FindDomainByName(domainURL), "Didn't find the new domain " + domainURL);
+            Assert.That(domain.FindDomainByName(domainURL), "Didn't find the new domain " + domainURL);
 
             //update the domain
             domain.ClickDomainsTableRowByName(domainURL);
@@ -52,13 +52,13 @@ namespace CSET_Selenium.Tests.Domain_Manager.DomainsCRUD
                     break;
                 }
             }
-            Assert.IsTrue(found, "The updated domain was not found.");
+            Assert.That(found, "The updated domain was not found.");
 
             //delete the domain
             domain.DeleteDomain(domainURL);
             sideMenu.SelectDomains();
             found = domain.FindDomainByName(domainURL);
-            Assert.IsFalse(found, "Domain " + domainURL+" is not deleted successfully");            
+            Assert.That(found, Is.False, "Domain " + domainURL+" is not deleted successfully");            
         }
     }
 }

@@ -181,7 +181,7 @@ namespace CSET_Selenium.Helpers
         public void NewRandomStandard()
         {
             //Create a base configuration
-            Assert.True(driver.Title.Contains("CSET"));
+            Assert.That(driver.Title.Contains("CSET"));
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);
@@ -257,7 +257,7 @@ namespace CSET_Selenium.Helpers
         //Utility that creates a randomized cyber CSET assessment
         public void NewRandomMaturityModel()
         {
-            Assert.True(driver.Title.Contains("CSET"));
+            Assert.That(driver.Title.Contains("CSET"));
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);
@@ -381,7 +381,7 @@ namespace CSET_Selenium.Helpers
         public void NewNetDiagram()
         {
             //Create a base configuration
-            Assert.True(driver.Title.Contains("CSET"));
+            Assert.That(driver.Title.Contains("CSET"));
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);

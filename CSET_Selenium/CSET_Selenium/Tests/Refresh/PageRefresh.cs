@@ -20,11 +20,11 @@ namespace CSET_Selenium.Tests.Refresh
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = BuildDriver(cf);
-            Assert.True(driver.Title.Contains("CSET"), "****CSET did not load correctly****");
+            Assert.That(driver.Title.Contains("CSET"), "****CSET did not load correctly****");
 
             driver.Navigate().Refresh();
             Thread.Sleep(2000);
-            Assert.True(driver.Title.Contains("CSET"), "****CSET did not refresh proplerly****");
+            Assert.That(driver.Title.Contains("CSET"), "****CSET did not refresh proplerly****");
         }
 
         [Test]
@@ -32,11 +32,11 @@ namespace CSET_Selenium.Tests.Refresh
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = BuildDriver(cf);
-            Assert.True(driver.Title.Contains("ACET"), "****ACET did not load correctly****");
+            Assert.That(driver.Title.Contains("ACET"), "****ACET did not load correctly****");
 
             driver.Navigate().Refresh();
             Thread.Sleep(2000);
-            Assert.True(driver.Title.Contains("ACET"), "****ACET did not refresh proplerly****");
+            Assert.That(driver.Title.Contains("ACET"), "****ACET did not refresh proplerly****");
         }
 
         [Test]
@@ -44,11 +44,11 @@ namespace CSET_Selenium.Tests.Refresh
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = BuildDriver(cf);
-            Assert.True(driver.Title.Contains("CSET-TSA"), "****CSET-TSA did not load correctly****");
+            Assert.That(driver.Title.Contains("CSET-TSA"), "****CSET-TSA did not load correctly****");
 
             driver.Navigate().Refresh();
             Thread.Sleep(2000);
-            Assert.True(driver.Title.Contains("CSET-TSA"), "****CSET-TSA did not refresh proplerly****");
+            Assert.That(driver.Title.Contains("CSET-TSA"), "****CSET-TSA did not refresh proplerly****");
         }
     }
 }

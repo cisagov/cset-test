@@ -30,17 +30,17 @@ namespace CSET_Selenium.Tests.Con_PCA.LandingPages
             //create a new landing page
             page.CreateNewLandingPage(landingPageName, "html view test");
             bool foundLandPage = page.FindLandingPageByName(landingPageName);
-            Assert.IsTrue(foundLandPage, "Didn't find the new landing page.");
+            Assert.That(foundLandPage, "Didn't find the new landing page.");
 
             //Edit the landing page and verify
             String newPageName = StringsUtils.GenerateRandomString(6);
             page.EditLandingPageName(landingPageName, newPageName);
-            Assert.IsTrue(page.FindLandingPageByName(newPageName), "Didn't find the landing page after edit.");
+            Assert.That(page.FindLandingPageByName(newPageName), "Didn't find the landing page after edit.");
             
 
             //Delete a landing page
             page.DeleteLandingPageByName(newPageName);
-            Assert.IsFalse(page.FindLandingPageByName(newPageName), "The landing page is not deleted as expected.");
+            Assert.That(page.FindLandingPageByName(newPageName), Is.False, "The landing page is not deleted as expected.");
         }
     }
 }

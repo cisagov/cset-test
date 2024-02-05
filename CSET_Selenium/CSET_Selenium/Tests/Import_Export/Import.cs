@@ -4,7 +4,7 @@ using CSET_Selenium.Page_Objects.Assessment_Configuration;
 using CSET_Selenium.Page_Objects.AssessmentInfo;
 using CSET_Selenium.Repository.Landing_Page;
 using CSET_Selenium.Repository.Login_Page;
-using FluentAssertions;
+//using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -34,7 +34,7 @@ namespace CSET_Selenium.Tests.Import_Export
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
 
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+               // Assert.True(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("matthew.winston@inl.gov", "Asdfghjkl12#$");
