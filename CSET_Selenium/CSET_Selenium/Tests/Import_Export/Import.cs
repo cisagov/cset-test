@@ -34,7 +34,7 @@ namespace CSET_Selenium.Tests.Import_Export
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
 
                 driver = driver = BuildDriver(cf);
-               // Assert.True(driver.Title.Contains("CSET-TSA"));
+               Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("matthew.winston@inl.gov", "Asdfghjkl12#$");

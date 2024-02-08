@@ -29,7 +29,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void NERC2Rev6()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777/");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
