@@ -27,15 +27,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateTSAAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateTSAAssessment("TSA", "Planet Express", "New New York", "New York");
@@ -75,15 +75,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateVADRAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateVADRAssessment("VADR", "Planet Express", "New New York", "New York");
@@ -105,15 +105,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateRRAAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateRRAAssessment("RRA", "Planet Express", "New New York", "New York");
@@ -135,15 +135,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateCRRAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateCRRAssessment("CRR", "Planet Express", "New New York", "New York");
@@ -165,15 +165,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateCSCAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateCSCAssessment("CSC", "Planet Express", "New New York", "New York");
@@ -214,15 +214,15 @@ namespace CSET_Selenium.Tests.TSA
             [Test]
             public void CreateAPTAAssessment()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateAPTAAssessment("APTA", "Planet Express", "New New York", "New York");

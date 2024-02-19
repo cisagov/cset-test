@@ -34,10 +34,10 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateStandardAssessment("Standard Assessment NERC2 Rev6", "Wayne Tech", "Gotham City", "New Jersey");

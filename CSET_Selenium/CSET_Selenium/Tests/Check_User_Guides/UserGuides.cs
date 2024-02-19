@@ -23,12 +23,12 @@ namespace CSET_Selenium.Tests.Check_User_Guides
             [Test]
             public void CSETUserGuide()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 Navbar navbar = new Navbar(driver);
                 navbar.OpenCSETUserGuide();

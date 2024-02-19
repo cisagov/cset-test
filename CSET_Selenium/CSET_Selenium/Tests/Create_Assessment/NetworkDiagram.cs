@@ -18,15 +18,15 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void Blank()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateNetworkDiagramAssessment("Network Diagram Assessment", "Lex Corp", "Metropolis  ", "New York");

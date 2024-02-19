@@ -60,6 +60,14 @@ namespace CSET_Selenium.Repository.Login_Page
             }
         }
 
+        private IWebElement ButtonOK
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//button[contains(text(),'OK')]"));
+            }
+        }
+
         //Interaction Methods
 
         private void SetEmail(String email)
@@ -89,12 +97,16 @@ namespace CSET_Selenium.Repository.Login_Page
             ClickWhenClickable(TextlinkRegisterNewUserAccount);
         }
 
+        private void ClickOKButton()
+        {
+            ClickWhenClickable(ButtonOK);
+        }
 
         //Aggregate Methods
 
         public void LoginToCSET(String email, String password)
         {
-            
+            //ClickOKButton();
             SetEmail(email);
             SetPassword(password);
             ClickLoginButton();

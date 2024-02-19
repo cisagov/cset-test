@@ -18,7 +18,7 @@ namespace CSET_Selenium.Tests.Refresh
         [Test]
         public void RefreshCSET()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"), "****CSET did not load correctly****");
 
@@ -30,7 +30,7 @@ namespace CSET_Selenium.Tests.Refresh
         [Test]
         public void RefreshACET()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("ACET"), "****ACET did not load correctly****");
 
@@ -42,7 +42,7 @@ namespace CSET_Selenium.Tests.Refresh
         [Test]
         public void RefreshTSA()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET-TSA"), "****CSET-TSA did not load correctly****");
 

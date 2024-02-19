@@ -21,15 +21,16 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void ACET()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
+                createNewAssessment.ACETCreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("ACET(CSET Build)", "S.T.A.R. Labs", "Star City", "Washington");
@@ -66,29 +67,27 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void CMMCVer1()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
+                createNewAssessment.CMMC1CreateNewAssessment();
+
+                //CMMC Tutorial Page
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 1", "Planet Express", "New New York", "New York");
 
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                //Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectCMMC1();
-
-                //CMMC Tutorial Page
-                assessmentInfo.SetAssessmentInformation();
-
+                
                 //CMMC Target Level Selection Page
                 assessmentInfo.SetAssessmentInformation();
 
@@ -117,15 +116,15 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void CMMCVer2()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 2", "Planet Express", "New New York", "New York");
@@ -162,27 +161,25 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void CRR()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
+                createNewAssessment.CRRCreateNewAssessment();
+
+                //CRR Tutorial Page
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("CRR", "S.T.A.R. Labs", "Star City", "Washington");
 
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectCRR();
-
-                //CRR Tutorial Page
+                // Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //Practices Page
@@ -232,27 +229,25 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void EDM()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
+                createNewAssessment.EDMCreateNewAssessment();
+
+                //EDM Tutorial Page
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("EDM", "S.T.A.R. Labs", "Star City", "Washington");
 
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectEDM();
-
-                //EDM Tutorial Page
+                //Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //Practices Page
@@ -283,27 +278,25 @@ namespace CSET_Selenium.Tests.Create_Assessment
             [Test]
             public void RRA()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
                 driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage createNewAssessment = new LandingPage(driver);
-                createNewAssessment.CreateNewAssessment();
+                createNewAssessment.OpenNewAssessment();
+                createNewAssessment.RRACreateNewAssessment();
+
+                //Ransomeware Readiness Tutorial Page
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("RRA", "Curtis Farms", "Shady Sands", "New California");
 
-                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
-
-                //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectRRA();
-
-                //Ransomeware Readiness Tutorial Page
+                // Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //Practices Page

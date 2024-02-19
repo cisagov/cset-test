@@ -22,8 +22,8 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                //return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
-                return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Start a new and empty assessment.']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
+                //return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Start a new and empty assessment.']"));
             }
         }
 
@@ -66,6 +66,47 @@ namespace CSET_Selenium.Repository.Landing_Page
                 return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Export a copy of all assessments to another location.']"));
             }
         }
+
+        private IWebElement ButtonACETMaturityAssessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'ACET Maturity Assessment')]"));
+            }
+        }
+
+        private IWebElement ButtonCRRAssessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA Cyber Resilience Review (CRR)')]"));
+            }
+        }
+
+        private IWebElement ButtonEDMAssessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA External Dependencies Management (EDM)')]"));
+            }
+        }
+
+        private IWebElement ButtonRRAAssessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA Ransomware Readiness Assessment (RRA)')]"));
+            }
+        }
+
+        private IWebElement ButtonCMMC1Assessment
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'Cybersecurity Maturity Model Certification 1.02')]"));
+            }
+        }
+
         //Interaction Methods
 
         private void ClickNewAssessmentButton()
@@ -98,12 +139,42 @@ namespace CSET_Selenium.Repository.Landing_Page
             ButtonExportAllAssessments.Click();
         }
 
+        private void ClickButtonACETMaturityAssessment()
+        {
+            
+            ButtonACETMaturityAssessment.Click();
+        }
+
+        private void ClickButtonCRRAssessment()
+        {
+
+            ButtonCRRAssessment.Click();
+        }
+
+        private void ClickButtonEDMAssessment()
+        {
+
+            ButtonEDMAssessment.Click();
+        }
+
+        private void ClickButtonRRAAssessment()
+        {
+
+            ButtonRRAAssessment.Click();
+        }
+
+        private void ClickButtonCMMC1Assessment()
+        {
+
+            ButtonCMMC1Assessment.Click();
+        }
+
         //Aggregate Methods
         public void ClickMyAssessments()
         {
             ClickMyAssessmentsTab();
         }
-        public void CreateNewAssessment()
+        public void OpenNewAssessment()
         {           
             ClickMyAssessmentsTab();
             ClickNewAssessmentButton();
@@ -111,7 +182,32 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         public void ACETCreateNewAssessment()
         {
-            ClickNewAssessmentButton();
+            WaitUntilElementNotClickable(ButtonACETMaturityAssessment);
+            ClickButtonACETMaturityAssessment();
+        }
+
+        public void CRRCreateNewAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonCRRAssessment);
+            ClickButtonCRRAssessment();
+        }
+
+        public void EDMCreateNewAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonEDMAssessment);
+            ClickButtonEDMAssessment();
+        }
+
+        public void RRACreateNewAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonRRAAssessment);
+            ClickButtonRRAAssessment();
+        }
+
+        public void CMMC1CreateNewAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonCMMC1Assessment);
+            ClickButtonCMMC1Assessment();
         }
 
         public void NavigateToModuleBuilder()

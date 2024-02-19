@@ -32,13 +32,13 @@ namespace CSET_Selenium.Tests.Import_Export
             [Test]
             public void ExportAll ()
             {
-                BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
+                BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
 
                 driver = driver = BuildDriver(cf);
                 Assert.That(driver.Title.Contains("CSET-TSA"));
                 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("matthew.winston@inl.gov", "Asdfghjkl12#$");
+                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
                 LandingPage landingPage = new LandingPage(driver);
                 landingPage.WaitForPageLoad();

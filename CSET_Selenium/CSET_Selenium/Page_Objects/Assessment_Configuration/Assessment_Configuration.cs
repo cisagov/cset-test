@@ -274,7 +274,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetStandard();
+           // SetStandard();
             ClickNext();
         }
 
@@ -285,7 +285,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetNetworkDiagram();
+            //SetNetworkDiagram();
             ClickNext();
         }
 
@@ -296,7 +296,6 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetMaturityModel();
             ClickNext();
         }
 
@@ -317,8 +316,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetTSA(); //unselecting TSA
-            SetVADR();
+          //  SetTSA(); //unselecting TSA
+           // SetVADR();
             ClickNext();
         }
 
@@ -329,8 +328,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetTSA(); //unselecting TSA
-            SetRRA();
+           // SetTSA(); //unselecting TSA
+          //  SetRRA();
             ClickNext();
         }
 
@@ -341,8 +340,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetTSA(); //unselecting TSA
-            SetCRR();
+           // SetTSA(); //unselecting TSA
+           // SetCRR();
             ClickNext();
         }
 
@@ -353,8 +352,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetTSA(); //unselecting TSA
-            SetCSC();
+            //SetTSA(); //unselecting TSA
+            //SetCSC();
             ClickNext();
         }
 
@@ -365,8 +364,8 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             SetFacilityName(facilityName);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetTSA(); //unselecting TSA
-            SetAPTA();
+            //SetTSA(); //unselecting TSA
+            //SetAPTA();
             ClickNext();
         }
 

@@ -185,10 +185,10 @@ namespace CSET_Selenium.Helpers
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("kyle.hanson@inl.gov", "Nitocket14$");
+            loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
             LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
+            createNewAssessment.OpenNewAssessment();
             AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
             assessmentConfiguration.CreateStandardAssessment("Standard Assessment (From Assessment Utils)", "Wayne Tech", "Gotham City", "New Jersey");
             statMap.Add("Standard Assessment (From Assessment Utils)", "Assessment Name");
@@ -230,7 +230,7 @@ namespace CSET_Selenium.Helpers
         public void ChangedStandardAssessment(Dictionary<string, string> valsToChange)
         {
             LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
+            createNewAssessment.OpenNewAssessment();
             AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
             assessmentConfiguration.CreateStandardAssessment(valsToChange.FirstOrDefault(x => x.Value == "Assessment Name").Key + " " + 2, "Wayne Tech", "Gotham City", "New Jersey");
 
@@ -261,10 +261,10 @@ namespace CSET_Selenium.Helpers
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("kyle.hanson@inl.gov", "Nitocket14$");
+            loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
             LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
+            createNewAssessment.OpenNewAssessment();
             AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
             assessmentConfiguration.CreateMaturityModelAssessment("Cyber Assessment (From Assessment Utils)", "Wayne Tech", "Gotham City", "New Jersey");
 
@@ -329,7 +329,7 @@ namespace CSET_Selenium.Helpers
         {
 
             LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
+            createNewAssessment.OpenNewAssessment();
             AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
             assessmentConfiguration.CreateMaturityModelAssessment(valsToChange.FirstOrDefault(x => x.Value == "Assessment Name").Key + " " + 2, "Wayne Tech", "Gotham City", "New Jersey");
 
@@ -385,10 +385,10 @@ namespace CSET_Selenium.Helpers
 
             //Login and fill out the assessment information
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("kyle.hanson@inl.gov", "Nitocket14$");
+            loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
 
             LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.CreateNewAssessment();
+            createNewAssessment.OpenNewAssessment();
             AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
             assessmentConfiguration.CreateNetworkDiagramAssessment("Network Diagram (From Assessment Utils)", "Wayne Tech", "Gotham City", "New Jersey");
         }
