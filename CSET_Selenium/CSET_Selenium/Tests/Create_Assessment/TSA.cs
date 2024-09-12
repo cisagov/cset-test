@@ -29,7 +29,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
@@ -77,7 +77,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
@@ -107,7 +107,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
@@ -137,7 +137,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
@@ -167,7 +167,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");
@@ -216,7 +216,7 @@ namespace CSET_Selenium.Tests.TSA
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5500/");
                 driver = driver = BuildDriver(cf);
-                Assert.True(driver.Title.Contains("CSET-TSA"));
+                Assert.That(driver.Title.Contains("CSET-TSA"));
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "Password123");

@@ -15,7 +15,7 @@ namespace CSET_Selenium.Tests.Account_Login
         {
             BaseConfiguration cf = new BaseConfiguration("http://cset-tst.inl.gov");
             driver = driver = BuildDriver(cf);
-            Assert.True(driver.Title.Contains("CSET"));
+            Assert.That(driver.Title.Contains("CSET"));
             
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginToCSET("william.martin@inl.gov", "Password123");

@@ -36,7 +36,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
             List<String> listAfterSortShouldBe = cl;
             table.SortColumn("Start Date", Sort.descending);
             List<String> listFromUI = table.GetColumnCellsListByLabelName("Start Date");
-            //Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Subscriptions table sorting failed, please see console output for details.");
+            //Assert.That(CompareLists(listAfterSortShouldBe, listFromUI), Is.False, "Subscriptions table sorting failed, please see console output for details.");
             softAssertions.Add("Subscriptions table sorting failed, please see console output for details.", false, CompareLists(listAfterSortShouldBe, listFromUI));
             
             /*test templates table*/
@@ -47,7 +47,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
             //table.SortColumn("Template Name", Sort.ascending);
             table.SortColumn("Template Name", Sort.ascending);
             listFromUI = table.GetColumnCellsListByLabelName("Template Name");
-            //Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Templates table sorting failed, please see console output for details.");
+            //Assert.That(CompareLists(listAfterSortShouldBe, listFromUI), Is.False, "Templates table sorting failed, please see console output for details.");
             bool tmp = CompareLists(listAfterSortShouldBe, listFromUI);
             softAssertions.Add("Templates table sorting failed, please see console output for details.", false, CompareLists(listAfterSortShouldBe, listFromUI));
             
@@ -58,7 +58,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
             listAfterSortShouldBe = cl;
             table.SortColumn("Name", Sort.ascending);
             listFromUI = table.GetColumnCellsListByLabelName("Name");
-            //Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Customers table sorting failed, please see console output for details.");
+            //Assert.That(CompareLists(listAfterSortShouldBe, listFromUI), Is.False, "Customers table sorting failed, please see console output for details.");
             softAssertions.Add("Customers table sorting failed, please see console output for details.", false, CompareLists(listAfterSortShouldBe, listFromUI));
 
             /*test Sending Profiles table*/
@@ -68,7 +68,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
             listAfterSortShouldBe = cl;
             table.SortColumn("Name", Sort.ascending);
             listFromUI = table.GetColumnCellsListByLabelName("Name");
-            //Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Profiles table sorting failed, please see console output for details.");
+            //Assert.That(CompareLists(listAfterSortShouldBe, listFromUI), Is.False, "Profiles table sorting failed, please see console output for details.");
             softAssertions.Add("Profiles table sorting failed, please see console output for details.", false, CompareLists(listAfterSortShouldBe, listFromUI));
 
             /*test Recommendations table*/
@@ -78,7 +78,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Others
             listAfterSortShouldBe = cl;
             table.SortColumn("Type", Sort.ascending);
             listFromUI = table.GetColumnCellsListByLabelName("Type");
-            //Assert.IsFalse(CompareLists(listAfterSortShouldBe, listFromUI), "Recommendations table sorting failed, please see console output for details.");
+            //Assert.That(CompareLists(listAfterSortShouldBe, listFromUI), Is.False, "Recommendations table sorting failed, please see console output for details.");
             softAssertions.Add("Recommendations table sorting failed, please see console output for details.", false, CompareLists(listAfterSortShouldBe, listFromUI));
 
             softAssertions.AssertAll();

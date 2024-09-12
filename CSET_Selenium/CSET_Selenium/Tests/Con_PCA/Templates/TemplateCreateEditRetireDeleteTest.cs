@@ -29,20 +29,20 @@ namespace CSET_Selenium.Tests.Con_PCA.Template
             Templates template = new Templates(driver);
             
             template.CreateNewTemplate(templateName, "whatever");           
-            Assert.IsTrue(template.FindTemplateByName(templateName));
+            Assert.That(template.FindTemplateByName(templateName));
 
             //Edit a template 
             String newTemplateName = StringsUtils.GenerateRandomString(6);
             template.EditTemplateName(templateName, newTemplateName);
             sideMenu.SelectTemplates();
            
-            Assert.IsTrue(template.FindTemplateByName(newTemplateName));
+            Assert.That(template.FindTemplateByName(newTemplateName));
 
             //retire a template
             template.RetireTemplate(newTemplateName, "Retire");
             template.ShowRetired();
             
-            Assert.IsTrue(template.FindTemplateByName(newTemplateName));
+            Assert.That(template.FindTemplateByName(newTemplateName));
 
             //delete a template
             template.ShowRetired();
@@ -50,7 +50,7 @@ namespace CSET_Selenium.Tests.Con_PCA.Template
             sideMenu.SelectTemplates();
             template.ShowRetired();
             
-            Assert.IsFalse(template.FindTemplateByName(newTemplateName));//assert false -- the template should not be found after delete
+            Assert.That(template.FindTemplateByName(newTemplateName), Is.False );//assert false -- the template should not be found after delete
         }
     }
 }

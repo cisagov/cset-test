@@ -55,9 +55,9 @@ namespace CSET_Selenium.Tests.Con_PCA.SubscriptionTest
                     break;
                 }
             }
-            Assert.IsTrue(foundSubscription);
+            Assert.That(foundSubscription);
 
-            //Assert.IsTrue(foundCustomer);
+            //Assert.That(foundCustomer);
 
             Console.Write("test case ended ");
         }
