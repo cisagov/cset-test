@@ -111,6 +111,7 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         private void ClickNewAssessmentButton()
         {
+            
             ButtonNewAssessment.Click();
         }
 
@@ -182,6 +183,8 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         public void ACETCreateNewAssessment()
         {
+            WaitUntilElementNotClickable(ButtonNewAssessment);
+            ClickNewAssessmentButton();
             WaitUntilElementNotClickable(ButtonACETMaturityAssessment);
             ClickButtonACETMaturityAssessment();
         }

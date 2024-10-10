@@ -39,7 +39,7 @@ namespace CSET_Selenium.Repository.Navbar
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[text()='CSET User Guide']"));
+                return WaitUntilElementIsVisible(By.XPath("//span[text()='User Guide']"));
             }
         }
 

@@ -28,18 +28,18 @@ namespace CSET_Selenium.Tests.Check_User_Guides
                 Assert.That(driver.Title.Contains("CSET"));
 
                 LoginPage loginPage = new LoginPage(driver);
-                loginPage.LoginToCSET("william.martin@inl.gov", "\"K!q;va&%G],(0!mE:G+%ba~z><T/v4AELXZUFz;Tav|y}'mbx");
+                loginPage.LoginToCSET("william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
 
                 Navbar navbar = new Navbar(driver);
                 navbar.OpenCSETUserGuide();
                 List<IWebElement> csetVersion = new List<IWebElement>();
-                csetVersion.AddRange(driver.FindElements(By.XPath("//div[contains(text()[2],'Version 11.0.0')]")));
+                csetVersion.AddRange(driver.FindElements(By.XPath("//div[contains(text()[2],'Version 12.2')]")));
                 if (csetVersion.Count > 0)
                 {
-                    Console.WriteLine("ACET has correct version");
+                    Console.WriteLine("CSET has correct version");
                 } else
                 {
-                    Console.WriteLine("**** ACET User Guide's version number is wrong ****");
+                    Console.WriteLine("**** CSET User Guide's version number is wrong ****");
                 }
             }
         }
