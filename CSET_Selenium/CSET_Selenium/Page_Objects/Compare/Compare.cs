@@ -137,7 +137,7 @@ namespace CSET_Selenium.Page_Objects.Trend
             SelectAssessmentsButton.Click();
         }
 
-        private void ClickBack()
+        private new void ClickBack()
         {
             BackButton.Click();
         }
@@ -164,7 +164,7 @@ namespace CSET_Selenium.Page_Objects.Trend
             YesButton.Click();
         }
 
-        private void ClickOK()
+        private new void ClickOK()
         {
             OK.Click();
         }

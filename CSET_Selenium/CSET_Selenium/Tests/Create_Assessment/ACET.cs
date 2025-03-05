@@ -32,13 +32,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
             {
                 BaseConfiguration cf = new BaseConfiguration("http://csetac:5777/");
                 driver = BuildDriver(cf);
-<<<<<<< HEAD
 
                 Assert.That(driver.Title.Contains("CSET"));
-
-=======
-                Assert.That(driver.Title.Contains("ACET"));
->>>>>>> origin/Fixes
 
                 LoginPage loginPage = new LoginPage(driver);
                 loginPage.LoginToCSET("william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");

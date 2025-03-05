@@ -71,7 +71,8 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'ACET Maturity Assessment')]"));
+                return WaitUntilElementIsVisible(By.XPath("//*[@id='cf8fa1cdc-63ac-4076-b00d-1f5dcb34e3a9']/div[2]"));
+                // eturn WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'ACET Maturity Assessment')]"));
             }
         }
 
@@ -184,6 +185,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         public void ACETCreateNewAssessment()
         {
             WaitUntilElementNotClickable(ButtonNewAssessment);
+            // move to button new assessment button click
             ClickNewAssessmentButton();
             WaitUntilElementNotClickable(ButtonACETMaturityAssessment);
             ClickButtonACETMaturityAssessment();

@@ -38,6 +38,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
 
+                // may need to delete the next 2 lines
                 //Maturity Models Page
                 MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
                 maturityModelsPage.SelectACET();
