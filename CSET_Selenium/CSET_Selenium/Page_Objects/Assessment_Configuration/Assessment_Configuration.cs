@@ -164,6 +164,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         private void SetAssessmentName(String assessmentName)
         {
+            ScrollToElement(TextboxAssessmentName);
             ClickWhenClickable(TextboxAssessmentName);
             TextboxAssessmentName.Clear();
             TextboxAssessmentName.SendKeys(assessmentName);

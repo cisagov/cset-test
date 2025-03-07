@@ -1,10 +1,13 @@
-﻿using CSET_Selenium.Enums;
+﻿using AngleSharp.Html.Dom.Events;
+using CSET_Selenium.Enums;
 using CSET_Selenium.Helpers;
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V85.ApplicationCache;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,6 +41,28 @@ namespace CSET_Selenium.DriverConfiguration
         public void ConsoleOut(String outputMessage)
         {
             Console.WriteLine(outputMessage);
+        }
+
+        public IWebElement ScrollToElementByXPath(string xPath, Actions actions, int incrementVerticalBy = 0)
+        {
+            // get requested web element
+            By locator = By.XPath(xPath);
+            IWebElement webElement = this.Find(locator);
+
+            // scroll to requested element on the page
+            this.retryButtonScroll(webElement, actions);
+
+            // if extra scrolling necessary
+            if (incrementVerticalBy != 0)
+            {
+                // key down requested number of times
+                for (int i = 0; i < incrementVerticalBy; i++)
+                {
+                    actions.KeyDown(OpenQA.Selenium.Keys.ArrowDown).Perform();
+                }
+            }
+
+            return webElement;
         }
 
         public void RefreshPage()

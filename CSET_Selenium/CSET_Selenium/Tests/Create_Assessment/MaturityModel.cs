@@ -84,7 +84,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 1", "Planet Express", "New New York", "New York");
+                assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 2", "Planet Express", "New New York", "New York");
 
                 //Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();

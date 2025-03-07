@@ -1,5 +1,6 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace CSET_Selenium.Repository.Landing_Page
     class LandingPage : BasePage
     {
         private readonly IWebDriver driver;
+        private readonly Actions actions;
 
         public LandingPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
+            this.actions = new Actions(driver);
         }
 
         //Element Locators
@@ -22,8 +25,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'New Assessment')]/ancestor::button"));
-                //return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Start a new and empty assessment.']"));
+                return base.ScrollToElementByXPath("//span[contains(text(),'New Assessment')]/ancestor::button", this.actions);
             }
         }
 
@@ -31,7 +33,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(),'My Assessments')]/ancestor::button"));
+                return base.ScrollToElementByXPath("//span[contains(text(),'My Assessments')]/ancestor::button", this.actions);
             }
         }
 
@@ -39,7 +41,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(),'Import')]"));
+                return base.ScrollToElementByXPath("//label[contains(text(),'Import')]", this.actions);
             }
         }
 
@@ -47,7 +49,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[@class='cset-icons-tools fs-base-4 mr-2 align-middle']"));
+                return base.ScrollToElementByXPath("//span[@class='cset-icons-tools fs-base-4 mr-2 align-middle']", this.actions);
             }
         }
 
@@ -55,7 +57,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//span[contains(text(), 'Module Builder')]"));
+                return base.ScrollToElementByXPath("//span[contains(text(), 'Module Builder')]", this.actions);
             }
         }
 
@@ -63,7 +65,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//button[@mattooltip='Export a copy of all assessments to another location.']"));
+                return base.ScrollToElementByXPath("//button[@mattooltip='Export a copy of all assessments to another location.']", this.actions);
             }
         }
 
@@ -71,8 +73,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//*[@id='cf8fa1cdc-63ac-4076-b00d-1f5dcb34e3a9']/div[2]"));
-                // eturn WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'ACET Maturity Assessment')]"));
+                return base.ScrollToElementByXPath("//div[contains(text(),'ACET Maturity Assessment')]", this.actions, 5);
             }
         }
 
@@ -80,7 +81,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA Cyber Resilience Review (CRR)')]"));
+                return base.ScrollToElementByXPath("//div[contains(text(),'CISA Cyber Resilience Review (CRR)')]", this.actions);
             }
         }
 
@@ -88,7 +89,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA External Dependencies Management (EDM)')]"));
+                return base.ScrollToElementByXPath("//div[contains(text(),'CISA External Dependencies Management (EDM)')]", this.actions);
             }
         }
 
@@ -96,7 +97,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'CISA Ransomware Readiness Assessment (RRA)')]"));
+                return base.ScrollToElementByXPath("//div[contains(text(),'CISA Ransomware Readiness Assessment (RRA)')]", this.actions);
             }
         }
 
@@ -104,7 +105,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return WaitUntilElementIsVisible(By.XPath("//div[contains(text(),'Cybersecurity Maturity Model Certification 1.02')]"));
+                return base.ScrollToElementByXPath("//div[contains(text(),'Cybersecurity Maturity Model Certification 1.02')]", this.actions);
             }
         }
 
@@ -143,7 +144,6 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         private void ClickButtonACETMaturityAssessment()
         {
-            
             ButtonACETMaturityAssessment.Click();
         }
 
