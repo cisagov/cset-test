@@ -105,7 +105,7 @@ namespace CSET_Selenium.Repository.Landing_Page
         {
             get
             {
-                return base.ScrollToElementByXPath("//div[contains(text(),'Cybersecurity Maturity Model Certification 1.02')]", this.actions);
+                return base.ScrollToElementByXPath("//div[contains(text(),'Cybersecurity Capability Maturity Model (C2M2) V2.1')]", this.actions, 5);
             }
         }
 
@@ -167,7 +167,6 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         private void ClickButtonCMMC1Assessment()
         {
-
             ButtonCMMC1Assessment.Click();
         }
 
@@ -211,6 +210,12 @@ namespace CSET_Selenium.Repository.Landing_Page
 
         public void CMMC1CreateNewAssessment()
         {
+            WaitUntilElementNotClickable(ButtonNewAssessment);
+            // move to button new assessment button click
+            ClickNewAssessmentButton();
+            //WaitUntilElementNotClickable(ButtonACETMaturityAssessment);
+            //ClickButtonACETMaturityAssessment();
+
             WaitUntilElementNotClickable(ButtonCMMC1Assessment);
             ClickButtonCMMC1Assessment();
         }

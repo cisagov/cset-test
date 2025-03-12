@@ -40,8 +40,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 // may need to delete the next 2 lines
                 //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectACET();
+                //MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                //maturityModelsPage.SelectACET();
 
                 //Inherent Risk Profiles
                 assessmentInfo.SetAssessmentInformation();
