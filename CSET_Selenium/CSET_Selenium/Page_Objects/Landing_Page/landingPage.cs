@@ -109,6 +109,14 @@ namespace CSET_Selenium.Repository.Landing_Page
             }
         }
 
+        private IWebElement ButtonCMMC2Assessment
+        {
+            get
+            {
+                return base.ScrollToElementByXPath("//div[contains(text(),'Cybersecurity Capability Maturity Model (C2M2) V2.1')]", this.actions, 5);
+            }
+        }
+
         //Interaction Methods
 
         private void ClickNewAssessmentButton()
@@ -217,6 +225,18 @@ namespace CSET_Selenium.Repository.Landing_Page
             //ClickButtonACETMaturityAssessment();
 
             WaitUntilElementNotClickable(ButtonCMMC1Assessment);
+            ClickButtonCMMC1Assessment();
+        }
+
+        public void CMMC2CreateNewAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonNewAssessment);
+            // move to button new assessment button click
+            ClickNewAssessmentButton();
+            //WaitUntilElementNotClickable(ButtonACETMaturityAssessment);
+            //ClickButtonACETMaturityAssessment();
+
+            WaitUntilElementNotClickable(ButtonCMMC2Assessment);
             ClickButtonCMMC1Assessment();
         }
 

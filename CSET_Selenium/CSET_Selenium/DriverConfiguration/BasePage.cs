@@ -42,14 +42,25 @@ namespace CSET_Selenium.DriverConfiguration
         {
             Console.WriteLine(outputMessage);
         }
+        public IWebElement ScrollToElementByXPath(
+            string xPath,
+            Actions actions,
+            int incrementVerticalBy = 0)
+        {
+            By locator = By.XPath(xPath);
+
+            return this.ScrollToElementByXPath(
+                locator,
+                actions,
+                incrementVerticalBy);
+        }
 
         public IWebElement ScrollToElementByXPath(
-            string xPath, 
+            By locator,
             Actions actions, 
             int incrementVerticalBy = 0)
         {
             // get requested web element
-            By locator = By.XPath(xPath);
             IWebElement webElement = this.Find(locator);
 
             // scroll to requested element on the page

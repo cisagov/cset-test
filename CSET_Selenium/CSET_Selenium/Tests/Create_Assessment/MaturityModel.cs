@@ -81,37 +81,21 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 //CMMC Tutorial Page
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-                assessmentInfo.SetAssessmentInformation();
+//                assessmentInfo.SetAssessmentInformation();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+
+                //Assessment Configuration Page => Assessment INformation Page
                 assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 2", "Planet Express", "New New York", "New York");
 
-                //Assessment Information Page
-                assessmentInfo.SetAssessmentInformation();
-                
-                //CMMC Target Level Selection Page
+                //Assessment Information Page = Practices Page
                 assessmentInfo.SetAssessmentInformation();
 
-                //Practices Page
+                //Practices Page => Reports Page
                 assessmentInfo.SetAssessmentInformation();
 
-                //Target and Achieved Levels Page
+                // Reports => Feedback Page
                 assessmentInfo.SetAssessmentInformation();
-
-                //Level Drill Down Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Compliance Score Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Detailed Gaps List Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Reports Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Feedback Page
-
             }
 
             [Test]
@@ -126,6 +110,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 LandingPage createNewAssessment = new LandingPage(driver);
                 createNewAssessment.OpenNewAssessment();
+                createNewAssessment.CMMC2CreateNewAssessment();
 
                 AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
                 assessmentConfiguration.CreateMaturityModelAssessment("CMMC Ver 2", "Planet Express", "New New York", "New York");
@@ -134,29 +119,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 assessmentInfo.SetAssessmentInformation();
 
                 //Maturity Models Page
-                MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
-                maturityModelsPage.SelectCMMC2();
+                //MaturityModelsPage maturityModelsPage = new MaturityModelsPage(driver);
+                //maturityModelsPage.SelectCMMC2();
 
                 //CMMC Tutorial Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //CMMC Target Level Selection Page
                 assessmentInfo.SetAssessmentInformation();
-
-                //Practices Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Performance by Level Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Performance by Domain Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Reports Page
-                assessmentInfo.SetAssessmentInformation();
-
-                //Feedback Page
-
             }
 
             [Test]
@@ -177,8 +147,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
                 assessmentInfo.SetAssessmentInformation();
 
-                AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-                assessmentConfiguration.CreateMaturityModelAssessment("CRR", "S.T.A.R. Labs", "Star City", "Washington");
+                //AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
+                //assessmentConfiguration.CreateMaturityModelAssessment("CRR", "S.T.A.R. Labs", "Star City", "Washington");
 
                 // Assessment Information Page
                 assessmentInfo.SetAssessmentInformation();
@@ -223,7 +193,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 assessmentInfo.SetAssessmentInformation();
 
                 //Feedback Page
-
+                assessmentInfo.SetAssessmentInformation();
             }
 
 
@@ -271,9 +241,6 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
                 //Reports Page
                 assessmentInfo.SetAssessmentInformation();
-
-                //Feedback Page
-
             }
 
             [Test]
