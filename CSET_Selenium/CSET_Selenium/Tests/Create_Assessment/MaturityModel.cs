@@ -16,8 +16,6 @@ namespace CSET_Selenium.Tests.Create_Assessment
         {
             private IWebDriver driver;
 
-
-
             [Test]
             public void ACET()
             {
@@ -49,7 +47,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 //Inherent Risk Profile Summary
                 assessmentInfo.SetAssessmentInformation();
 
-                //Statements Page
+                //Maturity Questions Page
                 assessmentInfo.SetAssessmentInformation();
 
                 //ACET Maturity Results Page
@@ -62,7 +60,6 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 assessmentInfo.SetAssessmentInformation();
 
                 //Feedback Page
-
             }
 
             [Test]

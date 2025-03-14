@@ -372,14 +372,13 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         public void CreateAcetBuildAssessment(String assessmentCreditUnion, String citySiteName, String stateProvRegion, String assessmentCharter, String assessmentAssets)
         {
-            SetAssessmentCreditUnion(assessmentCreditUnion);
+            // SetAssessmentCreditUnion(assessmentCreditUnion);
             //SetAssessmentDate(assessmentDate);
             SetCitySiteName(citySiteName);
             SetStateProvRegion(stateProvRegion);
-            SetCharter(assessmentCharter);
-            SetAssets(assessmentAssets);
+            // SetCharter(assessmentCharter);
+            // SetAssets(assessmentAssets);
             ClickNext();
         }
-
     }
 }
