@@ -258,6 +258,7 @@
     <Compile Include="Tests\Create_Assessment\BasicModuleCreation.cs" />
     <Compile Include="Tests\Create_Assessment\CompareTest.cs" />
     <Compile Include="Tests\Create_Assessment\ModuleBuilderTest.cs" />
+    <Compile Include="Tests\Create_Assessment\NERCRev6.cs" />
     <Compile Include="Tests\Create_Assessment\TrendTest.cs" />
     <Compile Include="Tests\Create_Assessment\TSA.cs" />
     <Compile Include="Tests\Create_Assessment\AssessmentCreation.cs" />

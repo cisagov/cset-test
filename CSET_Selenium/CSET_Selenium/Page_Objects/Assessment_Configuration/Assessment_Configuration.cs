@@ -290,6 +290,16 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             ClickNext();
         }
 
+        public void CreateNERCRev6Assessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
+        {
+            SetAssessmentName(assessmentName);
+            //SetAssessmentDate(assessmentDate);
+            SetFacilityName(facilityName);
+            SetCitySiteName(citySiteName);
+            SetStateProvRegion(stateProvRegion);
+            ClickNext();
+        }
+
         public void CreateMaturityModelAssessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
         {
             SetAssessmentName(assessmentName);

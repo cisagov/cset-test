@@ -69,6 +69,14 @@ namespace CSET_Selenium.Repository.Landing_Page
             }
         }
 
+        private IWebElement ButtonNERCRev6
+        {
+            get
+            {
+                return base.ScrollToElementByXPath("//div[contains(text(),'NERC CIP-002 through CIP-014 Revision 6')]", this.actions, 5);
+            }
+        }
+
         private IWebElement ButtonACETMaturityAssessment
         {
             get
@@ -150,6 +158,11 @@ namespace CSET_Selenium.Repository.Landing_Page
             ButtonExportAllAssessments.Click();
         }
 
+        private void ClickButtonButtonNERCRev6()
+        {
+            ButtonNERCRev6.Click();
+        }
+
         private void ClickButtonACETMaturityAssessment()
         {
             ButtonACETMaturityAssessment.Click();
@@ -187,6 +200,14 @@ namespace CSET_Selenium.Repository.Landing_Page
         {           
             ClickMyAssessmentsTab();
             ClickNewAssessmentButton();
+        }
+        public void NERCRev6CreateAssessment()
+        {
+            WaitUntilElementNotClickable(ButtonNewAssessment);
+            // move to button new assessment button click
+            ClickNewAssessmentButton();
+            WaitUntilElementNotClickable(ButtonNERCRev6);
+            ClickButtonButtonNERCRev6();
         }
 
         public void ACETCreateNewAssessment()
