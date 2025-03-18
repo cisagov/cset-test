@@ -1,4 +1,7 @@
 ﻿using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Tests.Create_Assessment;
+using Shared = CSET_Selenium.Repositories.Shared;
+using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -292,11 +295,25 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         public void CreateNERCRev6Assessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
         {
-            SetAssessmentName(assessmentName);
-            //SetAssessmentDate(assessmentDate);
-            SetFacilityName(facilityName);
-            SetCitySiteName(citySiteName);
-            SetStateProvRegion(stateProvRegion);
+            NERC6.AssessmentConfiguration info = new NERC6.AssessmentConfiguration();
+
+            info.AssessmentName = assessmentName;
+            info.AssessmentDate = DateTime.Now.AddDays(1);
+            info.FacilityName = facilityName;
+            info.City = citySiteName;
+            info.State = stateProvRegion;
+
+            this.CreateNERCRev6Assessment(info);
+        }
+
+        public void CreateNERCRev6Assessment(NERC6.AssessmentConfiguration assessmentConfig)
+        {
+            SetAssessmentName(assessmentConfig.AssessmentName);
+            SetAssessmentDate(assessmentConfig.AssessmentDate.ToShortDateString());
+            SetFacilityName(assessmentConfig.FacilityName);
+            SetCitySiteName(assessmentConfig.City);
+            SetStateProvRegion(assessmentConfig.State);
+
             ClickNext();
         }
 

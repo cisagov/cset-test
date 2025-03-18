@@ -1,4 +1,5 @@
 ﻿using CSET_Selenium.DriverConfiguration;
+using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -655,6 +656,12 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
         public void SetNetDiagramAssessmentInfo()
         {
 
+        }
+
+
+        public void SetAssessmentInformation(NERC6.AssessmentInfo assessmentInfo)
+        {
+            this.SetAssessInfo();
         }
 
         public void SetAssessmentInformation()

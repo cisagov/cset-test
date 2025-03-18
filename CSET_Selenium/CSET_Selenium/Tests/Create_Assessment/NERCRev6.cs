@@ -4,8 +4,12 @@ using CSET_Selenium.Page_Objects.AssessmentInfo;
 using CSET_Selenium.Page_Objects.Maturity_Models;
 using CSET_Selenium.Repository.Landing_Page;
 using CSET_Selenium.Repository.Login_Page;
+using Shared = CSET_Selenium.Repositories.Shared;
+using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using FluentAssertions;
+using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
@@ -21,38 +25,49 @@ namespace CSET_Selenium.Tests.Create_Assessment
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
+            using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
+            {
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.LoginToCSET("william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
 
-            LandingPage createNewAssessment = new LandingPage(driver);
-            createNewAssessment.OpenNewAssessment();
-            createNewAssessment.NERCRev6CreateAssessment();
+                LandingPage nercRev6Assessment = new LandingPage(driver);
+                nercRev6Assessment.OpenNewAssessment();
+                nercRev6Assessment.NERCRev6CreateAssessment();
 
-            AssessmentConfiguration assessmentConfiguration = new AssessmentConfiguration(driver);
-            assessmentConfiguration.CreateNERCRev6Assessment("NERC CIP-002 through CIP-014 Revision 6", "S.T.A.R. Labs", "Star City", "Washington");
+                AssessmentConfiguration configurationPage = new AssessmentConfiguration(driver);
 
-            AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-            assessmentInfo.SetAssessmentInformation();
+                // access shared repository to set assessment configuation
+                configurationPage.CreateNERCRev6Assessment(sharedRepo.AssessmentConfig);
 
-            //Inherent Risk Profiles
-            assessmentInfo.SetAssessmentInformation();
+                AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
+                assessmentInfo.SetAssessmentInformation(sharedRepo.AssessmentInfo);
 
-            //Inherent Risk Profile Summary
-            assessmentInfo.SetAssessmentInformation();
+                SecurityAssuranceLevel securityAssurance = new SecurityAssuranceLevel(driver);
+                // securityAssurance.
 
-            //Maturity Questions Page
-            assessmentInfo.SetAssessmentInformation();
+                using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
+                {
+                    //Inherent Risk Profiles
+                    assessmentInfo.SetAssessmentInformation();
 
-            //ACET Maturity Results Page
-            assessmentInfo.SetAssessmentInformation();
+                    //Inherent Risk Profile Summary
+                    assessmentInfo.SetAssessmentInformation();
 
-            //ACET Dashboard Page
-            assessmentInfo.SetAssessmentInformation();
+                    //Maturity Questions Page
+                    assessmentInfo.SetAssessmentInformation();
 
-            //Reports Page
-            assessmentInfo.SetAssessmentInformation();
+                    //ACET Maturity Results Page
+                    assessmentInfo.SetAssessmentInformation();
 
-            //Feedback Page
+                    //ACET Dashboard Page
+                    assessmentInfo.SetAssessmentInformation();
+
+                    //Reports Page
+                    assessmentInfo.SetAssessmentInformation();
+
+                    //Feedback Page
+                }
+            }
         }
     }
 }
