@@ -295,7 +295,7 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
 
         public void CreateNERCRev6Assessment(String assessmentName, String facilityName, String citySiteName, String stateProvRegion)
         {
-            NERC6.AssessmentConfiguration info = new NERC6.AssessmentConfiguration();
+            Shared.AssessmentConfiguration info = new Shared.AssessmentConfiguration();
 
             info.AssessmentName = assessmentName;
             info.AssessmentDate = DateTime.Now.AddDays(1);
@@ -306,10 +306,10 @@ namespace CSET_Selenium.Page_Objects.Assessment_Configuration
             this.CreateNERCRev6Assessment(info);
         }
 
-        public void CreateNERCRev6Assessment(NERC6.AssessmentConfiguration assessmentConfig)
+        public void CreateNERCRev6Assessment(Shared.AssessmentConfiguration assessmentConfig)
         {
             SetAssessmentName(assessmentConfig.AssessmentName);
-            SetAssessmentDate(assessmentConfig.AssessmentDate.ToShortDateString());
+            // SetAssessmentDate(assessmentConfig.AssessmentDate.ToShortDateString());
             SetFacilityName(assessmentConfig.FacilityName);
             SetCitySiteName(assessmentConfig.City);
             SetStateProvRegion(assessmentConfig.State);

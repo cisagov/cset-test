@@ -1,5 +1,6 @@
 ﻿using CSET_Selenium.DriverConfiguration;
 using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
+using Shared = CSET_Selenium.Repositories.Shared;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -659,9 +660,8 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
         }
 
 
-        public void SetAssessmentInformation(NERC6.AssessmentInfo assessmentInfo)
+        public void SetAssessmentInformation(Shared.AssessmentInfo assessmentInfo)
         {
-            this.SetAssessInfo();
         }
 
         public void SetAssessmentInformation()

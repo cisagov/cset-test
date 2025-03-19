@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CSET_Selenium.Repositories.NERC_Rev_6;
+using Shared = CSET_Selenium.Repositories.Shared;
 
 namespace CSET_Selenium.Repositories.Shared
 {
@@ -31,6 +32,13 @@ namespace CSET_Selenium.Repositories.Shared
                 City = "Star City",
                 State = "WA"
             };
+        }
+
+        public Shared.SecurityAssuranceLevel SecurityAssuranceLevel()
+        {
+            Shared.SecurityAssuranceLevel level = new Shared.SecurityAssuranceLevel();
+
+            return level;
         }
 
         public void Dispose()

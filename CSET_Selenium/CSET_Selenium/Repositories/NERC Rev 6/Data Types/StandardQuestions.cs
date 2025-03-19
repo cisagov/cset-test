@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Internal;
+﻿using CSET_Selenium.Repositories.Shared.Data_Types;
+using OpenQA.Selenium.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
-    public class StandardQuestions
+    public class StandardQuestions : BaseDTOData
     {
+        public override bool IsValid()
+        {
+            return base.IsValid();
+        }
+
         public AccountManagement AccountManagement
         {
             get => new AccountManagement();

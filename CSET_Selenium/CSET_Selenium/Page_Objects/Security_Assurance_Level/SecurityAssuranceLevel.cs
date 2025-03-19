@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shared = CSET_Selenium.Repositories.Shared;
+
 
 namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
 {
@@ -21,7 +23,11 @@ namespace CSET_Selenium.Page_Objects.Security_Assurance_Level
             actions = new Actions(driver);
         }
 
-        
+        public void SetSecurityLevels(Shared.SecurityAssuranceLevel level)
+        {
+
+        }
+
         //Element Locators
         private IWebElement SALAssessment
         {

@@ -198,6 +198,7 @@
     <Compile Include="Helpers\AssessmentUtils.cs" />
     <Compile Include="Helpers\Con_PCA\SoftAssertions.cs" />
     <Compile Include="Helpers\Con_PCA\TableUtils.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\StandardQuestions.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
@@ -241,6 +242,13 @@
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Module_Builder\ModuleBuilder.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
+    <Compile Include="Page_Objects\ReportPages\ControlPrioritiesPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\FeedbackPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\HighLevelAssessmentPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\RankedCategoriesPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\ReportsPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\ResultsByCategoryPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\StandardsSummaryPage.cs" />
     <Compile Include="Page_Objects\Security_Assurance_Level\SecurityAssuranceLevel.cs" />
     <Compile Include="Page_Objects\Sidebar\Sidebar.cs" />
     <Compile Include="Page_Objects\Target_Level_Selection\TargetLevelSelectionCMMC2.cs" />
@@ -268,6 +276,7 @@
     <Compile Include="Repositories\Shared\AssessmentRepository.cs" />
     <Compile Include="Repositories\Shared\Data Types\AssessmentConfiguration.cs" />
     <Compile Include="Repositories\Shared\Data Types\AssessmentInfo.cs" />
+    <Compile Include="Repositories\Shared\Data Types\BaseDTOData.cs" />
     <Compile Include="Repositories\Shared\Data Types\SecurityAssuranceLevel.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\StandardQuestions.cs" />
     <Compile Include="Tests\Account_Login\AccountLogin.cs" />
