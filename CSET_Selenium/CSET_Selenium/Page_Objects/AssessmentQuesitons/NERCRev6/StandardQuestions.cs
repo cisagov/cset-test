@@ -23,22 +23,22 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         public void SetQuestionsMode()
         {
-
+            this.QuestionsMode.Click();
         }
 
         public void SetRequirementsMode()
         {
-
+            this.RequirementsMode.Click();
         }
 
         public void ExpandAllQuestions()
         {
-
+            this.ExpandAll.Click();
         }
 
         public void CompressAllQuestions()
         {
-
+            this.CompressAll.Click();
         }
 
 
@@ -47,9 +47,54 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         }
 
-        public BasePage SelectNextPage()
+        //private IWebElement QuestionsMode
+        //{
+        //    get
+        //    {
+        //        return WaitUntilElementIsVisible(By.XPath("//*[@id=\"sidenav-content\"]/app-questions/div/div[2]/div[1]/label[1]"));
+        //    }
+        //}
+
+        //private IWebElement RequirementsMode
+        //{
+        //    get
+        //    {
+        //        return WaitUntilElementIsVisible(By.XPath("//*[@id=\"sidenav-content\"]/app-questions/div/div[2]/div[1]/label[2]"));
+        //    }
+        //}
+
+        //Element Locators
+
+        private IWebElement RequirementsMode
         {
-            return null;
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(), 'Requirements Mode')]"));
+            }
+        }
+
+        private IWebElement QuestionsMode
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//label[contains(text(), 'Questions Mode')]"));
+            }
+        }
+
+        private IWebElement ExpandAll
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//*[@id=\"sidenav-content\"]/app-questions/div/div[2]/div[2]/div[2]/div[1]/button[2]"));
+            }
+        }
+
+        private IWebElement CompressAll
+        {
+            get
+            {
+                return WaitUntilElementIsVisible(By.XPath("//*[@id=\"sidenav-content\"]/app-questions/div/div[2]/div[2]/div[2]/div[1]/button[1]"));
+            }
         }
     }
 }

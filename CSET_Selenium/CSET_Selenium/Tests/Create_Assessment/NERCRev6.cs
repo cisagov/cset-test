@@ -93,8 +93,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
             // if instance is valid
             if (questionsData.IsValid())
             {
+                // go to questions mode
+                questionsPage.SetQuestionsMode();
+
                 // set question answers
                 questionsPage.SetQuestionValues(questionsData);
+
+                // expand all questions
+                questionsPage.ExpandAllQuestions();
             }
 
             // ASSERT
