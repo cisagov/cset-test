@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSET_Selenium.Enums;
 
 namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 {
@@ -19,6 +20,27 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
         {
             this.driver = driver;
         }
+
+        public void SetQuestionsMode()
+        {
+
+        }
+
+        public void SetRequirementsMode()
+        {
+
+        }
+
+        public void ExpandAllQuestions()
+        {
+
+        }
+
+        public void CompressAllQuestions()
+        {
+
+        }
+
 
         public void SetQuestionValues(NERC6DT.StandardQuestions standardQuestions)
         {

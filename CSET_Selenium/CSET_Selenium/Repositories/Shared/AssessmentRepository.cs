@@ -10,6 +10,17 @@ namespace CSET_Selenium.Repositories.Shared
 {
     public class AssessmentRepository : IDisposable
     {
+        private Dictionary<string, string> userCredentials = new Dictionary<string, string>();
+
+        public Dictionary<string, string> UserCredentials { get => this.userCredentials; }
+
+        public AssessmentRepository()
+        {
+            // "william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
+            this.userCredentials.Add("UserName", "william.martin@inl.gov");
+            this.userCredentials.Add("PassWord", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
+        }
+
         public AssessmentInfo AssessmentInfo
         {
             get => new AssessmentInfo()
@@ -36,6 +47,8 @@ namespace CSET_Selenium.Repositories.Shared
 
         public Shared.SecurityAssuranceLevel SecurityAssuranceLevel()
         {
+            // this line will call a method that will return an initialized object whose
+            // properties are set by a file or a databaswe or a web service call
             Shared.SecurityAssuranceLevel level = new Shared.SecurityAssuranceLevel();
 
             return level;
@@ -43,7 +56,7 @@ namespace CSET_Selenium.Repositories.Shared
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }

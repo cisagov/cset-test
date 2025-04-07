@@ -662,6 +662,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentInfo
 
         public void SetAssessmentInformation(Shared.AssessmentInfo assessmentInfo)
         {
+            this.SetAssessmentInformation();
         }
 
         public void SetAssessmentInformation()

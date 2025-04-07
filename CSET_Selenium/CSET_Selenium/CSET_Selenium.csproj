@@ -195,9 +195,16 @@
     <Compile Include="Enums\Con_PCA\RecommendationType.cs" />
     <Compile Include="Enums\Con_PCA\Sort.cs" />
     <Compile Include="Enums\Domain_Manager\Contact.cs" />
+    <Compile Include="Enums\SAL\SAL_Overall.cs" />
+    <Compile Include="Enums\SAL\SAL_Availability.cs" />
+    <Compile Include="Enums\SAL\SAL_Confidentiality.cs" />
+    <Compile Include="Enums\SAL\SAL_Integrity.cs" />
+    <Compile Include="Enums\SAL\SAL_Methodology.cs" />
+    <Compile Include="Helpers\AssessmentCommonFunctions.cs" />
     <Compile Include="Helpers\AssessmentUtils.cs" />
     <Compile Include="Helpers\Con_PCA\SoftAssertions.cs" />
     <Compile Include="Helpers\Con_PCA\TableUtils.cs" />
+    <Compile Include="Helpers\ExtensionMethodHelpers.cs" />
     <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\StandardQuestions.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
@@ -242,6 +249,7 @@
     <Compile Include="Page_Objects\Maturity_Models\MaturityModelsPage.cs" />
     <Compile Include="Page_Objects\Module_Builder\ModuleBuilder.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
+    <Compile Include="Page_Objects\ReportPages\AnalysisDashboardPage.cs" />
     <Compile Include="Page_Objects\ReportPages\ControlPrioritiesPage.cs" />
     <Compile Include="Page_Objects\ReportPages\FeedbackPage.cs" />
     <Compile Include="Page_Objects\ReportPages\HighLevelAssessmentPage.cs" />

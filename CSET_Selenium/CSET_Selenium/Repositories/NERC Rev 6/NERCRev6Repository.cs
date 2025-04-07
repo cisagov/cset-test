@@ -19,7 +19,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
     }
 }

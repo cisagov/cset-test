@@ -11,10 +11,12 @@ using CSET_Selenium.Page_Objects.Assessment_Configuration;
 using CSET_Selenium.Page_Objects.AssessmentInfo;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using CSET_Selenium.Helpers;
 using FluentAssertions;
 using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using OpenQA.Selenium.DevTools.V130.Network;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
@@ -32,13 +34,16 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
             using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
             {
-                this.TestAssessmentLoginPage(driver, sharedRepo);
+                // optionally allocate an instance of this object to set propertiesd
+                Shared.SecurityAssuranceLevel sal = new Shared.SecurityAssuranceLevel();
 
-                this.TestAssessmentConfiguationPage(driver, sharedRepo);
+                // this function handles login, landing page, config, info, and SAL pages
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo, sal);
 
-                this.TestAssessmentInfoPage(driver, sharedRepo);
-
-                this.TestAssessmentSecurityPage(driver, sharedRepo);                  
+                if (levelPage != null)
+                {
+                    levelPage.ClickNext();
+                }
 
                 using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
                 {
@@ -46,6 +51,9 @@ namespace CSET_Selenium.Tests.Create_Assessment
                     this.TestStandardQuestionsPage(driver, nercRepo);
 
                     // move to analysis dashboard page
+                    this.TestAnalysisDashboardPage(driver, nercRepo);
+
+                    // move to the Control Priorities page
                     this.TestControlPrioritiesPage(driver, nercRepo);
 
                     // move to Standards Summary page
@@ -67,41 +75,6 @@ namespace CSET_Selenium.Tests.Create_Assessment
                     this.TestFeebackPage(driver, nercRepo);
                 }
             }
-        }
-
-        private void TestAssessmentLoginPage(IWebDriver driver, Shared.AssessmentRepository sharedRepo)
-        {
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.LoginToCSET("william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
-
-            LandingPage nercRev6Assessment = new LandingPage(driver);
-            nercRev6Assessment.OpenNewAssessment();
-            nercRev6Assessment.NERCRev6CreateAssessment();
-        }
-
-        private void TestAssessmentConfiguationPage(IWebDriver driver, Shared.AssessmentRepository sharedRepo)
-        {
-            // access shared repository to set assessment configuation
-            AssessmentConfiguration configurationPage = new AssessmentConfiguration(driver);
-            configurationPage.CreateNERCRev6Assessment(sharedRepo.AssessmentConfig);
-
-            configurationPage.ClickNext();
-        }
-
-        private void TestAssessmentInfoPage(IWebDriver driver, Shared.AssessmentRepository sharedRepo)
-        {
-            AssessmentInfo assessmentInfo = new AssessmentInfo(driver);
-            assessmentInfo.SetAssessmentInformation(sharedRepo.AssessmentInfo);
-
-            assessmentInfo.ClickNext();
-        }
-
-        private void TestAssessmentSecurityPage(IWebDriver driver, Shared.AssessmentRepository sharedRepo)
-        { 
-            SecurityAssuranceLevel securityPage = new SecurityAssuranceLevel(driver);
-            securityPage.SetSecurityLevels(sharedRepo.SecurityAssuranceLevel());
-
-            securityPage.ClickNext();
         }
 
         private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
@@ -127,6 +100,13 @@ namespace CSET_Selenium.Tests.Create_Assessment
             // ASSERT
 
             questionsPage.ClickNext();
+        }
+
+        private void TestAnalysisDashboardPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
+        {
+            AnalysisDashboardPage analysisDashBoard = new AnalysisDashboardPage(driver);
+
+            analysisDashBoard.ClickNext();
         }
 
         // move to analysis dashboard page
