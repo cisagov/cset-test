@@ -12,13 +12,17 @@ using CSET_Selenium.Page_Objects.AssessmentInfo;
 using CSET_Selenium.Helpers;
 using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Enums.SAL;
+using System.Threading;
 
 
 namespace CSET_Selenium.Helpers
 {
     static internal class AssessmentCommonFunctions
     {
-        internal static SecurityAssuranceLevel InitilizeAssessment(IWebDriver driver, Shared.AssessmentRepository sharedRepo, Shared.SecurityAssuranceLevel sal)
+        private static Random r = new Random();
+        private static Dictionary<string, string> statMap = new Dictionary<string, string>();
+
+        internal static SecurityAssuranceLevel InitilizeAssessment(IWebDriver driver, Shared.AssessmentRepository sharedRepo)
         {
             SecurityAssuranceLevel SALPage = null;
             LandingPage landingPage = AssessmentCommonFunctions.LogInToLandingPage(driver, sharedRepo);
@@ -33,7 +37,10 @@ namespace CSET_Selenium.Helpers
 
                     if (info != null)
                     {
-                        SALPage = AssessmentCommonFunctions.InitializeAssessmentSALPage(driver, sharedRepo, sal);
+                        // optionally allocate an instance of this object to set propertiesd
+                        Shared.SecurityAssuranceLevel salData = new Shared.SecurityAssuranceLevel();
+
+                        SALPage = AssessmentCommonFunctions.InitializeAssessmentSALPage(driver, sharedRepo, salData);
                     }
                 }
             }
@@ -97,6 +104,19 @@ namespace CSET_Selenium.Helpers
             Shared.SecurityAssuranceLevel sal = null)
         {
             SecurityAssuranceLevel securityPage = new SecurityAssuranceLevel(driver);
+
+            int generalRiskNum = r.Next(9);
+            securityPage.SelectHeaderGeneralRiskBased();
+            securityPage.SetRandomGeneralRisk(generalRiskNum);
+            securityPage.SelectHeaderNist();
+            Thread.Sleep(3000);
+            for (int i = 0; i < 5; i++)
+            {
+                securityPage.SetRandomNistCheck();
+            }
+            securityPage.GetStandardMap().ToList().ForEach(x => statMap.Add(x.Key, x.Value));
+            securityPage.SetRandomNistQuestion();
+            securityPage.ClickNext();
 
             sal = (sal == null) ? sharedRepo.SecurityAssuranceLevel() : sal;
 

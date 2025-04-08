@@ -17,6 +17,7 @@ using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using OpenQA.Selenium.DevTools.V130.Network;
 using System.Collections.Generic;
+using System;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
@@ -34,11 +35,8 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
             using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
             {
-                // optionally allocate an instance of this object to set propertiesd
-                Shared.SecurityAssuranceLevel sal = new Shared.SecurityAssuranceLevel();
-
                 // this function handles login, landing page, config, info, and SAL pages
-                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo, sal);
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo);
 
                 if (levelPage != null)
                 {
