@@ -24,11 +24,11 @@ namespace CSET_Selenium.Repositories.Shared
         /// 
         /// </summary>
         public SecurityAssuranceLevel(
-            SAL_Overall salOverall,
-            SAL_Methodology salMethdology,
-            SAL_Confidentiality salConfidentiality,
-            SAL_Integrity salIntegrity,
-            SAL_Availability salAvailability
+            SAL_Overall salOverall = SAL_Overall.Low,
+            SAL_Methodology salMethdology = SAL_Methodology.Simple,
+            SAL_Confidentiality salConfidentiality = SAL_Confidentiality.Low,
+            SAL_Integrity salIntegrity = SAL_Integrity.Low,
+            SAL_Availability salAvailability = SAL_Availability.Low
             )
         {
             this.Overall = salOverall;

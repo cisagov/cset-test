@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSET_Selenium.Enums.SAL;
 using CSET_Selenium.Repositories.NERC_Rev_6;
 using Shared = CSET_Selenium.Repositories.Shared;
 
@@ -49,7 +50,13 @@ namespace CSET_Selenium.Repositories.Shared
         {
             // this line will call a method that will return an initialized object whose
             // properties are set by a file or a databaswe or a web service call
-            Shared.SecurityAssuranceLevel level = new Shared.SecurityAssuranceLevel();
+            Shared.SecurityAssuranceLevel level = new Shared.SecurityAssuranceLevel(
+                SAL_Overall.High,
+                SAL_Methodology.Simple,
+                SAL_Confidentiality.High,
+                SAL_Integrity.High,
+                SAL_Availability.High
+                );
 
             return level;
         }

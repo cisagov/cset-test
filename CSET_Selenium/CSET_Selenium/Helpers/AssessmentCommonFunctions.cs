@@ -37,14 +37,9 @@ namespace CSET_Selenium.Helpers
 
                     if (info != null)
                     {
-                        // optionally allocate an instance of this object to set propertiesd
-                        Shared.SecurityAssuranceLevel salData = new Shared.SecurityAssuranceLevel(
-                            SAL_Overall.Low,
-                            SAL_Methodology.Simple,
-                            SAL_Confidentiality.Low,
-                            SAL_Integrity.Low,
-                            SAL_Availability.Low
-                            );
+                        // optionally allocate an instance of this object to set properties
+                        // as of now, this is the default: Low Simple, Low, Low, Low
+                        Shared.SecurityAssuranceLevel salData = new Shared.SecurityAssuranceLevel();
 
                         SALPage = AssessmentCommonFunctions.InitializeAssessmentSALPage(driver, sharedRepo, salData);
                     }
@@ -111,18 +106,18 @@ namespace CSET_Selenium.Helpers
         {
             SecurityAssuranceLevel securityPage = new SecurityAssuranceLevel(driver);
 
-            int generalRiskNum = r.Next(9);
-            securityPage.SelectHeaderGeneralRiskBased();
-            securityPage.SetRandomGeneralRisk(generalRiskNum);
-            securityPage.SelectHeaderNist();
-            Thread.Sleep(3000);
-            for (int i = 0; i < 5; i++)
-            {
-                securityPage.SetRandomNistCheck();
-            }
-            securityPage.GetStandardMap().ToList().ForEach(x => statMap.Add(x.Key, x.Value));
-            securityPage.SetRandomNistQuestion();
-            securityPage.ClickNext();
+            //int generalRiskNum = r.Next(9);
+            //securityPage.SelectHeaderGeneralRiskBased();
+            //securityPage.SetRandomGeneralRisk(generalRiskNum);
+            //securityPage.SelectHeaderNist();
+            //Thread.Sleep(3000);
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    securityPage.SetRandomNistCheck();
+            //}
+            //securityPage.GetStandardMap().ToList().ForEach(x => statMap.Add(x.Key, x.Value));
+            //securityPage.SetRandomNistQuestion();
+            //securityPage.ClickNext();
 
             sal = (sal == null) ? sharedRepo.SecurityAssuranceLevel() : sal;
 
@@ -197,25 +192,94 @@ namespace CSET_Selenium.Helpers
 
         private static void SetSalConfidentiality(SecurityAssuranceLevel securityPage, SAL_Confidentiality confideentiality)
         {
-            if (confideentiality == SAL_Confidentiality.Low)
+            switch (confideentiality)
             {
+                case SAL_Confidentiality.Moderate:
+                    {
+                        securityPage.SelectHeaderConfidentialityModerate();
 
-            }
+                        break;
+                    }
+                case SAL_Confidentiality.High:
+                    {
+                        securityPage.SelectHeaderConfidentialityHigh();
+
+                        break;
+                    }
+                case SAL_Confidentiality.VeryHigh:
+                    {
+                        securityPage.SelectHeaderConfidentialityVeryHigh();
+
+                        break;
+                    }
+                default:
+                    {
+                        securityPage.SelectHeaderConfidentialityLow();
+
+                        break;
+                    }
+            }    
         }
 
         private static void SetSalIntegrity(SecurityAssuranceLevel securityPage, SAL_Integrity integrity)
         {
-            if (integrity == SAL_Integrity.Low)
+            switch (integrity)
             {
+                case SAL_Integrity.Moderate:
+                    {
+                        securityPage.SelectHeaderIntegrityModerate();
 
+                        break;
+                    }
+                case SAL_Integrity.High:
+                    {
+                        securityPage.SelectHeaderIntegrityHigh();
+
+                        break;
+                    }
+                case SAL_Integrity.VeryHigh:
+                    {
+                        securityPage.SelectHeaderIntegrityVeryHigh();
+
+                        break;
+                    }
+                default:
+                    {
+                        securityPage.SelectHeaderIntegrityLow();
+
+                        break;
+                    }
             }
         }
 
         private static void SetSalAvailability (SecurityAssuranceLevel securityPage, SAL_Availability availability)
         {
-            if (availability == SAL_Availability.Low)
+            switch (availability)
             {
+                case SAL_Availability.Moderate:
+                    {
+                        securityPage.SelectHeaderAvailabilityModerate();
 
+                        break;
+                    }
+                case SAL_Availability.High:
+                    {
+                        securityPage.SelectHeaderAvailabilityHigh();
+
+                        break;
+                    }
+                case SAL_Availability.VeryHigh:
+                    {
+                        securityPage.SelectHeaderAvailabilityVeryHigh();
+
+                        break;
+                    }
+                default:
+                    {
+                        securityPage.SelectHeaderAvailabilityLow();
+
+                        break;
+                    }
             }
         }
     }
