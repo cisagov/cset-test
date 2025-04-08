@@ -38,7 +38,13 @@ namespace CSET_Selenium.Helpers
                     if (info != null)
                     {
                         // optionally allocate an instance of this object to set propertiesd
-                        Shared.SecurityAssuranceLevel salData = new Shared.SecurityAssuranceLevel();
+                        Shared.SecurityAssuranceLevel salData = new Shared.SecurityAssuranceLevel(
+                            SAL_Overall.Low,
+                            SAL_Methodology.Simple,
+                            SAL_Confidentiality.Low,
+                            SAL_Integrity.Low,
+                            SAL_Availability.Low
+                            );
 
                         SALPage = AssessmentCommonFunctions.InitializeAssessmentSALPage(driver, sharedRepo, salData);
                     }

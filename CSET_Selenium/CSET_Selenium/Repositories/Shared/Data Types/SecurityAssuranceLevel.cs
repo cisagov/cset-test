@@ -23,13 +23,19 @@ namespace CSET_Selenium.Repositories.Shared
         /// <summary>
         /// 
         /// </summary>
-        public SecurityAssuranceLevel()
+        public SecurityAssuranceLevel(
+            SAL_Overall salOverall,
+            SAL_Methodology salMethdology,
+            SAL_Confidentiality salConfidentiality,
+            SAL_Integrity salIntegrity,
+            SAL_Availability salAvailability
+            )
         {
-            this.Overall = SAL_Overall.Low;
-            this.Methodology = SAL_Methodology.Simple;
-            this.Confidentiality = SAL_Confidentiality.Low;
-            this.Integrity = SAL_Integrity.Low;
-            this.Avaiability = SAL_Availability.Low;
+            this.Overall = salOverall;
+            this.Methodology = salMethdology;
+            this.Confidentiality = salConfidentiality;
+            this.Integrity = salIntegrity;
+            this.Avaiability = salAvailability;
         }
 
         /// <summary>
