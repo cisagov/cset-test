@@ -94,11 +94,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 // go to questions mode
                 questionsPage.SetQuestionsMode();
 
-                // set question answers
-                questionsPage.SetQuestionValues(questionsData);
-
                 // expand all questions
                 questionsPage.ExpandAllQuestions();
+
+                // set question answers
+                questionsPage.SetQuestionValues(questionsData);
             }
 
             // ASSERT

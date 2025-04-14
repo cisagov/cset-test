@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
+namespace CSET_Selenium.Enums
 {
-    //public class ConfigurationManagement
-    //{
-    //}
+    public enum QuestionAnswers
+    {
+        YES,
+        NO,
+        NA,
+        ALT
+    }
 }
