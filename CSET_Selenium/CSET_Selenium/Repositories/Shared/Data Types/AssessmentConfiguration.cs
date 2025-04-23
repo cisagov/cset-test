@@ -1,4 +1,5 @@
-﻿using CSET_Selenium.Repositories.Shared.Data_Types;
+﻿using CSET_Selenium.Enums;
+using CSET_Selenium.Repositories.Shared.Data_Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace CSET_Selenium.Repositories.Shared
         {
             return base.IsValid();
         }
+        //protected override Dictionary<string, QuestionAnswers> BuildAnswerTable()
+        //{
+        //    Dictionary<string, QuestionAnswers> answersTable = new Dictionary<string, QuestionAnswers>();
+
+        //    return answersTable;
+        //}
 
         public string AssessmentName { get; set; }
         public string FacilityName { get; set; }

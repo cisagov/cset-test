@@ -18,6 +18,7 @@ using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using OpenQA.Selenium.DevTools.V130.Network;
 using System.Collections.Generic;
 using System;
+using CSET_Selenium.Enums;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
@@ -77,31 +78,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
 
         private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // ARRANGE
-
             // STANDARD QUESTIONS
+            StandardQuestions standardQuestions = nercRepo.AccessStandardQuestionsData(QuestionAnswers.YES);
+
             // allocate Standard Questions Page
-            NERC6Pages.StandardQuestions questionsPage = new NERC6Pages.StandardQuestions(driver);
-
-            // get data from repository
-            StandardQuestions questionsData = nercRepo.AccessStandardQuestionsData();
-
-            // ACT
-
-            // if instance is valid
-            if (questionsData.IsValid())
-            {
-                // go to questions mode
-                questionsPage.SetQuestionsMode();
-
-                // expand all questions
-                questionsPage.ExpandAllQuestions();
-
-                // set question answers
-                questionsPage.SetQuestionValues(questionsData);
-            }
-
-            // ASSERT
+            NERC6Pages.StandardQuestionsPage questionsPage = new NERC6Pages.StandardQuestionsPage(driver, standardQuestions);
 
             questionsPage.ClickNext();
         }

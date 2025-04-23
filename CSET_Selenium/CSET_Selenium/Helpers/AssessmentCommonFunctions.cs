@@ -106,19 +106,6 @@ namespace CSET_Selenium.Helpers
         {
             SecurityAssuranceLevel securityPage = new SecurityAssuranceLevel(driver);
 
-            //int generalRiskNum = r.Next(9);
-            //securityPage.SelectHeaderGeneralRiskBased();
-            //securityPage.SetRandomGeneralRisk(generalRiskNum);
-            //securityPage.SelectHeaderNist();
-            //Thread.Sleep(3000);
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    securityPage.SetRandomNistCheck();
-            //}
-            //securityPage.GetStandardMap().ToList().ForEach(x => statMap.Add(x.Key, x.Value));
-            //securityPage.SetRandomNistQuestion();
-            //securityPage.ClickNext();
-
             sal = (sal == null) ? sharedRepo.SecurityAssuranceLevel() : sal;
 
             SetSalMethdology(securityPage, sal.Methodology);

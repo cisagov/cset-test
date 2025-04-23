@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using CSET_Selenium.Enums;
 
 namespace CSET_Selenium.Repositories.Shared
 {
@@ -37,6 +38,17 @@ namespace CSET_Selenium.Repositories.Shared
             this.Integrity = salIntegrity;
             this.Avaiability = salAvailability;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        //protected override Dictionary<string, QuestionAnswers> BuildAnswerTable()
+        //{
+        //    Dictionary<string, QuestionAnswers> answersTable = new Dictionary<string, QuestionAnswers>();
+
+        //    return answersTable;
+        //}
 
         /// <summary>
         /// 

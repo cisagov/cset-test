@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Enums.Questions
 {
+    /* naming convention is: 
+     * - any space is replaced with '_'        
+     * - all questions have the question number at the end (if the question text would have the question number in front, it is removed and put at the end)
+     * - any other special character is removed with no replacement, except 
+     * -- any '&', which is replaced with "and"
+     * -- the '.' in question numbers, which is replaced with '_'
+     */
+
     /// <summary>
     /// 
     /// </summary>
     public enum NERCRev6StandardQuestions
     {
+        // Account Management
+        // Personnel and Training
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Do you have a process to address access based on need that is determined by the responsible entity for the following types of access")] 
         Do_you_have_a_process_to_address_access_based_on_need_that_is_determined_by_the_responsible_entity_for_the_following_types_of_access,
 
+        // Connfiguration Management
+        // Configuration Change Management
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Does the organization have a configuration change management plan?")]
         Does_the_organization_have_a_configuration_change_management_plan,
 
@@ -26,6 +40,9 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("For each change that deviates from the existing baseline configuration do you perform the following")]
         For_each_change_that_deviates_from_the_existing_baseline_configuration_do_you_perform_the_following,
 
+        // Connfiguration Management
+        // Inventory
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Does the organization maintain a configuration management inventory of and identify impact for BES Cyber systems")]
         Does_the_organization_maintain_a_configuration_management_inventory_of_and_identify_impact_for_BES_Cyber_systems,
 
@@ -59,6 +76,9 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("For questions 1-7 in this group have you identified the LOW impact BES Cyber Systems according to attachment 1, section 1, if any, at each asset?")]
         For_questions_1_7_in_this_group_have_you_identified_the_LOW_impact_BES_Cyber_Systems_according_to_attachment_1_section_1_if_any_at_each_asset,
 
+        // Incident Response
+        // Incident Response Plan Review
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Does the organization conduct incident response plan reviews")]
         Does_the_organization_conduct_incident_response_plan_reviews,
 
@@ -68,9 +88,14 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("No later than 60 calendar days after a change to the roles or responsibilities, Cyber Security Incident response groups or individuals, or technology that the Responsible Entity determines would impact the ability to execute the plan")]
         No_later_than_60_calendar_days_after_a_change_to_the_roles_or_responsibilities_Cyber_Security_Incident_response_groups_or_individuals_or_technology_that_the_Responsible_Entity_determines_would_impact_the_ability_to_execute_the_plan,
 
+        // Physical Security
+        // PHysical Security
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("For primary control center(s) do you consider the following")]
         For_primary_control_centers_do_you_consider_the_following,
 
+        // Physical Security
+        // PHysical Security Plans
         [NERCRev6StandardQuestionsAttr("Does the organization have a physical security plan")]
         Does_the_organization_have_a_physical_security_plan,
 
@@ -92,11 +117,23 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("Does the organization's physical security plan(s) include provisions to evaluate evolving physical threats, and their corresponding security measures, to the Transmission station(s), Transmission substation(s), or primary control center(s)")]
         Does_the_organizations_physical_security_plans_include_provisions_to_evaluate_evolving_physical_threats_and_their_corresponding_security_measures_to_the_Transmission_stations_Transmission_substation_or_primary_control_centers,
 
+        // Policies
+        // CyberSecurity Plan
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Do you implement one or more documented security plan(s) including the sections in Attachment 1")]
         Do_you_implement_one_or_more_documented_security_plans_including_the_sections_in_Attachment,
 
+        // Policies
+        // CyberSecurity Policies
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Do you review and obtain CIP Senior Manager approval, in the last 15 calendar months, for cyber security policies that address the following topics (for low impact BES Cyber Systems)")]
         Do_you_review_and_obtain_CIP_Senior_Manager_approval_in_the_last_15_calendar_months_for_cyber_security_policies_that_address_the_following_topics_for_low_impact_BES_Cyber_Systems,
+
+        // Recovery
+        // Recovery Plan Review
+        // SAL Level 1 Questions:
+        [NERCRev6StandardQuestionsAttr("Does the organization conduct recovery plan reviews?")]
+        Does_the_organization_conduct_recovery_plan_reviews,
 
         [NERCRev6StandardQuestionsAttr("Do you perform the following no later than 90 days after the completion of a recovery plan test or actual recovery")]
         Do_you_perform_the_following_no_later_than_90_days_after_the_completion_of_a_recovery_plan_test_or_actual_recovery,
@@ -104,6 +141,9 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("If there is a change to roles or responsibilities, responders, or technology do you complete the following in no later than 60 days")]
         If_there_is_a_change_to_roles_or_responsibilities_responders_or_technology_do_you_complete_the_following_in_no_later_than_60_days,
 
+        // Risk Assessment
+        // Risk Assessment
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Does the organization perform risk assessments")]
         Does_the_organization_perform_risk_assessments,
 
@@ -116,6 +156,9 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("Have you identified the primary control center that controls each transmission station or substation")]
         Have_you_identified_the_primary_control_center_that_controls_each_transmission_station_or_substation,
 
+        // System Protection
+        // Security Event Logging
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Does your organization implement any security event logging")]
         Does_your_organization_implement_any_security_event_logging,
 
@@ -125,8 +168,15 @@ namespace CSET_Selenium.Enums.Questions
         [NERCRev6StandardQuestionsAttr("Do you generate alerts for security events that the Responsible Entity determines is necessary and that include, at a minimum, each of the following events")]
         Do_you_generate_alerts_for_security_events_that_the_Responsible_Entity_determines_is_necessary_and_that_include_at_a_minimum_each_of_the_following_events,
 
+        // Vulnerability Asssessment and Management
+        // Vulneratiblity Assessment
+        // SAL Level 1 Questions:
         [NERCRev6StandardQuestionsAttr("Do you perform the following at least once every 36 months (where technically feasible)?")]
         Do_you_perform_the_following_at_least_once_every_36_months_where_technically_feasible
+
+        // SAL Level 2 Questions:
+
+        // SAL Level 3 Questions:
     }
 
     /// <summary>

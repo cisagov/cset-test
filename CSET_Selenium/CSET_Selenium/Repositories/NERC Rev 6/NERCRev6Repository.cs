@@ -1,4 +1,5 @@
-﻿using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
+﻿using CSET_Selenium.Enums;
+using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using OpenQA.Selenium.Internal;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
 {
     public class NERCRev6Repository : IDisposable
     {
+        public StandardQuestions AccessStandardQuestionsData(QuestionAnswers qa)
+        {
+            StandardQuestions questionsData = new StandardQuestions(qa);
+
+            return questionsData;
+        }
+
         public StandardQuestions AccessStandardQuestionsData()
         {
             StandardQuestions questionsData = new StandardQuestions();

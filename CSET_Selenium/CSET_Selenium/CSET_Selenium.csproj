@@ -208,7 +208,16 @@
     <Compile Include="Helpers\Con_PCA\TableUtils.cs" />
     <Compile Include="Helpers\ExtensionMethodHelpers.cs" />
     <Compile Include="Helpers\WebElementToPropertyMapper.cs" />
-    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\StandardQuestions.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\AccountManagementPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\ConfigurationManagementPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\IncidentResponsePage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\PhysicalSecurityPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\PoliciesPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\RecoveryPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\RiskAssessmentPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\StandardQuestionsPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\SystemProtectionPage.cs" />
+    <Compile Include="Page_Objects\AssessmentQuesitons\NERCRev6\VulerabilityAssementAndManagementPage.cs" />
     <Compile Include="Page_Objects\Con_PCA_Page_Obj\ConPCABase.cs" />
     <Compile Include="Enums\Con_PCA\Customer.cs" />
     <Compile Include="Enums\Con_PCA\CustomerTypes.cs" />
@@ -275,9 +284,7 @@
     <Compile Include="Repositories\NERC Rev 6\Data Types\AccountManagement.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\ConfigurationManagement.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\IncidentResponse.cs" />
-    <Compile Include="Repositories\NERC Rev 6\Data Types\Inventory.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\PhysicalSecurity.cs" />
-    <Compile Include="Repositories\NERC Rev 6\Data Types\PhysicalSecurityPlans.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\Policies.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\Recovery.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\RiskAssessment.cs" />
