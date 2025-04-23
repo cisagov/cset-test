@@ -45,19 +45,15 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems;
             this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
             this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;
-            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = configurationManagement.OrganizationImplmentProcessTransmissionStationsAndSubStations;
+            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = configurationManagement.OrganizationImplmentProcessTransmissionStationsAndSubStations; ;
+            this.OrganizationImplmentProcessThatConsidersGenerationResources = configurationManagement.OrganizationImplmentProcessThatConsidersGenerationResources;
             this.ProcessThatConsidersGenerationResources = configurationManagement.ProcessThatConsidersGenerationResources;
-            this.ProcessThatConsidersSystemsAndFacilities = configurationManagement.ProcessThatConsidersSystemsAndFacilities;
             this.ProcessThatConsidersSpecialProtectionSystems = configurationManagement.ProcessThatConsidersSpecialProtectionSystems;
             this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = configurationManagement.ProcessThatConsidersDistributionProvidersAndProtectedSystems;
             this.IdentifiedHIGHImactBESCyberSystems = configurationManagement.IdentifiedHIGHImactBESCyberSystems;
             this.IdentifiedMEDIUMImactBESCyberSystems = configurationManagement.IdentifiedMEDIUMImactBESCyberSystems;
             this.IdentifiedLOWImactBESCyberSystems = configurationManagement.IdentifiedLOWImactBESCyberSystems;
-        
-        '
-                
-                '
-                }
+        }        
 
         #region Configuration Change Management
         #region Does the organization have a configuration change management plan?
@@ -324,18 +320,26 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                 {
                     case QuestionAnswers.YES:
                         {
+                            this.weIdentifyImpactOfBESCyberSystemsAccordingToAttachement1YES.Click();
+
                             break;
                         }
                     case QuestionAnswers.NO:
                         {
+                            this.weIdentifyImpactOfBESCyberSystemsAccordingToAttachement1NO.Click();
+
                             break;
                         }
                     case QuestionAnswers.NA:
                         {
+                            this.weIdentifyImpactOfBESCyberSystemsAccordingToAttachement1NA.Click();
+
                             break;
                         }
                     case QuestionAnswers.ALT:
                         {
+                            this.weIdentifyImpactOfBESCyberSystemsAccordingToAttachement1ALT.Click();
+
                             break;
                         }
                 }
@@ -422,18 +426,26 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                 {
                     case QuestionAnswers.YES:
                         {
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+
                             break;
                         }
                     case QuestionAnswers.NO:
                         {
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+
                             break;
                         }
                     case QuestionAnswers.NA:
                         {
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+
                             break;
                         }
                     case QuestionAnswers.ALT:
                         {
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+
                             break;
                         }
                 }
@@ -442,22 +454,22 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesYES
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[1]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesNO
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[2]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[2]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesNA
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[3]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[3]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesALT
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[4]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[4]")); }
         }
 
         #endregion
@@ -499,22 +511,22 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         private IWebElement weOrganizationImplmentProcessTransmissionStationsAndSubStationsYES
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[1]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessTransmissionStationsAndSubStationsNO
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[2]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[2]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessTransmissionStationsAndSubStationsNA
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[3]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[3]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessTransmissionStationsAndSubStationsALT
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[4]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14452\"]/div[1]/div[2]/div/label[4]")); }
         }
         #endregion
 
@@ -633,18 +645,26 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                 {
                     case QuestionAnswers.YES:
                         {
+                            this.weProcessThatConsidersDistributionProvidersAndProtectedSystemsYES.Click();
+
                             break;
                         }
                     case QuestionAnswers.NO:
                         {
+                            this.weProcessThatConsidersDistributionProvidersAndProtectedSystemsNO.Click();
+
                             break;
                         }
                     case QuestionAnswers.NA:
                         {
+                            this.weProcessThatConsidersDistributionProvidersAndProtectedSystemsNA.Click();
+
                             break;
                         }
                     case QuestionAnswers.ALT:
                         {
+                            this.weProcessThatConsidersDistributionProvidersAndProtectedSystemsALT.Click();
+
                             break;
                         }
                 }
@@ -790,18 +810,26 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                 {
                     case QuestionAnswers.YES:
                         {
+                            this.weIdentifiedLOWImactBESCyberSystemsYES.Click();
+
                             break;
                         }
                     case QuestionAnswers.NO:
                         {
+                            this.weIdentifiedLOWImactBESCyberSystemsNO.Click();
+
                             break;
                         }
                     case QuestionAnswers.NA:
                         {
+                            this.weIdentifiedLOWImactBESCyberSystemsNA.Click();
+
                             break;
                         }
                     case QuestionAnswers.ALT:
                         {
+                            this.weIdentifiedLOWImactBESCyberSystemsALT.Click();
+
                             break;
                         }
                 }
@@ -810,19 +838,19 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         private IWebElement weIdentifiedLOWImactBESCyberSystemsYES
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14457\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14458\"]/div[1]/div[2]/div/label[1]")); }
         }
         private IWebElement weIdentifiedLOWImactBESCyberSystemsNO
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14457\"]/div[1]/div[2]/div/label[2]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14458\"]/div[1]/div[2]/div/label[2]")); }
         }
         private IWebElement weIdentifiedLOWImactBESCyberSystemsNA
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14457\"]/div[1]/div[2]/div/label[3]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14458\"]/div[1]/div[2]/div/label[3]")); }
         }
         private IWebElement weIdentifiedLOWImactBESCyberSystemsALT
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14457\"]/div[1]/div[2]/div/label[4]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14458\"]/div[1]/div[2]/div/label[4]")); }
         }
         #endregion
         #endregion

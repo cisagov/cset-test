@@ -40,7 +40,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             this.IdentifyImpactOfBESCyberSystemsAccordingToAttachment1 = questionAnswers;
             this.ProcessThatConsidersControlCentersAndBackupControlCenters = questionAnswers;
             this.OrganizationImplmentProcessTransmissionStationsAndSubStations = questionAnswers;
-            this.ProcessThatConsidersSystemsAndFacilities = questionAnswers;
+            this.ProcessThatConsidersGenerationResources = questionAnswers;
             this.ProcessThatConsidersSpecialProtectionSystems = questionAnswers;
             this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = questionAnswers;
             this.IdentifiedHIGHImactBESCyberSystems = questionAnswers;
@@ -113,8 +113,14 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             get; set;
         }
 
+        [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.Does_the_organization_implement_a_process_that_considers_generation_resources)]
+        public QuestionAnswers OrganizationImplmentProcessThatConsidersGenerationResources
+        {
+            get; set;
+        }
+
         [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.Does_the_organization_implement_a_process_that_considers_systems_and_facilities_critical_to_system_restoration_including_blackstart_resources_and_cranking_paths_and_initial_switching_requirements)]
-        public QuestionAnswers ProcessThatConsidersSystemsAndFacilities
+        public QuestionAnswers ProcessThatConsidersGenerationResources
         {
             get; set;
         }
