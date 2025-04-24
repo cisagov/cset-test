@@ -39,7 +39,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.ConfiurationChangeManagementPlan = configurationManagement.ConfiurationChangeManagementPlan;
 
             // only update these controls if the value of the parent is yes or na
-            if (configurationManagement.ConfiurationChangeManagementPlan.IsYYESorALT())
+            if (configurationManagement.ConfiurationChangeManagementPlan.IsYESorALT())
             {
                 this.DevelopBaselineConfiguation = configurationManagement.DevelopBaselineConfiguation;
                 this.ChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ChangeThatDeviatesFromExistingBaselineConfiguration;
@@ -50,7 +50,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems;
 
             // only update these controls if the value of the parent is yes or na
-            if (configurationManagement.ConfiurationChangeManagementPlan.IsYYESorALT())
+            if (configurationManagement.ConfiurationChangeManagementPlan.IsYESorALT())
             {
                 this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
                 this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;
@@ -132,9 +132,14 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                             break;
                         }
                     case QuestionAnswers.NA:
-                    case QuestionAnswers.ALT:
                         {
                             this.DoYouDevelopBaselineConfigurationNA.Click();
+
+                            break;
+                        }
+                    case QuestionAnswers.ALT:
+                        {
+                            this.DoYouDevelopBaselineConfigurationALT.Click();
 
                             break;
                         }
@@ -297,7 +302,6 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                             break;
                         }
                     case QuestionAnswers.NA:
-                    case QuestionAnswers.ALT:
                         {
                             this.weConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystemsNA.Click();
 
@@ -442,19 +446,19 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                         }
                     case QuestionAnswers.NO:
                         {
-                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesNO.Click();
 
                             break;
                         }
                     case QuestionAnswers.NA:
                         {
-                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesNA.Click();
 
                             break;
                         }
                     case QuestionAnswers.ALT:
                         {
-                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesYES.Click();
+                            this.weOrganizationImplmentProcessThatConsidersGenerationResourcesALT.Click();
 
                             break;
                         }
@@ -464,22 +468,22 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesYES
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div[1]/label[1]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesNO
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[2]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div[1]/label[2]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesNA
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[3]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div[1]/label[3]")); }
         }
 
         private IWebElement weOrganizationImplmentProcessThatConsidersGenerationResourcesALT
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div/label[4]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14451\"]/div[1]/div[2]/div[1]/label[4]")); }
         }
 
         #endregion
@@ -741,17 +745,17 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
         private IWebElement weIdentifiedHIGHImactBESCyberSystemsNO
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[2]")); }
         }
 
         private IWebElement weIdentifiedHIGHImactBESCyberSystemsNA
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[3]")); }
         }
 
         private IWebElement weIdentifiedHIGHImactBESCyberSystemsALT
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14456\"]/div[1]/div[2]/div/label[4]")); }
         }
         #endregion
 

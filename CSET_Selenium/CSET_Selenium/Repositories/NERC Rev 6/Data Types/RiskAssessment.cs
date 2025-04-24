@@ -11,7 +11,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
     public class RiskAssessment : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
+        public RiskAssessment() 
+        {
+            this.RiskAssessments = base.GetNextValue();
+            this.InitialRiskAssessment = base.GetNextValue();
+            this.SubsequentRiskAssessments = base.GetNextValue();
+            this.PrimaryControlCenter = base.GetNextValue();
+        }
 
         /// <summary>
         /// 
@@ -19,8 +25,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public RiskAssessment(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.RiskAssessments = questionAnswers;
             this.InitialRiskAssessment = questionAnswers;
             this.SubsequentRiskAssessments = questionAnswers;

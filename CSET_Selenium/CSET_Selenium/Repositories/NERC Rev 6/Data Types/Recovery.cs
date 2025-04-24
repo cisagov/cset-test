@@ -11,13 +11,14 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
     public class Recovery : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         public Recovery()
         {
+            this.RecoveryPlanReviews = base.GetNextValue();
+            this.PerformWithin90Days = base.GetNextValue();
+            this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = base.GetNextValue();
         }
 
         /// <summary>
@@ -26,8 +27,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public Recovery(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.RecoveryPlanReviews = questionAnswers;
             this.PerformWithin90Days = questionAnswers;
             this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = questionAnswers;

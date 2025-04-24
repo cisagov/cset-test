@@ -29,7 +29,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             this.RecoveryPlanReviews = recovery.RecoveryPlanReviews;
 
-            if (recovery.RecoveryPlanReviews.IsYYESorALT())
+            if (recovery.RecoveryPlanReviews.IsYESorALT())
             {
                 this.PerformWithin90Days = recovery.PerformWithin90Days;
                 this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = recovery.ChangeToRolesOrResponsibilitiesRespondersOrTechnology;
@@ -187,7 +187,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
         }
         private IWebElement weChangeToRolesOrResponsibilitiesRespondersOrTechnologyAlt
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14593\"]/div[1]/div[2]/div/label[4]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14597\"]/div[1]/div[2]/div/label[4]")); }
         }
     }
 }

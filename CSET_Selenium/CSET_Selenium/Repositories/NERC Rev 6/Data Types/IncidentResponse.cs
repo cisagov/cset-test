@@ -14,14 +14,14 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class IncidentResponse : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         public IncidentResponse()
         {
-
+            this.IncidentResponseViews = base.GetNextValue();
+            this.NoLaterThan90CalendarDays = base.GetNextValue();
+            this.NoLaterThan60CalendarDays = base.GetNextValue();
         }
 
         /// <summary>
@@ -30,8 +30,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public IncidentResponse(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.IncidentResponseViews = questionAnswers;
             this.NoLaterThan90CalendarDays = questionAnswers;
             this.NoLaterThan60CalendarDays = questionAnswers;

@@ -25,9 +25,9 @@ namespace CSET_Selenium.Enums
         /// </summary>
         /// <param name="questionAnswers"></param>
         /// <returns></returns>
-        public static bool IsYYESorALT(this QuestionAnswers questionAnswers)
+        public static bool IsYESorALT(this QuestionAnswers questionAnswers)
         {
-            return questionAnswers == QuestionAnswers.YES || questionAnswers == QuestionAnswers.NA;
+            return questionAnswers == QuestionAnswers.YES || questionAnswers == QuestionAnswers.ALT;
         }
     }
 }

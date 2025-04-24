@@ -14,13 +14,14 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class Policies : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         public Policies()
         {
+            this.CIPSeniorManagerApproval = base.GetNextValue();
+            this.CIPSeniorManagerApproval = base.GetNextValue();
+            this.ProcessToAddressAccess = base.GetNextValue();
         }
 
         /// <summary>
@@ -28,8 +29,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         public Policies(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.CIPSeniorManagerApproval = questionAnswers;
             this.CIPSeniorManagerApproval = questionAnswers;
             this.ProcessToAddressAccess = questionAnswers;

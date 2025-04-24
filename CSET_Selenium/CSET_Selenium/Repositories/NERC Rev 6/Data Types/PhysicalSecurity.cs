@@ -14,11 +14,17 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class PhysicalSecurity : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         public PhysicalSecurity()
         {
-
+            this.ForPrimaryControlCenters = base.GetNextValue();
+            this.OrganizationHavePhysicalSecurityPlan = base.GetNextValue();
+            this.PhysicalSecurityPlanWithin120Days = base.GetNextValue();
+            this.IncidentResponseViews = base.GetNextValue();
+            this.PhysicalSecurityIncludeTheFollowing = base.GetNextValue();
+            this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = base.GetNextValue();
+            this.DoesPhysicialSeucityPlanIncludeLawEnforcement = base.GetNextValue();
+            this.DoesPhysicalSecurityPlanIncludeTimeline = base.GetNextValue();
+            this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = base.GetNextValue();
         }
 
         /// <summary>
@@ -27,8 +33,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public PhysicalSecurity(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.ForPrimaryControlCenters = questionAnswers;
             this.OrganizationHavePhysicalSecurityPlan = questionAnswers;
             this.PhysicalSecurityPlanWithin120Days = questionAnswers;

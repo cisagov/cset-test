@@ -14,14 +14,14 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class SystemProtection : BaseDTOData
     {
-
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         public SystemProtection()
         {
+            this.SecurityEventLogging = base.GetNextValue();
+            this.BESCyberSystemsLevelLogging = base.GetNextValue();
+            this.AlertsForSecurityEvents = base.GetNextValue();
         }
 
         /// <summary>
@@ -30,8 +30,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public SystemProtection(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.SecurityEventLogging = questionAnswers;
             this.BESCyberSystemsLevelLogging = questionAnswers;
             this.AlertsForSecurityEvents = questionAnswers;

@@ -31,7 +31,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.OrganizationHavePhysicalSecurityPlan = physicalSecurity.OrganizationHavePhysicalSecurityPlan;
 
             // only update these controls if the value of the parent is yes or na
-            if (physicalSecurity.OrganizationHavePhysicalSecurityPlan.IsYYESorALT())
+            if (physicalSecurity.OrganizationHavePhysicalSecurityPlan.IsYESorALT())
             {
                 this.PhysicalSecurityPlanWithin120Days = physicalSecurity.PhysicalSecurityPlanWithin120Days;
                 this.PhysicalSecurityIncludeTheFollowing = physicalSecurity.PhysicalSecurityIncludeTheFollowing;

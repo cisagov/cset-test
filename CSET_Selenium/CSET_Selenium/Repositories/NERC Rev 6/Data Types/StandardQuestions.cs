@@ -41,6 +41,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             this.PhysicalSecurity = new PhysicalSecurity();
             this.Policies = new Policies();
             this.Recovery = new Recovery();
+            this.RiskAssessment = new RiskAssessment();
             this.SystemProtection = new SystemProtection();
             this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
         }

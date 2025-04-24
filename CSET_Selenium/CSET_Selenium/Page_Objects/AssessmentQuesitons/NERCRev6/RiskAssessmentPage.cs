@@ -29,7 +29,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             this.RiskAssessments = riskAssessment.RiskAssessments;
 
-            if (riskAssessment.RiskAssessments.IsYYESorALT())
+            if (riskAssessment.RiskAssessments.IsYESorALT())
             {
                 this.InitialRiskAssessment = riskAssessment.InitialRiskAssessment;
                 this.SubsequentRiskAssessments = riskAssessment.SubsequentRiskAssessments;
@@ -189,7 +189,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
         // Question 1
         public IWebElement weInitialRiskAssessmentYes
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14632\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14631\"]/div[1]/div[2]/div/label[1]")); }
         }
         public IWebElement weInitialRiskAssessmentNo
         {
@@ -207,7 +207,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
         // Question 2
         public IWebElement weSubsequentRiskAssessmentsYes
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14631\"]/div[1]/div[2]/div/label[1]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14632\"]/div[1]/div[2]/div/label[1]")); }
         }
         public IWebElement weSubsequentRiskAssessmentsNo
         {
@@ -219,7 +219,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
         }
         public IWebElement weSubsequentRiskAssessmentsAlt
         {
-            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14632\"]/div[1]/div[2]/div/label[3]")); }
+            get { return WaitUntilElementIsVisible(By.XPath("//*[@id=\"qq14632\"]/div[1]/div[2]/div/label[4]")); }
         }
 
         // Question 3

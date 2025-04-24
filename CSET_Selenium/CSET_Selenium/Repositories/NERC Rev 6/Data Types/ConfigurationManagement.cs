@@ -14,13 +14,27 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class ConfigurationManagement : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         public ConfigurationManagement()
         {
+            this.ConfiurationChangeManagementPlan = base.GetNextValue();
+            this.DevelopBaselineConfiguation = base.GetNextValue();
+            this.ChangeThatDeviatesFromExistingBaselineConfiguration = base.GetNextValue();
+            this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = base.GetNextValue();
+
+            this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = base.GetNextValue();
+            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = base.GetNextValue();
+            this.ProcessThatConsidersControlCentersAndBackupControlCenters = base.GetNextValue();
+            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = base.GetNextValue();
+            this.OrganizationImplmentProcessThatConsidersGenerationResources = base.GetNextValue();
+            this.ProcessThatConsidersGenerationResources = base.GetNextValue();
+            this.ProcessThatConsidersSpecialProtectionSystems = base.GetNextValue();
+            this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = base.GetNextValue();
+            this.IdentifiedHIGHImactBESCyberSystems = base.GetNextValue();
+            this.IdentifiedMEDIUMImactBESCyberSystems = base.GetNextValue();
+            this.IdentifiedLOWImactBESCyberSystems = base.GetNextValue();
         }
 
         /// <summary>
@@ -29,17 +43,16 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public ConfigurationManagement(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.ConfiurationChangeManagementPlan = questionAnswers;
             this.DevelopBaselineConfiguation = questionAnswers;
             this.ChangeThatDeviatesFromExistingBaselineConfiguration = questionAnswers;
             this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = questionAnswers;
 
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = questionAnswers;
-            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachment1 = questionAnswers;
+            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = questionAnswers;
             this.ProcessThatConsidersControlCentersAndBackupControlCenters = questionAnswers;
             this.OrganizationImplmentProcessTransmissionStationsAndSubStations = questionAnswers;
+            this.OrganizationImplmentProcessThatConsidersGenerationResources = questionAnswers;
             this.ProcessThatConsidersGenerationResources = questionAnswers;
             this.ProcessThatConsidersSpecialProtectionSystems = questionAnswers;
             this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = questionAnswers;
@@ -80,11 +93,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.Does_the_organization_maintain_a_configuration_management_inventory_of_and_identify_impact_for_BES_Cyber_systems)]
         public QuestionAnswers ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems
-        {
-            get; set;
-        }
-
-        public QuestionAnswers IdentifyImpactOfBESCyberSystemsAccordingToAttachment1
         {
             get; set;
         }

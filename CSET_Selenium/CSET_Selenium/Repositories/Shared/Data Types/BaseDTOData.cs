@@ -16,9 +16,20 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
     public class BaseDTOData
     {
         private QuestionAnswers _questionAnswers;
+        private Random _random = new Random();
 
         public BaseDTOData()
         {
+            this._random = new Random(0);
+        }
+
+        protected QuestionAnswers GetNextValue()
+        {
+            QuestionAnswers answer;
+            int val = this._random.Next(3);
+            Enum.TryParse<QuestionAnswers>(val.ToString(), out answer);
+
+            return answer;
         }
 
         /// <summary>

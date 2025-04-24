@@ -14,16 +14,12 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
     public class AccountManagement : BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
         public AccountManagement(QuestionAnswers questionAnswers)
         {
-            this._questionAnswers = questionAnswers;
-
             this.PersonnelAndTraining = questionAnswers;
         }
 
@@ -32,6 +28,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         public AccountManagement() : base()
         {
+            this.PersonnelAndTraining = base.GetNextValue();
         }
 
         /// <summary>

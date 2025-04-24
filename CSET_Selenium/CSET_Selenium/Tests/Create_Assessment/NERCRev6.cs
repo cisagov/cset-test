@@ -258,7 +258,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
                 {
                     // STANDARD QUESTIONS
-                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.YES);
+                    this.TestStandardQuestionsPage(driver, nercRepo);
 
                     // move to analysis dashboard page
                     this.TestAnalysisDashboardPage(driver, nercRepo);
@@ -285,6 +285,17 @@ namespace CSET_Selenium.Tests.Create_Assessment
                     this.TestFeebackPage(driver, nercRepo);
                 }
             }
+        }
+
+        private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
+        {
+            // STANDARD QUESTIONS
+            StandardQuestions standardQuestions = nercRepo.AccessStandardQuestionsData();
+
+            // allocate Standard Questions Page
+            NERC6Pages.StandardQuestionsPage questionsPage = new NERC6Pages.StandardQuestionsPage(driver, standardQuestions);
+
+            questionsPage.ClickNext();
         }
 
         private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo, QuestionAnswers questionAnswers )
