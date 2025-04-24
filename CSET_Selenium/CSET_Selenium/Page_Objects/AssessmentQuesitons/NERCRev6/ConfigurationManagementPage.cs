@@ -37,22 +37,32 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             // Configuration Change Management
             this.ConfiurationChangeManagementPlan = configurationManagement.ConfiurationChangeManagementPlan;
-            this.DevelopBaselineConfiguation = configurationManagement.DevelopBaselineConfiguation;
-            this.ChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ChangeThatDeviatesFromExistingBaselineConfiguration;
-            this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ForEachChangeThatDeviatesFromExistingBaselineConfiguration;
+
+            // only update these controls if the value of the parent is yes or na
+            if (configurationManagement.ConfiurationChangeManagementPlan.IsYYESorALT())
+            {
+                this.DevelopBaselineConfiguation = configurationManagement.DevelopBaselineConfiguation;
+                this.ChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ChangeThatDeviatesFromExistingBaselineConfiguration;
+                this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ForEachChangeThatDeviatesFromExistingBaselineConfiguration;
+            }
 
             // Inventory Management
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems;
-            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
-            this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;
-            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = configurationManagement.OrganizationImplmentProcessTransmissionStationsAndSubStations; ;
-            this.OrganizationImplmentProcessThatConsidersGenerationResources = configurationManagement.OrganizationImplmentProcessThatConsidersGenerationResources;
-            this.ProcessThatConsidersGenerationResources = configurationManagement.ProcessThatConsidersGenerationResources;
-            this.ProcessThatConsidersSpecialProtectionSystems = configurationManagement.ProcessThatConsidersSpecialProtectionSystems;
-            this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = configurationManagement.ProcessThatConsidersDistributionProvidersAndProtectedSystems;
-            this.IdentifiedHIGHImactBESCyberSystems = configurationManagement.IdentifiedHIGHImactBESCyberSystems;
-            this.IdentifiedMEDIUMImactBESCyberSystems = configurationManagement.IdentifiedMEDIUMImactBESCyberSystems;
-            this.IdentifiedLOWImactBESCyberSystems = configurationManagement.IdentifiedLOWImactBESCyberSystems;
+
+            // only update these controls if the value of the parent is yes or na
+            if (configurationManagement.ConfiurationChangeManagementPlan.IsYYESorALT())
+            {
+                this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
+                this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;
+                this.OrganizationImplmentProcessTransmissionStationsAndSubStations = configurationManagement.OrganizationImplmentProcessTransmissionStationsAndSubStations; ;
+                this.OrganizationImplmentProcessThatConsidersGenerationResources = configurationManagement.OrganizationImplmentProcessThatConsidersGenerationResources;
+                this.ProcessThatConsidersGenerationResources = configurationManagement.ProcessThatConsidersGenerationResources;
+                this.ProcessThatConsidersSpecialProtectionSystems = configurationManagement.ProcessThatConsidersSpecialProtectionSystems;
+                this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = configurationManagement.ProcessThatConsidersDistributionProvidersAndProtectedSystems;
+                this.IdentifiedHIGHImactBESCyberSystems = configurationManagement.IdentifiedHIGHImactBESCyberSystems;
+                this.IdentifiedMEDIUMImactBESCyberSystems = configurationManagement.IdentifiedMEDIUMImactBESCyberSystems;
+                this.IdentifiedLOWImactBESCyberSystems = configurationManagement.IdentifiedLOWImactBESCyberSystems;
+            }
         }        
 
         #region Configuration Change Management

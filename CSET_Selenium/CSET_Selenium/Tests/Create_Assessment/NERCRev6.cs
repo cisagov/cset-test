@@ -27,8 +27,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
     {
         private IWebDriver driver;
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
-        public void CreateAssessmentTest()
+        public void CreateAssessmentTestAllYes()
         {
             BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
             driver = BuildDriver(cf);
@@ -47,7 +50,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
                 using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
                 {
                     // STANDARD QUESTIONS
-                    this.TestStandardQuestionsPage(driver, nercRepo);
+                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.YES);
 
                     // move to analysis dashboard page
                     this.TestAnalysisDashboardPage(driver, nercRepo);
@@ -76,10 +79,218 @@ namespace CSET_Selenium.Tests.Create_Assessment
             }
         }
 
-        private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void CreateAssessmentTestAllNO()
+        {
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            driver = BuildDriver(cf);
+            Assert.That(driver.Title.Contains("CSET"));
+
+            using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
+            {
+                // this function handles login, landing page, config, info, and SAL pages
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo);
+
+                if (levelPage != null)
+                {
+                    levelPage.ClickNext();
+                }
+
+                using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
+                {
+                    // STANDARD QUESTIONS
+                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.NO);
+
+                    // move to analysis dashboard page
+                    this.TestAnalysisDashboardPage(driver, nercRepo);
+
+                    // move to the Control Priorities page
+                    this.TestControlPrioritiesPage(driver, nercRepo);
+
+                    // move to Standards Summary page
+                    this.TestStandardsSummaryPage(driver, nercRepo);
+
+                    // move to Ranked Categories page
+                    this.TestRankedCategoriesPage(driver, nercRepo);
+
+                    // move to Results by Category page
+                    this.TestResultsByCategoryPage(driver, nercRepo);
+
+                    // move to Hight Level Asessment page
+                    this.TestHighLevelAssessmentPage(driver, nercRepo);
+
+                    // move to Reports page
+                    this.TestReportsPage(driver, nercRepo);
+
+                    //Feedback Page
+                    this.TestFeebackPage(driver, nercRepo);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void CreateAssessmentTestAllNA()
+        {
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            driver = BuildDriver(cf);
+            Assert.That(driver.Title.Contains("CSET"));
+
+            using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
+            {
+                // this function handles login, landing page, config, info, and SAL pages
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo);
+
+                if (levelPage != null)
+                {
+                    levelPage.ClickNext();
+                }
+
+                using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
+                {
+                    // STANDARD QUESTIONS
+                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.NA);
+
+                    // move to analysis dashboard page
+                    this.TestAnalysisDashboardPage(driver, nercRepo);
+
+                    // move to the Control Priorities page
+                    this.TestControlPrioritiesPage(driver, nercRepo);
+
+                    // move to Standards Summary page
+                    this.TestStandardsSummaryPage(driver, nercRepo);
+
+                    // move to Ranked Categories page
+                    this.TestRankedCategoriesPage(driver, nercRepo);
+
+                    // move to Results by Category page
+                    this.TestResultsByCategoryPage(driver, nercRepo);
+
+                    // move to Hight Level Asessment page
+                    this.TestHighLevelAssessmentPage(driver, nercRepo);
+
+                    // move to Reports page
+                    this.TestReportsPage(driver, nercRepo);
+
+                    //Feedback Page
+                    this.TestFeebackPage(driver, nercRepo);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void CreateAssessmentTestAllAlt()
+        {
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            driver = BuildDriver(cf);
+            Assert.That(driver.Title.Contains("CSET"));
+
+            using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
+            {
+                // this function handles login, landing page, config, info, and SAL pages
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo);
+
+                if (levelPage != null)
+                {
+                    levelPage.ClickNext();
+                }
+
+                using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
+                {
+                    // STANDARD QUESTIONS
+                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.ALT);
+
+                    // move to analysis dashboard page
+                    this.TestAnalysisDashboardPage(driver, nercRepo);
+
+                    // move to the Control Priorities page
+                    this.TestControlPrioritiesPage(driver, nercRepo);
+
+                    // move to Standards Summary page
+                    this.TestStandardsSummaryPage(driver, nercRepo);
+
+                    // move to Ranked Categories page
+                    this.TestRankedCategoriesPage(driver, nercRepo);
+
+                    // move to Results by Category page
+                    this.TestResultsByCategoryPage(driver, nercRepo);
+
+                    // move to Hight Level Asessment page
+                    this.TestHighLevelAssessmentPage(driver, nercRepo);
+
+                    // move to Reports page
+                    this.TestReportsPage(driver, nercRepo);
+
+                    //Feedback Page
+                    this.TestFeebackPage(driver, nercRepo);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void CreateAssessmentTestRandomAnswers()
+        {
+            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            driver = BuildDriver(cf);
+            Assert.That(driver.Title.Contains("CSET"));
+
+            using (Shared.AssessmentRepository sharedRepo = new Shared.AssessmentRepository())
+            {
+                // this function handles login, landing page, config, info, and SAL pages
+                SecurityAssuranceLevel levelPage = AssessmentCommonFunctions.InitilizeAssessment(driver, sharedRepo);
+
+                if (levelPage != null)
+                {
+                    levelPage.ClickNext();
+                }
+
+                using (NERC6.NERCRev6Repository nercRepo = new NERC6.NERCRev6Repository())
+                {
+                    // STANDARD QUESTIONS
+                    this.TestStandardQuestionsPage(driver, nercRepo, QuestionAnswers.YES);
+
+                    // move to analysis dashboard page
+                    this.TestAnalysisDashboardPage(driver, nercRepo);
+
+                    // move to the Control Priorities page
+                    this.TestControlPrioritiesPage(driver, nercRepo);
+
+                    // move to Standards Summary page
+                    this.TestStandardsSummaryPage(driver, nercRepo);
+
+                    // move to Ranked Categories page
+                    this.TestRankedCategoriesPage(driver, nercRepo);
+
+                    // move to Results by Category page
+                    this.TestResultsByCategoryPage(driver, nercRepo);
+
+                    // move to Hight Level Asessment page
+                    this.TestHighLevelAssessmentPage(driver, nercRepo);
+
+                    // move to Reports page
+                    this.TestReportsPage(driver, nercRepo);
+
+                    //Feedback Page
+                    this.TestFeebackPage(driver, nercRepo);
+                }
+            }
+        }
+
+        private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo, QuestionAnswers questionAnswers )
         {
             // STANDARD QUESTIONS
-            StandardQuestions standardQuestions = nercRepo.AccessStandardQuestionsData(QuestionAnswers.YES);
+            StandardQuestions standardQuestions = nercRepo.AccessStandardQuestionsData(questionAnswers);
 
             // allocate Standard Questions Page
             NERC6Pages.StandardQuestionsPage questionsPage = new NERC6Pages.StandardQuestionsPage(driver, standardQuestions);

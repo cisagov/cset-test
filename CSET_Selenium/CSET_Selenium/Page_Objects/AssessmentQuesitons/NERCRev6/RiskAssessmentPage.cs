@@ -28,9 +28,13 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this._riskAssessment = riskAssessment;
 
             this.RiskAssessments = riskAssessment.RiskAssessments;
-            this.InitialRiskAssessment = riskAssessment.InitialRiskAssessment;
-            this.SubsequentRiskAssessments = riskAssessment.SubsequentRiskAssessments;
-            this.PrimaryControlCenter = riskAssessment.PrimaryControlCenter;
+
+            if (riskAssessment.RiskAssessments.IsYYESorALT())
+            {
+                this.InitialRiskAssessment = riskAssessment.InitialRiskAssessment;
+                this.SubsequentRiskAssessments = riskAssessment.SubsequentRiskAssessments;
+                this.PrimaryControlCenter = riskAssessment.PrimaryControlCenter;
+            }
         }
 
         public QuestionAnswers RiskAssessments
@@ -56,10 +60,6 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                         {
                             this.weRiskAssessmentNA.Click();
 
-                            break;
-                        }
-                    case QuestionAnswers.ALT:
-                        {
                             break;
                         }
                 }

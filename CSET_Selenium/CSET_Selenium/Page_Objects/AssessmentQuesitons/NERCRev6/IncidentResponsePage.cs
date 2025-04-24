@@ -29,8 +29,13 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             // initialize page controls to backing object value
             this.IncidentResponsePlanReview = incidentResponse.IncidentResponseViews;
-            this.NoLaterThan90CalendarDays = incidentResponse.NoLaterThan90CalendarDays;
-            this.NoLaterThan60CalendarDays = incidentResponse.NoLaterThan60CalendarDays;
+
+            // only update these controls if the value of the parent is yes or na
+            if (incidentResponse.IncidentResponseViews.IsYYESorALT())
+            {
+                this.NoLaterThan90CalendarDays = incidentResponse.NoLaterThan90CalendarDays;
+                this.NoLaterThan60CalendarDays = incidentResponse.NoLaterThan60CalendarDays;
+            }
         }
 
         #region Property Handlers

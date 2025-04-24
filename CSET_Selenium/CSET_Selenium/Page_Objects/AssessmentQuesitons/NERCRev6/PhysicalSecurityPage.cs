@@ -29,12 +29,17 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             // Physical Security Plans
             this.OrganizationHavePhysicalSecurityPlan = physicalSecurity.OrganizationHavePhysicalSecurityPlan;
-            this.PhysicalSecurityPlanWithin120Days = physicalSecurity.PhysicalSecurityPlanWithin120Days;
-            this.PhysicalSecurityIncludeTheFollowing = physicalSecurity.PhysicalSecurityIncludeTheFollowing;
-            this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = physicalSecurity.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures;
-            this.DoesPhysicialSeucityPlanIncludeLawEnforcement = physicalSecurity.DoesPhysicialSeucityPlanIncludeLawEnforcement;
-            this.DoesPhysicalSecurityPlanIncludeTimeline = physicalSecurity.DoesPhysicalSecurityPlanIncludeTimeline;
-            this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = physicalSecurity.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats;
+
+            // only update these controls if the value of the parent is yes or na
+            if (physicalSecurity.OrganizationHavePhysicalSecurityPlan.IsYYESorALT())
+            {
+                this.PhysicalSecurityPlanWithin120Days = physicalSecurity.PhysicalSecurityPlanWithin120Days;
+                this.PhysicalSecurityIncludeTheFollowing = physicalSecurity.PhysicalSecurityIncludeTheFollowing;
+                this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = physicalSecurity.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures;
+                this.DoesPhysicialSeucityPlanIncludeLawEnforcement = physicalSecurity.DoesPhysicialSeucityPlanIncludeLawEnforcement;
+                this.DoesPhysicalSecurityPlanIncludeTimeline = physicalSecurity.DoesPhysicalSecurityPlanIncludeTimeline;
+                this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = physicalSecurity.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats;
+            }
         }
 
         public QuestionAnswers ForPrimaryControlCenters
@@ -117,12 +122,6 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                     case QuestionAnswers.NA:
                         {
                             this.weOrganizationHavePhysicalSecurityPlanNA.Click();
-
-                            break;
-                        }
-                    case QuestionAnswers.ALT:
-                        {
-                            this.weOrganizationHavePhysicalSecurityPlanALT.Click();
 
                             break;
                         }

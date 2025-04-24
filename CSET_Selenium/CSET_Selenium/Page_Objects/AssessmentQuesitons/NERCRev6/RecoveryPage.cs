@@ -28,8 +28,12 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this._recovery = recovery;
 
             this.RecoveryPlanReviews = recovery.RecoveryPlanReviews;
-            this.PerformWithin90Days = recovery.PerformWithin90Days;
-            this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = recovery.ChangeToRolesOrResponsibilitiesRespondersOrTechnology;
+
+            if (recovery.RecoveryPlanReviews.IsYYESorALT())
+            {
+                this.PerformWithin90Days = recovery.PerformWithin90Days;
+                this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = recovery.ChangeToRolesOrResponsibilitiesRespondersOrTechnology;
+            }
         }
 
         public QuestionAnswers RecoveryPlanReviews

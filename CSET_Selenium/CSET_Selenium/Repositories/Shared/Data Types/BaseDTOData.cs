@@ -15,9 +15,8 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
     /// </summary>
     public class BaseDTOData
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        private QuestionAnswers _questionAnswers;
+
         public BaseDTOData()
         {
         }
@@ -29,6 +28,11 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         public virtual bool IsValid()
         {
             return true;
+        }
+
+        public bool IsYesOrAlt
+        {
+            get { return this._questionAnswers == QuestionAnswers.YES || this._questionAnswers == QuestionAnswers.ALT; }
         }
     }
 
