@@ -14,6 +14,7 @@ using NUnit.Framework;
 using static OpenQA.Selenium.BiDi.Modules.Script.RemoteValue;
 using System.Resources;
 using System.Runtime.ConstrainedExecution;
+using System.Diagnostics;
 
 namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 {
@@ -46,11 +47,11 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
                 this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ForEachChangeThatDeviatesFromExistingBaselineConfiguration;
             }
 
-            // Inventory Management
+            // Inventory mangement
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems;
 
             // only update these controls if the value of the parent is yes or na
-            if (configurationManagement.ConfiurationChangeManagementPlan.IsYESorALT())
+            if (configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems.IsYESorALT())
             {
                 this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
                 this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;

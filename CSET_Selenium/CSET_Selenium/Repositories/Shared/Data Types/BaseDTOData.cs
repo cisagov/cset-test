@@ -29,6 +29,8 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
             int val = this._random.Next(3);
             Enum.TryParse<QuestionAnswers>(val.ToString(), out answer);
 
+            System.Console.WriteLine("Enum value: ", answer.ToString());
+
             return answer;
         }
 
@@ -44,17 +46,6 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         public bool IsYesOrAlt
         {
             get { return this._questionAnswers == QuestionAnswers.YES || this._questionAnswers == QuestionAnswers.ALT; }
-        }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public static class DataTypeValidation
-    {
-        public static bool IsValid(this BaseDTOData dataToValidate)
-        {
-            return dataToValidate.IsValid();
         }
     }
 }

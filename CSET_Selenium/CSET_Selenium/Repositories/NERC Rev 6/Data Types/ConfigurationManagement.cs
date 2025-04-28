@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.DevTools.V130.Debugger;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
