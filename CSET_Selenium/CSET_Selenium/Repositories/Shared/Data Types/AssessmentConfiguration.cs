@@ -8,19 +8,11 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repositories.Shared
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AssessmentConfiguration : BaseDTOData
     {
-        public override bool IsValid()
-        {
-            return base.IsValid();
-        }
-        //protected override Dictionary<string, QuestionAnswers> BuildAnswerTable()
-        //{
-        //    Dictionary<string, QuestionAnswers> answersTable = new Dictionary<string, QuestionAnswers>();
-
-        //    return answersTable;
-        //}
-
         public string AssessmentName { get; set; }
         public string FacilityName { get; set; }
         public string City { get; set; }

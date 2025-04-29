@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CSET_Selenium.DriverConfiguration;
-using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
+﻿using CSET_Selenium.DriverConfiguration;
 using CSET_Selenium.Enums;
+using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using OpenQA.Selenium;
-using CSET_Selenium.Enums.Questions;
 
 namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 {

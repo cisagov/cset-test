@@ -1,30 +1,24 @@
-﻿using CSET_Selenium.Page_Objects.Maturity_Models;
-using CSET_Selenium.Repository.Landing_Page;
-using CSET_Selenium.Repository.Login_Page;
-using Shared = CSET_Selenium.Repositories.Shared;
-using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
-using NERC6DT = CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
-using CSET_Selenium.Page_Objects.ReportPages;
-using NERC6Pages = CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6;
-using CSET_Selenium.DriverConfiguration;
-using CSET_Selenium.Page_Objects.Assessment_Configuration;
-using CSET_Selenium.Page_Objects.AssessmentInfo;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Enums;
 using CSET_Selenium.Helpers;
-using FluentAssertions;
+using CSET_Selenium.Page_Objects.ReportPages;
 using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
-using OpenQA.Selenium.DevTools.V130.Network;
-using System.Collections.Generic;
-using System;
-using CSET_Selenium.Enums;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
+using NERC6Pages = CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6;
+using Shared = CSET_Selenium.Repositories.Shared;
 
 namespace CSET_Selenium.Tests.Create_Assessment
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestFixture]
     class NERCRev6 : BaseTest
     {
+        private readonly string csetacURL = "http://csetac:5777";
         private IWebDriver driver;
 
         /// <summary>
@@ -33,7 +27,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         [Test]
         public void CreateAssessmentTestAllYes()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            BaseConfiguration cf = new BaseConfiguration(csetacURL);
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
@@ -85,7 +79,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         [Test]
         public void CreateAssessmentTestAllNO()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            BaseConfiguration cf = new BaseConfiguration(csetacURL);
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
@@ -137,7 +131,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         [Test]
         public void CreateAssessmentTestAllNA()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            BaseConfiguration cf = new BaseConfiguration(csetacURL);
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
@@ -189,7 +183,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         [Test]
         public void CreateAssessmentTestAllAlt()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            BaseConfiguration cf = new BaseConfiguration(csetacURL);
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
@@ -241,7 +235,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
         [Test]
         public void CreateAssessmentTestRandomAnswers()
         {
-            BaseConfiguration cf = new BaseConfiguration("http://csetac:5777");
+            BaseConfiguration cf = new BaseConfiguration(csetacURL);
             driver = BuildDriver(cf);
             Assert.That(driver.Title.Contains("CSET"));
 
@@ -287,6 +281,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             // STANDARD QUESTIONS
@@ -298,6 +297,12 @@ namespace CSET_Selenium.Tests.Create_Assessment
             questionsPage.ClickNext();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
+        /// <param name="questionAnswers"></param>
         private void TestStandardQuestionsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo, QuestionAnswers questionAnswers )
         {
             // STANDARD QUESTIONS
@@ -309,6 +314,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             questionsPage.ClickNext();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestAnalysisDashboardPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             AnalysisDashboardPage analysisDashBoard = new AnalysisDashboardPage(driver);
@@ -316,7 +326,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             analysisDashBoard.ClickNext();
         }
 
-        // move to analysis dashboard page
+        /// <summary>
+        /// move to analysis dashboard page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestControlPrioritiesPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             ControlPrioritiesPage controlPrioritiesPage = new ControlPrioritiesPage(driver);
@@ -324,7 +338,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             controlPrioritiesPage.ClickNext();
         }
 
-        // move to Standards Summary page
+        /// <summary>
+        /// move to Standards Summary page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestStandardsSummaryPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             StandardsSummaryPage standardsSummaryPage = new StandardsSummaryPage(driver);
@@ -332,7 +350,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             standardsSummaryPage.ClickNext();
         }
 
-        // move to Ranked Categories page
+        /// <summary>
+        /// move to Ranked Categories page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestRankedCategoriesPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             RankedCategoriesPage rankedCategoriesPage = new RankedCategoriesPage(driver);
@@ -340,8 +362,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             rankedCategoriesPage.ClickNext();
         }
 
-        // move to Results by Category page
-       
+        /// <summary>
+        /// move to Results by Category page     
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestResultsByCategoryPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             ResultsByCategoryPage resultsByCategoryPage = new ResultsByCategoryPage(driver);
@@ -349,7 +374,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             resultsByCategoryPage.ClickNext();
         }
 
-        // move to Hight Level Asessment page
+        /// <summary>
+        /// move to Hight Level Asessment page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestHighLevelAssessmentPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             HighLevelAssessmentPage highLevelAssessmentPage = new HighLevelAssessmentPage(driver);
@@ -357,7 +386,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             highLevelAssessmentPage.ClickNext();
         }
 
-        // move to Reports page
+        /// <summary>
+        /// move to Reports page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestReportsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             ReportsPage reportsPage = new ReportsPage(driver);
@@ -365,7 +398,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             reportsPage.ClickNext();
         }
 
-        //Feedback Page
+        /// <summary>
+        /// Feedback Page
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="nercRepo"></param>
         private void TestFeebackPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
             FeedbackPage feedbackPage = new FeedbackPage(driver);

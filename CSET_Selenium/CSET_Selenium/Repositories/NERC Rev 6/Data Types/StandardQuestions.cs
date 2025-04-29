@@ -1,15 +1,11 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Repositories.Shared.Data_Types;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class StandardQuestions : BaseDTOData
     {
         /// <summary>

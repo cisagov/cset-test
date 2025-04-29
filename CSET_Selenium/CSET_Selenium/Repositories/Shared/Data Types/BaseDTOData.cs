@@ -15,21 +15,25 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
     /// </summary>
     public class BaseDTOData
     {
-        private QuestionAnswers _questionAnswers;
         private Random _random = new Random();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public BaseDTOData()
         {
             this._random = new Random(0);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected QuestionAnswers GetNextValue()
         {
             QuestionAnswers answer;
             int val = this._random.Next(3);
             Enum.TryParse<QuestionAnswers>(val.ToString(), out answer);
-
-            System.Console.WriteLine("Enum value: ", answer.ToString());
 
             return answer;
         }
@@ -41,11 +45,6 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         public virtual bool IsValid()
         {
             return true;
-        }
-
-        public bool IsYesOrAlt
-        {
-            get { return this._questionAnswers == QuestionAnswers.YES || this._questionAnswers == QuestionAnswers.ALT; }
         }
     }
 }

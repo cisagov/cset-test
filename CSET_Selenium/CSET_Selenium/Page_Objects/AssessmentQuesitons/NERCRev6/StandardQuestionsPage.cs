@@ -1,18 +1,6 @@
-﻿using Shared = CSET_Selenium.Repositories.Shared;
-using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
-using NERC6DT = CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
-using CSET_Selenium.Repositories.Shared.Data_Types;
-using CSET_Selenium.DriverConfiguration;
-using CSET_Selenium.Helpers;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CSET_Selenium.Enums;
-using System.Reflection;
+﻿using CSET_Selenium.DriverConfiguration;
 using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
+using OpenQA.Selenium;
 
 namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 {

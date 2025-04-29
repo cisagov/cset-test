@@ -1,20 +1,7 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CSET_Selenium.DriverConfiguration;
-using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
+﻿using CSET_Selenium.DriverConfiguration;
 using CSET_Selenium.Enums;
-using CSET_Selenium.Tests.Import_Export;
-using static OpenQA.Selenium.BiDi.Modules.Session.ProxyConfiguration;
-using System.Security.Principal;
-using NUnit.Framework;
-using static OpenQA.Selenium.BiDi.Modules.Script.RemoteValue;
-using System.Resources;
-using System.Runtime.ConstrainedExecution;
-using System.Diagnostics;
+using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
+using OpenQA.Selenium;
 
 namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 {

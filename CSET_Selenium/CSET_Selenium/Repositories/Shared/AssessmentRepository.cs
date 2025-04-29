@@ -1,25 +1,45 @@
-﻿using System;
+﻿using CSET_Selenium.Enums.SAL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CSET_Selenium.Enums.SAL;
-using CSET_Selenium.Repositories.NERC_Rev_6;
-using Shared = CSET_Selenium.Repositories.Shared;
 
 namespace CSET_Selenium.Repositories.Shared
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AssessmentRepository : IDisposable
     {
+        private static readonly string defaultUserName = "william.martin@inl.gov";
+        private static readonly string defaultPassword = "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'";
+
         private Dictionary<string, string> userCredentials = new Dictionary<string, string>();
 
         public Dictionary<string, string> UserCredentials { get => this.userCredentials; }
 
-        public AssessmentRepository()
+        /// <summary>
+        /// 
+        /// </summary>
+        public AssessmentRepository() : this(defaultUserName, defaultPassword)
         {
-            // "william.martin@inl.gov", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
-            this.userCredentials.Add("UserName", "william.martin@inl.gov");
-            this.userCredentials.Add("PassWord", "+L|=!yDx(`zU8|c=E:6*)?)S!k:XynL!5Vi39|:?8kp'uMB9X'");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="passWord"></param>
+        public AssessmentRepository(string userName, string passWord)
+        {
+            this.userCredentials.Add("UserName", userName);
+            this.userCredentials.Add("PassWord", passWord);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Dispose()
+        {
+            // throw new NotImplementedException();
         }
 
         public AssessmentInfo AssessmentInfo
@@ -46,6 +66,10 @@ namespace CSET_Selenium.Repositories.Shared
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Shared.SecurityAssuranceLevel SecurityAssuranceLevel()
         {
             // this line will call a method that will return an initialized object whose
@@ -59,11 +83,6 @@ namespace CSET_Selenium.Repositories.Shared
                 );
 
             return level;
-        }
-
-        public void Dispose()
-        {
-            // throw new NotImplementedException();
         }
     }
 }

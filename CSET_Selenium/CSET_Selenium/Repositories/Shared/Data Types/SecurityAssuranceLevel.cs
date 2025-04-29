@@ -24,6 +24,11 @@ namespace CSET_Selenium.Repositories.Shared
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="salOverall"></param>
+        /// <param name="salMethdology"></param>
+        /// <param name="salConfidentiality"></param>
+        /// <param name="salIntegrity"></param>
+        /// <param name="salAvailability"></param>
         public SecurityAssuranceLevel(
             SAL_Overall salOverall = SAL_Overall.Low,
             SAL_Methodology salMethdology = SAL_Methodology.Simple,
@@ -37,26 +42,6 @@ namespace CSET_Selenium.Repositories.Shared
             this.Confidentiality = salConfidentiality;
             this.Integrity = salIntegrity;
             this.Avaiability = salAvailability;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        //protected override Dictionary<string, QuestionAnswers> BuildAnswerTable()
-        //{
-        //    Dictionary<string, QuestionAnswers> answersTable = new Dictionary<string, QuestionAnswers>();
-
-        //    return answersTable;
-        //}
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override bool IsValid()
-        {
-            return base.IsValid();
         }
     }
 }

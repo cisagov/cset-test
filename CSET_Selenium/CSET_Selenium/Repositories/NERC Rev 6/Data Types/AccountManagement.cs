@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
-using CSET_Selenium.Enums;
-using OpenQA.Selenium;
 using CSET_Selenium.Repositories.Shared.Data_Types;
-using System.Reflection;
-using System.Text.RegularExpressions;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
