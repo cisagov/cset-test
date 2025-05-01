@@ -1,26 +1,38 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using OpenQA.Selenium.Internal;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AccountManagement : BaseDTOData
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="questionAnswers"></param>
-        public AccountManagement(QuestionAnswers questionAnswers)
+        public AccountManagement() : base()
         {
-            this.PersonnelAndTraining = questionAnswers;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public AccountManagement() : base()
+        public override void Initialize()
         {
             this.PersonnelAndTraining = base.GetNextValue();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="questionAnswers"></param>
+        public override void Initialize(QuestionAnswers questionAnswers)
+        {
+            this.PersonnelAndTraining = questionAnswers;
         }
 
         /// <summary>
@@ -30,6 +42,22 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers PersonnelAndTraining
         {
             get;set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.PersonnelAndTraining);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

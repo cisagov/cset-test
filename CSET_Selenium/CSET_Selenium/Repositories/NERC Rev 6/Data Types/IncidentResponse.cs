@@ -1,6 +1,7 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -14,6 +15,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         public IncidentResponse()
         {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
+        {
             this.IncidentResponseViews = base.GetNextValue();
             this.NoLaterThan90CalendarDays = base.GetNextValue();
             this.NoLaterThan60CalendarDays = base.GetNextValue();
@@ -23,7 +31,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
-        public IncidentResponse(QuestionAnswers questionAnswers)
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.IncidentResponseViews = questionAnswers;
             this.NoLaterThan90CalendarDays = questionAnswers;
@@ -52,6 +60,24 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers NoLaterThan60CalendarDays
         {
             get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.NoLaterThan60CalendarDays);
+            answers.Add(this.NoLaterThan90CalendarDays);
+            answers.Add(this.IncidentResponseViews);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

@@ -1,12 +1,26 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class RiskAssessment : BaseDTOData
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public RiskAssessment() 
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
         {
             this.RiskAssessments = base.GetNextValue();
             this.InitialRiskAssessment = base.GetNextValue();
@@ -18,7 +32,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
-        public RiskAssessment(QuestionAnswers questionAnswers)
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.RiskAssessments = questionAnswers;
             this.InitialRiskAssessment = questionAnswers;
@@ -48,6 +62,25 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers PrimaryControlCenter
         {
             get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.RiskAssessments);
+            answers.Add(this.InitialRiskAssessment);
+            answers.Add(this.SubsequentRiskAssessments);
+            answers.Add(this.PrimaryControlCenter);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

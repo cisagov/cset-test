@@ -2,6 +2,7 @@
 {
     public enum QuestionAnswers
     {
+        NOANSWER,
         YES,
         NO,
         NA,
@@ -18,9 +19,21 @@
         /// </summary>
         /// <param name="questionAnswers"></param>
         /// <returns></returns>
-        public static bool IsYESorALT(this QuestionAnswers questionAnswers)
+        public static bool IsYESorALTorUNanswered(this QuestionAnswers questionAnswers)
         {
-            return questionAnswers == QuestionAnswers.YES || questionAnswers == QuestionAnswers.ALT;
+            return questionAnswers == QuestionAnswers.YES || 
+                questionAnswers == QuestionAnswers.ALT ||
+                questionAnswers == QuestionAnswers.NOANSWER;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="questionAnswers"></param>
+        /// <returns></returns>
+        public static bool IsAnswered(this QuestionAnswers questionAnswers)
+        {
+            return questionAnswers != QuestionAnswers.NOANSWER;
         }
     }
 }

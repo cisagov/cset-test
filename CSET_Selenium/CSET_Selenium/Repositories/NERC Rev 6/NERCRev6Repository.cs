@@ -30,7 +30,8 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
         /// <returns></returns>
         public StandardQuestions AccessStandardQuestionsData(QuestionAnswers qa)
         {
-            StandardQuestions questionsData = new StandardQuestions(qa);
+            StandardQuestions questionsData = new StandardQuestions();
+            questionsData.Initialize(qa);
 
             return questionsData;
         }

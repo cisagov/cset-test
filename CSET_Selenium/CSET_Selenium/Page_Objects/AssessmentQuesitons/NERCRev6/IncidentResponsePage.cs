@@ -25,7 +25,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.IncidentResponsePlanReview = incidentResponse.IncidentResponseViews;
 
             // only update these controls if the value of the parent is yes or na
-            if (incidentResponse.IncidentResponseViews.IsYESorALT())
+            if (incidentResponse.IncidentResponseViews.IsYESorALTorUNanswered())
             {
                 this.NoLaterThan90CalendarDays = incidentResponse.NoLaterThan90CalendarDays;
                 this.NoLaterThan60CalendarDays = incidentResponse.NoLaterThan60CalendarDays;

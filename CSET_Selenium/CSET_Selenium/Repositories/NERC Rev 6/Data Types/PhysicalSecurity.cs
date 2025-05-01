@@ -1,6 +1,7 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -9,7 +10,17 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     /// </summary>
     public class PhysicalSecurity : BaseDTOData
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public PhysicalSecurity()
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
         {
             this.ForPrimaryControlCenters = base.GetNextValue();
             this.OrganizationHavePhysicalSecurityPlan = base.GetNextValue();
@@ -26,7 +37,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
-        public PhysicalSecurity(QuestionAnswers questionAnswers)
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.ForPrimaryControlCenters = questionAnswers;
             this.OrganizationHavePhysicalSecurityPlan = questionAnswers;
@@ -112,6 +123,30 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats
         {
             get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.ForPrimaryControlCenters);
+            answers.Add(this.OrganizationHavePhysicalSecurityPlan);
+            answers.Add(this.PhysicalSecurityPlanWithin120Days);
+            answers.Add(this.IncidentResponseViews);
+            answers.Add(this.PhysicalSecurityIncludeTheFollowing);
+            answers.Add(this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures);
+            answers.Add(this.DoesPhysicialSeucityPlanIncludeLawEnforcement);
+            answers.Add(this.DoesPhysicalSecurityPlanIncludeTimeline);
+            answers.Add(this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

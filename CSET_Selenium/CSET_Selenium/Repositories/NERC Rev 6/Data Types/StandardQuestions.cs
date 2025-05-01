@@ -1,5 +1,6 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -9,37 +10,10 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
     public class StandardQuestions : BaseDTOData
     {
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="questionAnswers"></param>
-        public StandardQuestions(QuestionAnswers questionAnswers)
-        {
-            this.AccountManagement = new AccountManagement(questionAnswers);
-            this.ConfigurationManagement = new ConfigurationManagement(questionAnswers);
-            this.IncidentResponse = new IncidentResponse(questionAnswers);
-            this.PhysicalSecurity = new PhysicalSecurity(questionAnswers);
-            this.Policies = new Policies(questionAnswers);
-            this.Recovery = new Recovery(questionAnswers);
-            this.RiskAssessment = new RiskAssessment(questionAnswers);
-            this.SystemProtection = new SystemProtection(questionAnswers);
-            this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement(questionAnswers);
-        }
-
-
-        /// <summary>
         /// No initialization parameter means use randomly generated value
         /// </summary>
         public StandardQuestions()
         {
-            this.AccountManagement = new AccountManagement();
-            this.ConfigurationManagement = new ConfigurationManagement();
-            this.IncidentResponse = new IncidentResponse();
-            this.PhysicalSecurity = new PhysicalSecurity();
-            this.Policies = new Policies();
-            this.Recovery = new Recovery();
-            this.RiskAssessment = new RiskAssessment();
-            this.SystemProtection = new SystemProtection();
-            this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
         }
 
         public override bool IsValid()
@@ -83,6 +57,101 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public VulnerabilityAssementAndManagement VulnerabilityAssementAndManagement
         {
             get; private set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="questionAnswers"></param>
+        public override void Initialize(QuestionAnswers questionAnswers)
+        {
+            base.Initialize(questionAnswers);
+
+            this.AccountManagement = new AccountManagement();
+            this.AccountManagement.Initialize(questionAnswers);
+
+            this.ConfigurationManagement = new ConfigurationManagement();
+            this.ConfigurationManagement.Initialize(questionAnswers);
+
+            this.IncidentResponse = new IncidentResponse();
+            this.IncidentResponse.Initialize(questionAnswers);
+
+            this.PhysicalSecurity = new PhysicalSecurity();
+            this.PhysicalSecurity.Initialize(questionAnswers);
+
+            this.Policies = new Policies();
+            this.Policies.Initialize(questionAnswers);
+
+            this.Recovery = new Recovery();
+            this.Recovery.Initialize(questionAnswers);
+
+            this.RiskAssessment = new RiskAssessment();
+            this.RiskAssessment.Initialize(questionAnswers);
+
+            this.SystemProtection = new SystemProtection();
+            this.SystemProtection.Initialize(questionAnswers);
+
+            this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
+            this.VulnerabilityAssementAndManagement.Initialize(questionAnswers);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            this.AccountManagement = new AccountManagement();
+            this.AccountManagement.Initialize();
+
+            this.ConfigurationManagement = new ConfigurationManagement();
+            this.ConfigurationManagement.Initialize();
+
+            this.IncidentResponse = new IncidentResponse();
+            this.IncidentResponse.Initialize();
+
+            this.PhysicalSecurity = new PhysicalSecurity();
+            this.PhysicalSecurity.Initialize();
+
+            this.Policies = new Policies();
+            this.Policies.Initialize();
+
+            this.Recovery = new Recovery();
+            this.Recovery.Initialize();
+
+            this.RiskAssessment = new RiskAssessment();
+            this.RiskAssessment.Initialize();
+
+            this.SystemProtection = new SystemProtection();
+            this.SystemProtection.Initialize();
+
+            this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
+            this.VulnerabilityAssementAndManagement.Initialize();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.AddRange(this.AccountManagement.AnswerList);
+            answers.AddRange(this.ConfigurationManagement.AnswerList);
+            answers.AddRange(this.IncidentResponse.AnswerList);
+            answers.AddRange(this.PhysicalSecurity.AnswerList);
+            answers.AddRange(this.Policies.AnswerList);
+            answers.AddRange(this.Recovery.AnswerList);
+            answers.AddRange(this.RiskAssessment.AnswerList);
+            answers.AddRange(this.SystemProtection.AnswerList);
+            answers.AddRange(this.VulnerabilityAssementAndManagement.AnswerList);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

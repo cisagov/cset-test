@@ -284,6 +284,7 @@
     <Compile Include="Repositories\NERC Rev 6\Data Types\AccountManagement.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\ConfigurationManagement.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\IncidentResponse.cs" />
+    <Compile Include="Repositories\NERC Rev 6\Data Types\IResultsPageInfo.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\PhysicalSecurity.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\Policies.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\Recovery.cs" />

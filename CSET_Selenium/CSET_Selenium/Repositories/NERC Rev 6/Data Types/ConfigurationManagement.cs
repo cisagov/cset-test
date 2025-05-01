@@ -1,6 +1,7 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -13,6 +14,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         public ConfigurationManagement()
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
         {
             this.ConfiurationChangeManagementPlan = base.GetNextValue();
             this.DevelopBaselineConfiguation = base.GetNextValue();
@@ -36,7 +44,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
-        public ConfigurationManagement(QuestionAnswers questionAnswers)
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.ConfiurationChangeManagementPlan = questionAnswers;
             this.DevelopBaselineConfiguation = questionAnswers;
@@ -54,6 +62,37 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             this.IdentifiedHIGHImactBESCyberSystems = questionAnswers;
             this.IdentifiedMEDIUMImactBESCyberSystems = questionAnswers;
             this.IdentifiedLOWImactBESCyberSystems = questionAnswers;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.ConfiurationChangeManagementPlan);
+            answers.Add(this.DevelopBaselineConfiguation);
+            answers.Add(this.ChangeThatDeviatesFromExistingBaselineConfiguration);
+            answers.Add(this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration);
+
+            answers.Add(this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems);
+            answers.Add(this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1);
+            answers.Add(this.ProcessThatConsidersControlCentersAndBackupControlCenters);
+            answers.Add(this.OrganizationImplmentProcessTransmissionStationsAndSubStations);
+            answers.Add(this.OrganizationImplmentProcessThatConsidersGenerationResources);
+            answers.Add(this.ProcessThatConsidersGenerationResources);
+            answers.Add(this.ProcessThatConsidersSpecialProtectionSystems);
+            answers.Add(this.ProcessThatConsidersDistributionProvidersAndProtectedSystems);
+            answers.Add(this.IdentifiedHIGHImactBESCyberSystems);
+            answers.Add(this.IdentifiedMEDIUMImactBESCyberSystems);
+            answers.Add(this.IdentifiedLOWImactBESCyberSystems);
+
+            // return list to base class caller
+            return answers;
         }
 
         // Configuration Change Management

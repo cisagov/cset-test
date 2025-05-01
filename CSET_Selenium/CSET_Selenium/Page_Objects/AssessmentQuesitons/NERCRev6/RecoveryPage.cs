@@ -23,7 +23,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             this.RecoveryPlanReviews = recovery.RecoveryPlanReviews;
 
-            if (recovery.RecoveryPlanReviews.IsYESorALT())
+            if (recovery.RecoveryPlanReviews.IsYESorALTorUNanswered())
             {
                 this.PerformWithin90Days = recovery.PerformWithin90Days;
                 this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = recovery.ChangeToRolesOrResponsibilitiesRespondersOrTechnology;

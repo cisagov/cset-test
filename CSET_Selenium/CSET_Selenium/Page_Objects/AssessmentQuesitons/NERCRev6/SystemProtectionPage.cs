@@ -24,7 +24,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             // initialize page controls to backing object value
             this.SecurityEventLogging = systemProtection.SecurityEventLogging;
 
-            if (systemProtection.SecurityEventLogging.IsYESorALT())
+            if (systemProtection.SecurityEventLogging.IsYESorALTorUNanswered())
             {
                 this.BESCyberSystemsLevelLogging = systemProtection.BESCyberSystemsLevelLogging;
                 this.AlertsForSecurityEvents = systemProtection.AlertsForSecurityEvents;

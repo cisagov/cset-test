@@ -18,5 +18,21 @@ namespace CSET_Selenium.Repositories.Shared
         public string City { get; set; }
         public string State { get; set; }
         public DateTime AssessmentDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = new List<QuestionAnswers>();
+
+            // add property values
+            //answers.Add(this.PersonnelAndTraining);
+
+            // return list to base class caller
+            return answers;
+        }
     }
 }

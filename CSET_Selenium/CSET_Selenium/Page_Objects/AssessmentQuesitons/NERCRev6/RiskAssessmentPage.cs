@@ -23,7 +23,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
 
             this.RiskAssessments = riskAssessment.RiskAssessments;
 
-            if (riskAssessment.RiskAssessments.IsYESorALT())
+            if (riskAssessment.RiskAssessments.IsYESorALTorUNanswered())
             {
                 this.InitialRiskAssessment = riskAssessment.InitialRiskAssessment;
                 this.SubsequentRiskAssessments = riskAssessment.SubsequentRiskAssessments;

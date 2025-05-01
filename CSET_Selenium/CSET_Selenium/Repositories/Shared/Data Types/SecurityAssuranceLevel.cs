@@ -43,5 +43,21 @@ namespace CSET_Selenium.Repositories.Shared
             this.Integrity = salIntegrity;
             this.Avaiability = salAvailability;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = new List<QuestionAnswers>();
+
+            // add property values
+            //answers.Add(this.PersonnelAndTraining);
+
+            // return list to base class caller
+            return answers;
+        }
     }
 }

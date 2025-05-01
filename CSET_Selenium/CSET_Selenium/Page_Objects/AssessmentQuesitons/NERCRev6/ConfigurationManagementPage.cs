@@ -27,7 +27,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.ConfiurationChangeManagementPlan = configurationManagement.ConfiurationChangeManagementPlan;
 
             // only update these controls if the value of the parent is yes or na
-            if (configurationManagement.ConfiurationChangeManagementPlan.IsYESorALT())
+            if (configurationManagement.ConfiurationChangeManagementPlan.IsYESorALTorUNanswered())
             {
                 this.DevelopBaselineConfiguation = configurationManagement.DevelopBaselineConfiguation;
                 this.ChangeThatDeviatesFromExistingBaselineConfiguration = configurationManagement.ChangeThatDeviatesFromExistingBaselineConfiguration;
@@ -38,7 +38,7 @@ namespace CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6
             this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems;
 
             // only update these controls if the value of the parent is yes or na
-            if (configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems.IsYESorALT())
+            if (configurationManagement.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems.IsYESorALTorUNanswered())
             {
                 this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = configurationManagement.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1;
                 this.ProcessThatConsidersControlCentersAndBackupControlCenters = configurationManagement.ProcessThatConsidersControlCentersAndBackupControlCenters;

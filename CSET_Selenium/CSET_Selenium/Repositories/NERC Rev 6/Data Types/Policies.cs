@@ -1,6 +1,7 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -14,6 +15,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         public Policies()
         {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
+        {
             this.CIPSeniorManagerApproval = base.GetNextValue();
             this.CIPSeniorManagerApproval = base.GetNextValue();
             this.ProcessToAddressAccess = base.GetNextValue();
@@ -22,7 +30,8 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public Policies(QuestionAnswers questionAnswers)
+        /// <param name="questionAnswers"></param>
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.CIPSeniorManagerApproval = questionAnswers;
             this.CIPSeniorManagerApproval = questionAnswers;
@@ -41,6 +50,24 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers CIPSeniorManagerApproval
         {
             get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.CIPSeniorManagerApproval);
+            answers.Add(this.CIPSeniorManagerApproval);
+            answers.Add(this.ProcessToAddressAccess);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }

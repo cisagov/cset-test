@@ -1,6 +1,7 @@
 ﻿using CSET_Selenium.Enums;
 using CSET_Selenium.Enums.Questions;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using System.Collections.Generic;
 
 namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 {
@@ -14,6 +15,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// </summary>
         public SystemProtection()
         {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Initialize()
+        {
             this.SecurityEventLogging = base.GetNextValue();
             this.BESCyberSystemsLevelLogging = base.GetNextValue();
             this.AlertsForSecurityEvents = base.GetNextValue();
@@ -23,7 +31,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// 
         /// </summary>
         /// <param name="questionAnswers"></param>
-        public SystemProtection(QuestionAnswers questionAnswers)
+        public override void Initialize(QuestionAnswers questionAnswers)
         {
             this.SecurityEventLogging = questionAnswers;
             this.BESCyberSystemsLevelLogging = questionAnswers;
@@ -55,6 +63,24 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         public QuestionAnswers AlertsForSecurityEvents
         {
             get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected override List<QuestionAnswers> SetAnswerList()
+        {
+            // allocate list
+            List<QuestionAnswers> answers = base.SetAnswerList();
+
+            // add property values
+            answers.Add(this.SecurityEventLogging);
+            answers.Add(this.BESCyberSystemsLevelLogging);
+            answers.Add(this.AlertsForSecurityEvents);
+
+            // return list to base class caller
+            return answers;
         }
     }
 }
