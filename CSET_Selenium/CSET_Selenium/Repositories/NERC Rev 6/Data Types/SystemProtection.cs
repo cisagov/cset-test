@@ -20,22 +20,12 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.SecurityEventLogging = base.GetNextValue();
-            this.BESCyberSystemsLevelLogging = base.GetNextValue();
-            this.AlertsForSecurityEvents = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.SecurityEventLogging = questionAnswers;
-            this.BESCyberSystemsLevelLogging = questionAnswers;
-            this.AlertsForSecurityEvents = questionAnswers;
+            this.SecurityEventLogging = base.GetQuestionAnswers(questionAnswers);
+            this.BESCyberSystemsLevelLogging = base.GetQuestionAnswers(questionAnswers);
+            this.AlertsForSecurityEvents = base.GetQuestionAnswers(questionAnswers);
         }
 
         /// <summary>

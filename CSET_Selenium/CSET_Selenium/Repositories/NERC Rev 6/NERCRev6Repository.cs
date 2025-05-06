@@ -9,6 +9,8 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
     /// </summary>
     public class NERCRev6Repository : IDisposable
     {
+        StandardQuestions _questionsData;
+
         /// <summary>
         /// 
         /// </summary>
@@ -30,10 +32,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
         /// <returns></returns>
         public StandardQuestions AccessStandardQuestionsData(QuestionAnswers qa)
         {
-            StandardQuestions questionsData = new StandardQuestions();
-            questionsData.Initialize(qa);
+            if (this._questionsData == null)
+            {
+                this._questionsData = new StandardQuestions();
+                this._questionsData.Initialize(qa);
+            }
 
-            return questionsData;
+            return this._questionsData;
         }
 
         /// <summary>
@@ -42,9 +47,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6
         /// <returns></returns>
         public StandardQuestions AccessStandardQuestionsData()
         {
-            StandardQuestions questionsData = new StandardQuestions();
-
-            return questionsData;
+            return this._questionsData;
         }
     }
 }

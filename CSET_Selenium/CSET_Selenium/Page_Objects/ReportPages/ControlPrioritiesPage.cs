@@ -8,13 +8,29 @@ using CSET_Selenium.DriverConfiguration;
 
 namespace CSET_Selenium.Page_Objects.ReportPages
 {
-    class ControlPrioritiesPage : BasePage
+    /// <summary>
+    /// 
+    /// </summary>
+    class ControlPrioritiesPage : BasePage, IReportPage
     {
         private readonly IWebDriver driver;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="driver"></param>
         public ControlPrioritiesPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool ProcessData()
+        {
+            return false;
         }
     }
 }

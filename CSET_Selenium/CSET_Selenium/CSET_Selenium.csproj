@@ -265,6 +265,7 @@
     <Compile Include="Page_Objects\ReportPages\ControlPrioritiesPage.cs" />
     <Compile Include="Page_Objects\ReportPages\FeedbackPage.cs" />
     <Compile Include="Page_Objects\ReportPages\HighLevelAssessmentPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\IReportPage.cs" />
     <Compile Include="Page_Objects\ReportPages\RankedCategoriesPage.cs" />
     <Compile Include="Page_Objects\ReportPages\ReportsPage.cs" />
     <Compile Include="Page_Objects\ReportPages\ResultsByCategoryPage.cs" />
@@ -296,8 +297,12 @@
     <Compile Include="Repositories\Shared\Data Types\AssessmentConfiguration.cs" />
     <Compile Include="Repositories\Shared\Data Types\AssessmentInfo.cs" />
     <Compile Include="Repositories\Shared\Data Types\BaseDTOData.cs" />
+    <Compile Include="Repositories\Shared\Data Types\ControlPriorityRecord.cs" />
+    <Compile Include="Repositories\Shared\Data Types\RankedCategoryRecord.cs" />
+    <Compile Include="Repositories\Shared\Data Types\ResultCategoryRecord.cs" />
     <Compile Include="Repositories\Shared\Data Types\SecurityAssuranceLevel.cs" />
     <Compile Include="Repositories\NERC Rev 6\Data Types\StandardQuestions.cs" />
+    <Compile Include="Repositories\Shared\Data Types\StandardSummaryRecord.cs" />
     <Compile Include="Tests\Account_Login\AccountLogin.cs" />
     <Compile Include="Tests\Check_User_Guides\UserGuides.cs" />
     <Compile Include="Tests\Create_Assessment\BasicModuleCreation.cs" />

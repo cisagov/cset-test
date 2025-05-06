@@ -21,6 +21,9 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             return base.IsValid();
         }
 
+        public int AssessmentCompliance { get; }
+        public int OverallScore { get; }
+
         public AccountManagement AccountManagement
         {
             get; private set;
@@ -65,8 +68,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            base.Initialize(questionAnswers);
-
             this.AccountManagement = new AccountManagement();
             this.AccountManagement.Initialize(questionAnswers);
 
@@ -93,41 +94,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 
             this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
             this.VulnerabilityAssementAndManagement.Initialize(questionAnswers);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            this.AccountManagement = new AccountManagement();
-            this.AccountManagement.Initialize();
-
-            this.ConfigurationManagement = new ConfigurationManagement();
-            this.ConfigurationManagement.Initialize();
-
-            this.IncidentResponse = new IncidentResponse();
-            this.IncidentResponse.Initialize();
-
-            this.PhysicalSecurity = new PhysicalSecurity();
-            this.PhysicalSecurity.Initialize();
-
-            this.Policies = new Policies();
-            this.Policies.Initialize();
-
-            this.Recovery = new Recovery();
-            this.Recovery.Initialize();
-
-            this.RiskAssessment = new RiskAssessment();
-            this.RiskAssessment.Initialize();
-
-            this.SystemProtection = new SystemProtection();
-            this.SystemProtection.Initialize();
-
-            this.VulnerabilityAssementAndManagement = new VulnerabilityAssementAndManagement();
-            this.VulnerabilityAssementAndManagement.Initialize();
         }
 
         /// <summary>

@@ -20,34 +20,18 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.ForPrimaryControlCenters = base.GetNextValue();
-            this.OrganizationHavePhysicalSecurityPlan = base.GetNextValue();
-            this.PhysicalSecurityPlanWithin120Days = base.GetNextValue();
-            this.IncidentResponseViews = base.GetNextValue();
-            this.PhysicalSecurityIncludeTheFollowing = base.GetNextValue();
-            this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = base.GetNextValue();
-            this.DoesPhysicialSeucityPlanIncludeLawEnforcement = base.GetNextValue();
-            this.DoesPhysicalSecurityPlanIncludeTimeline = base.GetNextValue();
-            this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.ForPrimaryControlCenters = questionAnswers;
-            this.OrganizationHavePhysicalSecurityPlan = questionAnswers;
-            this.PhysicalSecurityPlanWithin120Days = questionAnswers;
-            this.IncidentResponseViews = questionAnswers;
-            this.PhysicalSecurityIncludeTheFollowing = questionAnswers;
-            this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = questionAnswers;
-            this.DoesPhysicialSeucityPlanIncludeLawEnforcement = questionAnswers;
-            this.DoesPhysicalSecurityPlanIncludeTimeline = questionAnswers;
-            this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = questionAnswers;
+            this.ForPrimaryControlCenters = base.GetQuestionAnswers(questionAnswers);
+            this.OrganizationHavePhysicalSecurityPlan = base.GetQuestionAnswers(questionAnswers);
+            this.PhysicalSecurityPlanWithin120Days = base.GetQuestionAnswers(questionAnswers);
+            this.IncidentResponseViews = base.GetQuestionAnswers(questionAnswers);
+            this.PhysicalSecurityIncludeTheFollowing = base.GetQuestionAnswers(questionAnswers);
+            this.DoesPhysicalSeccurityPlanIncludeResiliencyOrSecurityMeasures = base.GetQuestionAnswers(questionAnswers);
+            this.DoesPhysicialSeucityPlanIncludeLawEnforcement = base.GetQuestionAnswers(questionAnswers);
+            this.DoesPhysicalSecurityPlanIncludeTimeline = base.GetQuestionAnswers(questionAnswers);
+            this.DoesPhysicalSecurityPlanIncludeProvisionsToEvaluateEvolvingPhysicalThreats = base.GetQuestionAnswers(questionAnswers);
         }
 
         [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.For_primary_control_centers_do_you_consider_the_following)]

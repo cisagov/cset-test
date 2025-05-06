@@ -6,7 +6,8 @@
         YES,
         NO,
         NA,
-        ALT
+        ALT,
+        RANDOM
     }
 
     /// <summary>

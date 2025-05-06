@@ -36,7 +36,7 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         public BaseDTOData()
         {
             this._random = new Random(0);
-            this.Initialize();
+            this.Initialize(QuestionAnswers.RANDOM);
             this._anwsers = this.SetAnswerList();
         }
 
@@ -79,19 +79,8 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Initialize()
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
-        public virtual void Initialize(QuestionAnswers questionAnswers)
-        {
-            // collect the values of those data properties into a list for reporting
-            this.Initialize();
-        }
+        public virtual void Initialize(QuestionAnswers questionAnswers) { }
 
         /// <summary>
         /// 
@@ -100,6 +89,11 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         protected void PopulateAnswerList(List<QuestionAnswers> answerList)
         {
             this._anwsers = this.SetAnswerList();
+        }
+
+        protected QuestionAnswers GetQuestionAnswers(QuestionAnswers questionAnswers)
+        {
+            return questionAnswers == QuestionAnswers.RANDOM ? this.GetNextValue() : questionAnswers;
         }
 
         public List<QuestionAnswers> AnswerList { get => this._anwsers; }

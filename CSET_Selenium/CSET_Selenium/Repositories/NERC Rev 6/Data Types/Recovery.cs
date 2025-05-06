@@ -20,22 +20,12 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.RecoveryPlanReviews = base.GetNextValue();
-            this.PerformWithin90Days = base.GetNextValue();
-            this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.RecoveryPlanReviews = questionAnswers;
-            this.PerformWithin90Days = questionAnswers;
-            this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = questionAnswers;
+            this.RecoveryPlanReviews = base.GetQuestionAnswers(questionAnswers);
+            this.PerformWithin90Days = base.GetQuestionAnswers(questionAnswers);
+            this.ChangeToRolesOrResponsibilitiesRespondersOrTechnology = base.GetQuestionAnswers(questionAnswers);
         }
 
         [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.Does_the_organization_conduct_recovery_plan_reviews)]

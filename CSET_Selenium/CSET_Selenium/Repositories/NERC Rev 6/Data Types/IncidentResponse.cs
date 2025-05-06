@@ -20,22 +20,12 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.IncidentResponseViews = base.GetNextValue();
-            this.NoLaterThan90CalendarDays = base.GetNextValue();
-            this.NoLaterThan60CalendarDays = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.IncidentResponseViews = questionAnswers;
-            this.NoLaterThan90CalendarDays = questionAnswers;
-            this.NoLaterThan60CalendarDays = questionAnswers;
+            this.IncidentResponseViews = base.GetQuestionAnswers(questionAnswers);
+            this.NoLaterThan90CalendarDays = base.GetQuestionAnswers(questionAnswers);
+            this.NoLaterThan60CalendarDays = base.GetQuestionAnswers(questionAnswers);
         }
 
         /// <summary>

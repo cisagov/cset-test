@@ -20,24 +20,13 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.RiskAssessments = base.GetNextValue();
-            this.InitialRiskAssessment = base.GetNextValue();
-            this.SubsequentRiskAssessments = base.GetNextValue();
-            this.PrimaryControlCenter = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.RiskAssessments = questionAnswers;
-            this.InitialRiskAssessment = questionAnswers;
-            this.SubsequentRiskAssessments = questionAnswers;
-            this.PrimaryControlCenter = questionAnswers;
+            this.RiskAssessments = base.GetQuestionAnswers(questionAnswers);
+            this.InitialRiskAssessment = base.GetQuestionAnswers(questionAnswers);
+            this.SubsequentRiskAssessments = base.GetQuestionAnswers(questionAnswers);
+            this.PrimaryControlCenter = base.GetQuestionAnswers(questionAnswers);
         }
 
         [NERCRev6StandardQuestionsAttr(NERCRev6StandardQuestions.Does_the_organization_perform_risk_assessments)]

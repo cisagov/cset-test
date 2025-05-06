@@ -21,18 +21,10 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.PersonnelAndTraining = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.PersonnelAndTraining = questionAnswers;
+            this.PersonnelAndTraining = base.GetQuestionAnswers(questionAnswers);
         }
 
         /// <summary>

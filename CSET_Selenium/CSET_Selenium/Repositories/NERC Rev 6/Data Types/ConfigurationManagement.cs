@@ -20,48 +20,25 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
-        {
-            this.ConfiurationChangeManagementPlan = base.GetNextValue();
-            this.DevelopBaselineConfiguation = base.GetNextValue();
-            this.ChangeThatDeviatesFromExistingBaselineConfiguration = base.GetNextValue();
-            this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = base.GetNextValue();
-
-            this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = base.GetNextValue();
-            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = base.GetNextValue();
-            this.ProcessThatConsidersControlCentersAndBackupControlCenters = base.GetNextValue();
-            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = base.GetNextValue();
-            this.OrganizationImplmentProcessThatConsidersGenerationResources = base.GetNextValue();
-            this.ProcessThatConsidersGenerationResources = base.GetNextValue();
-            this.ProcessThatConsidersSpecialProtectionSystems = base.GetNextValue();
-            this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = base.GetNextValue();
-            this.IdentifiedHIGHImactBESCyberSystems = base.GetNextValue();
-            this.IdentifiedMEDIUMImactBESCyberSystems = base.GetNextValue();
-            this.IdentifiedLOWImactBESCyberSystems = base.GetNextValue();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
         {
-            this.ConfiurationChangeManagementPlan = questionAnswers;
-            this.DevelopBaselineConfiguation = questionAnswers;
-            this.ChangeThatDeviatesFromExistingBaselineConfiguration = questionAnswers;
-            this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = questionAnswers;
+            this.ConfiurationChangeManagementPlan = base.GetQuestionAnswers(questionAnswers);
+            this.DevelopBaselineConfiguation = base.GetQuestionAnswers(questionAnswers);
+            this.ChangeThatDeviatesFromExistingBaselineConfiguration = base.GetQuestionAnswers(questionAnswers);
+            this.ForEachChangeThatDeviatesFromExistingBaselineConfiguration = base.GetQuestionAnswers(questionAnswers);
 
-            this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = questionAnswers;
-            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = questionAnswers;
-            this.ProcessThatConsidersControlCentersAndBackupControlCenters = questionAnswers;
-            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = questionAnswers;
-            this.OrganizationImplmentProcessThatConsidersGenerationResources = questionAnswers;
-            this.ProcessThatConsidersGenerationResources = questionAnswers;
-            this.ProcessThatConsidersSpecialProtectionSystems = questionAnswers;
-            this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = questionAnswers;
-            this.IdentifiedHIGHImactBESCyberSystems = questionAnswers;
-            this.IdentifiedMEDIUMImactBESCyberSystems = questionAnswers;
-            this.IdentifiedLOWImactBESCyberSystems = questionAnswers;
+            this.ConfigurationManagementOfInventoryOfAndIdentityOfBESCyberSystems = base.GetQuestionAnswers(questionAnswers);
+            this.IdentifyImpactOfBESCyberSystemsAccordingToAttachement1 = base.GetQuestionAnswers(questionAnswers);
+            this.ProcessThatConsidersControlCentersAndBackupControlCenters = base.GetQuestionAnswers(questionAnswers);
+            this.OrganizationImplmentProcessTransmissionStationsAndSubStations = base.GetQuestionAnswers(questionAnswers);
+            this.OrganizationImplmentProcessThatConsidersGenerationResources = base.GetQuestionAnswers(questionAnswers);
+            this.ProcessThatConsidersGenerationResources = base.GetQuestionAnswers(questionAnswers);
+            this.ProcessThatConsidersSpecialProtectionSystems = base.GetQuestionAnswers(questionAnswers);
+            this.ProcessThatConsidersDistributionProvidersAndProtectedSystems = base.GetQuestionAnswers(questionAnswers);
+            this.IdentifiedHIGHImactBESCyberSystems = base.GetQuestionAnswers(questionAnswers);
+            this.IdentifiedMEDIUMImactBESCyberSystems = base.GetQuestionAnswers(questionAnswers);
+            this.IdentifiedLOWImactBESCyberSystems = base.GetQuestionAnswers(questionAnswers);
         }
 
         /// <summary>
