@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CSET_Selenium.DriverConfiguration;
 using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
 using CSET_Selenium.Repositories.Shared.Data_Types;
+using CSET_Selenium.Enums;
 
 
 namespace CSET_Selenium.Page_Objects.ReportPages
@@ -17,6 +18,15 @@ namespace CSET_Selenium.Page_Objects.ReportPages
     class AnalysisDashboardPage : BasePage, IReportPage
     {
         private readonly IWebDriver driver;
+
+        public enum KeyNames
+        {
+            SystemProtection,
+            Recovery,
+            RiskManagement,
+            AccountManagement,
+            PhysicalSecurity
+        }
 
         /// <summary>
         /// 
@@ -40,8 +50,8 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         
         public int AssessmentCompliance { get; private set; }
 
-        public List<RankedCategoryRecord> RankedCategories { get; private set; }
+        public Dictionary<KeyNames, RankedCategoryRecord> RankedCategories { get; private set; }
 
-        public List<StandardSummaryRecord> StandardsSummary { get; private set; }
+        public Dictionary<QuestionAnswers, StandardSummaryRecord> StandardsSummary { get; private set; }
     }
 }

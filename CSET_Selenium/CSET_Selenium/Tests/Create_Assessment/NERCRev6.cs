@@ -6,6 +6,7 @@ using CSET_Selenium.Page_Objects.Security_Assurance_Level;
 using CSET_Selenium.Repositories.NERC_Rev_6.Data_Types;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Diagnostics;
 using System.Web;
 using NERC6 = CSET_Selenium.Repositories.NERC_Rev_6;
 using NERC6Pages = CSET_Selenium.Page_Objects.AssessmentQuesitons.NERCRev6;
@@ -154,15 +155,26 @@ namespace CSET_Selenium.Tests.Create_Assessment
             // assert
 
             // Score
-            bool flag = standardQuestionsData.OverallScore == analysisDashBoard.OverallScore;
+            Debug.Assert(standardQuestionsData.OverallScore == analysisDashBoard.OverallScore);
 
             // assessment compliance
-            flag = standardQuestionsData.AssessmentCompliance == analysisDashBoard.AssessmentCompliance;
+            Debug.Assert(standardQuestionsData.AssessmentCompliance == analysisDashBoard.AssessmentCompliance);
 
             // ranked categories
+            Debug.Assert(standardQuestionsData.SystemProtection.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.SystemProtection].Value);
+            Debug.Assert(standardQuestionsData.Recovery.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.Recovery].Value);
+            Debug.Assert(standardQuestionsData.RiskAssessment.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.RiskManagement].Value);
+            Debug.Assert(standardQuestionsData.AccountManagement.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.AccountManagement].Value);
+            Debug.Assert(standardQuestionsData.PhysicalSecurity.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.PhysicalSecurity].Value);
 
             // standards summary
+            Debug.Assert(standardQuestionsData.YesCount == analysisDashBoard.StandardsSummary[QuestionAnswers.YES].Value);
+            Debug.Assert(standardQuestionsData.NoCount == analysisDashBoard.StandardsSummary[QuestionAnswers.NO].Value);
+            Debug.Assert(standardQuestionsData.NACount == analysisDashBoard.StandardsSummary[QuestionAnswers.NA].Value);
+            Debug.Assert(standardQuestionsData.ALTCount == analysisDashBoard.StandardsSummary[QuestionAnswers.ALT].Value);
+            Debug.Assert(standardQuestionsData.UnansweredCount == analysisDashBoard.StandardsSummary[QuestionAnswers.NOANSWER].Value);
 
+            // continue to the next page
             analysisDashBoard.ClickNext();
         }
 
