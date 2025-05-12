@@ -19,15 +19,6 @@ namespace CSET_Selenium.Page_Objects.ReportPages
     {
         private readonly IWebDriver driver;
 
-        public enum KeyNames
-        {
-            SystemProtection,
-            Recovery,
-            RiskManagement,
-            AccountManagement,
-            PhysicalSecurity
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -35,6 +26,32 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         public AnalysisDashboardPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
+
+            this.RankedCategories.Add(RankedCategoryKeyNames.SystemProtection, new RankedCategoryRecord(
+                RankedCategoryKeyNames.SystemProtection.ToString(), 1, 0)
+                );
+
+            this.RankedCategories.Add(RankedCategoryKeyNames.Recovery, new RankedCategoryRecord(
+                RankedCategoryKeyNames.Recovery.ToString(), 2, 0)
+                );
+
+            this.RankedCategories.Add(RankedCategoryKeyNames.RiskManagement, new RankedCategoryRecord(
+                RankedCategoryKeyNames.RiskManagement.ToString(), 3, 0)
+                );
+
+            this.RankedCategories.Add(RankedCategoryKeyNames.AccountManagement, new RankedCategoryRecord(
+                RankedCategoryKeyNames.AccountManagement.ToString(), 4, 0)
+                );
+
+            this.RankedCategories.Add(RankedCategoryKeyNames.PhysicalSecurity, new RankedCategoryRecord(
+                RankedCategoryKeyNames.PhysicalSecurity.ToString(), 5, 0)
+                );
+
+            this.StandardsSummary.Add(QuestionAnswers.YES, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NO, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NA, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.ALT, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NOANSWER, new StandardSummaryRecord(0));
         }
 
         /// <summary>
@@ -50,8 +67,8 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         
         public int AssessmentCompliance { get; private set; }
 
-        public Dictionary<KeyNames, RankedCategoryRecord> RankedCategories { get; private set; }
+        public Dictionary<RankedCategoryKeyNames, RankedCategoryRecord> RankedCategories { get; private set; } = new Dictionary<RankedCategoryKeyNames, RankedCategoryRecord>();
 
-        public Dictionary<QuestionAnswers, StandardSummaryRecord> StandardsSummary { get; private set; }
+        public Dictionary<QuestionAnswers, StandardSummaryRecord> StandardsSummary { get; private set; } = new Dictionary<QuestionAnswers, StandardSummaryRecord>();
     }
 }

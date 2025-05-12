@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CSET_Selenium.DriverConfiguration;
+using CSET_Selenium.Enums;
+using CSET_Selenium.Repositories.Shared.Data_Types;
 
 namespace CSET_Selenium.Page_Objects.ReportPages
 {
@@ -22,6 +24,12 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         public StandardsSummaryPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
+
+            this.StandardsSummary.Add(QuestionAnswers.YES, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NO, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NA, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.ALT, new StandardSummaryRecord(0));
+            this.StandardsSummary.Add(QuestionAnswers.NOANSWER, new StandardSummaryRecord(0));
         }
 
         /// <summary>
@@ -32,5 +40,7 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         {
             return false;
         }
+
+        public Dictionary<QuestionAnswers, StandardSummaryRecord> StandardsSummary { get; private set; } = new Dictionary<QuestionAnswers, StandardSummaryRecord>();
     }
 }

@@ -145,14 +145,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestAnalysisDashboardPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             AnalysisDashboardPage analysisDashBoard = new AnalysisDashboardPage(driver);
 
-            // act
+            // ACT
             analysisDashBoard.ProcessData();
 
-            // assert
+            // ASSERT
 
             // Score
             Debug.Assert(standardQuestionsData.OverallScore == analysisDashBoard.OverallScore);
@@ -161,11 +161,11 @@ namespace CSET_Selenium.Tests.Create_Assessment
             Debug.Assert(standardQuestionsData.AssessmentCompliance == analysisDashBoard.AssessmentCompliance);
 
             // ranked categories
-            Debug.Assert(standardQuestionsData.SystemProtection.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.SystemProtection].Value);
-            Debug.Assert(standardQuestionsData.Recovery.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.Recovery].Value);
-            Debug.Assert(standardQuestionsData.RiskAssessment.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.RiskManagement].Value);
-            Debug.Assert(standardQuestionsData.AccountManagement.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.AccountManagement].Value);
-            Debug.Assert(standardQuestionsData.PhysicalSecurity.YesCount == analysisDashBoard.RankedCategories[AnalysisDashboardPage.KeyNames.PhysicalSecurity].Value);
+            Debug.Assert(standardQuestionsData.SystemProtection.YesCount == analysisDashBoard.RankedCategories[RankedCategoryKeyNames.SystemProtection].Value);
+            Debug.Assert(standardQuestionsData.Recovery.YesCount == analysisDashBoard.RankedCategories[RankedCategoryKeyNames.Recovery].Value);
+            Debug.Assert(standardQuestionsData.RiskAssessment.YesCount == analysisDashBoard.RankedCategories[RankedCategoryKeyNames.RiskManagement].Value);
+            Debug.Assert(standardQuestionsData.AccountManagement.YesCount == analysisDashBoard.RankedCategories[RankedCategoryKeyNames.AccountManagement].Value);
+            Debug.Assert(standardQuestionsData.PhysicalSecurity.YesCount == analysisDashBoard.RankedCategories[RankedCategoryKeyNames.PhysicalSecurity].Value);
 
             // standards summary
             Debug.Assert(standardQuestionsData.YesCount == analysisDashBoard.StandardsSummary[QuestionAnswers.YES].Value);
@@ -185,14 +185,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestControlPrioritiesPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             ControlPrioritiesPage controlPrioritiesPage = new ControlPrioritiesPage(driver);
 
-            // act
+            // ACT
             controlPrioritiesPage.ProcessData();
 
-            // assert
+            // ASSERT
             // standardQuestionsData.YesCount == analysisDashBoard...
 
             controlPrioritiesPage.ClickNext();
@@ -205,15 +205,21 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestStandardsSummaryPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             StandardsSummaryPage standardsSummaryPage = new StandardsSummaryPage(driver);
 
-            // act
+            // ACT
             standardsSummaryPage.ProcessData();
 
-            // assert
-            // standardQuestionsData.YesCount == analysisDashBoard...
+            // ASSERT
+
+            // standards summary
+            Debug.Assert(standardQuestionsData.YesCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.YES].Value);
+            Debug.Assert(standardQuestionsData.NoCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.NO].Value);
+            Debug.Assert(standardQuestionsData.NACount == standardsSummaryPage.StandardsSummary[QuestionAnswers.NA].Value);
+            Debug.Assert(standardQuestionsData.ALTCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.ALT].Value);
+            Debug.Assert(standardQuestionsData.UnansweredCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.NOANSWER].Value);
 
             standardsSummaryPage.ClickNext();
         }
@@ -225,15 +231,21 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestRankedCategoriesPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             RankedCategoriesPage rankedCategoriesPage = new RankedCategoriesPage(driver);
 
-            // act
+            // ACT
             rankedCategoriesPage.ProcessData();
 
-            // assert
-            // standardQuestionsData.YesCount == analysisDashBoard...
+            // ASSERT
+
+            // standards summary
+            Debug.Assert(standardQuestionsData.YesCount == rankedCategoriesPage.RankedCategories[QuestionAnswers.YES].Value);
+            Debug.Assert(standardQuestionsData.NoCount == rankedCategoriesPage.RankedCategories[QuestionAnswers.NO].Value);
+            Debug.Assert(standardQuestionsData.NACount == rankedCategoriesPage.RankedCategories[QuestionAnswers.NA].Value);
+            Debug.Assert(standardQuestionsData.ALTCount == rankedCategoriesPage.RankedCategories[QuestionAnswers.ALT].Value);
+            Debug.Assert(standardQuestionsData.UnansweredCount == rankedCategoriesPage.RankedCategories[QuestionAnswers.NOANSWER].Value);
 
             rankedCategoriesPage.ClickNext();
         }
@@ -245,14 +257,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestResultsByCategoryPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             ResultsByCategoryPage resultsByCategoryPage = new ResultsByCategoryPage(driver);
 
-            // act
+            // ACT
             resultsByCategoryPage.ProcessData();
 
-            // assert
+            // ASSERT
             // standardQuestionsData.YesCount == analysisDashBoard...
 
             resultsByCategoryPage.ClickNext();
@@ -265,14 +277,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestHighLevelAssessmentPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             HighLevelAssessmentPage highLevelAssessmentPage = new HighLevelAssessmentPage(driver);
 
-            // act
+            // ACT
             highLevelAssessmentPage.ProcessData();
 
-            // assert
+            // ASSERT
             // standardQuestionsData.YesCount == analysisDashBoard...
 
             highLevelAssessmentPage.ClickNext();
@@ -285,14 +297,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestReportsPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             ReportsPage reportsPage = new ReportsPage(driver);
 
-            // act
+            // ACT
             reportsPage.ProcessData();
 
-            // assert
+            // ASSERT
             // standardQuestionsData.YesCount == analysisDashBoard...
 
             reportsPage.ClickNext();
@@ -305,14 +317,14 @@ namespace CSET_Selenium.Tests.Create_Assessment
         /// <param name="nercRepo"></param>
         private void TestFeebackPage(IWebDriver driver, NERC6.NERCRev6Repository nercRepo)
         {
-            // arrange
+            // ARRANGE
             StandardQuestions standardQuestionsData = nercRepo.AccessStandardQuestionsData();
             FeedbackPage feedbackPage = new FeedbackPage(driver);
 
-            // act
+            // ACT
             feedbackPage.ProcessData();
 
-            // assert
+            // ASSERT
             // standardQuestionsData.YesCount == analysisDashBoard...
         }
     }

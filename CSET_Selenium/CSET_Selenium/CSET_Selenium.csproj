@@ -197,6 +197,7 @@
     <Compile Include="Enums\Domain_Manager\Contact.cs" />
     <Compile Include="Enums\QuestionAnswers.cs" />
     <Compile Include="Enums\Questions\NERCRev6StandardQuestions.cs" />
+    <Compile Include="Enums\RankedCategoryKeyNames.cs" />
     <Compile Include="Enums\SAL\SAL_Overall.cs" />
     <Compile Include="Enums\SAL\SAL_Availability.cs" />
     <Compile Include="Enums\SAL\SAL_Confidentiality.cs" />
