@@ -21,8 +21,8 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
             return base.IsValid();
         }
 
-        public int AssessmentCompliance { get; }
-        public int OverallScore { get; }
+        public int AssessmentCompliance { get { return this.OverallScore; } }
+        public int OverallScore { get { return (this.YesCount + this.ALTCount) / (this.TotalQuestionsCount - this.UnansweredCount); } }
 
         public AccountManagement AccountManagement
         {
