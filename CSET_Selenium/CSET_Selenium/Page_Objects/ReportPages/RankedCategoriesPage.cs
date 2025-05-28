@@ -48,12 +48,12 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         }
 
         /// <summary>
-        /// 
+        /// Set the RankedCategories property value
+        /// from the data contained in this page's controls
         /// </summary>
         /// <returns></returns>
-        public bool ProcessData()
+        public void ProcessData()
         {
-            return false;
         }
 
         public Dictionary<QuestionAnswers, RankedCategoryRecord> RankedCategories { get; private set; } = new Dictionary<QuestionAnswers, RankedCategoryRecord>();

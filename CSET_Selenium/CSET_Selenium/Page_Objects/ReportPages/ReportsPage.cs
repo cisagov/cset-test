@@ -28,9 +28,8 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         /// 
         /// </summary>
         /// <returns></returns>
-        public bool ProcessData()
+        public void ProcessData()
         {
-            return false;
         }
     }
 }

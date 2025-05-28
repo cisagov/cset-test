@@ -8,6 +8,6 @@ namespace CSET_Selenium.Page_Objects.ReportPages
 {
     internal interface IReportPage
     {
-        bool ProcessData();
+        void ProcessData();
     }
 }

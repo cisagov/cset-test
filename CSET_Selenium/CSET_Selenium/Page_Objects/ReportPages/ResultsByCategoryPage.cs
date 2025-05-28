@@ -25,13 +25,12 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         }
 
         /// <summary>
-        /// 
+        /// Set the OverallScore, AssessmentCompliance, RankedCategories and StandardsSummary property values
+        /// from the data contained in this page's controls
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public bool ProcessData()
+        public void ProcessData()
         {
-            throw new NotImplementedException();
         }
     }
 }

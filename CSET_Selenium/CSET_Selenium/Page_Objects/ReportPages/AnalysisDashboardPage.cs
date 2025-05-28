@@ -55,12 +55,12 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         }
 
         /// <summary>
-        /// 
+        /// Set the OverallScore, AssessmentCompliance, RankedCategories and StandardsSummary property values
+        /// from the data contained in this page's controls
         /// </summary>
         /// <returns></returns>
-        public bool ProcessData()
+        public void ProcessData()
         {
-            return false;
         }
 
         public int OverallScore { get; private set; }
