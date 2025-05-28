@@ -213,7 +213,7 @@ namespace CSET_Selenium.Tests.Create_Assessment
             standardsSummaryPage.ProcessData();
 
             // ASSERT
-Y
+
             // standards summary
             Debug.Assert(standardQuestionsData.YesCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.YES].Value);
             Debug.Assert(standardQuestionsData.NoCount == standardsSummaryPage.StandardsSummary[QuestionAnswers.NO].Value);
