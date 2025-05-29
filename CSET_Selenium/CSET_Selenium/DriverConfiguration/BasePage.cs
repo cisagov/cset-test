@@ -701,5 +701,31 @@ namespace CSET_Selenium.DriverConfiguration
 
             return saveFilePath;
         }*/
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xPath"></param>
+        /// <returns></returns>
+        protected int XPathToIntegerValue(string xPath)
+        {
+            string strValue0 = WaitUntilElementIsVisible(By.XPath(xPath)).Text;
+            strValue0 = strValue0.Contains('%') ? strValue0.Replace('%', ' ').Trim() : strValue0;
+
+            int value = 0;
+            int.TryParse(strValue0, out value);
+
+            return value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xPath"></param>
+        /// <returns></returns>
+        protected string XPathToStringValue(string xPath)
+        {
+            return WaitUntilElementIsVisible(By.XPath(xPath)).Text;
+        }
     }
 }

@@ -11,7 +11,11 @@ namespace CSET_Selenium.Enums
         SystemProtection,
         Recovery,
         RiskManagement,
+        ConfigurationManagement,
         AccountManagement,
-        PhysicalSecurity
+        PhysicalSecurity,
+        IncidentResponse,
+        VulnerabilityAssessmentAndManagement,
+        Policies
     }
 }

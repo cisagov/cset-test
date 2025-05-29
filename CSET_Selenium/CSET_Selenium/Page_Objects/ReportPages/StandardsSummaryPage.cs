@@ -34,6 +34,7 @@ namespace CSET_Selenium.Page_Objects.ReportPages
         /// <returns></returns>
         public void ProcessData()
         {
+            // Build Standard Summary data structure
             string totalQuestionCount = WaitUntilElementIsVisible(By.XPath("//*[@id=\"sidenav-content\"]/app-results/app-standards-summary/div/div[2]/table/tbody/tr[1]/td[3]")).Text;
             int nTotalQuestionCount = Convert.ToInt32(totalQuestionCount);
 

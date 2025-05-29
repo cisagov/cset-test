@@ -16,16 +16,22 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         /// </summary>
         /// <param name="name"></param>
         /// <param name="rank"></param>
-        /// <param name="value"></param>
-        public RankedCategoryRecord(string name, int rank, int value)
+        /// <param name="failed"></param>
+        /// <param name="total"></param>
+        /// <param name="percent"></param>
+        public RankedCategoryRecord(string name, int rank, int failed, int total, float percent)
         {
             Name = name;
             Rank = rank;
-            Value = value;
+            Failed = failed;
+            Total = total;
+            Percent = percent;
         }
 
         public string Name { get; set; }
         public int Rank { get; set; }
-        public int Value { get; set; } = 0;
+        public int Failed { get; set; }
+        public int Total { get; set; }
+        public float Percent { get; set; }
     }
 }
