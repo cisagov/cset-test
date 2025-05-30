@@ -14,34 +14,65 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.DriverConfiguration
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class BasePage : WaitUtils
     {
         private IWebDriver driver;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="webDriver"></param>
         public BasePage(IWebDriver webDriver) : base(webDriver)
         {
             this.driver = webDriver;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IWebDriver GetDriver()
         {
             return driver;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
         public void Visit(String url)
         {
             driver.Navigate().GoToUrl(url);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public String GetCurrentUrl()
         {
             return this.driver.Url;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="outputMessage"></param>
         public void ConsoleOut(String outputMessage)
         {
             Console.WriteLine(outputMessage);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xPath"></param>
+        /// <param name="actions"></param>
+        /// <param name="incrementVerticalBy"></param>
+        /// <returns></returns>
         public IWebElement ScrollToElementByXPath(
             string xPath,
             Actions actions,
@@ -55,6 +86,13 @@ namespace CSET_Selenium.DriverConfiguration
                 incrementVerticalBy);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="actions"></param>
+        /// <param name="incrementVerticalBy"></param>
+        /// <returns></returns>
         public IWebElement ScrollToElementByXPath(
             By locator,
             Actions actions, 
@@ -79,21 +117,39 @@ namespace CSET_Selenium.DriverConfiguration
             return webElement;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void RefreshPage()
         {
             this.driver.Navigate().Refresh();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <returns></returns>
         public IWebElement Find(By locator)
         {
             return this.driver.FindElement(locator);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <returns></returns>
         public IReadOnlyCollection<IWebElement> Finds(By locator)
         {
             return driver.FindElements(locator);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ele"></param>
+        /// <returns></returns>
         public String GetTextOrValueFromElement(IWebElement ele)
         {
             WaitUntilElementIsVisible(ele);
@@ -107,6 +163,11 @@ namespace CSET_Selenium.DriverConfiguration
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <returns></returns>
         public String GetTextOrValueFromElement(By locator)
         {
             if (StringsUtils.EqualsIgnoreCase(Find(locator).TagName, "div"))
@@ -119,6 +180,11 @@ namespace CSET_Selenium.DriverConfiguration
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public Boolean retryButtonClick(IWebElement element)
         {
             Boolean result = false;
@@ -139,6 +205,13 @@ namespace CSET_Selenium.DriverConfiguration
             }
             return result;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="actions"></param>
+        /// <returns></returns>
         public Boolean retryButtonScroll(IWebElement element, Actions actions)
         {
             Boolean result = false;
@@ -159,6 +232,11 @@ namespace CSET_Selenium.DriverConfiguration
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ele"></param>
+        /// <returns></returns>
         public bool ClickIfAvailable(IWebElement ele)
         {
             if (CheckIfElementExists(ele, 5))
@@ -176,31 +254,53 @@ namespace CSET_Selenium.DriverConfiguration
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ele"></param>
         public void ClickWhenClickable(IWebElement ele)
         {
             WaitUntilElementIsClickable(ele).Click();
             WaitForPostBack();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
         public void ClickWhenClickable(By locator)
         {
             WaitUntilElementIsClickable(locator).Click();
             WaitForPostBack();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ele"></param>
+        /// <param name="wait"></param>
         public void ClickWhenClickable(IWebElement ele, int wait)
         {
             WaitUntilElementIsClickable(ele, wait).Click();
             WaitForPostBack();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="wait"></param>
         public void ClickWhenClickable(By locator, int wait)
         {
             WaitUntilElementIsClickable(locator, wait).Click();
             WaitForPostBack();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="text"></param>
         public void SetText(IWebElement textBox, String text)
         {
             WaitUntilElementIsClickable(textBox);
@@ -210,6 +310,11 @@ namespace CSET_Selenium.DriverConfiguration
             WaitForPostBack();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="text"></param>
         public void SetTextHitEnter(IWebElement textBox, String text)
         {
             WaitUntilElementIsClickable(textBox);
@@ -701,31 +806,5 @@ namespace CSET_Selenium.DriverConfiguration
 
             return saveFilePath;
         }*/
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="xPath"></param>
-        /// <returns></returns>
-        protected int XPathToIntegerValue(string xPath)
-        {
-            string strValue0 = WaitUntilElementIsVisible(By.XPath(xPath)).Text;
-            strValue0 = strValue0.Contains('%') ? strValue0.Replace('%', ' ').Trim() : strValue0;
-
-            int value = 0;
-            int.TryParse(strValue0, out value);
-
-            return value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="xPath"></param>
-        /// <returns></returns>
-        protected string XPathToStringValue(string xPath)
-        {
-            return WaitUntilElementIsVisible(By.XPath(xPath)).Text;
-        }
     }
 }

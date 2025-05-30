@@ -13,9 +13,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public SystemProtection()
-        {
-        }
+        public SystemProtection() : base() { }
 
         /// <summary>
         /// 

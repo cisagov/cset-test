@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSET_Selenium.Enums
 {
-    internal enum RankedCategoryKeyNames
+    public enum RankedCategoryKeyNames
     {
         SystemProtection,
         Recovery,

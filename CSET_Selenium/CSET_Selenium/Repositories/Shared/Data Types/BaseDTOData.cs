@@ -62,15 +62,6 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         /// 
         /// </summary>
         /// <returns></returns>
-        public virtual bool IsValid()
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         protected virtual List<QuestionAnswers> SetAnswerList()
         {
             return new List<QuestionAnswers>();
@@ -111,5 +102,22 @@ namespace CSET_Selenium.Repositories.Shared.Data_Types
         public virtual int NACount => this._anwsers.Sum(a => a == QuestionAnswers.NA ? 1 : 0);
 
         public virtual int ALTCount => this._anwsers.Sum(a => a == QuestionAnswers.ALT ? 1 : 0);
+
+        /*
+        Correspondence from Randy Woods:
+        Ranked Categories is a negative display, and the worst-scored categories are sorted to the top.  
+        Results By Category has a predictable order.  
+        The score for each category is the percentage of "Y" answers to the total.  
+        If they answer "NA", those questions are removed from the total; 
+        those questions don't count for or against them.  Unanswered questions are counted as a "N".  
+        Alt answers count as a "Y"
+ 
+        I would test the Results By Category for just that reason, that the category list will be consistent
+          */
+        public virtual int Passed => (this.YesCount + this.ALTCount);
+        public virtual int Failed => (this.NoCount + this.UnansweredCount);
+        public virtual int Total => (this.TotalQuestionsCount - this.NACount);
+        public virtual int Score => (this.Passed / this.Total);
+        public virtual int Percent => (this.AnsweredCount / this.Score);
     }
 }

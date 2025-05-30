@@ -16,11 +16,6 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         {
         }
 
-        public override bool IsValid()
-        {
-            return base.IsValid();
-        }
-
         public int AssessmentCompliance { get { return this.OverallScore; } }
         public int OverallScore { get { return (this.YesCount + this.ALTCount) / (this.TotalQuestionsCount - this.UnansweredCount); } }
 
@@ -63,7 +58,8 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         }
 
         /// <summary>
-        /// 
+        /// This method is responsible for instructing all containing objects
+        /// to initialize themselves.
         /// </summary>
         /// <param name="questionAnswers"></param>
         public override void Initialize(QuestionAnswers questionAnswers)
@@ -97,7 +93,9 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         }
 
         /// <summary>
-        /// 
+        /// This method dynamically builds the answerlist collection so that
+        /// all data objects can conveniently report their results for Passed,
+        /// Failed, Percentage, and Total--among other values
         /// </summary>
         /// <returns></returns>
         protected override List<QuestionAnswers> SetAnswerList()
@@ -118,6 +116,77 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
 
             // return list to base class caller
             return answers;
+        }
+
+        /// <summary>
+        /// This method maps a Key defining the page type with the corresponding object
+        /// in the Standard Questions containing object class.
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <returns></returns>
+        public BaseDTOData GetCorrepondingDataObject(RankedCategoryKeyNames keyName)
+        {
+            BaseDTOData childData = null;
+
+            switch (keyName)
+            {
+                case RankedCategoryKeyNames.SystemProtection:
+                    {
+                        childData = this.SystemProtection;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.AccountManagement:
+                    {
+                        childData = this.AccountManagement;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.Recovery:
+                    {
+                        childData = this.Recovery;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.RiskManagement:
+                    {
+                        childData = this.RiskAssessment;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.ConfigurationManagement:
+                    {
+                        childData = this.ConfigurationManagement;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.PhysicalSecurity:
+                    {
+                        childData = this.PhysicalSecurity;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.IncidentResponse:
+                    {
+                        childData = this.IncidentResponse;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.VulnerabilityAssessmentAndManagement:
+                    {
+                        childData = this.VulnerabilityAssementAndManagement;
+
+                        break;
+                    }
+                case RankedCategoryKeyNames.Policies:
+                    {
+                        childData = this.Policies;
+
+                        break;
+                    }
+            }
+
+            return childData;
         }
     }
 }

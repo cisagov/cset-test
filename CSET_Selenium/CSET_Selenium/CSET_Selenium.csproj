@@ -263,6 +263,7 @@
     <Compile Include="Page_Objects\Module_Builder\ModuleBuilder.cs" />
     <Compile Include="Page_Objects\Network_Diagram\NetDiagramObjects.cs" />
     <Compile Include="Page_Objects\ReportPages\AnalysisDashboardPage.cs" />
+    <Compile Include="Page_Objects\ReportPages\CategoryBasePage.cs" />
     <Compile Include="Page_Objects\ReportPages\ControlPrioritiesPage.cs" />
     <Compile Include="Page_Objects\ReportPages\FeedbackPage.cs" />
     <Compile Include="Page_Objects\ReportPages\HighLevelAssessmentPage.cs" />

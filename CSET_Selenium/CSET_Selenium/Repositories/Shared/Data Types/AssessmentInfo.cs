@@ -28,9 +28,6 @@ namespace CSET_Selenium.Repositories.Shared
             // allocate list
             List<QuestionAnswers> answers = new List<QuestionAnswers>();
 
-            // add property values
-            //answers.Add(this.PersonnelAndTraining);
-
             // return list to base class caller
             return answers;
         }

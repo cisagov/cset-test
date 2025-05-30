@@ -16,5 +16,10 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         int NoCount { get; }
         int NACount { get; }
         int ALTCount { get; }
+        int Passed { get; }
+        int Failed { get; }
+        int Total { get; }
+        int Score { get; }
+        int Percent { get; }
     }
 }

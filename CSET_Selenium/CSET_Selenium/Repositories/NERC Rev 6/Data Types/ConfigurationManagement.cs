@@ -13,9 +13,7 @@ namespace CSET_Selenium.Repositories.NERC_Rev_6.Data_Types
         /// <summary>
         /// 
         /// </summary>
-        public ConfigurationManagement()
-        {
-        }
+        public ConfigurationManagement() : base() { }
 
         /// <summary>
         /// 
